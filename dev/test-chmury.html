@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Presety chmur</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>.page{max-width:1180px}.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.viz3d{margin:0}.viz3d__stage{aspect-ratio:4/3}</style></head><body><div class="page">
+<h1>Presety chmur</h1><div class="row" id="row"></div></div>
+<script type="module">
+import { createCloudVolume, CLOUD_PRESETS } from '../assets/sky3d.js';
+window.__errs=[];window.addEventListener('error',e=>window.__errs.push(e.message));
+const want = ['cumulus','stratus','cumulonimbus','cirrus','stratocumulus','altocumulus','nimbostratus','congestus'];
+const row = document.getElementById('row');
+const made = {};
+for (const name of want) {
+  const d = document.createElement('div');
+  d.className='viz3d'; d.id='c-'+name;
+  d.innerHTML = '<div class="viz3d__head"><p class="viz3d__title">'+name+'</p></div>'+
+    '<div class="viz3d__stage"><canvas></canvas><div class="viz3d__fallback"><strong>Brak WebGL</strong></div></div>';
+  row.appendChild(d);
+  made[name] = createCloudVolume(d, Object.assign({ drift:false }, CLOUD_PRESETS[name])).ok;
+}
+window.__ready = made;
+</script></body></html>

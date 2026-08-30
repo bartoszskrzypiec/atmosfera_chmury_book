@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test widgetow 3D</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>.page{max-width:900px}</style>
+</head>
+<body>
+<div class="page">
+<h1>Test widgetow</h1>
+
+<div class="viz3d" id="w-sky">
+  <div class="viz3d__head"><p class="viz3d__title">1. Niebo</p></div>
+  <div class="viz3d__stage"><canvas></canvas>
+    <div class="viz3d__fallback"><strong>Brak WebGL</strong></div>
+  </div>
+  <div class="viz3d__controls">
+    <label for="s1">Wysokosc Slonca</label>
+    <input id="s1" type="range" data-sky="sunElev" data-sky-unit="&deg;" data-sky-decimals="0" min="-8" max="88" step="1" value="30">
+    <span class="value-readout" data-sky-out="sunElev"></span>
+    <label for="s2">Zamet</label>
+    <input id="s2" type="range" data-sky="turbidity" min="0.4" max="8" step="0.1" value="1">
+    <span class="value-readout" data-sky-out="turbidity"></span>
+  </div>
+</div>
+
+<div class="viz3d" id="w-cloud">
+  <div class="viz3d__head"><p class="viz3d__title">2. Chmura wolumetryczna</p></div>
+  <div class="viz3d__stage"><canvas></canvas>
+    <div class="viz3d__fallback"><strong>Brak WebGL</strong></div>
+  </div>
+  <div class="viz3d__presets">
+    <button data-preset="cumulus" class="is-active">Cumulus</button>
+    <button data-preset="stratus">Stratus</button>
+    <button data-preset="cumulonimbus">Cumulonimbus</button>
+    <button data-preset="cirrus">Cirrus</button>
+  </div>
+</div>
+
+<div class="viz3d" id="w-lobe">
+  <div class="viz3d__head"><p class="viz3d__title">3. Lob rozpraszania</p></div>
+  <div class="viz3d__stage"><canvas></canvas>
+    <div class="viz3d__fallback"><strong>Brak WebGL</strong></div>
+  </div>
+</div>
+
+<div class="viz3d" id="w-diag">
+  <div class="viz3d__head"><p class="viz3d__title">4. Diagram 3D</p></div>
+  <div class="viz3d__stage"><canvas></canvas>
+    <div class="viz3d__fallback"><strong>Brak WebGL</strong></div>
+  </div>
+</div>
+</div>
+
+<script type="module">
+import { createSkyDome, createCloudVolume, createScatterLobe, createDiagram3D, bindSliders, bindPresets } from '../assets/sky3d.js';
+window.__errs = [];
+window.addEventListener('error', e => window.__errs.push(String(e.message)));
+
+const sky = createSkyDome(document.getElementById('w-sky'), { sunElev: 30, fov: 75 });
+bindSliders(document.getElementById('w-sky'), sky);
+
+const cloud = createCloudVolume(document.getElementById('w-cloud'), { preset: 'cumulus' });
+bindPresets(document.getElementById('w-cloud'), cloud);
+
+const lobe = createScatterLobe(document.getElementById('w-lobe'), { mode: 'rayleigh' });
+
+const diag = createDiagram3D(document.getElementById('w-diag'), {
+  camera: { dist: 9, phi: 1.25 },
+  parts: [
+    { type:'grid', size:12, divisions:12, color:'grid' },
+    { type:'sphere', r:1.2, at:[0,1.2,0], color:'water', opacity:0.35, wireframe:true },
+    { type:'hexPrism', r:0.7, h:1.4, at:[3,1.4,0], color:'ice', opacity:0.4, edges:true },
+    { type:'cone', r:1.6, h:2.6, at:[-3,1.4,0], color:'light', opacity:0.25 },
+    { type:'arrow', from:[-5,3.4,0], to:[-3.4,1.9,0], color:'light' },
+    { type:'label', text:'KROPLA', at:[0,2.8,0], color:'water' },
+    { type:'label', text:'KRYSZTAL LODU', at:[3,2.5,0], color:'ice' },
+    { type:'polyline', points:[[-1,0.4,0],[0,1.2,0],[1,0.5,0]], color:'light' },
+  ],
+});
+
+window.__ready = { sky: sky.ok, cloud: cloud.ok, lobe: lobe.ok, diag: diag.ok };
+</script>
+</body>
+</html>

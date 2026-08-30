@@ -28,7 +28,236 @@
   <h1>Dlaczego powietrze stygnie, kiedy idzie w górę</h1>
   <p class="subtitle">Znamy to z pompki do roweru i z puszki dezodorantu — i dokładnie na tym stoi każda chmura na niebie.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Sprężanie gazu go <strong>grzeje</strong>, rozprężanie <strong>chłodzi</strong>. To nie metafora — to ta sama rzecz, którą czuć na dnie pompki i na puszce dezodorantu.</li>
+      <li>Powietrze idące w górę rozpręża się, bo ciśnienie wokół maleje. Stygnie o mniej więcej <strong>10°C na kilometr</strong>, choć nikt go nie chłodzi.</li>
+      <li>Gdy zacznie się skraplanie, uwolnione ciepło spowalnia stygnięcie do jakichś 6°C na kilometr. To sprawia, że chmura <strong>sama się napędza</strong> — i dlatego istnieją burze.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Doświadczenie · dwie rzeczy z domu</div>
+    <h2>Pompka grzeje, dezodorant ziębi</h2>
+
+    <p>Zanim powiemy cokolwiek o atmosferze, zróbmy dwa doświadczenia, które prawdopodobnie już kiedyś zrobiliśmy przypadkiem.</p>
+
+    <p><strong>Pierwsze.</strong> Napompujmy energicznie oponę roweru zwykłą pompką, a potem dotknijmy jej dolnej części. Będzie gorąca — czasem tak, że trudno utrzymać. Łatwo to zrzucić na tarcie tłoka o ściankę, ale tarcie odpowiada za mniejszość efektu. Główna przyczyna jest inna: <span class="term-amber">sprężyliśmy powietrze i przez to je ogrzaliśmy</span>.</p>
+
+    <p><strong>Drugie.</strong> Przytrzymajmy dłużej przycisk puszki dezodorantu albo sprężonego powietrza do klawiatury. Puszka wyraźnie ziębnie, czasem aż do szronu. Znowu łatwo to wytłumaczyć czymś innym — na przykład parowaniem — ale zasadniczy mechanizm jest lustrzanym odbiciem poprzedniego: <span class="term-cyan">gaz się rozprężył i przez to ochłodził</span>.</p>
+
+    <p>Dlaczego tak jest? Bez wzorów: temperatura gazu to miara tego, jak szybko biegają jego cząsteczki. Ściskając gaz tłokiem, uderzamy w te cząsteczki poruszającą się ścianką i odbijamy je szybsze — czyli podgrzewamy. Pozwalając gazowi się rozprężyć, każemy mu odepchnąć otoczenie; energia na to odpychanie musi skądś pochodzić, a jedyne, co jest pod ręką, to własny ruch cząsteczek. Więc zwalniają. Czyli stygną.</p>
+
+    <p>Kluczowe jest to, że <strong>nic nie zostało dodane ani zabrane z zewnątrz</strong>. Nie było kontaktu z lodówką ani z grzejnikiem. Gaz zmienił temperaturę wyłącznie dlatego, że zmienił objętość. Taką zmianę nazywa się <span class="term-violet">adiabatyczną</span> — od greckiego „nieprzepuszczalny", czyli bez wymiany ciepła z otoczeniem.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Przeniesienie · to samo w skali kilometrów</div>
+    <h2>Wznoszące się powietrze rozpręża się samo</h2>
+
+    <p>Teraz wystarczy zauważyć jedną rzecz, żeby cała atmosfera stała się zrozumiała. Wiemy z Rozdziału 1, że ciśnienie maleje z wysokością — bo słup powietrza nad nami jest coraz krótszy.</p>
+
+    <p>Więc jeśli jakaś porcja powietrza z jakiegokolwiek powodu ruszy w górę, trafia w otoczenie o niższym ciśnieniu. Otoczenie ściska ją słabiej, więc ona się <strong>rozszerza</strong>. A rozszerzając się, musi odepchnąć to otoczenie — i płaci za to własną energią. Stygnie.</p>
+
+    <p>To dzieje się bez żadnej lodówki, bez kontaktu z czymkolwiek zimnym i bez „bliskości kosmosu", którą odrzuciliśmy w Rozdziale 2. Wznoszące się powietrze stygnie <strong>samo z siebie</strong>, po prostu dlatego, że idzie w górę.</p>
+
+    <p>I to jest już pełna odpowiedź na pytanie z Rozdziału 2. Słońce grzeje ziemię, ziemia grzeje powietrze od spodu, ogrzane porcje ruszają w górę i po drodze stygną przez rozprężanie. Stąd temperatura maleje z wysokością — nie dlatego, że coś na górze chłodzi, tylko dlatego, że wszystko, co tam trafia, po drodze wystygło.</p>
+
+    <p>Tempo tego stygnięcia jest zaskakująco stałe i wynosi około <strong>10 stopni na kilometr</strong>. Nazywa się to gradientem suchoadiabatycznym i jest to jedna z niewielu liczb w tej książce, którą naprawdę warto zapamiętać — bo z niej wynika reszta Części III.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Porcja powietrza idzie w górę</span><span>przesuń wysokość</span></div>
+      <div class="diagram-controls">
+        <label for="ad">Wysokość porcji</label>
+        <input type="range" id="ad" min="0" max="4" step="0.05" value="0">
+        <span class="value-readout" id="adOut">0 m · 25°C · jeszcze przy ziemi</span>
+      </div>
+      <svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="296" x2="720" y2="296" stroke="#8b909b" stroke-width="2"/>
+        <text x="66" y="314" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">nagrzane pole</text>
+        <g font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b" text-anchor="end">
+          <text x="54" y="300">0 km</text><text x="54" y="234">1 km</text>
+          <text x="54" y="168">2 km</text><text x="54" y="102">3 km</text><text x="54" y="40">4 km</text>
+        </g>
+        <g stroke="#2a2f38" stroke-dasharray="3 5">
+          <line x1="60" y1="230" x2="720" y2="230"/><line x1="60" y1="164" x2="720" y2="164"/>
+          <line x1="60" y1="98" x2="720" y2="98"/><line x1="60" y1="36" x2="720" y2="36"/>
+        </g>
+
+        <circle id="adBall" cx="250" cy="290" r="22" fill="#e8a33d" fill-opacity="0.35" stroke="#e8a33d" stroke-width="1.6"/>
+        <text id="adT" x="250" y="295" text-anchor="middle" font-family="IBM Plex Mono" font-size="12" fill="#ecebe4">25°C</text>
+        <text id="adP" x="250" y="256" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">1013 hPa</text>
+
+        <!-- pasek gestosci otoczenia -->
+        <text x="470" y="326" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">ciśnienie otoczenia maleje ku górze — dlatego porcja rośnie</text>
+        <g id="adEnv"></g>
+
+        <text x="620" y="60" font-family="IBM Plex Mono" font-size="10.5" fill="#4fc3c0" id="adNote">objętość rośnie · temperatura spada</text>
+      </svg>
+      <div class="diagram-caption">Kółko rośnie i blednie w tym samym tempie. To nie dwie rzeczy — to jedna i ta sama.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('ad'), out=document.getElementById('adOut');
+        var ball=document.getElementById('adBall'), tT=document.getElementById('adT');
+        var tP=document.getElementById('adP'), env=document.getElementById('adEnv');
+        var note=document.getElementById('adNote');
+        var Y0=290, PXKM=66, T0=25;
+        function fmt(n,d){ return n.toFixed(d).replace('.',','); }
+        // slupki gestosci otoczenia
+        var e='';
+        for(var k=0;k<=8;k++){
+          var y=Y0-k*33, w=90*Math.exp(-(k*0.5)/8.5*1.6);
+          e+='<rect x="600" y="'+(y-7)+'" width="'+w.toFixed(0)+'" height="10" rx="2" fill="#4fc3c0" fill-opacity="0.20"/>';
+        }
+        env.innerHTML=e;
+        function update(){
+          var h=parseFloat(sl.value);
+          var y=Y0-h*PXKM;
+          var T=T0-9.8*h;
+          var P=1013*Math.pow(1-0.0226*h,5.26);
+          var r=22*Math.pow(1013/P,0.30);
+          ball.setAttribute('cy',y.toFixed(1)); ball.setAttribute('r',r.toFixed(1));
+          ball.setAttribute('fill-opacity',(0.35*P/1013+0.06).toFixed(2));
+          tT.setAttribute('y',(y+5).toFixed(1)); tT.textContent=fmt(T,1)+'°C';
+          tP.setAttribute('y',(y-r-8).toFixed(1)); tP.textContent=fmt(P,0)+' hPa';
+          var opis = h<0.05 ? 'jeszcze przy ziemi'
+                   : (h<1 ? 'rozpręża się i stygnie, nikt jej nie chłodzi'
+                   : (h<2.5 ? 'wystygła o '+fmt(9.8*h,0)+'°C wyłącznie przez rozprężanie'
+                            : 'gdyby była wilgotna, dawno powstałaby chmura'));
+          out.textContent=(h*1000).toFixed(0)+' m · '+fmt(T,1)+'°C · '+opis;
+          note.textContent='objętość +'+fmt((Math.pow(1013/P,0.30)-1)*100,0)+'% · temperatura −'+fmt(9.8*h,1)+'°C';
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Zwrot akcji · ciepło, które wraca</div>
+    <h2>Skraplanie oddaje energię i chmura sama się napędza</h2>
+
+    <p>Do tej pory zakładaliśmy, że porcja powietrza jest sucha. Zobaczmy, co się zmienia, gdy jest w niej para wodna — a zawsze jakaś jest.</p>
+
+    <p>Porcja idzie w górę, rozpręża się, stygnie po dziesięć stopni na kilometr. W pewnym momencie schładza się do punktu rosy z poprzedniego rozdziału. I wtedy zaczyna się skraplanie.</p>
+
+    <p>A skraplanie <strong>oddaje ciepło</strong>. Żeby wodę odparować, trzeba było włożyć energię — i ta energia siedziała w parze przez cały czas, niewidoczna, nie podnosząc temperatury. Nazywa się ciepłem utajonym właśnie dlatego, że się ukrywa. Przy skraplaniu wraca do powietrza.</p>
+
+    <p>Skutek jest taki, że porcja stygnie <span class="term-cyan">wolniej</span> — już nie dziesięć stopni na kilometr, tylko jakieś sześć, a w bardzo wilgotnym powietrzu nawet cztery. Dokładna wartość zależy od tego, ile wody się skrapla.</p>
+
+    <p>I tu dochodzimy do zdania, które jest kluczem do całej Części IV i do burz w Części VI. Skoro porcja stygnie wolniej niż wcześniej, to <strong>szybciej staje się cieplejsza od otoczenia</strong>. A cieplejsza od otoczenia znaczy lżejsza. A lżejsza znaczy, że przyspiesza w górę.</p>
+
+    <p>Chmura nie jest więc biernym skutkiem wznoszenia. Jest <span class="term-amber">silnikiem</span>: raz uruchomione skraplanie dostarcza ciepła, ciepło podtrzymuje wznoszenie, wznoszenie podtrzymuje skraplanie. To sprzężenie zwrotne odpowiada za to, że kłębiaste chmury rosną, a nie po prostu stoją — i za to, że Cumulonimbus potrafi wystrzelić na dwanaście kilometrów.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Dwa gradienty</span><span>zmiana nachylenia to poziom kondensacji</span></div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="120" y1="280" x2="700" y2="280" stroke="#2a2f38" stroke-width="1.4"/>
+        <line x1="120" y1="30" x2="120" y2="280" stroke="#2a2f38" stroke-width="1.4"/>
+        <text x="410" y="306" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">temperatura porcji →</text>
+        <text x="46" y="155" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b" transform="rotate(-90 46 155)">wysokość →</text>
+
+        <!-- adiabata sucha -->
+        <line x1="620" y1="280" x2="440" y2="170" stroke="#e8a33d" stroke-width="2.6"/>
+        <text x="640" y="272" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">sucha · −10°C/km</text>
+
+        <!-- poziom kondensacji -->
+        <line x1="120" y1="170" x2="700" y2="170" stroke="#4fc3c0" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <circle cx="440" cy="170" r="6" fill="#4fc3c0"/>
+        <text x="128" y="164" font-family="IBM Plex Mono" font-size="10.5" fill="#4fc3c0">POZIOM KONDENSACJI — tu powstaje dno chmury</text>
+
+        <!-- adiabata wilgotna -->
+        <line x1="440" y1="170" x2="330" y2="42" stroke="#4fc3c0" stroke-width="2.6"/>
+        <text x="196" y="56" font-family="IBM Plex Mono" font-size="10.5" fill="#4fc3c0">wilgotna · −6°C/km, bo skraplanie dogrzewa</text>
+
+        <!-- gdyby dalej sucho -->
+        <line x1="440" y1="170" x2="270" y2="66" stroke="#e8a33d" stroke-width="1.4" stroke-dasharray="4 4" opacity="0.5"/>
+        <text x="250" y="92" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">gdyby nie było wody</text>
+
+        <text x="410" y="238" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">poniżej: zwykłe rozprężanie</text>
+        <text x="410" y="120" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">powyżej: rozprężanie minus ciepło ze skraplania</text>
+      </svg>
+      <div class="diagram-caption">Załamanie linii w punkcie kondensacji to moment, w którym chmura przestaje być skutkiem, a staje się przyczyną.</div>
+    </div>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-b-adiabaty-i-emagram.html">↓ Dodatek B — adiabaty, emagram i CAPE, z liczbami</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Dowód w terenie · wiatr, który grzeje</div>
+    <h2>Halny, czyli mechanizm działający w drugą stronę</h2>
+
+    <p>Jeśli rozprężanie chłodzi, to sprężanie musi grzać — i w atmosferze też. Najlepszym polskim dowodem jest wiatr halny.</p>
+
+    <p>Historia wygląda tak. Wilgotne powietrze napiera na Tatry od południa i musi się przez nie przedostać, więc idzie w górę. Po drodze stygnie: najpierw po dziesięć stopni na kilometr, a od poziomu kondensacji już tylko po sześć — bo powstaje chmura i zaczyna oddawać ciepło utajone. Po stronie słowackiej pada, a chmura zostawia tam swoją wodę.</p>
+
+    <p>Potem powietrze przechodzi grzbiet i schodzi po naszej stronie. Ale teraz jest już <strong>suche</strong> — wodę zostawiło. Więc schodząc, spręża się i grzeje po pełne dziesięć stopni na kilometr, bez żadnego hamowania.</p>
+
+    <p>W górę stygło po sześć, w dół grzeje się po dziesięć. Bilans wychodzi na plus i powietrze schodzi do Zakopanego <span class="term-amber">cieplejsze, niż wystartowało po drugiej stronie</span> — czasem o kilkanaście stopni. Stąd zimowe odwilże w Tatrach, śnieg znikający w jeden dzień, charakterystyczne bóle głowy i ta specyficzna przejrzystość powietrza, przy której widać każdy szczegół grani.</p>
+
+    <p>Warto docenić, co się właśnie stało: cały halny wyjaśniliśmy dwiema liczbami z tego rozdziału i jedną z poprzedniego. Nie potrzeba było żadnego nowego pojęcia.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Halny przez Tatry</span><span>bilans: −6 w górę, +10 w dół</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 40,250 L 300,250 L 400,80 L 500,250 L 720,250 Z" fill="#2a2f38" stroke="#8b909b" stroke-width="1.5"/>
+        <text x="400" y="272" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">Tatry</text>
+
+        <!-- chmura po stronie nawietrznej -->
+        <ellipse cx="330" cy="128" rx="72" ry="26" fill="#4fc3c0" fill-opacity="0.20" stroke="#4fc3c0" stroke-width="1.2"/>
+        <g stroke="#4fc3c0" stroke-width="1.4">
+          <line x1="300" y1="152" x2="292" y2="176"/><line x1="322" y1="154" x2="314" y2="180"/>
+          <line x1="344" y1="152" x2="336" y2="176"/><line x1="364" y1="150" x2="356" y2="174"/>
+        </g>
+        <text x="330" y="102" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4fc3c0">tu pada — woda zostaje</text>
+
+        <path d="M 70,240 Q 200,230 300,160" fill="none" stroke="#4fc3c0" stroke-width="2.4"/>
+        <path d="M 480,140 Q 600,220 700,236" fill="none" stroke="#e8a33d" stroke-width="2.4"/>
+
+        <g font-family="IBM Plex Mono" font-size="11">
+          <text x="70" y="226" fill="#4fc3c0">10°C</text>
+          <text x="150" y="200" fill="#8b909b">stygnie −10°C/km</text>
+          <text x="252" y="176" fill="#8b909b">potem −6°C/km</text>
+          <text x="404" y="64" text-anchor="middle" fill="#ecebe4">na grzbiecie: −2°C</text>
+          <text x="560" y="176" fill="#8b909b">grzeje się +10°C/km</text>
+          <text x="688" y="222" text-anchor="end" fill="#e8a33d">18°C</text>
+        </g>
+        <text x="400" y="294" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#e8a33d">to samo powietrze, o osiem stopni cieplejsze — bo zostawiło wodę po drugiej stronie</text>
+      </svg>
+      <div class="diagram-caption">Liczby są przykładowe, ale mechanizm dokładny. Halny to ciepło utajone przeniesione przez górę.</div>
+    </div>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Reguła kciuka dla wysokości chmur.</strong> Weźmy z prognozy temperaturę i punkt rosy przy ziemi. Różnicę podzielmy przez dwa i pomnóżmy przez cztery — wyjdzie mniej więcej wysokość podstawy chmur w setkach metrów. Przy 25°C i punkcie rosy 13°C: różnica 12, dzielone przez 2 to 6, razy 4 to 24 — czyli podstawa około 2400 metrów. Reguła działa zaskakująco dobrze i wyjaśnimy ją w Rozdziale 12.</p>
+    <p><strong>Halny da się zobaczyć w prognozie.</strong> Szuka się różnicy ciśnień między południową a północną stroną Tatr oraz silnego wiatru z południa na wysokości grzbietu. W samym Zakopanem objawem jest gwałtowny wzrost temperatury, spadek wilgotności i charakterystyczna chmura stojąca nad graniami — o niej będzie w Rozdziale 15.</p>
+    <p><strong>Gdzie jeszcze widać ten mechanizm.</strong> Sprężarka lodówki jest gorąca z tyłu, a parownik zimny w środku — to ta sama zasada, wykorzystana celowo. Pompka do materaca grzeje się tak samo jak rowerowa. A odkurzacz wydmuchuje powietrze cieplejsze, niż wciągnął, i nie chodzi tylko o silnik.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>przemiana adiabatyczna</dt>
+      <dd>Zmiana temperatury gazu wynikająca wyłącznie ze zmiany objętości, bez wymiany ciepła z otoczeniem.</dd>
+      <dt>gradient suchoadiabatyczny</dt>
+      <dd>Tempo stygnięcia wznoszącego się powietrza, w którym nie zachodzi skraplanie: około 10°C na kilometr. Stała, niezależna od pogody.</dd>
+      <dt>gradient wilgotnoadiabatyczny</dt>
+      <dd>Tempo stygnięcia po rozpoczęciu skraplania: około 4–7°C na kilometr, zależnie od ilości wody.</dd>
+      <dt>ciepło utajone</dt>
+      <dd>Energia włożona w odparowanie wody, przechowywana w parze bez podnoszenia temperatury i oddawana z powrotem przy skraplaniu.</dd>
+      <dt>poziom kondensacji</dt>
+      <dd>Wysokość, na której wznosząca się porcja osiąga punkt rosy i zaczyna tworzyć chmurę. Stąd płaskie dna chmur kłębiastych.</dd>
+      <dt>halny (fen)</dt>
+      <dd>Ciepły, suchy wiatr schodzący po zawietrznej stronie gór. Skutek zostawienia wody po stronie nawietrznej i sprężania w drodze w dół.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Umiemy już schłodzić powietrze i wiemy, kiedy się w nim skropli woda. Zostało pytanie, od którego zależy, czy dzień skończy się płaską szarością, czy burzą: <strong>czy porcja powietrza w ogóle zechce się wznieść?</strong> Odpowiedź nie zależy od jej własnej temperatury, tylko od porównania z otoczeniem — i to porównanie rozstrzyga się rano, na kilka godzin przed tym, zanim cokolwiek widać na niebie.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

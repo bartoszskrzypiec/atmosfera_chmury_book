@@ -28,7 +28,200 @@
   <h1>Woda, której nie widać</h1>
   <p class="subtitle">Para wodna jest całkowicie przezroczysta. Więc wszystko, co widzimy nad czajnikiem, nad rzeką i nad chłodnią kominową, parą wodną już nie jest.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Para wodna jest <strong>całkowicie przezroczysta</strong>. Wszystko, co widzimy nad czajnikiem, nad rzeką i nad chłodnią kominową, to już skroplone kropelki — czyli chmura.</li>
+      <li>Powietrze niczego nie „mieści" i nie działa jak gąbka. Nasycenie to <strong>równowaga między parowaniem a skraplaniem</strong>, i zależy wyłącznie od temperatury.</li>
+      <li>Punkt rosy to jedna liczba, która mówi więcej niż wilgotność względna. To ona rządzi mgłą, rosą, parnością i wysokością, na której zawiśnie dno chmury.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Rozróżnienie · najważniejsze w całej książce</div>
+    <h2>Pary wodnej nie widać</h2>
+
+    <p>Zacznijmy od zdania, które w tej książce jest fundamentem Części III i połowy Części IV: <strong>para wodna jest niewidzialna</strong>. Całkowicie, doskonale przezroczysta, jak azot i tlen. Nie ma koloru, nie ma mętności, nie rzuca cienia.</p>
+
+    <p>W tej chwili w powietrzu wokół nas jest jej sporo — w typowym pokoju kilkanaście gramów na metr sześcienny, czyli w sumie szklanka wody rozproszona w postaci gazu. Nie widzimy jej ani śladu.</p>
+
+    <p>Stąd wniosek, który brzmi jak czepianie się, a jest kluczowy: skoro pary nie widać, to <span class="term-amber">wszystko, co nad czajnikiem widać, parą już nie jest</span>. Ta biała smuga to woda, która zdążyła się z powrotem skroplić w mikroskopijne kropelki. Jest to, w sensie ścisłym, chmura — wytworzona w kuchni, tym samym mechanizmem co ta nad polem.</p>
+
+    <p>Zauważmy przy tym szczegół, który zwykle umyka: tuż przy dziobku czajnika jest <strong>przezroczysta przerwa</strong> na centymetr albo dwa. Tam jest jeszcze prawdziwa para, na tyle gorąca, że się nie skropliła. Biel zaczyna się dopiero tam, gdzie para zdążyła ostygnąć. Granica między niewidzialnym a widzialnym jest w tej przerwie dosłownie na wyciągnięcie ręki.</p>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Chmura to para wodna. Nad czajnikiem unosi się para.</p>
+      <p class="myth__right">Chmura to <strong>ciekłe kropelki albo kryształki lodu</strong>. Para wodna jest gazem i jest niewidzialna. To samo dotyczy „pary" z ust zimą, mgły nad rzeką i białych kłębów nad chłodniami elektrowni — to wszystko już skroplona woda.</p>
+      <p class="myth__why">Winne jest samo słowo. W polszczyźnie „para" oznacza i gaz, i widoczną mgiełkę, więc język łączy dwie rzeczy, które fizyka rozdziela. To rozróżnienie warto zrobić raz i mocno, bo bez niego całe Części III i IV się rozjeżdżają.</p>
+    </div>
+
+    <p>Przy okazji: kłęby nad chłodniami kominowymi elektrowni to <strong>woda, nie dym</strong>. Chłodnia służy do schłodzenia wody obiegowej i to, co z niej wylatuje, jest chmurą w najczystszej postaci. Kominy z dymem są zwykle znacznie węższe, wyższe i wypuszczają smugę szarawą albo brunatną, nie białą.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Mechanizm · koniec metafory gąbki</div>
+    <h2>Powietrze niczego nie mieści</h2>
+
+    <p>Najczęstsze wyjaśnienie wilgotności brzmi tak: ciepłe powietrze jest jak większa gąbka, więc mieści więcej wody; kiedy ostygnie, gąbka się kurczy i nadmiar wycieka jako rosa albo mgła. Obrazek jest sugestywny, łatwy i <strong>formalnie błędny</strong> — a błąd zemści się w każdym kolejnym rozdziale.</p>
+
+    <p>Powietrze nie trzyma wody. Nie ma między cząsteczkami azotu a cząsteczkami wody żadnego wiązania, żadnych „miejsc" do zajęcia. Para wodna byłaby w tej samej ilości w tej samej przestrzeni, gdyby całe powietrze usunąć.</p>
+
+    <p>Prawdziwy mechanizm jest inny i ładniejszy. Nad każdą powierzchnią wody trwa nieustanny ruch w obie strony: część cząsteczek ucieka z cieczy do gazu (parowanie), część wraca z gazu do cieczy (skraplanie). To, ile jest pary w powietrzu, wynika z <span class="term-cyan">równowagi tych dwóch strumieni</span>.</p>
+
+    <p>I teraz sedno: <strong>szybkość ucieczki zależy od temperatury</strong>. W cieplejszej wodzie cząsteczki mają więcej energii, więc ucieka ich więcej na sekundę — i równowaga ustala się przy większej ilości pary. W chłodnej odwrotnie. Temperatura nie zmienia więc „pojemności powietrza", tylko przesuwa punkt równowagi.</p>
+
+    <p>Praktyczna różnica między tymi dwoma opisami jest realna, nie akademicka. Gąbka sugeruje, że gdyby zabrać powietrze, woda „nie miałaby się czego trzymać". Prawdziwy mechanizm mówi, że byłoby dokładnie tak samo — i to jest sprawdzone, bo tak właśnie działa suszenie próżniowe. Gąbka sugeruje też, że rosa to „wyciśnięcie nadmiaru". Naprawdę rosa to moment, w którym powrót zaczyna przeważać nad ucieczką.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Równowaga parowania i skraplania</span><span>przesuń temperaturę</span></div>
+      <div class="diagram-controls">
+        <label for="row">Temperatura</label>
+        <input type="range" id="row" min="-10" max="35" step="1" value="20">
+        <span class="value-readout" id="rowOut">20°C · równowaga przy 17,3 g/m³</span>
+      </div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="196" width="640" height="70" rx="4" fill="#4fc3c0" fill-opacity="0.22"/>
+        <text x="70" y="238" font-family="IBM Plex Mono" font-size="11" fill="#4fc3c0">WODA</text>
+        <line x1="60" y1="196" x2="700" y2="196" stroke="#4fc3c0" stroke-width="1.6"/>
+        <text x="70" y="60" font-family="IBM Plex Mono" font-size="11" fill="#8b909b">POWIETRZE · niewidzialna para</text>
+
+        <g id="rowUp" stroke="#e8a33d" stroke-width="1.6"></g>
+        <g id="rowDown" stroke="#6e93be" stroke-width="1.6"></g>
+        <g id="rowDots"></g>
+
+        <text x="380" y="288" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">
+          <tspan fill="#e8a33d">↑ ucieka</tspan> · <tspan fill="#6e93be">↓ wraca</tspan> — nasycenie to moment, gdy oba strumienie się równoważą
+        </text>
+      </svg>
+      <div class="diagram-caption">Nie ma tu żadnej gąbki i żadnych „miejsc”. Jest wyścig dwóch strumieni, który temperatura rozstrzyga.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('row'), out=document.getElementById('rowOut');
+        var up=document.getElementById('rowUp'), down=document.getElementById('rowDown');
+        var dots=document.getElementById('rowDots');
+        function fmt(n,d){ return n.toFixed(d).replace('.',','); }
+        // Maksymalna zawartosc pary (przyblizenie z wzoru Magnusa), g/m3.
+        function nasyc(T){
+          var e=6.112*Math.exp(17.62*T/(243.12+T));   // hPa
+          return 216.7*e/(273.15+T);
+        }
+        function update(){
+          var T=parseFloat(sl.value), n=nasyc(T);
+          var ile=Math.round(3+n*1.05);
+          var u='', d='', p='';
+          for(var i=0;i<ile;i++){
+            var x=90+ (i*613/Math.max(1,ile-1));
+            u+='<line x1="'+x.toFixed(0)+'" y1="196" x2="'+(x+4).toFixed(0)+'" y2="150"/>';
+            d+='<line x1="'+(x+9).toFixed(0)+'" y1="150" x2="'+(x+13).toFixed(0)+'" y2="196"/>';
+          }
+          // kropki pary rozsiane w powietrzu — tyle, ile wynosi rownowaga
+          for(var j=0;j<ile*2;j++){
+            var px=80+((j*97)%620), py=76+((j*53)%104);
+            p+='<circle cx="'+px+'" cy="'+py+'" r="2.6" fill="#4fc3c0" fill-opacity="0.75"/>';
+          }
+          up.innerHTML=u; down.innerHTML=d; dots.innerHTML=p;
+          out.textContent=fmt(T,0)+'°C · równowaga przy '+fmt(n,1)+' g/m³';
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Liczba · jedyna, którą warto znać</div>
+    <h2>Punkt rosy bije wilgotność względną</h2>
+
+    <p>W prognozach widzimy zwykle wilgotność względną: 60%, 85%, 40%. Jest to liczba popularna i zaskakująco mało użyteczna, bo mówi o <em>stosunku</em>, a nie o ilości. Sześćdziesiąt procent w styczniu i sześćdziesiąt procent w lipcu to dwa zupełnie inne światy — w lipcu tej wody jest kilkakrotnie więcej.</p>
+
+    <p>Znacznie lepsza liczba to <span class="term-cyan">punkt rosy</span>: temperatura, do której trzeba schłodzić dane powietrze, żeby zaczęła się w nim skraplać woda. Jest to miara <strong>bezwzględnej</strong> zawartości pary, wyrażona wygodnie w stopniach.</p>
+
+    <p>Wystarczy jedno spojrzenie, żeby wiedzieć bardzo dużo:</p>
+
+    <p><strong>Punkt rosy poniżej 10°C</strong> — powietrze suche. Przyjemnie nawet w upał, bo pot odparowuje skutecznie.</p>
+
+    <p><strong>16–18°C</strong> — zaczyna się parno. To granica, przy której większość ludzi mówi „duszno".</p>
+
+    <p><strong>Powyżej 20°C</strong> — parno nie do zniesienia i zwykle zapowiedź burz, bo tyle wody w powietrzu to dużo paliwa.</p>
+
+    <p>Druga rzecz, której punkt rosy uczy natychmiast: <strong>im bliżej temperatury powietrza, tym bliżej skroplenia</strong>. Gdy temperatura wieczorem spada do punktu rosy, pojawia się rosa na trawie albo mgła. Gdy różnica jest duża, nie ma szans na jedno ani drugie.</p>
+
+    <p>I trzecia, najbardziej zdumiewająca, o której będzie cały Rozdział 12: różnica między temperaturą a punktem rosy pozwala <strong>oszacować wysokość, na jakiej zawiśnie dno chmur</strong> — i to na oko, w pamięci. Ale nie uprzedzajmy faktów; najpierw musimy zrozumieć, dlaczego wznoszące się powietrze stygnie.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Ta sama wilgotność względna</span><span>dwie zupełnie inne ilości wody</span></div>
+      <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="50" width="290" height="140" rx="8" fill="#20242c" stroke="#6e93be" stroke-opacity="0.55"/>
+        <text x="205" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#6e93be">STYCZEŃ · 0°C</text>
+        <text x="205" y="86" text-anchor="middle" font-family="IBM Plex Sans" font-size="14" fill="#ecebe4">wilgotność 60%</text>
+        <text x="205" y="126" text-anchor="middle" font-family="IBM Plex Sans" font-size="26" fill="#4fc3c0">2,9 g/m³</text>
+        <text x="205" y="152" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">punkt rosy −7°C</text>
+        <text x="205" y="174" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">powietrze suche, pęka skóra</text>
+
+        <rect x="410" y="50" width="290" height="140" rx="8" fill="#20242c" stroke="#e8a33d" stroke-opacity="0.55"/>
+        <text x="555" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#e8a33d">LIPIEC · 28°C</text>
+        <text x="555" y="86" text-anchor="middle" font-family="IBM Plex Sans" font-size="14" fill="#ecebe4">wilgotność 60%</text>
+        <text x="555" y="126" text-anchor="middle" font-family="IBM Plex Sans" font-size="26" fill="#4fc3c0">16,3 g/m³</text>
+        <text x="555" y="152" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">punkt rosy 19°C</text>
+        <text x="555" y="174" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">parno, duszno, burzowo</text>
+
+        <text x="380" y="222" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#e8a33d">ta sama liczba w prognozie · pięć i pół razy więcej wody</text>
+      </svg>
+      <div class="diagram-caption">Dlatego warto szukać w aplikacji punktu rosy zamiast procentów. Zwykle jest — trzeba tylko rozwinąć szczegóły.</div>
+    </div>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-i-wilgotnosc-w-liczbach.html">↓ Dodatek I — wilgotność w liczbach, ze wzorem Magnusa</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Codzienność · to samo zjawisko wszędzie</div>
+    <h2>Zimna szklanka, okulary i oddech</h2>
+
+    <p>Skraplanie to jedno z niewielu zjawisk atmosferycznych, które oglądamy kilka razy dziennie, nie zwracając na nie uwagi. Warto przejść przez te przypadki, bo każdy jest miniaturą czegoś, co dalej opiszemy w skali kilometrów.</p>
+
+    <p><strong>Zimna szklanka pokrywa się kroplami.</strong> Powietrze stykające się z jej powierzchnią schładza się poniżej punktu rosy — i tam, i tylko tam, powrót cząsteczek przeważa nad ucieczką. Woda na szkle nie „przeszła przez szklankę", jak czasem myślą dzieci; przyszła z powietrza.</p>
+
+    <p><strong>Okulary parują po wejściu do domu.</strong> Ten sam mechanizm: zimne szkło, ciepłe i wilgotne powietrze wewnątrz. Parują też pod maską, bo wydychane powietrze ma punkt rosy blisko trzydziestu stopni.</p>
+
+    <p><strong>Widać oddech zimą.</strong> Wydychamy powietrze niemal nasycone i o temperaturze ciała. Zmieszane z mroźnym powietrzem na zewnątrz natychmiast schładza się poniżej punktu rosy i część wody się skrapla. To dosłownie chmura, żyjąca dwie sekundy. Przy dodatnich temperaturach nie widać jej wcale — nie dlatego, że przestaliśmy wydychać wodę, tylko dlatego, że mieszanina nie schodzi poniżej punktu rosy.</p>
+
+    <p><strong>Rosa na trawie.</strong> W bezchmurną, bezwietrzną noc trawa wypromieniowuje ciepło w kosmos i staje się chłodniejsza niż powietrze wokół. Gdy zejdzie poniżej punktu rosy — pojawia się rosa. Jeśli punkt rosy jest poniżej zera, para osadza się od razu jako lód i mamy szron. To dlatego rosy nie ma pod drzewem ani pod dachem: tam trawa nie widzi nieba, więc nie ma dokąd wypromieniować ciepła.</p>
+
+    <p>Ostatni przykład jest szczególnie wart uwagi, bo pokazuje coś, co wróci w Rozdziale 16 przy mgle: <strong>chłodzenie nie musi przychodzić z zewnątrz</strong>. Powierzchnia potrafi ochłodzić się sama, oddając ciepło w niebo. Zachmurzone niebo tę drogę zamyka i dlatego w pochmurną noc rosy nie ma.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Gdzie znaleźć punkt rosy.</strong> Prawie każda aplikacja pogodowa go pokazuje, tylko trzeba rozwinąć szczegóły godzinowe — bywa podpisany „temperatura punktu rosy" albo skrótem Td. Warto go obserwować przez tydzień razem z własnym samopoczuciem; po kilku dniach zaczyna się wyczuwać, że parność to nie temperatura, tylko właśnie ta druga liczba.</p>
+    <p><strong>Reguła rosy i mgły.</strong> Jeśli wieczorem temperatura jest bliska punktowi rosy, niebo jest czyste, a wiatru nie ma — rano będzie mgła albo obfita rosa. Jeśli różnica przekracza pięć czy sześć stopni, nie będzie ani jednego, ani drugiego. To jedna z najskuteczniejszych domowych prognoz, jakie znamy, i nie wymaga niczego poza spojrzeniem na dwie liczby.</p>
+    <p><strong>Suszenie prania.</strong> Nie zależy od tego, „ile powietrze zmieści", tylko od różnicy między nasyceniem przy temperaturze pralni a rzeczywistą zawartością pary — plus od przewiewu, który odsuwa nasyconą warstwę znad mokrej tkaniny. Dlatego pranie schnie znakomicie w mroźny, słoneczny dzień: powietrze jest wtedy skrajnie suche w sensie bezwzględnym, choć wilgotność względna bywa wysoka.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>para wodna</dt>
+      <dd>Woda w stanie gazowym. Całkowicie niewidzialna. Nie mylić z mgiełką nad czajnikiem, która jest już cieczą.</dd>
+      <dt>skraplanie (kondensacja)</dt>
+      <dd>Przejście pary w ciecz. Zachodzi, gdy powrót cząsteczek do cieczy przeważa nad ucieczką — czyli po schłodzeniu poniżej punktu rosy.</dd>
+      <dt>nasycenie</dt>
+      <dd>Stan równowagi między parowaniem a skraplaniem. Zależy prawie wyłącznie od temperatury.</dd>
+      <dt>punkt rosy</dt>
+      <dd>Temperatura, do której trzeba schłodzić powietrze, żeby zaczęła się w nim skraplać woda. Miara bezwzględnej zawartości pary.</dd>
+      <dt>wilgotność względna</dt>
+      <dd>Stosunek rzeczywistej zawartości pary do zawartości przy nasyceniu, w procentach. Bez podanej temperatury mówi niewiele.</dd>
+      <dt>wilgotność bezwzględna</dt>
+      <dd>Ile gramów wody przypada na metr sześcienny powietrza. Liczba, o której naprawdę mówimy, gdy mówimy „wilgotno”.</dd>
+      <dt>szron</dt>
+      <dd>Lód osadzony bezpośrednio z pary, z pominięciem cieczy. Powstaje, gdy punkt rosy jest poniżej zera.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Mamy wodę i mamy warunek jej skroplenia: schłodzenie poniżej punktu rosy. Brakuje mechanizmu chłodzenia — takiego, który działałby wszędzie, cały czas i bez żadnej lodówki. Następny rozdział go dostarcza, a jest to mechanizm, który każdy z nas trzymał kiedyś w rękach: pompka do roweru grzeje się przy pompowaniu, a puszka dezodorantu ziębnie przy pryskaniu. Na tym stoi każda chmura na niebie.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

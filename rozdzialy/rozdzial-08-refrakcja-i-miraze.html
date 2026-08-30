@@ -28,7 +28,256 @@
   <h1>Kiedy powietrze zakrzywia światło</h1>
   <p class="subtitle">Słońce, które właśnie zachodzi, tak naprawdę zaszło kilka minut temu. To, co widzimy, to jego obraz podniesiony przez powietrze.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Powietrze o zmiennej gęstości <strong>zakrzywia promienie</strong>. Wszystko w tym rozdziale jest konsekwencją tego jednego zdania.</li>
+      <li>Miraż to <strong>realny obraz</strong>, który da się sfotografować — nie złudzenie i nie halucynacja. Nazywanie go złudzeniem to pomyłka językowa, która zniechęca do szukania mechanizmu.</li>
+      <li>Smugi słoneczne nie rozchodzą się wachlarzowo. Promienie są równoległe, a wachlarz to <strong>perspektywa</strong> — ta sama, przez którą tory kolejowe zbiegają się na horyzoncie.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Mechanizm · powietrze jako soczewka</div>
+    <h2>Gęstsze powietrze zakrzywia światło</h2>
+
+    <p>Wiemy już z Rozdziału 1, że powietrze jest gęstsze przy ziemi i coraz rzadsze w górę. Wiemy z Rozdziału 3, jak zachowuje się światło, gdy spotyka cząstki. Zostało jeszcze jedno zachowanie, którego nie omawialiśmy: <strong>zmiana kierunku na granicy ośrodków o różnej gęstości</strong>.</p>
+
+    <p>Zna je każdy, kto kiedykolwiek włożył łyżeczkę do szklanki z wodą i zobaczył, że wygląda na złamaną. Światło biegnie w wodzie nieco wolniej niż w powietrzu, a przy przejściu skośnym przez granicę zmienia kierunek. To jest załamanie, czyli refrakcja.</p>
+
+    <p>W atmosferze nie ma żadnej ostrej granicy, jest za to <span class="term-cyan">płynna zmiana gęstości</span>. Efekt jest ten sam, tylko rozłożony: promień nie skręca raz, tylko zakrzywia się stopniowo na całej drodze. I zakrzywia się zawsze w tę samą stronę — <strong>ku warstwie gęstszej</strong>.</p>
+
+    <p>Ponieważ przy ziemi powietrze jest gęstsze, promień biegnący do nas z niska wygina się delikatnie w dół. My tego nie wiemy i, jak zawsze, zakładamy, że przyszedł po linii prostej — więc widzimy jego źródło <em>wyżej</em>, niż jest naprawdę.</p>
+
+    <p>To jest cały mechanizm. Wszystko dalej to pytanie, jak dokładnie gęstość zmienia się z wysokością w danym miejscu i o danej porze.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Promień w powietrzu o zmiennej gęstości</span><span>zawsze wygina się ku gęstszemu</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="dens8" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4fc3c0" stop-opacity="0.02"/>
+            <stop offset="100%" stop-color="#4fc3c0" stop-opacity="0.26"/>
+          </linearGradient>
+        </defs>
+        <rect x="40" y="30" width="690" height="215" fill="url(#dens8)"/>
+        <line x1="40" y1="245" x2="730" y2="245" stroke="#8b909b" stroke-width="2"/>
+        <text x="46" y="263" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">ziemia · powietrze najgęstsze</text>
+        <text x="726" y="46" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#4fc3c0">wyżej · powietrze rzadsze</text>
+
+        <!-- prosta, ktora nam sie wydaje -->
+        <line x1="90" y1="118" x2="640" y2="212" stroke="#8b909b" stroke-width="1.4" stroke-dasharray="6 5"/>
+        <text x="300" y="150" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">tak nam się wydaje, że przyszedł</text>
+
+        <!-- rzeczywisty, zakrzywiony -->
+        <path d="M 90,150 Q 350,168 640,212" fill="none" stroke="#e8a33d" stroke-width="2.6"/>
+        <text x="300" y="196" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">tak naprawdę biegnie</text>
+
+        <circle cx="640" cy="212" r="5" fill="#ecebe4"/>
+        <text x="652" y="216" font-family="IBM Plex Mono" font-size="10.5" fill="#ecebe4">my</text>
+        <circle cx="90" cy="150" r="6" fill="#e8a33d" fill-opacity="0.85"/>
+        <text x="66" y="176" font-family="IBM Plex Mono" font-size="10" fill="#e8a33d">gdzie jest</text>
+        <circle cx="90" cy="118" r="6" fill="#8b909b" fill-opacity="0.6"/>
+        <text x="60" y="110" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">gdzie widzimy</text>
+      </svg>
+      <div class="diagram-caption">Różnica między szarą a bursztynową linią to cały ten rozdział. Zwykle jest niewielka — ale przy horyzoncie robi się większa niż tarcza Słońca.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Skutek · Słońce, którego tam nie ma</div>
+    <h2>Spłaszczona tarcza i skradzione minuty</h2>
+
+    <p>Efekt refrakcji rośnie gwałtownie, im niżej patrzymy — bo tym dłuższą drogę promień pokonuje w gęstym powietrzu przy ziemi. Dokładnie przy horyzoncie podniesienie wynosi około <strong>34 minuty kątowe</strong>, czyli nieco ponad pół stopnia.</p>
+
+    <p>Tarcza Słońca ma średnicę mniej więcej 32 minuty kątowe. Te dwie liczby są prawie identyczne i to prowadzi do sytuacji, którą warto sobie porządnie wyobrazić: <strong>w chwili, gdy widzimy Słońce dolnym brzegiem dotykające horyzontu, całe jest już geometrycznie pod nim</strong>. Widzimy obraz. Rzecz zaszła.</p>
+
+    <p>Skutek uboczny: doba jest dłuższa, niż wynikałoby z geometrii. Refrakcja dokłada nam w Polsce kilka minut światła rano i kilka wieczorem — łącznie kwadrans dnia, którego bez atmosfery byśmy nie mieli.</p>
+
+    <p>Drugi skutek widać gołym okiem i jest to najprostszy dowód całej sprawy, jaki można sobie wyobrazić. Dolny brzeg tarczy jest bliżej horyzontu niż górny, więc jest podnoszony <em>silniej</em>. Koło robi się elipsą. <span class="term-amber">Zachodzące Słońce jest wyraźnie spłaszczone</span>, mniej więcej o jedną piątą wysokości — i wystarczy raz na to spojrzeć uważnie, żeby zobaczyć.</p>
+
+    <p>Jeśli warstwy powietrza przy horyzoncie mają nierówną temperaturę, spłaszczenie zamienia się w coś dziwniejszego: tarcza dostaje karby, stopnie, czasem odrywa się jej fragment. Nad Bałtykiem, przy zimnej wodzie i ciepłym powietrzu, potrafi wyglądać jak grecka waza. Nazywa się to zachodem etruskim i nie jest wcale rzadkie — po prostu trzeba patrzeć przez lornetkę i akurat wtedy, gdy Słońce już nie razi.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Spłaszczenie tarczy</span><span>przesuń wysokość Słońca</span></div>
+      <div class="diagram-controls">
+        <label for="spl">Wysokość Słońca</label>
+        <input type="range" id="spl" min="0" max="20" step="0.2" value="1">
+        <span class="value-readout" id="splOut">1,0° · podniesienie 24′, tarcza wyraźnie spłaszczona</span>
+      </div>
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+        <line x1="40" y1="200" x2="720" y2="200" stroke="#8b909b" stroke-width="2"/>
+        <text x="46" y="218" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">horyzont</text>
+
+        <text x="250" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">GDYBY NIE BYŁO ATMOSFERY</text>
+        <circle id="splTrue" cx="250" cy="150" r="34" fill="#e8a33d" fill-opacity="0.30" stroke="#e8a33d" stroke-dasharray="4 4"/>
+
+        <text x="530" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">CO WIDZIMY NAPRAWDĘ</text>
+        <ellipse id="splSeen" cx="530" cy="150" rx="34" ry="34" fill="#e8a33d"/>
+
+        <line id="splArrow" x1="530" y1="150" x2="530" y2="150" stroke="#4fc3c0" stroke-width="1.6"/>
+        <text id="splNote" x="530" y="240" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#4fc3c0">podniesienie</text>
+      </svg>
+      <div class="diagram-caption">Przy 20° różnica jest niemierzalna gołym okiem. Przy horyzoncie zmienia kształt Słońca.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('spl'), out=document.getElementById('splOut');
+        var truth=document.getElementById('splTrue'), seen=document.getElementById('splSeen');
+        var note=document.getElementById('splNote');
+        var R=34, PXMIN=34/16;  // 16 minut katowych = promien tarczy
+        function fmt(n,d){ return n.toFixed(d).replace('.',','); }
+        // Przyblizenie refrakcji (Bennett) w minutach katowych.
+        function refr(h){ return 1/Math.tan((h+7.31/(h+4.4))*Math.PI/180); }
+        function update(){
+          var h=parseFloat(sl.value);
+          var rGora=refr(h+0.267), rDol=refr(Math.max(0,h-0.267));
+          var podn=refr(h);
+          // srednica pionowa maleje o roznice refrakcji brzegow
+          var ry=Math.max(6, R-(rDol-rGora)*PXMIN);
+          var yTrue=200-(h*10);
+          truth.setAttribute('cy',Math.min(190,yTrue).toFixed(1));
+          var ySeen=Math.min(190, yTrue-podn*PXMIN);
+          seen.setAttribute('cy',ySeen.toFixed(1)); seen.setAttribute('ry',ry.toFixed(1));
+          note.textContent='podniesienie '+fmt(podn,0)+'′ · spłaszczenie '+fmt((1-ry/R)*100,0)+'%';
+          var opis = h>10 ? 'praktycznie okrągła, refrakcja nieistotna'
+                   : (h>3 ? 'lekko spłaszczona, trudno zauważyć'
+                   : (h>0.6 ? 'wyraźnie spłaszczona — widać gołym okiem'
+                            : 'silnie spłaszczona, całe Słońce jest już pod horyzontem'));
+          out.textContent=fmt(h,1)+'° · '+opis;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-g-refrakcja-i-zielony-blysk.html">↓ Dodatek G — refrakcja w liczbach i pełna historia zielonego błysku</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Zjawisko · to, w które nikt nie wierzy</div>
+    <h2>Zielony błysk istnieje</h2>
+
+    <p>Przez lata zielony błysk uchodził za marynarskie zmyślenie albo za powidok w zmęczonym oku. Jest jednym i drugim jednocześnie — bo powidoki naprawdę istnieją i naprawdę bywają zielone — ale samo zjawisko jest w pełni realne, wielokrotnie sfotografowane i całkiem dobrze rozumiane.</p>
+
+    <p>Mechanizm składa się z dwóch części. Pierwsza: refrakcja nie działa jednakowo dla wszystkich barw. Krótsze fale są zakrzywiane odrobinę mocniej, więc <strong>obraz zielony jest podniesiony minimalnie wyżej niż czerwony</strong>. Różnica to ułamek minuty kątowej — sama z siebie kompletnie niezauważalna.</p>
+
+    <p>Druga część to powód, dla którego mimo wszystko coś widać. Gdy ostatni skrawek tarczy znika za horyzontem, czerwona wersja obrazu chowa się pierwsza, a zielona zostaje przez ułamek sekundy sama. Zwykle jest to zbyt małe i zbyt krótkie. Ale jeśli akurat panują warunki mirażowe — a o nich za chwilę — obraz zostaje <span class="term-cyan">powiększony w pionie</span> i ta ostatnia zielona kreska rozciąga się na tyle, że widać ją gołym okiem.</p>
+
+    <p>Dlatego zielony błysk to w praktyce zjawisko dwuskładnikowe: dyspersja daje kolor, a miraż daje powiększenie. I dlatego widuje się go głównie nad morzem, gdzie różnice temperatury wody i powietrza tworzą warunki mirażowe niemal codziennie.</p>
+
+    <p><strong>Nad Bałtykiem da się go zobaczyć.</strong> Potrzebny jest czysty horyzont morski, dobra widoczność aż do samej linii wody i cierpliwość: obserwujemy ostatnie sekundy zachodu, patrząc na sam skrawek tarczy. Nie należy patrzeć wcześniej — Słońce, które jeszcze razi, spali nam adaptację i zafunduje powidok, który potem weźmiemy za zjawisko.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Miraże · powietrze o odwróconym profilu</div>
+    <h2>Kałuża na suchym asfalcie i zamek nad pustym morzem</h2>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Miraż to złudzenie — coś, co nam się wydaje.</p>
+      <p class="myth__right">Miraż to <strong>realny obraz optyczny</strong>, wytworzony przez zakrzywienie promieni w powietrzu o silnym gradiencie temperatury. Da się go sfotografować, zmierzyć i przewidzieć. Aparat „widzi" go tak samo jak my.</p>
+      <p class="myth__why">Słowo „złudzenie” sugeruje błąd zmysłów i zamyka temat, zamiast go otwierać. Tymczasem jedyne, co jest tu złudne, to nasze założenie, że światło biegło prosto — a to założenie zawodzi także wtedy, gdy patrzymy na zachodzące Słońce.</p>
+    </div>
+
+    <p>Miraże dzielą się na dwa rodzaje i różnią się wyłącznie tym, gdzie jest cieplejsze powietrze.</p>
+
+    <p><strong>Miraż dolny</strong> powstaje, gdy tuż nad podłożem jest warstwa bardzo gorącego, a przez to rzadkiego powietrza. Rozgrzany asfalt, piasek pustyni, dach samochodu w upał. Promienie biegnące do nas z dołu wyginają się wtedy <em>ku górze</em> i docierają do oka z dołu — a my, konsekwentni jak zawsze, interpretujemy je jako odbicie. Widzimy więc pod obiektem jego odwrócone lustrzane odbicie, jakby leżał w kałuży. Ta „woda" na drodze w upalny dzień to odbite niebo.</p>
+
+    <p><strong>Miraż górny</strong> to sytuacja odwrotna: nad zimną powierzchnią — morzem, lodem, śniegiem — leży warstwa cieplejszego powietrza. Promienie wyginają się wtedy w dół i docierają do nas <em>znad</em> obiektu. Widzimy przedmioty uniesione, rozciągnięte w pionie, czasem wywrócone do góry nogami nad prawdziwym obrazem, a niekiedy takie, które są fizycznie za horyzontem.</p>
+
+    <p>Ta ostatnia możliwość jest naprawdę zdumiewająca. Przy odpowiednim ułożeniu warstw powietrze działa jak falowód: promienie odbijają się w nim wielokrotnie i biegną wzdłuż zakrzywienia Ziemi, zamiast uciekać w kosmos. Dzięki temu widuje się nad Bałtykiem szwedzkie brzegi, a nad Adriatykiem — przeciwległy ląd. Statek, który zniknął już za horyzontem, potrafi wrócić do widoku, unosząc się nad wodą.</p>
+
+    <p><strong>Fatamorgana</strong> to najbardziej rozbudowana odmiana mirażu górnego: obraz jest wielokrotnie powtórzony i rozciągnięty w pionie tak silnie, że zwykły daleki brzeg albo skała zamienia się w pionowe ściany, wieże i mury. Stąd nazwa, od czarodziejki Morgany, i stąd cała rodzina opowieści o miastach widzianych na morzu.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Dwa miraże</span><span>decyduje, gdzie jest ciepłe powietrze</span></div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- dolny -->
+        <text x="190" y="28" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#e8a33d">MIRAŻ DOLNY · gorący asfalt</text>
+        <rect x="40" y="132" width="300" height="26" fill="#e8a33d" fill-opacity="0.18"/>
+        <text x="46" y="150" font-family="IBM Plex Mono" font-size="9.5" fill="#e8a33d">warstwa gorąca, rzadka</text>
+        <line x1="40" y1="158" x2="340" y2="158" stroke="#8b909b" stroke-width="2"/>
+        <path d="M 70,60 Q 190,140 300,120" fill="none" stroke="#4fc3c0" stroke-width="2.2"/>
+        <line x1="70" y1="60" x2="300" y2="120" stroke="#8b909b" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <circle cx="70" cy="60" r="6" fill="#4fc3c0"/>
+        <text x="46" y="50" font-family="IBM Plex Mono" font-size="9.5" fill="#4fc3c0">drzewo</text>
+        <circle cx="300" cy="120" r="5" fill="#ecebe4"/>
+        <text x="310" y="124" font-family="IBM Plex Mono" font-size="9.5" fill="#ecebe4">my</text>
+        <text x="190" y="196" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#8b909b">widzimy odbicie pod obiektem —</text>
+        <text x="190" y="214" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#8b909b">czyli „kałużę”, w której jest niebo</text>
+
+        <!-- gorny -->
+        <text x="570" y="28" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#6e93be">MIRAŻ GÓRNY · zimne morze</text>
+        <rect x="420" y="60" width="300" height="30" fill="#e8a33d" fill-opacity="0.14"/>
+        <text x="426" y="80" font-family="IBM Plex Mono" font-size="9.5" fill="#e8a33d">warstwa ciepła u góry</text>
+        <rect x="420" y="90" width="300" height="68" fill="#6e93be" fill-opacity="0.16"/>
+        <text x="426" y="110" font-family="IBM Plex Mono" font-size="9.5" fill="#6e93be">zimne przy wodzie</text>
+        <line x1="420" y1="158" x2="720" y2="158" stroke="#6e93be" stroke-width="2"/>
+        <path d="M 450,140 Q 570,84 690,124" fill="none" stroke="#4fc3c0" stroke-width="2.2"/>
+        <line x1="450" y1="140" x2="690" y2="124" stroke="#8b909b" stroke-width="1.2" stroke-dasharray="5 4"/>
+        <circle cx="450" cy="140" r="6" fill="#4fc3c0"/>
+        <text x="424" y="136" font-family="IBM Plex Mono" font-size="9.5" fill="#4fc3c0">statek</text>
+        <circle cx="690" cy="124" r="5" fill="#ecebe4"/>
+        <text x="700" y="128" font-family="IBM Plex Mono" font-size="9.5" fill="#ecebe4">my</text>
+        <text x="570" y="196" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#8b909b">widzimy obiekt uniesiony —</text>
+        <text x="570" y="214" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#8b909b">czasem zza horyzontu</text>
+
+        <line x1="380" y1="30" x2="380" y2="230" stroke="#2a2f38" stroke-width="1"/>
+        <text x="380" y="264" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#ecebe4">jedna zasada: promień wygina się KU warstwie gęstszej, czyli ku zimniejszej</text>
+        <text x="380" y="288" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">reszta to pytanie, po której stronie jest ciepło</text>
+      </svg>
+      <div class="diagram-caption">Cyjan to prawdziwa droga promienia, szara przerywana — ta, którą mu przypisujemy. Cała różnica między dwoma mirażami to układ warstw.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Sprawdzenie · promienie są równoległe</div>
+    <h2>Smugi słoneczne i perspektywa</h2>
+
+    <p>Kiedy Słońce świeci zza dziury w chmurach, widać czasem wyraźne, jasne pasma rozchodzące się wachlarzowo w dół. Nazywa się je smugami słonecznymi albo, mniej fachowo, drabiną Jakuba.</p>
+
+    <p>Nasuwa się wniosek, że promienie rozchodzą się ze Słońca na boki. To nieprawda i to z dwóch powodów naraz. Po pierwsze, Słońce jest tak daleko, że jego promienie docierają do nas praktycznie <strong>równoległe</strong> — rozbieżność jest niemierzalna. Po drugie, gdyby naprawdę się rozchodziły, cienie przedmiotów na ziemi też by się rozchodziły, a przecież są równoległe.</p>
+
+    <p>Wachlarz to <span class="term-cyan">perspektywa</span>. Patrzymy wzdłuż wiązki równoległych smug, a równoległe linie widziane w głąb zawsze zbiegają się w jednym punkcie — dokładnie tak jak tory kolejowe albo słupy przy drodze. Punkt zbiegu wypada w miejscu Słońca.</p>
+
+    <p>Najładniejszy dowód dostajemy wtedy, gdy smugi są tak długie, że przechodzą przez całe niebo i pojawiają się <strong>także po przeciwnej stronie</strong>, zbiegając się w punkcie dokładnie naprzeciw Słońca. Nazywa się je wtedy przeciwsmugami. Gdyby promienie naprawdę się rozchodziły, dwa punkty zbiegu byłyby niemożliwe.</p>
+
+    <p>I jeszcze jedno, o czym łatwo zapomnieć: smugi widać wyłącznie dlatego, że w powietrzu jest na czym rozpraszać. W idealnie czystym powietrzu wiązka światła jest niewidoczna — widzimy nie promień, tylko <strong>pył i kropelki oświetlone przez promień</strong>. To znowu Rozdział 3, tym razem w roli warunku widoczności.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Gdzie w Polsce szukać mirażu górnego.</strong> Wybrzeże Bałtyku wiosną, gdy woda jest jeszcze zimna po zimie, a powietrze już ciepłe — to najlepszy możliwy układ. Patrzymy przez lornetkę wzdłuż linii horyzontu w pogodny, bezwietrzny poranek. Statki wyglądają wtedy na rozciągnięte w pionie albo unoszą się nad wodą, a przy dużym szczęściu wracają zza horyzontu.</p>
+    <p><strong>Miraż dolny mamy za darmo.</strong> Latem, na prostej drodze asfaltowej, w środku dnia. Patrzymy jak najniżej — najlepiej przykucnąć albo obserwować z pozycji siedzącej w samochodzie. Im mniejszy kąt patrzenia, tym efekt silniejszy, bo promień ma dłuższą drogę w gorącej warstwie.</p>
+    <p><strong>Migotanie gwiazd i drżące powietrze to to samo.</strong> Turbulentne mieszanie powietrza o różnej temperaturze tworzy bezustannie zmieniające się soczewki, przez które obraz punktowego źródła skacze i zmienia jasność. To dlatego gwiazdy migoczą, a planety — będące małymi tarczami, nie punktami — migoczą znacznie mniej. To także powód, dla którego zdjęcia teleobiektywem w upalny dzień wychodzą nieostre, choć ostrość jest ustawiona prawidłowo.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>refrakcja</dt>
+      <dd>Zmiana kierunku światła przy przejściu przez ośrodek o zmiennej gęstości. W atmosferze stopniowa, więc promień się zakrzywia, a nie łamie.</dd>
+      <dt>minuta kątowa</dt>
+      <dd>Jedna sześćdziesiąta stopnia. Tarcza Słońca i Księżyca ma około 32 minut, czyli nieco ponad pół stopnia.</dd>
+      <dt>dyspersja</dt>
+      <dd>Zależność siły załamania od barwy. Krótsze fale załamują się mocniej — stąd tęcza i zielony błysk.</dd>
+      <dt>miraż dolny</dt>
+      <dd>Obraz odwrócony pod obiektem, powstający nad silnie nagrzanym podłożem. To „woda” na drodze.</dd>
+      <dt>miraż górny</dt>
+      <dd>Obraz uniesiony lub odwrócony nad obiektem, powstający nad zimnym podłożem. Potrafi pokazać rzeczy zza horyzontu.</dd>
+      <dt>Fatamorgana</dt>
+      <dd>Najbardziej złożony miraż górny: obraz wielokrotnie powtórzony i rozciągnięty w pionie, dający wrażenie wież i murów.</dd>
+      <dt>smugi słoneczne</dt>
+      <dd>Widoczne wiązki światła między chmurami. Równoległe — wachlarz to efekt perspektywy.</dd>
+      <dt>zielony błysk</dt>
+      <dd>Krótki zielony rozbłysk przy ostatnim skrawku zachodzącego Słońca. Dyspersja plus powiększenie mirażowe.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Kończymy część o świetle. Wiemy już, co powietrze robi ze światłem — rozprasza je i zakrzywia. Teraz zajmiemy się tym, co robi z wodą, bo to z niej zbudowane jest wszystko, co dalej. Zaczniemy od zdania, które brzmi jak prowokacja, a jest po prostu prawdziwe: <strong>para wodna jest całkowicie niewidzialna</strong>, więc wszystko, co widzimy nad czajnikiem, parą wodną już nie jest.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

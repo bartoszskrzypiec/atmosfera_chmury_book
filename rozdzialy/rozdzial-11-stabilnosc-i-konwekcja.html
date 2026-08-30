@@ -28,7 +28,227 @@
   <h1>Stabilne, chwiejne, wybuchowe</h1>
   <p class="subtitle">To, czy dzień skończy się płaską szarością, czy burzą, rozstrzyga się rano — w kilku liczbach, których nie widać, ale których skutki widać przez cały dzień.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Ciepłe powietrze nie unosi się „bo jest ciepłe". Unosi się, gdy jest <strong>rzadsze od otoczenia na swojej wysokości</strong>. Wyporność jest zawsze porównaniem.</li>
+      <li>O tym, czy powietrze będzie chciało się wznosić, decyduje <strong>profil temperatury otoczenia</strong> — i to on odróżnia dzień płaski i szary od burzowego.</li>
+      <li>Inwersja to warstwa cieplejsza od tej pod nią. Działa jak <strong>czapa</strong>: trzyma chmury nisko, trzyma smog w kotlinie, a czasem pęka po południu z hukiem.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Poprawka · wyporność jest względna</div>
+    <h2>Balon nie wie, że jest ciepły</h2>
+
+    <p>Zdanie „ciepłe powietrze się unosi" jest w obiegu tak długo, że przestaliśmy je kwestionować. A jest niepełne w sposób, który psuje wszystko, co dalej.</p>
+
+    <p>Porcja powietrza nie ma żadnego czujnika własnej temperatury i żadnej skłonności do wznoszenia się. Działa na nią wyłącznie <strong>siła wyporu</strong> — ta sama, co na korek w wodzie. A wypór zależy od porównania: cieplejsze powietrze jest rzadsze, więc jeśli jest rzadsze <em>niż to, co je otacza</em>, wypływa do góry. Jeśli nie — nie.</p>
+
+    <p>Kluczowa poprawka brzmi więc: liczy się nie temperatura porcji, tylko <span class="term-cyan">różnica między porcją a otoczeniem na tej samej wysokości</span>. Porcja o temperaturze 15°C uniesie się bez trudu, jeśli wokół jest 10°C — i natychmiast opadnie, jeśli wokół jest 20°C.</p>
+
+    <p>Tu wraca cały poprzedni rozdział. Wznosząca się porcja stygnie po dziesięć stopni na kilometr, bo się rozpręża. To jej tempo. A otoczenie ma swoje własne, zupełnie niezależne tempo — takie, jakie akurat ustaliła historia pogody z ostatnich dni. <strong>Cała stabilność atmosfery to wyścig tych dwóch temp.</strong></p>
+
+    <p>Jeśli otoczenie stygnie z wysokością wolniej niż porcja, to porcja szybko staje się chłodniejsza od otoczenia, robi się gęstsza i opada z powrotem. Nic się nie unosi, nic nie rośnie, niebo zostaje płaskie. Jeśli otoczenie stygnie szybciej niż porcja, to porcja pozostaje cieplejsza, więc przyspiesza w górę — i mamy kolumny, wieże, kalafiory.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Wyścig dwóch temp</span><span>przesuń profil otoczenia</span></div>
+      <div class="diagram-controls">
+        <label for="st">Jak szybko stygnie otoczenie</label>
+        <input type="range" id="st" min="2" max="13" step="0.1" value="6.5">
+        <span class="value-readout" id="stOut">6,5°C/km · równowaga stała — nic się nie unosi</span>
+      </div>
+      <svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="130" y1="290" x2="700" y2="290" stroke="#2a2f38" stroke-width="1.4"/>
+        <line x1="130" y1="30" x2="130" y2="290" stroke="#2a2f38" stroke-width="1.4"/>
+        <text x="415" y="316" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">temperatura →</text>
+        <text x="52" y="160" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b" transform="rotate(-90 52 160)">wysokość →</text>
+        <g font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b" text-anchor="end">
+          <text x="124" y="294">0 km</text><text x="124" y="230">1 km</text>
+          <text x="124" y="166">2 km</text><text x="124" y="102">3 km</text><text x="124" y="40">4 km</text>
+        </g>
+
+        <line x1="620" y1="290" x2="368" y2="34" stroke="#e8a33d" stroke-width="2.6"/>
+        <text x="330" y="30" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">porcja · zawsze −10°C/km</text>
+
+        <line id="stEnv" x1="620" y1="290" x2="450" y2="34" stroke="#6e93be" stroke-width="2.6"/>
+        <text id="stEnvLab" x="470" y="30" font-family="IBM Plex Mono" font-size="10.5" fill="#6e93be">otoczenie</text>
+
+        <rect id="stZone" x="0" y="0" width="0" height="0" fill="#4fc3c0" fill-opacity="0.10"/>
+        <text id="stVerdict" x="415" y="180" text-anchor="middle" font-family="IBM Plex Sans" font-size="14" fill="#ecebe4">porcja chłodniejsza od otoczenia — opada</text>
+      </svg>
+      <div class="diagram-caption">Bursztyn to porcja, niebieski to otoczenie. Wszystko rozstrzyga się w tym, która linia jest bardziej pochylona.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('st'), out=document.getElementById('stOut');
+        var env=document.getElementById('stEnv'), lab=document.getElementById('stEnvLab');
+        var ver=document.getElementById('stVerdict');
+        var X0=620, Y0=290, PXKM=64, PXDEG=6.3;
+        function fmt(n,d){ return n.toFixed(d).replace('.',','); }
+        function update(){
+          var g=parseFloat(sl.value);
+          var h=4;
+          var x=X0-g*h*PXDEG, y=Y0-h*PXKM;
+          env.setAttribute('x2',x.toFixed(1)); env.setAttribute('y2',y.toFixed(1));
+          lab.setAttribute('x',(x-46).toFixed(1)); lab.setAttribute('y',(y-6).toFixed(1));
+          var opis, werdykt, kolor;
+          if(g<5.5){ opis='równowaga stała'; werdykt='porcja szybko staje się chłodniejsza od otoczenia — wraca na dół. Niebo płaskie, warstwowe.'; kolor='#6e93be'; }
+          else if(g<9.8){ opis='równowaga warunkowa'; werdykt='sucha porcja opadnie, ale wilgotna — gdy zacznie się skraplanie — pojedzie w górę. To najczęstszy przypadek w Polsce.'; kolor='#e8a33d'; }
+          else { opis='równowaga chwiejna'; werdykt='porcja zostaje cieplejsza od otoczenia i przyspiesza. Kolumny, wieże, po południu burze.'; kolor='#4fc3c0'; }
+          ver.textContent=werdykt; ver.setAttribute('fill',kolor);
+          out.textContent=fmt(g,1)+'°C/km · '+opis;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Trzy niebiosa · profil rozstrzyga, co zobaczymy</div>
+    <h2>Płasko, warunkowo, wybuchowo</h2>
+
+    <p>W praktyce spotykamy trzy sytuacje i każda ma swój charakterystyczny wygląd nieba. Nauczywszy się je rozpoznawać, potrafimy o dziesiątej rano powiedzieć, co się będzie działo po południu — i to jest jedna z rzeczy, które ta książka naprawdę daje.</p>
+
+    <p><strong>Równowaga stała.</strong> Otoczenie stygnie powoli, mniej niż pięć stopni na kilometr. Nic nie chce się wznosić, pionowe mieszanie zamiera. Powietrze rozkłada się warstwami, dym z komina rozpływa się poziomo zamiast iść w górę, a jeśli powstaną chmury, będą to płaskie płaty bez struktury. Typowy listopadowy dzień w Polsce.</p>
+
+    <p><strong>Równowaga chwiejna.</strong> Otoczenie stygnie szybciej niż dziesięć stopni na kilometr — czyli szybciej, niż stygnie wznosząca się porcja. Wtedy każde zaburzenie się wzmacnia. Powietrze rusza kolumnami, powstają kłębiaste chmury o wyraźnej strukturze, po południu potrafi z tego wyjść burza. Typowy upalny lipcowy dzień.</p>
+
+    <p><strong>Równowaga warunkowa.</strong> Otoczenie stygnie gdzieś pomiędzy — szybciej niż porcja wilgotna, wolniej niż sucha. To najczęstszy przypadek i najciekawszy, bo wynik zależy od tego, czy porcja zdąży dojść do poziomu kondensacji. Jeśli nie dojdzie, opadnie i nic się nie stanie. Jeśli dojdzie, skraplanie zacznie ją dogrzewać i pojedzie do góry, jakby ktoś odblokował hamulec.</p>
+
+    <p>To ostatnie jest w meteorologii wyjątkowo ważne, bo tłumaczy, dlaczego burze wybuchają <strong>nagle</strong>, a nie narastają stopniowo. Cała energia siedzi w powietrzu od rana — brakuje tylko impulsu, który podniesie porcję dostatecznie wysoko. Impulsem bywa nagrzane pole, zbocze, granica frontu albo mijające się wiatry. Potem wystarczy sekunda i uruchamia się to, co opisaliśmy w poprzednim rozdziale.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Inwersja · warstwa, która blokuje wszystko</div>
+    <h2>Czapa nad kotliną</h2>
+
+    <p>Szczególnym przypadkiem równowagi stałej jest <span class="term-violet">inwersja</span>: sytuacja, w której temperatura na pewnej wysokości nie tylko przestaje spadać, ale <strong>rośnie</strong>. Wyżej jest cieplej niż niżej — profil się odwraca, stąd nazwa.</p>
+
+    <p>Dla wznoszącego się powietrza to ściana nie do przejścia. Porcja idąca w górę stygnie po swoje dziesięć stopni na kilometr, a otoczenie robi się coraz cieplejsze — więc różnica narasta błyskawicznie i porcja zostaje odbita w dół. Nic nie przechodzi.</p>
+
+    <p>Skutki są bardzo wyraźne i większość z nas widziała je wielokrotnie:</p>
+
+    <p><strong>Chmury spłaszczone od góry.</strong> Kłębiaste chmury rosną do poziomu inwersji i tam kończą, rozlewając się na boki. Efekt to charakterystyczne niebo, w którym wszystkie chmury mają nie tylko wspólne dno, ale i wspólny sufit.</p>
+
+    <p><strong>Smog w kotlinie.</strong> Zimą w Krakowie, Nowym Sączu, Zakopanem czy Rybniku wychłodzone nocą powietrze zalega na dnie doliny, a nad nim leży warstwa cieplejsza. Pod tą czapą nic nie ucieka — dym z kominów, spaliny, wilgoć zostają w środku i zagęszczają się przez wiele dni. To nie jest problem „braku wiatru"; to jest brak pionowego mieszania.</p>
+
+    <p><strong>Odwrócone temperatury w górach.</strong> Wyjazd kolejką w górę potrafi zimą oznaczać wyjście w słońce i temperaturę wyższą o kilkanaście stopni niż na dole. Nazywa się to inwersją dolinną i jest po prostu tym samym profilem oglądanym od środka.</p>
+
+    <p><strong>Głosy niosące się nad wodą.</strong> Inwersja zakrzywia także dźwięk — fale dźwiękowe biegnące w górę wracają w dół i niosą się dużo dalej niż zwykle. Stąd wrażenie, że nad jeziorem o poranku słychać rozmowę z drugiego brzegu.</p>
+
+    <p>Najciekawsze bywa jednak zniknięcie inwersji. Jeśli Słońce zdąży w ciągu dnia nagrzać powierzchnię dostatecznie mocno, czapa zostaje przebita — i cała energia zgromadzona pod nią uwalnia się naraz. Popołudnia, które zaczynają się mgliście i sennie, a kończą gwałtowną burzą, mają najczęściej właśnie taką historię.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Inwersja</span><span>przesuń siłę czapy</span></div>
+      <div class="diagram-controls">
+        <label for="inw">Siła inwersji</label>
+        <input type="range" id="inw" min="0" max="100" step="1" value="55">
+        <span class="value-readout" id="inwOut">czapa mocna · chmury spłaszczone, smog zostaje</span>
+      </div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="40" y1="256" x2="720" y2="256" stroke="#8b909b" stroke-width="2"/>
+        <path d="M 40,256 Q 200,236 300,256 Q 420,276 540,252 Q 640,236 720,256 L 720,290 L 40,290 Z" fill="#2a2f38"/>
+        <text x="46" y="286" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">dno doliny</text>
+
+        <rect id="inwSmog" x="40" y="200" width="680" height="56" fill="#8b7355" fill-opacity="0.35"/>
+        <line id="inwCap" x1="40" y1="200" x2="720" y2="200" stroke="#9c82d8" stroke-width="2.4" stroke-dasharray="7 4"/>
+        <text id="inwLab" x="712" y="192" text-anchor="end" font-family="IBM Plex Mono" font-size="10.5" fill="#9c82d8">INWERSJA · cieplej niż pod spodem</text>
+
+        <g id="inwClouds"></g>
+        <g id="inwSmoke" stroke="#8b909b" stroke-width="2" fill="none"></g>
+        <text id="inwNote" x="380" y="60" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" fill="#ecebe4">nic nie przechodzi przez czapę</text>
+      </svg>
+      <div class="diagram-caption">Fioletowa linia to sufit. Wszystko poniżej — chmury, dym, wilgoć — zostaje pod nią uwięzione.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('inw'), out=document.getElementById('inwOut');
+        var cap=document.getElementById('inwCap'), smog=document.getElementById('inwSmog');
+        var lab=document.getElementById('inwLab'), clouds=document.getElementById('inwClouds');
+        var smoke=document.getElementById('inwSmoke'), note=document.getElementById('inwNote');
+        function update(){
+          var s=parseFloat(sl.value)/100;
+          var y=256-(30+s*0)-(1-s)*150-s*56;   // silna inwersja = nisko
+          y=256-(56+(1-s)*150);
+          cap.setAttribute('y1',y.toFixed(1)); cap.setAttribute('y2',y.toFixed(1));
+          lab.setAttribute('y',(y-8).toFixed(1));
+          smog.setAttribute('y',y.toFixed(1)); smog.setAttribute('height',(256-y).toFixed(1));
+          smog.setAttribute('fill-opacity',(0.06+s*0.34).toFixed(2));
+          cap.setAttribute('stroke-opacity',(0.25+s*0.75).toFixed(2));
+          // chmury: rosna do inwersji i tam sie rozlewaja
+          var c='';
+          for(var i=0;i<4;i++){
+            var cx=140+i*160, h=(256-y)*0.55*(0.7+0.3*Math.sin(i*2.1));
+            var w=34+ (1-s)*10 + s*36;
+            c+='<ellipse cx="'+cx+'" cy="'+(256-h)+'" rx="'+w.toFixed(0)+'" ry="'+Math.max(9,h*0.42).toFixed(0)+'" fill="#4fc3c0" fill-opacity="0.22" stroke="#4fc3c0" stroke-width="1.1"/>';
+          }
+          clouds.innerHTML=c;
+          // dym z komina: pod czapa rozplywa sie poziomo
+          var sm = s>0.4
+            ? '<path d="M 90,250 L 90,'+(y+8)+' Q 130,'+(y+4)+' 210,'+(y+7)+'"/>'
+            : '<path d="M 90,250 L 90,'+(y-40)+' Q 104,'+(y-70)+' 96,'+(y-104)+'"/>';
+          smoke.innerHTML=sm;
+          var opis, txt;
+          if(s>0.7){ opis='czapa bardzo mocna · smog zostaje na wiele dni'; txt='dym z komina kładzie się poziomo — to najprostszy objaw inwersji'; }
+          else if(s>0.35){ opis='czapa wyraźna · chmury spłaszczone od góry'; txt='chmury mają wspólne dno i wspólny sufit'; }
+          else { opis='czapa słaba · powietrze może się mieszać'; txt='dym idzie prosto w górę, chmury mogą rosnąć'; }
+          note.textContent=txt;
+          out.textContent=opis;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Termik · jak zaczyna się wznoszenie</div>
+    <h2>Od nagrzanego pola do chmurki</h2>
+
+    <p>Została ostatnia rzecz: skąd bierze się pierwszy impuls. Bo dotąd mówiliśmy, co się dzieje z porcją, która <em>już</em> rusza w górę — ale coś musi ją wypchnąć.</p>
+
+    <p>Odpowiedzią jest nierównomierne nagrzewanie powierzchni. Słońce świeci równo, ale powierzchnia reaguje bardzo różnie. Suche, ciemne pole nagrzewa się szybko. Asfalt i dachy jeszcze szybciej. Świeżo zaorana ziemia szybciej niż łąka. Las — bardzo wolno, bo cała energia idzie na parowanie z liści. Jezioro praktycznie wcale, bo woda ma ogromną pojemność cieplną.</p>
+
+    <p>Nad ciepłymi plamami powietrze nagrzewa się bardziej niż nad sąsiednimi. Przez jakiś czas trzyma się przy ziemi, aż różnica zrobi się dostateczna — wtedy odrywa się jako bąbel i rusza w górę. Taki bąbel nazywa się <span class="term-cyan">termikiem</span>.</p>
+
+    <p>Jeśli powietrze jest dostatecznie wilgotne, termik dojdzie do poziomu kondensacji i na jego szczycie pojawi się mała chmurka. I to jest wyjaśnienie czegoś, co widzimy latem codziennie: <strong>małe kłębiaste chmurki nie stoją przypadkowo</strong>. Każda z nich jest znacznikiem termiki pod spodem, a więc pośrednio mapą tego, co jest na ziemi.</p>
+
+    <p>Korzystają z tego szybownicy i ptaki. Szybowiec krążący pod chmurką nie szuka chmurki — szuka kolumny wznoszącego powietrza, której chmurka jest wierzchołkiem. Bociany i myszołowy robią dokładnie to samo, i z tego samego powodu widuje się je krążące nad polami, a nie nad lasem.</p>
+
+    <p>Termika ma też swój rytm dobowy, wart zapamiętania: rusza mniej więcej dwie godziny po wschodzie, nabiera siły do wczesnego popołudnia, maksimum osiąga między czternastą a szesnastą i zamiera przed zachodem. Dlatego kłębiaste chmurki, które rano rosną, wieczorem po prostu znikają — <strong>silnik się wyłączył</strong>, a to, co zostało, wyparowuje.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Jak z porannego nieba ocenić popołudnie.</strong> Jeśli o dziewiątej rano niebo jest już usiane małymi kłębiastymi chmurkami z płaskimi dnami — dzień będzie chwiejny i po południu warto się spodziewać sporego rozwoju, może burzy. Jeśli o dziewiątej niebo jest gładkie, mgliste albo pokryte jednolitą warstwą, prawdopodobnie zostanie takie do wieczora. Jeśli widać wieżyczki na chmurach średniego piętra — to sygnał chwiejności wysoko i najlepsza domowa zapowiedź burzy, o czym w Rozdziale 15.</p>
+    <p><strong>Dym z komina jako darmowy przyrząd.</strong> Idzie prosto w górę — powietrze się miesza. Kładzie się poziomo na pewnej wysokości — jest tam inwersja i widzimy dokładnie, na jakiej wysokości. Wije się nieregularnie — silna turbulencja. To działa i zimą, i latem, i jest szybsze niż jakakolwiek aplikacja.</p>
+    <p><strong>Smog to problem pionowy, nie poziomy.</strong> W kotlinie w bezwietrzny mroźny dzień wymiana powietrza w poziomie nie pomoże, bo czapa i tak trzyma wszystko na dole. Sytuacja poprawia się dopiero wtedy, gdy nadejdzie front albo silny wiatr rozbije inwersję. To dlatego alarmy smogowe kończą się nagle, w ciągu godzin, a nie stopniowo.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>wyporność</dt>
+      <dd>Siła unosząca porcję powietrza lżejszą od otoczenia. Zawsze wynika z porównania, nigdy z samej temperatury porcji.</dd>
+      <dt>równowaga stała</dt>
+      <dd>Profil, w którym wzniesiona porcja wraca na dół. Niebo płaskie, warstwowe, brak pionowego mieszania.</dd>
+      <dt>równowaga chwiejna</dt>
+      <dd>Profil, w którym wzniesiona porcja przyspiesza w górę. Chmury kłębiaste, kolumny, potencjalnie burze.</dd>
+      <dt>równowaga warunkowa</dt>
+      <dd>Najczęstszy przypadek: sucha porcja opada, ale wilgotna — po rozpoczęciu skraplania — rusza w górę.</dd>
+      <dt>inwersja</dt>
+      <dd>Warstwa, w której temperatura rośnie z wysokością. Blokuje pionowe mieszanie, więzi smog i spłaszcza chmury.</dd>
+      <dt>termik</dt>
+      <dd>Bąbel ciepłego powietrza odrywający się od nagrzanej powierzchni. Napędza kłębiaste chmury, szybowce i krążące ptaki.</dd>
+      <dt>konwekcja</dt>
+      <dd>Przenoszenie ciepła przez pionowy ruch samego ośrodka. W atmosferze — cała maszyneria kłębiastych chmur.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Mamy komplet: wodę, mechanizm chłodzenia i warunek, przy którym powietrze zechce się wznieść. Zostało złożyć to w chmurę — i zobaczyć, że chmura nie jest przedmiotem, tylko procesem stojącym w miejscu, przez który przepływa powietrze. Przy okazji rozstrzygniemy pytanie z okładki: dlaczego dna chmur kłębiastych są płaskie i dlaczego wszystkie leżą na tej samej wysokości.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

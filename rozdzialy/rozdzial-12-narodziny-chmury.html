@@ -28,7 +28,194 @@
   <h1>Narodziny chmury</h1>
   <p class="subtitle">Chmura nie jest obiektem, który gdzieś leci. Jest procesem, który stoi w miejscu, podczas gdy powietrze przez niego przepływa.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Chmura nie leci. Jest <strong>procesem stojącym w miejscu</strong>: u podstawy woda się skrapla, na brzegach paruje, a powietrze przez nią przepływa.</li>
+      <li>Średni Cumulus waży <strong>setki ton</strong>. Nie spada, bo kropelki opadają wolniej, niż wznosi się powietrze pod nimi.</li>
+      <li>Dna chmur kłębiastych są płaskie i wszystkie na tej samej wysokości, bo <strong>poziom kondensacji jest jeden dla całej masy powietrza</strong>. To jest odpowiedź na pytanie z okładki.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Warunek · czysta para nie chce się skraplać</div>
+    <h2>Chmura potrzebuje brudu</h2>
+
+    <p>Mamy wilgotne powietrze, mamy je schłodzone poniżej punktu rosy — wydawałoby się, że chmura powstanie sama. Otóż nie do końca, i ten szczegół jest ładniejszy, niż się wydaje.</p>
+
+    <p>W idealnie czystym powietrzu para wodna <strong>nie chce</strong> się skraplać, nawet mocno schłodzona. Powód jest geometryczny: żeby powstała kropelka, kilka cząsteczek musi się spotkać i utworzyć zawiązek. Ale bardzo mała kropelka ma silnie zakrzywioną powierzchnię, z której cząsteczki uciekają wyjątkowo łatwo — więc zawiązek rozpada się natychmiast po powstaniu. W laboratorium, w powietrzu przefiltrowanym do czysta, można schłodzić parę do kilkuset procent wilgotności względnej i nic się nie stanie.</p>
+
+    <p>W prawdziwej atmosferze nie ma tego problemu, bo jest w niej pełno <span class="term-amber">jąder kondensacji</span>: drobin soli morskiej, pyłu mineralnego, sadzy, pyłków roślin, cząstek z wulkanów i ze spalin. Woda osadza się na nich zamiast budować kroplę od zera — od razu ma płaskie podłoże i problem zakrzywienia znika. Wystarczy wtedy przekroczenie stu procent o ułamek procenta.</p>
+
+    <p>Wniosek jest paradoksalny i wart zapamiętania: <strong>bez zanieczyszczeń nie byłoby chmur</strong>. Ani deszczu. To, co potocznie nazywamy brudem w powietrzu, jest warunkiem istnienia pogody.</p>
+
+    <p>Ma to zresztą mierzalne konsekwencje. Nad oceanem, gdzie jąder jest mało i są to głównie ziarna soli, powstaje mniej kropelek — ale każda jest większa, bo cała dostępna woda rozkłada się na mniejszą liczbę. Nad miastem jąder są miliony, więc kropelek jest bardzo dużo i każda jest drobna. Chmury miejskie są przez to bielsze i trudniej im spaść deszczem — kropelki są za małe, żeby urosnąć.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-j-jadra-kondensacji.html">↓ Dodatek J — jądra kondensacji: sól, pył i powietrze, które nie chce chmur</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Skala · liczby, które nie mieszczą się w głowie</div>
+    <h2>Kropelka, kropla i przepaść między nimi</h2>
+
+    <p>Kropelka chmurowa ma średnicę około dwudziestu mikrometrów — jednej pięćdziesiątej milimetra. Kropla deszczu ma około dwóch milimetrów, czyli sto razy więcej.</p>
+
+    <p>Sto razy większa średnica to <strong>milion razy większa objętość</strong>. Żeby powstała jedna kropla deszczu, musi się połączyć mniej więcej milion kropelek chmurowych. Ta liczba jest powodem, dla którego chmura wcale nie musi padać, i dlaczego większość chmur na niebie nigdy nie spadnie — o czym będzie osobno w Rozdziale 16.</p>
+
+    <p>W jednym metrze sześciennym typowej chmury jest kilkaset milionów kropelek, a łącznie stanowią one około <span class="term-cyan">pół grama wody</span>. Chmura jest więc obiektem zaskakująco rozrzedzonym: gdyby zebrać całą wodę ze średniego Cumulusa i wlać do beczek, zajęłaby zdumiewająco mało miejsca w porównaniu z rozmiarem chmury.</p>
+
+    <p>„Zdumiewająco mało" nie znaczy jednak „mało". Cumulus o boku kilometra to miliard metrów sześciennych, po pół grama każdy — czyli <strong>pięćset ton wody</strong>. Tyle waży sto słoni. A Cumulonimbus bywa sto razy większy.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Od kropelki do kropli</span><span>skala logarytmiczna</span></div>
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="180" x2="720" y2="180" stroke="#2a2f38" stroke-width="1.5"/>
+        <g font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b" text-anchor="middle">
+          <text x="90" y="204">0,2 µm</text><text x="250" y="204">2 µm</text>
+          <text x="410" y="204">20 µm</text><text x="570" y="204">200 µm</text><text x="710" y="204">2 mm</text>
+        </g>
+
+        <circle cx="90" cy="150" r="2.5" fill="#e8a33d"/>
+        <circle cx="250" cy="146" r="5" fill="#e8a33d" fill-opacity="0.8"/>
+        <circle cx="410" cy="138" r="14" fill="#4fc3c0" fill-opacity="0.55" stroke="#4fc3c0"/>
+        <circle cx="570" cy="128" r="24" fill="#4fc3c0" fill-opacity="0.45" stroke="#4fc3c0"/>
+        <circle cx="700" cy="112" r="40" fill="#6e93be" fill-opacity="0.45" stroke="#6e93be"/>
+
+        <g font-family="IBM Plex Sans" font-size="11.5" fill="#ecebe4" text-anchor="middle">
+          <text x="90" y="56">jądro</text>
+          <text x="250" y="56">mgiełka</text>
+          <text x="410" y="56">kropelka chmury</text>
+          <text x="570" y="56">mżawka</text>
+          <text x="700" y="56">kropla deszczu</text>
+        </g>
+        <g font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b" text-anchor="middle">
+          <text x="410" y="74">nie spada</text>
+          <text x="570" y="74">spada powoli</text>
+          <text x="700" y="74">spada 8 m/s</text>
+        </g>
+
+        <text x="380" y="238" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#e8a33d">z kropelki chmurowej do kropli deszczu: milion kropelek w jednej</text>
+      </svg>
+      <div class="diagram-caption">Oś jest logarytmiczna. Gdyby była zwykła, kropelka chmurowa byłaby niewidoczna obok kropli deszczu.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Sprawdzenie · pięćset ton na niebie</div>
+    <h2>Dlaczego to nie spada</h2>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Chmury unoszą się, bo są lekkie — lżejsze od powietrza.</p>
+      <p class="myth__right">Chmura jest <strong>cięższa</strong> od powietrza, które zajmowałoby jej miejsce. Średni Cumulus waży kilkaset ton. Kropelki cały czas opadają — po prostu bardzo wolno, około centymetra na sekundę — a powietrze pod nimi wznosi się szybciej.</p>
+      <p class="myth__why">Mit bierze się z wyglądu: chmura wygląda na puszystą, a puszyste rzeczy kojarzą się z lekkością. Prawdziwa odpowiedź jest ciekawsza, bo tłumaczy przy okazji, dlaczego chmura znika, gdy wznoszenie ustaje.</p>
+    </div>
+
+    <p>Powód, dla którego tak drobna kropelka opada tak wolno, jest ten sam, dla którego pyłek unosi się w powietrzu godzinami, a kamień spada natychmiast. Opór powietrza rośnie z powierzchnią, a ciężar z objętością — i przy bardzo małych rozmiarach opór wygrywa z ogromną przewagą.</p>
+
+    <p>Kropelka o średnicy dwudziestu mikrometrów opada z prędkością około centymetra na sekundę. Prąd wstępujący w zwykłym termiku ma metr na sekundę, czyli <strong>sto razy więcej</strong>. Wynik jest przesądzony: kropelki są niesione w górę, mimo że cały czas próbują spadać.</p>
+
+    <p>To wyjaśnia od razu drugą rzecz. Gdy prąd wstępujący ustaje — wieczorem, gdy Słońce przestaje nagrzewać ziemię — kropelki zaczynają wygrywać i chmura opada. Opadając, trafia w cieplejsze warstwy i po prostu <span class="term-amber">wyparowuje</span>. Dlatego popołudniowe kłębiaste chmury znikają przed zachodem, choć nikt ich nie sprząta.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-l-predkosc-opadania.html">↓ Dodatek L — prędkość opadania i prawo Stokesa, z rachunkiem</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Ujęcie · chmura jest czasownikiem</div>
+    <h2>Proces, który stoi w miejscu</h2>
+
+    <p>Teraz najważniejsza zmiana perspektywy w całej Części III. Naturalnie myślimy o chmurze jak o przedmiocie: obiekcie, który powstał, przemieszcza się i kiedyś zniknie. Tymczasem chmura jest <strong>procesem</strong>.</p>
+
+    <p>Przez chmurę cały czas przepływa powietrze. Wchodzi od spodu, wilgotne i przezroczyste. Na poziomie kondensacji woda się w nim skrapla i staje się widoczna. Powietrze idzie dalej w górę, a na brzegach chmury miesza się z suchym otoczeniem, kropelki parują i chmura tam się kończy.</p>
+
+    <p>W efekcie <span class="term-cyan">chmura stoi, a materia przez nią przelatuje</span>. Kropelka, którą widzimy w danym miejscu, jest tam od kilkudziesięciu sekund; za chwilę wyparuje i zastąpi ją nowa.</p>
+
+    <p>Najbliższą analogią jest stojąca fala na rzece. Woda przepływa nieustannie, a kształt fali trwa. Nikt nie powie, że fala „płynie" — jest wzorem w przepływie. Chmura jest dokładnie tym samym, tylko z powietrzem zamiast wody i ze skraplaniem zamiast piętrzenia.</p>
+
+    <p>To ujęcie tłumaczy trzy rzeczy naraz, których wersja „chmura to przedmiot" nie tłumaczy wcale:</p>
+
+    <p><strong>Dlaczego chmura soczewkowata stoi nieruchomo nad górą przy silnym wietrze.</strong> Bo powietrze przez nią przelatuje z prędkością wichury, a proces stoi tam, gdzie stoi przeszkoda. Wrócimy do tego w Rozdziale 15.</p>
+
+    <p><strong>Dlaczego brzegi chmur kłębiastych są ostre.</strong> Bo tam kończy się warunek skraplania, a przejście od „skrapla się" do „paruje" jest gwałtowne. Ostry brzeg to nie ściana — to granica procesu.</p>
+
+    <p><strong>Dlaczego chmury zmieniają kształt w minutach.</strong> Bo nic w nich nie jest trwałe. To, na co patrzymy, jest bezustannie odtwarzane.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Odpowiedź · pytanie z okładki</div>
+    <h2>Płaskie dno na jednej wysokości</h2>
+
+    <p>Jeśli w bezchmurny letni dzień spojrzymy na niebo pełne kłębiastych chmurek, zobaczymy coś, co przy odrobinie uwagi jest zdumiewające: <strong>wszystkie mają dno na dokładnie tej samej wysokości</strong>. Nie mniej więcej — dokładnie. Nad całą okolicą, aż po horyzont, biegnie idealnie pozioma linia, poniżej której nie ma ani jednej chmury.</p>
+
+    <p>Wyjaśnienie mamy już w całości i wynika z trzech rzeczy, które kolejno ustaliliśmy. Cała okolica jest przykryta jedną masą powietrza o mniej więcej jednakowej temperaturze i jednakowym punkcie rosy. Każda porcja tego powietrza, ruszając w górę, stygnie w tym samym tempie — dziesięć stopni na kilometr. Więc każda osiąga punkt rosy na <span class="term-cyan">tej samej wysokości</span>.</p>
+
+    <p>Nie ma tam żadnej powierzchni, na której chmury by leżały. Jest po prostu wysokość, poniżej której woda jeszcze się nie skropliła, a powyżej — już tak. Płaskie dno to <strong>widoczna granica warunku fizycznego</strong>, i to jest chyba najładniejsza rzecz, jaką da się zobaczyć, patrząc w górę bez żadnego sprzętu.</p>
+
+    <p>Wysokość tej granicy da się policzyć w pamięci i to działa. Bierzemy różnicę między temperaturą a punktem rosy przy ziemi i mnożymy przez sto dwadzieścia pięć — wynik w metrach. Przy 25°C i punkcie rosy 15°C: różnica dziesięć, razy 125, czyli <strong>1250 metrów</strong>. Spójrzmy potem w niebo i porównajmy z podaną w prognozie lotniczej podstawą chmur. Zgadza się z dokładnością do stu-dwustu metrów.</p>
+
+    <p>Widget poniżej pozwala to zobaczyć. Suwak punktu rosy przesuwa dno chmury w górę i w dół, bo dosłownie to właśnie robi w rzeczywistości. Suwak grubości pokazuje drugą rzecz z Rozdziału 3: chmura ciemnieje od spodu, nie zmieniając koloru — bo to głębokość optyczna, a nie barwnik.</p>
+
+    <div class="viz3d" id="chmuraLab">
+      <div class="viz3d__head">
+        <p class="viz3d__title">Chmura policzona z tych samych liczb</p>
+        <p class="viz3d__sub">Ten sam silnik wolumetryczny, którego użyjemy w całym atlasie chmur. Tutaj sterujemy nim dwiema wielkościami z tego rozdziału.</p>
+      </div>
+      <div class="viz3d__stage">
+        <canvas></canvas>
+        <div class="viz3d__badge">przeciągnij, żeby obejść chmurę</div>
+        <div class="viz3d__fallback">
+          <strong>Ten widget potrzebuje WebGL</strong>
+          <span>Wywód jest kompletny bez niego — akapit obok podaje regułę liczbową, którą można sprawdzić na prawdziwym niebie.</span>
+        </div>
+      </div>
+      <div class="viz3d__controls">
+        <label for="chBase">Wysokość podstawy</label>
+        <input type="range" id="chBase" data-sky="base" min="0.6" max="3.4" step="0.05" value="1.5">
+        <span class="value-readout" data-sky-out="base"></span>
+
+        <label for="chThick">Grubość chmury</label>
+        <input type="range" id="chThick" data-sky="thick" min="0.5" max="5.5" step="0.1" value="1.5">
+        <span class="value-readout" data-sky-out="thick"></span>
+
+        <label for="chSun">Wysokość Słońca</label>
+        <input type="range" id="chSun" data-sky="sunElev" min="8" max="80" step="1" value="55">
+        <span class="value-readout" data-sky-out="sunElev"></span>
+      </div>
+      <div class="viz3d__note">
+        <p>Zwróćmy uwagę na dwie rzeczy. Po pierwsze: <strong>dno zostaje płaskie niezależnie od wszystkiego</strong> — bo jest granicą warunku, nie kształtem obiektu. Po drugie: przy dużej grubości spód robi się ciemny, choć nic w chmurze nie zmieniło koloru. To ta sama głębokość optyczna, o której była mowa w Rozdziale 3.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Sprawdźmy regułę stu dwudziestu pięciu.</strong> Bierzemy z aplikacji temperaturę i punkt rosy, mnożymy różnicę przez 125 i dostajemy wysokość podstawy w metrach. Potem porównujemy z rzeczywistością — najprościej z aplikacją lotniczą, która podaje podstawę chmur w stopach nad lotniskiem (jedna stopa to około 30 cm). To jedno z niewielu obliczeń w tej książce, które można wykonać w głowie i natychmiast zweryfikować oczami.</p>
+    <p><strong>Chmurka nad polem, nie nad lasem.</strong> Latem w słoneczny dzień warto popatrzeć, gdzie stoją małe kłębiaste chmurki. Rzadko są rozłożone równomiernie — grupują się nad suchymi polami, nieużytkami, dużymi połaciami asfaltu, a unikają lasów i jezior. Każda z nich to znacznik kolumny wznoszącego powietrza, a więc w praktyce mapa nagrzania terenu widziana z góry.</p>
+    <p><strong>Cień chmury mówi o jej grubości.</strong> Chmura, która rzuca na ziemię wyraźny, ostry i ciemny cień, jest gruba. Taka, przez którą Słońce prześwituje jako jasna plama, jest cienka. To najprostszy sposób oceny, którego nie zaburza kontrast z tłem — a więc pozbawiony wady, którą omawialiśmy w Rozdziale 4.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>jądro kondensacji</dt>
+      <dd>Drobina, na której osadza się para wodna. Sól morska, pył, sadza, pyłki. Bez nich chmury by nie powstawały.</dd>
+      <dt>kropelka chmurowa</dt>
+      <dd>Kropla wody o średnicy około 20 µm. Opada z prędkością około centymetra na sekundę, więc w praktyce jest niesiona.</dd>
+      <dt>poziom kondensacji</dt>
+      <dd>Wysokość, na której wznoszące się powietrze osiąga punkt rosy. Widzialna jako płaskie dno chmur kłębiastych.</dd>
+      <dt>prąd wstępujący</dt>
+      <dd>Kolumna wznoszącego się powietrza. W zwykłym termiku około 1 m/s, w burzy nawet 40 m/s.</dd>
+      <dt>przesycenie</dt>
+      <dd>Stan, w którym pary jest więcej niż przy nasyceniu. W czystym powietrzu może sięgnąć setek procent; z jądrami wystarczy ułamek procenta.</dd>
+      <dt>zawartość wody w chmurze</dt>
+      <dd>Około 0,5 g na metr sześcienny w typowej chmurze. Mało na jednostkę, dużo w sumie.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Umiemy zrobić chmurę i wiemy, dlaczego wisi. Kończymy tym samym Część III — całą fizykę mamy już za sobą. Od następnego rozdziału zaczynamy patrzeć: dziesięć rodzajów chmur, trzy piętra i metoda, która pozwala nazwać każdą z nich w pięć sekund, bez uczenia się czegokolwiek na pamięć. Każda nazwa okaże się konsekwencją czegoś, co już wiemy.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>
@@ -47,5 +234,33 @@
 </div>
 
 <script src="../assets/interactive.js"></script>
+<script type="module">
+import { createCloudVolume, bindSliders } from '../assets/sky3d.js';
+const host = document.getElementById('chmuraLab');
+const chmura = createCloudVolume(host, {
+  base: 1.5, thick: 1.5, density: 2.4, coverage: 0.86, lumpy: 0.92, ice: 0.0, spread: 3.2,
+});
+if (chmura.ok) bindSliders(host, chmura, {
+  fmt(v, el) {
+    const k = el.dataset.sky;
+    if (k === 'base') {
+      // jednostki sceny na metry: 1 = ok. 500 m, zeby liczby zgadzaly sie
+      // z regula 125 x (temperatura - punkt rosy) z tekstu
+      const m = Math.round(v * 500 / 50) * 50;
+      const roznica = Math.round(m / 125);
+      return m + ' m · gdy temperatura minus punkt rosy = ' + roznica + '°C';
+    }
+    if (k === 'thick') {
+      const m = Math.round(v * 500 / 50) * 50;
+      const o = v < 1.1 ? 'cienka — Słońce prześwituje'
+              : v < 2.2 ? 'typowy Cumulus'
+              : v < 3.6 ? 'congestus — spód wyraźnie ciemny'
+              : 'jak Cumulonimbus — spód prawie czarny';
+      return m + ' m · ' + o;
+    }
+    return v.toFixed(0) + '°';
+  },
+});
+</script>
 </body>
 </html>

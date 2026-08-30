@@ -82,6 +82,7 @@ h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,50px);lin
 .term-amber{color:var(--amber);font-weight:600;}
 .term-cyan{color:var(--cyan);font-weight:600;}
 .term-violet{color:var(--violet);font-weight:600;}
+.term-raster{color:var(--raster);font-weight:600;}
 
 /* FORMULAS */
 .formula{font-family:var(--mono);background:var(--bg-panel-alt);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin:22px 0;font-size:15px;color:var(--amber);text-align:center;letter-spacing:.02em;overflow-x:auto;line-height:1.8;}

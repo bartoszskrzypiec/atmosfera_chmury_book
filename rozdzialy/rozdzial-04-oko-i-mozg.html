@@ -28,7 +28,228 @@
   <h1>Nasze oko nie jest aparatem</h1>
   <p class="subtitle">Zanim zaczniemy oceniać kolor nieba, warto wiedzieć, że przyrząd pomiarowy, którym dysponujemy, notorycznie zmyśla — i robi to na naszą korzyść.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Oko nie mierzy jasności ani koloru. <strong>Porównuje</strong> — i to porównanie mózg nieustannie koryguje, żeby świat wyglądał sensownie, a nie prawdziwie.</li>
+      <li>Słońce w zenicie jest <strong>białe</strong>, nie żółte. Żółte Słońce na rysunkach to konwencja plus efekt patrzenia na nie nisko nad horyzontem.</li>
+      <li>Nasz zakres jasności bije aparat i monitor na głowę. Dlatego zdjęcie zachodu prawie nigdy nie wygląda tak, jak to pamiętamy — i wina nie leży po stronie pamięci.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Ostrzeżenie · zanim zaczniemy oceniać</div>
+    <h2>Przyrząd, który zmyśla dla naszego dobra</h2>
+
+    <p>Następne cztery rozdziały będą o kolorach nieba. Zanim jednak zaczniemy mówić „niebo jest dziś wyjątkowo głębokie" albo „ten zachód był czerwieńszy niż tamten", warto uczciwie ustalić, czym te oceny robimy.</p>
+
+    <p>Naturalne założenie brzmi: oko jest kamerą, mózg to nagrywarka, a pamięć to plik. Wszystkie trzy części tego zdania są nieprawdziwe, i to nie trochę. <strong>Oko nie mierzy niczego w wartościach bezwzględnych.</strong> Nie ma w nim odpowiednika miernika, który powiedziałby „to miejsce ma jasność 340". Jest w nim za to znakomity układ do porównywania sąsiadujących obszarów — i cała nasza percepcja jest zbudowana na tych porównaniach.</p>
+
+    <p>To nie usterka. To bardzo dobra decyzja projektowa, bo w naturze prawie nigdy nie potrzebowaliśmy wiedzieć, ile fotonów przyleciało. Potrzebowaliśmy wiedzieć, czy tamta plama to skała, czy zwierzę — a to jest pytanie o różnice, nie o wartości. Kosztem tej decyzji jest jednak to, że jako mierniki nieba jesteśmy zawodni w bardzo konkretny i przewidywalny sposób. I lepiej wiedzieć jak.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Korekta · stałość barwna</div>
+    <h2>Biała kartka jest biała zawsze, choć nigdy nie jest</h2>
+
+    <p>Weźmy kartkę papieru i obejrzyjmy ją w południe na dworze, potem w pokoju pod żarówką, potem wieczorem przy zachodzie. Za każdym razem powiemy, że jest biała.</p>
+
+    <p>Fizycznie za każdym razem jest zupełnie innego koloru. Światło dzienne ma dużo błękitu, żarówka świeci wyraźnie pomarańczowo, zachód jeszcze bardziej. Kartka odbija to, co dostaje — więc pod żarówką jest po prostu pomarańczowa. Aparat bez korekty pokaże to bez litości.</p>
+
+    <p>My tego nie widzimy, bo mózg wykonuje operację zwaną <span class="term-cyan">stałością barwną</span>: szacuje, jakiego koloru jest oświetlenie, i odejmuje je od wszystkiego, co widzi. Robi to bez naszej wiedzy i nie da się tego wyłączyć siłą woli. Aparat robi to samo pod nazwą „balans bieli" — z tą różnicą, że w aparacie jest to suwak, a u nas proces w tle.</p>
+
+    <p>Ma to dla nas dwie konsekwencje. Pierwsza: <strong>jesteśmy fatalnymi sędziami koloru oświetlenia</strong>, bo cały nasz układ wzrokowy pracuje nad tym, żebyśmy go nie zauważali. Druga, ważniejsza dla tej książki: dlatego tak trudno uwierzyć, jak bardzo zmienia się barwa światła dziennego w ciągu dnia. Zmienia się ogromnie. Po prostu nam to skompensowano.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Ta sama kartka, cztery światła</span><span>przesuń porę dnia</span></div>
+      <div class="diagram-controls">
+        <label for="wb">Światło</label>
+        <input type="range" id="wb" min="1800" max="12000" step="100" value="5500">
+        <span class="value-readout" id="wbOut">5500 K · południe</span>
+      </div>
+      <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
+        <text x="190" y="30" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">CO NAPRAWDĘ DOCIERA</text>
+        <rect id="wbRaw" x="80" y="44" width="220" height="130" rx="6" fill="#ffffff"/>
+        <text x="190" y="196" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#8b909b">tak zarejestruje aparat bez korekty</text>
+
+        <text x="570" y="30" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#4fc3c0">CO WIDZIMY</text>
+        <rect id="wbFix" x="460" y="44" width="220" height="130" rx="6" fill="#ffffff"/>
+        <text x="570" y="196" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#8b909b">mózg odjął kolor oświetlenia</text>
+
+        <line x1="330" y1="109" x2="430" y2="109" stroke="#4fc3c0" stroke-width="1.4" stroke-dasharray="4 4"/>
+        <text x="380" y="102" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4fc3c0">stałość</text>
+        <text x="380" y="124" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4fc3c0">barwna</text>
+        <text x="380" y="220" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">ta sama kartka, to samo oko</text>
+      </svg>
+      <div class="diagram-caption">Prawy prostokąt jest zawsze biały. To nie błąd rysunku — to dokładnie ta usługa, którą świadczy nam mózg.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('wb'), out=document.getElementById('wbOut');
+        var raw=document.getElementById('wbRaw');
+        // Przyblizenie koloru ciala doskonale czarnego (Tanner Helland), wystarczajace do ilustracji.
+        function kelvinRGB(k){
+          var t=k/100, r,g,b;
+          if(t<=66){ r=255; g=99.47*Math.log(t)-161.12; }
+          else { r=329.7*Math.pow(t-60,-0.1332); g=288.12*Math.pow(t-60,-0.0755); }
+          if(t>=66) b=255;
+          else if(t<=19) b=0;
+          else b=138.52*Math.log(t-10)-305.04;
+          var c=function(v){ return Math.max(0,Math.min(255,Math.round(v))); };
+          return 'rgb('+c(r)+','+c(g)+','+c(b)+')';
+        }
+        function opis(k){
+          if(k<2200) return 'płomień świecy';
+          if(k<2900) return 'żarówka';
+          if(k<3600) return 'godzina przed zachodem';
+          if(k<4600) return 'późne popołudnie';
+          if(k<6000) return 'południe';
+          if(k<7500) return 'pochmurny dzień';
+          if(k<9500) return 'cień w słoneczny dzień';
+          return 'błękitna godzina po zachodzie';
+        }
+        function update(){
+          var k=parseFloat(sl.value);
+          raw.setAttribute('fill', kelvinRGB(k));
+          out.textContent=k.toFixed(0)+' K · '+opis(k);
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Sprawdzenie · kolor, którego Słońce nie ma</div>
+    <h2>Słońce jest białe</h2>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Słońce jest żółte.</p>
+      <p class="myth__right">Słońce w zenicie jest <strong>białe</strong>. Jego światło jest z definicji tym, co nazywamy bielą — cała nasza percepcja koloru jest wykalibrowana właśnie na nie. Zdjęcia Słońca zrobione z orbity, gdzie nie ma atmosfery, pokazują biel.</p>
+      <p class="myth__why">Żółć bierze się z dwóch rzeczy naraz. Po pierwsze, patrzymy na Słońce prawie wyłącznie wtedy, gdy jest nisko — czyli gdy atmosfera zdążyła zabrać mu błękit (Rozdział 6). Po drugie, w kulturze rysujemy żółte słońce od tysiącleci i uczymy tego dzieci, zanim zdążą sprawdzić.</p>
+    </div>
+
+    <p>Jest w tym pewna elegancka pułapka logiczna, warta zauważenia. Nie możemy zapytać „jakiego koloru jest światło białe", bo białe jest zdefiniowane jako to, co daje nam Słońce. To trochę jak pytanie, ile metrów ma wzorzec metra. Gwiazdy gorętsze od Słońca wyglądają nam na niebieskawe, chłodniejsze na pomarańczowe — ale to jest opis <em>względem</em> Słońca. Gdybyśmy wyewoluowali przy czerwonym karle, biel wyglądałaby zupełnie inaczej.</p>
+
+    <p>Praktyczny wniosek jest taki: kiedy w kolejnych rozdziałach powiemy, że coś „ma barwę cieplejszą" albo „chłodniejszą", zawsze będziemy mieli na myśli odniesienie do południowego światła dziennego. Bez tego punktu odniesienia zdania o kolorze nieba nie mają sensu.</p>
+
+    <div class="panel">
+      <div class="panel-label">Bezpieczeństwo · przeczytajmy to raz, uważnie</div>
+      <ul>
+        <li><strong>Nigdy nie patrzymy na Słońce przez lornetkę, teleskop ani teleobiektyw.</strong> Optyka skupia energię i uszkodzenie siatkówki następuje szybciej, niż zdążymy odwrócić wzrok. Siatkówka nie boli — nie ma tam receptorów bólu, więc nie dostaniemy ostrzeżenia.</li>
+        <li>Gołym okiem, przy Słońcu nisko nad horyzontem i mocno przygaszonym, krótkie spojrzenie nie zaszkodzi. Przy Słońcu wysoko — zaszkodzi.</li>
+        <li>Przy obserwacji halo i słupów świetlnych (Rozdział 20) <strong>zawsze zasłaniamy tarczę</strong> dłonią, krawędzią budynku albo latarnią. To nie jest ostrożnościowa formułka — to jedyny wygodny sposób, żeby cokolwiek wokół Słońca w ogóle zobaczyć.</li>
+        <li>Okulary przeciwsłoneczne <strong>nie wystarczają</strong>. Zwykłe szkło spawalnicze klasy 14 albo folia do obserwacji Słońca — tak.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Zakres · dlaczego zdjęcia zawodzą</div>
+    <h2>Widzimy więcej, niż da się zapisać</h2>
+
+    <p>Druga rzecz, w której nasze oko bije technikę, to zakres jasności. Różnica między najjaśniejszym a najciemniejszym miejscem, jakie potrafimy objąć jednocześnie, jest ogromna — a jeśli damy oczom kilka minut na adaptację, robi się wręcz absurdalna.</p>
+
+    <p>Aparat ma tego znacznie mniej. Ekran telefonu — jeszcze mniej. Wydruk na papierze — dramatycznie mniej. I stąd bierze się doświadczenie, które zna każdy: stoimy przed najpiękniejszym zachodem w życiu, robimy zdjęcie, patrzymy na ekran i widzimy coś bladego i nijakiego.</p>
+
+    <p>To nie jest wina telefonu ani nasza. To fizyczne ograniczenie: <strong>scena mieści więcej zakresu, niż nośnik potrafi przenieść</strong>, więc coś musi zostać przycięte. Zwykle aparat ratuje jasne niebo i topi w czerni pierwszy plan, albo odwrotnie. My tego problemu nie mamy, bo nasze oko przebiega po scenie i adaptuje się lokalnie do każdego jej fragmentu z osobna — a wrażenie, które zostaje w pamięci, jest sklejką kilkunastu takich lokalnych adaptacji. Aparat robi jeden pomiar, w jednej chwili, dla całego kadru.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Zakres jasności</span><span>skala logarytmiczna</span></div>
+      <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="IBM Plex Mono" font-size="10" fill="#8b909b">
+          <text x="40" y="34">gwiazdy</text>
+          <text x="196" y="34">Księżyc</text>
+          <text x="352" y="34">zmierzch</text>
+          <text x="508" y="34">niebo w dzień</text>
+          <text x="664" y="34">tarcza Słońca</text>
+        </g>
+        <line x1="40" y1="44" x2="730" y2="44" stroke="#2a2f38"/>
+        <g stroke="#2a2f38" stroke-dasharray="2 4">
+          <line x1="196" y1="44" x2="196" y2="200"/><line x1="352" y1="44" x2="352" y2="200"/>
+          <line x1="508" y1="44" x2="508" y2="200"/><line x1="664" y1="44" x2="664" y2="200"/>
+        </g>
+
+        <rect x="40" y="66" width="690" height="26" rx="4" fill="#4fc3c0" fill-opacity="0.30" stroke="#4fc3c0" stroke-opacity="0.6"/>
+        <text x="52" y="84" font-family="IBM Plex Sans" font-size="12.5" fill="#ecebe4">nasze oko po adaptacji</text>
+
+        <rect x="40" y="102" width="330" height="26" rx="4" fill="#4fc3c0" fill-opacity="0.20" stroke="#4fc3c0" stroke-opacity="0.4"/>
+        <text x="52" y="120" font-family="IBM Plex Sans" font-size="12.5" fill="#ecebe4">oko w jednej chwili, bez adaptacji</text>
+
+        <rect x="235" y="138" width="300" height="26" rx="4" fill="#e8a33d" fill-opacity="0.28" stroke="#e8a33d" stroke-opacity="0.6"/>
+        <text x="247" y="156" font-family="IBM Plex Sans" font-size="12.5" fill="#ecebe4">dobry aparat, jedno zdjęcie</text>
+
+        <rect x="300" y="174" width="190" height="26" rx="4" fill="#9c82d8" fill-opacity="0.28" stroke="#9c82d8" stroke-opacity="0.6"/>
+        <text x="312" y="192" font-family="IBM Plex Sans" font-size="12.5" fill="#ecebe4">ekran telefonu</text>
+
+        <text x="385" y="228" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">każdy kreskowany podział to około tysiąckrotna zmiana jasności</text>
+      </svg>
+      <div class="diagram-caption">Dwa górne paski to my. Dwa dolne to wszystko, czym próbujemy to zapisać i pokazać.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Złudzenie · kontrast wygrywa z jasnością</div>
+    <h2>Nie umiemy ocenić, czy chmura jest ciemna</h2>
+
+    <p>Skoro oko porównuje, a nie mierzy, to jego oceny da się przewidywalnie oszukać — wystarczy zmienić otoczenie badanej plamy, nie ruszając jej samej. To nie jest sztuczka salonowa; ma to bezpośrednie konsekwencje przy patrzeniu w niebo.</p>
+
+    <p>Ta sama chmura wygląda na dramatycznie ciemniejszą, gdy stoi na tle rozświetlonego nieba, i na całkiem niewinną, gdy całe niebo jest już zachmurzone. Fizycznie nic się z nią nie stało. Zmienił się sąsiad.</p>
+
+    <p>Dlatego zdanie „ale ta chmura jest czarna, będzie burza" jest znacznie mniej wiarygodne, niż się wydaje. Ciemność chmury faktycznie coś znaczy — mówi o jej grubości, o czym była mowa w poprzednim rozdziale — ale nasza ocena tej ciemności jest zdominowana przez kontrast z tłem. W Rozdziale 17 podamy znacznie pewniejsze oznaki tego, że chmura robi się groźna, i żadna z nich nie będzie oceną jasności.</p>
+
+    <p>Podobnie działa <strong>złudzenie Księżyca</strong>: przy horyzoncie tarcza wygląda wyraźnie większa niż wysoko na niebie. Można to zmierzyć — na przykład fotografując ją tym samym obiektywem — i wychodzi, że przy horyzoncie jest odrobinę <em>mniejsza</em>, bo jesteśmy od niej dalej o promień Ziemi. Powiększenie dzieje się wyłącznie w naszej głowie i mimo stu lat badań nie ma pełnej zgody, dlaczego. Najprawdopodobniej chodzi o to, że przy horyzoncie mamy punkty odniesienia — drzewa, domy, wzgórza — a wysoko na niebie nie mamy żadnych.</p>
+
+    <p>To ostatnie zdanie warto zapamiętać w ogólniejszej postaci, bo przyda się w Części V: <span class="term-amber">wielkości kątowe na niebie oceniamy fatalnie</span>. Dlatego przy tęczy, halo i wieńcach nie będziemy polegać na wrażeniu, tylko na wyciągniętej ręce — paznokciu, palcu i pięści. To jedyny wiarygodny przyrząd pomiarowy, jaki nosimy zawsze przy sobie.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Ta sama szarość</span><span>dwa tła</span></div>
+      <svg viewBox="0 0 760 220" xmlns="http://www.w3.org/2000/svg">
+        <rect x="60" y="30" width="290" height="150" rx="8" fill="#d7dde2"/>
+        <rect x="150" y="75" width="110" height="60" rx="5" fill="#8e969f"/>
+        <text x="205" y="200" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">na tle jasnego nieba</text>
+
+        <rect x="410" y="30" width="290" height="150" rx="8" fill="#454c55"/>
+        <rect x="500" y="75" width="110" height="60" rx="5" fill="#8e969f"/>
+        <text x="555" y="200" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" fill="#8b909b">na tle zachmurzonego</text>
+
+        <text x="380" y="22" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">oba prostokąty w środku mają identyczny kolor: #8e969f</text>
+      </svg>
+      <div class="diagram-caption">Można sprawdzić pipetą w dowolnym programie graficznym. Wiedza, że są identyczne, w niczym nie pomaga — dalej wyglądają inaczej.</div>
+    </div>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Wyłączmy automatyczny balans bieli.</strong> To jedyne ustawienie, które naprawdę zmienia sens zdjęcia nieba. Telefon w trybie automatycznym „poprawi" błękit ku szarości, a złocisty zachód ku neutralności — bo tak został nauczony. Ustawienie ręczne na światło dzienne, mniej więcej 5500 K, i zostawienie go w spokoju daje zdjęcia, które wyglądają jak to, na co patrzyliśmy. W trybie RAW można to zmienić po fakcie; w JPEG nie da się już odzyskać.</p>
+    <p><strong>Dajmy oczom dziesięć minut.</strong> Przy obserwacji zmierzchu, obłoków srebrzystych czy słabych zjawisk optycznych adaptacja robi ogromną różnicę, a zajmuje realnie kilkanaście minut. Jedno spojrzenie w telefon kasuje jej większość. Jeśli musimy patrzeć na ekran, warto przełączyć go na czerwony tryb nocny albo przynajmniej zgasić do minimum.</p>
+    <p><strong>Porównujmy z czymś białym.</strong> Jeśli chcemy uczciwie ocenić, jakiego koloru jest światło, potrzebny jest wzorzec — kartka, biała ściana, mankiet koszuli. Bez punktu odniesienia mózg zresetuje nam biel do tego, co akurat dominuje w polu widzenia, i ocena będzie bezwartościowa.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>stałość barwna</dt>
+      <dd>Zdolność mózgu do odejmowania koloru oświetlenia, żeby przedmioty zachowywały „swój” kolor. Działa automatycznie i nie da się jej wyłączyć.</dd>
+      <dt>balans bieli</dt>
+      <dd>Techniczny odpowiednik stałości barwnej w aparacie. Ustawienie, które decyduje, co na zdjęciu ma wyjść białe.</dd>
+      <dt>temperatura barwowa</dt>
+      <dd>Sposób opisania barwy światła jednym numerem, w kelwinach. Niskie wartości to światło ciepłe (świeca 1800 K), wysokie — chłodne (cień 9000 K). Mylące: im wyższa liczba, tym „zimniejszy” kolor.</dd>
+      <dt>czopki</dt>
+      <dd>Trzy rodzaje komórek siatkówki odpowiadających za widzenie barwne. Kolor jest wynikiem porównania ich trzech odczytów, nie pomiarem długości fali.</dd>
+      <dt>zakres dynamiczny</dt>
+      <dd>Rozpiętość między najjaśniejszym a najciemniejszym, co dane urządzenie albo oko obejmuje jednocześnie.</dd>
+      <dt>adaptacja</dt>
+      <dd>Dostrajanie czułości oka do panującej jasności. Trwa od sekund do kilkudziesięciu minut i kasuje ją jedno spojrzenie w jasny ekran.</dd>
+      <dt>wielkość kątowa</dt>
+      <dd>Rozmiar obiektu wyrażony jako kąt, pod jakim go widzimy. Księżyc ma pół stopnia, wyciągnięta pięść około dziesięciu.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Scena gotowa, mechanizm poznany, przyrząd wykalibrowany — i to wszystko, czego potrzebowaliśmy. Następne cztery rozdziały to czysta przyjemność patrzenia: dlaczego niebo jest niebieskie, dlaczego zachody czerwone, dlaczego zmierzch trwa tak długo i dlaczego Słońce, które właśnie zachodzi, tak naprawdę zaszło już kilka minut temu.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

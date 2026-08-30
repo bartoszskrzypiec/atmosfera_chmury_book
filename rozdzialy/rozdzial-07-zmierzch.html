@@ -28,7 +28,288 @@
   <h1>Zmierzch: najlepsza godzina dnia</h1>
   <p class="subtitle">Różowa wstęga nad wschodnim horyzontem to nie cień Ziemi. Cień jest tym szarym pasem pod nią — i właśnie patrzymy, jak rośnie.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Zmierzch ma trzy wyraźne etapy, a nie jest płynnym gaśnięciem. Każdy z nich ma inną definicję i inne zastosowanie.</li>
+      <li>Granat błękitnej godziny to <strong>nie resztka rozpraszania</strong>, tylko efekt pochłaniania przez ozon. To jedno z najczęściej mylonych wyjaśnień w całej dziedzinie.</li>
+      <li>Nad wschodnim horyzontem widać dwie różne rzeczy jedna nad drugą: <strong>szary cień Ziemi</strong> i <strong>różowy Pas Wenus</strong> nad nim. Prawie wszyscy nazywają obie jednym imieniem.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Struktura · trzy zmierzchy</div>
+    <h2>Ciemność przychodzi w trzech ratach</h2>
+
+    <p>Dla większości z nas po zachodzie „robi się ciemno" i to jest cały opis. Tymczasem żeglarze, astronomowie i wojskowi od stuleci używają trzech osobnych progów, bo każdy z nich oznacza coś zupełnie innego w praktyce. Progi wyznacza jedna liczba: <strong>jak głęboko pod horyzontem jest w danej chwili Słońce</strong>.</p>
+
+    <p><span class="term-amber">Zmierzch cywilny</span> trwa, dopóki Słońce nie zejdzie sześć stopni pod horyzont. Przez ten czas widać jeszcze bez sztucznego światła — da się czytać, jechać rowerem, rozpoznać twarz. Kończy się mniej więcej wtedy, gdy zapalają się latarnie.</p>
+
+    <p><span class="term-cyan">Zmierzch żeglarski</span> ciągnie się do dwunastu stopni. Nazwa nie jest przypadkowa: to okres, w którym jednocześnie widać już jasne gwiazdy <em>i</em> jeszcze linię horyzontu — a dokładnie te dwie rzeczy naraz są potrzebne, żeby zmierzyć sekstantem wysokość gwiazdy nad horyzontem. Cała nawigacja astronomiczna mieści się w tym oknie.</p>
+
+    <p><span class="term-violet">Zmierzch astronomiczny</span> kończy się na osiemnastu stopniach. Dopiero wtedy niebo jest naprawdę czarne i widać najsłabsze obiekty. Warto zauważyć, że w Polsce w czerwcu <strong>ten moment w ogóle nie nadchodzi</strong> — Słońce nie schodzi dostatecznie głęboko, więc mamy tak zwane białe noce i przez kilka tygodni po prostu nie da się obserwować słabych mgławic.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Trzy zmierzchy</span><span>przesuń Słońce pod horyzont</span></div>
+      <div class="diagram-controls">
+        <label for="zm">Słońce pod horyzontem</label>
+        <input type="range" id="zm" min="0" max="20" step="0.5" value="3">
+        <span class="value-readout" id="zmOut">3° · zmierzch cywilny</span>
+      </div>
+      <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
+        <rect id="zmSky" x="40" y="30" width="680" height="150" rx="4" fill="#4a7fb5"/>
+        <line x1="40" y1="180" x2="720" y2="180" stroke="#8b909b" stroke-width="2"/>
+        <text x="46" y="198" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">horyzont</text>
+
+        <g stroke-dasharray="4 4" stroke-width="1.1">
+          <line x1="40" y1="205" x2="720" y2="205" stroke="#e8a33d" opacity="0.65"/>
+          <line x1="40" y1="230" x2="720" y2="230" stroke="#4fc3c0" opacity="0.65"/>
+          <line x1="40" y1="255" x2="720" y2="255" stroke="#9c82d8" opacity="0.65"/>
+        </g>
+        <g font-family="IBM Plex Mono" font-size="9.5" text-anchor="end">
+          <text x="716" y="201" fill="#e8a33d">−6° koniec cywilnego</text>
+          <text x="716" y="226" fill="#4fc3c0">−12° koniec żeglarskiego</text>
+          <text x="716" y="251" fill="#9c82d8">−18° koniec astronomicznego</text>
+        </g>
+
+        <circle id="zmSun" cx="140" cy="180" r="10" fill="#e8a33d"/>
+        <text id="zmLab" x="140" y="172" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#e8a33d">0°</text>
+
+        <text x="380" y="112" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" fill="#ecebe4" id="zmCo">co jeszcze widać</text>
+        <text x="380" y="274" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">kolor prostokąta to przybliżenie barwy nieba w zenicie</text>
+      </svg>
+      <div class="diagram-caption">Prostokąt zmienia kolor tak, jak zmienia się niebo. Zwróćmy uwagę, że granat pojawia się dopiero po zejściu Słońca poniżej horyzontu — nie wcześniej.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('zm'), out=document.getElementById('zmOut');
+        var sun=document.getElementById('zmSun'), lab=document.getElementById('zmLab');
+        var sky=document.getElementById('zmSky'), co=document.getElementById('zmCo');
+        function mix(a,b,t){
+          var A=[parseInt(a.substr(1,2),16),parseInt(a.substr(3,2),16),parseInt(a.substr(5,2),16)];
+          var B=[parseInt(b.substr(1,2),16),parseInt(b.substr(3,2),16),parseInt(b.substr(5,2),16)];
+          return 'rgb('+A.map(function(v,i){return Math.round(v+(B[i]-v)*t);}).join(',')+')';
+        }
+        function barwa(d){
+          if(d<2) return mix('#5b8fbe','#c98a5a',d/2);
+          if(d<6) return mix('#c98a5a','#3f5f92',(d-2)/4);
+          if(d<12) return mix('#3f5f92','#1b2a4d',(d-6)/6);
+          if(d<18) return mix('#1b2a4d','#0d1220',(d-12)/6);
+          return '#0b0e18';
+        }
+        function opis(d){
+          if(d<0.5) return 'moment zachodu';
+          if(d<6) return 'zmierzch cywilny — widać bez latarki';
+          if(d<12) return 'zmierzch żeglarski — gwiazdy i horyzont naraz';
+          if(d<18) return 'zmierzch astronomiczny — niebo jeszcze nie całkiem czarne';
+          return 'noc astronomiczna';
+        }
+        function coWidac(d){
+          if(d<1) return 'jeszcze pełne kolory, cienie długie i miękkie';
+          if(d<4) return 'złoto gaśnie, pojawia się Wenus i najjaśniejsze gwiazdy';
+          if(d<6) return 'błękitna godzina — najlepszy moment na zdjęcia miasta';
+          if(d<9) return 'granat głęboki, widać już gwiazdozbiory';
+          if(d<12) return 'ostatnia chwila, gdy widać linię horyzontu nad morzem';
+          if(d<15) return 'Droga Mleczna zaczyna być widoczna poza miastem';
+          if(d<18) return 'prawie noc — słabe mgławice już dostępne';
+          return 'ciemno, jak tylko może być';
+        }
+        function update(){
+          var d=parseFloat(sl.value);
+          var y=180+d*(255-180)/18;
+          sun.setAttribute('cy',y.toFixed(1));
+          lab.setAttribute('y',(y-14).toFixed(1)); lab.textContent='−'+d.toFixed(1).replace('.',',')+'°';
+          sky.setAttribute('fill',barwa(d));
+          co.textContent=coWidac(d);
+          out.textContent='−'+d.toFixed(1).replace('.',',')+'° · '+opis(d);
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Sprawdzenie · najczęściej mylona przyczyna</div>
+    <h2>Granat błękitnej godziny robi ozon</h2>
+
+    <p>Błękitna godzina to ten moment po zachodzie, kiedy niebo nabiera głębokiego, nasyconego granatu — koloru, którego nie widać o żadnej innej porze doby. Fotografowie miasta polują na nią, bo jest jedyną chwilą, gdy jasność nieba i jasność świateł w oknach są porównywalne.</p>
+
+    <p>Naturalne wyjaśnienie brzmi: to po prostu resztka rozpraszania Rayleigha, słabnący błękit z Rozdziału 5. Brzmi rozsądnie i pojawia się nawet w porządnych źródłach popularnonaukowych. Jest jednak <strong>w większości błędne</strong>.</p>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Błękitna godzina to po prostu ostatnie resztki rozpraszania na cząsteczkach powietrza.</p>
+      <p class="myth__right">Główną przyczyną jest <strong>pochłanianie przez ozon</strong>. Ozon ma szerokie pasmo pochłaniania w żółci i czerwieni — nazywa się pasmem Chappuis. Gdy Słońce jest pod horyzontem, światło docierające do nas przebywa bardzo długą drogę przez warstwę ozonową w stratosferze i traci tam ciepłe barwy. Zostaje błękit.</p>
+      <p class="myth__why">Oba wyjaśnienia dają ten sam kolor, więc pomyłka nie boli praktycznie. Ale prowadzi w złą stronę: gdyby chodziło o zwykłe rozpraszanie, kolor powinien blednąc razem z jasnością. Tymczasem granat błękitnej godziny jest <em>bardziej</em> nasycony niż niebo w dzień, nie mniej.</p>
+    </div>
+
+    <p>To ładny przykład czegoś, o czym była mowa w Rozdziale 5: to samo zjawisko może mieć kilka przyczyn i wybranie tej najbardziej oczywistej nie zawsze wystarcza. Ozon, który znaliśmy dotąd wyłącznie jako tarczę przeciw ultrafioletowi, okazuje się przy okazji odpowiadać za jeden z ładniejszych kolorów, jakie można zobaczyć nad polskim miastem.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-f-geometria-zmierzchu.html">↓ Dodatek F — geometria zmierzchu, cień Ziemi i pasmo Chappuis</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Obserwacja · dwie wstęgi, nie jedna</div>
+    <h2>Cień Ziemi i Pas Wenus</h2>
+
+    <p>Teraz najlepsza rzecz w tym rozdziale, i taka, którą można zobaczyć praktycznie codziennie, jeśli tylko się wie, gdzie patrzeć. Przy zachodzie <strong>odwróćmy się plecami do Słońca</strong> i spójrzmy na wschodni horyzont.</p>
+
+    <p>Zobaczymy tam dwie poziome wstęgi jedna nad drugą. Na dole, tuż nad linią horyzontu, ciemny <span class="term-raster">szarosiny pas</span> o wyraźnej górnej krawędzi. Nad nim, wyraźnie oddzielony, pas <span class="term-amber">różowy albo brzoskwiniowy</span>, przechodzący wyżej w zwykły błękit.</p>
+
+    <p>To są dwie zupełnie różne rzeczy i większość ludzi — łącznie z wieloma podpisami pod zdjęciami — nazywa je wspólnie „cieniem Ziemi". Rozdzielmy je porządnie.</p>
+
+    <p><strong>Dolny, szary pas to naprawdę cień Ziemi.</strong> Dosłownie: patrzymy na własną planetę rzucającą cień na własną atmosferę. Powietrze w tym obszarze nie dostaje już bezpośredniego światła słonecznego, więc nie ma czym świecić i widzimy je ciemniejsze.</p>
+
+    <p><strong>Górny, różowy pas to Pas Wenus</strong> — powietrze wciąż oświetlone, ale światłem, które przeszło przez całą grubość atmosfery po drugiej stronie planety. Czyli światłem już zaczerwienionym, dokładnie z tego samego powodu, co zachód w Rozdziale 6. Ta czerwień rozprasza się z powrotem ku nam i miesza z resztką błękitu nieba — a mieszanka czerwieni z błękitem daje róż.</p>
+
+    <p>Najciekawsze jest to, że można obserwować <strong>ruch</strong>. Zaraz po zachodzie cień Ziemi jest niski i wąski; w ciągu kolejnych kilkunastu minut wyraźnie rośnie, wspina się po niebie i wypycha Pas Wenus coraz wyżej, aż oba się rozmyją. Patrzymy wtedy dosłownie na to, jak noc przesuwa się po planecie — z prędkością, którą da się zmierzyć wyciągniętą ręką.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Cień Ziemi i Pas Wenus</span><span>przesuń czas po zachodzie</span></div>
+      <div class="diagram-controls">
+        <label for="cien">Minut po zachodzie</label>
+        <input type="range" id="cien" min="0" max="45" step="1" value="10">
+        <span class="value-readout" id="cienOut">10 min · cień na ok. 7° nad horyzontem</span>
+      </div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- niebo -->
+        <rect x="40" y="30" width="680" height="215" fill="#2f5488"/>
+        <rect id="pasW" x="40" y="150" width="680" height="40" fill="#d98a86"/>
+        <rect id="cienZ" x="40" y="190" width="680" height="55" fill="#3d4759"/>
+        <line x1="40" y1="245" x2="720" y2="245" stroke="#8b909b" stroke-width="2"/>
+        <text x="46" y="263" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">horyzont wschodni</text>
+
+        <g font-family="IBM Plex Mono" font-size="10.5">
+          <text id="labC" x="712" y="222" text-anchor="end" fill="#ecebe4">CIEŃ ZIEMI · szary</text>
+          <text id="labW" x="712" y="176" text-anchor="end" fill="#ecebe4">PAS WENUS · różowy</text>
+          <text x="712" y="60" text-anchor="end" fill="#ecebe4" opacity="0.8">zwykłe niebo</text>
+        </g>
+
+        <!-- skala katowa -->
+        <g stroke="#ecebe4" stroke-opacity="0.35" stroke-width="1">
+          <line x1="70" y1="245" x2="70" y2="30"/>
+        </g>
+        <g font-family="IBM Plex Mono" font-size="9" fill="#8b909b">
+          <text x="76" y="230">0°</text>
+          <text x="76" y="188">10°</text>
+          <text x="76" y="146">20°</text>
+          <text x="76" y="104">30°</text>
+        </g>
+        <text x="380" y="288" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">wyciągnięta pięść to około 10° — da się tym zmierzyć wzrost cienia</text>
+      </svg>
+      <div class="diagram-caption">Cień rośnie mniej więcej stopień na minutę. To najprostszy sposób, żeby zobaczyć obrót Ziemi gołym okiem.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('cien'), out=document.getElementById('cienOut');
+        var cien=document.getElementById('cienZ'), pas=document.getElementById('pasW');
+        var Y0=245, PXDEG=(245-30)/50;
+        function update(){
+          var m=parseFloat(sl.value);
+          var deg=Math.min(48, m*0.95);           // cien rosnie ~1 stopien/min
+          var yC=Y0-deg*PXDEG;
+          var hPas=Math.max(6, 34-m*0.5);         // Pas Wenus stopniowo sie zweza
+          cien.setAttribute('y',yC.toFixed(1));
+          cien.setAttribute('height',(Y0-yC).toFixed(1));
+          pas.setAttribute('y',(yC-hPas).toFixed(1));
+          pas.setAttribute('height',hPas.toFixed(1));
+          var zanik=Math.max(0,Math.min(1,(m-28)/17));
+          pas.setAttribute('fill-opacity',(1-zanik).toFixed(2));
+          var opis = m<2 ? 'cień dopiero wychodzi zza horyzontu'
+                   : (m<14 ? 'cień na ok. '+deg.toFixed(0)+'° — Pas Wenus wyraźny'
+                   : (m<28 ? 'cień na ok. '+deg.toFixed(0)+'°, róż zaczyna blednąć'
+                           : 'cień zajął pół nieba, Pas Wenus zanika'));
+          out.textContent=m.toFixed(0)+' min · '+opis;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+
+  <div class="viz3d" id="cienLab">
+    <div class="viz3d__head">
+      <p class="viz3d__title">Skąd bierze się cień Ziemi — geometria od zewnątrz</p>
+      <p class="viz3d__sub">To, co z ziemi wygląda jak szara wstęga nad horyzontem, z zewnątrz jest po prostu stożkiem cienia planety. Przeciągnij, żeby obejrzeć z boku.</p>
+    </div>
+    <div class="viz3d__stage">
+      <canvas></canvas>
+      <div class="viz3d__badge">przeciągnij, żeby obrócić</div>
+      <div class="viz3d__fallback">
+        <strong>Ten widget potrzebuje WebGL</strong>
+        <span>Diagram powyżej pokazuje to samo z perspektywy obserwatora na ziemi — a to jest ta perspektywa, którą realnie zobaczymy wieczorem.</span>
+      </div>
+    </div>
+    <div class="viz3d__note">
+      <p>Bursztynowe strzałki to światło słoneczne. Ciemny stożek za planetą to jej cień. Biała kropka to my — i kiedy przekraczamy krawędź terminatora, cień, w który właśnie weszliśmy, staje się dla nas widoczny nad przeciwnym horyzontem. <strong>Patrzymy wtedy wzdłuż własnego cienia.</strong></p>
+      <p>Widać stąd też, dlaczego Pas Wenus jest zawsze <em>nad</em> cieniem, nigdy pod nim: różowa warstwa to powietrze na tyle wysokie, że stożek jeszcze go nie objął.</p>
+    </div>
+  </div>
+
+
+  <div class="section">
+    <div class="section-eyebrow">Program wieczoru · co pojawia się i w jakiej kolejności</div>
+    <h2>Zmierzch ma stały porządek zdarzeń</h2>
+
+    <p>Zmierzch jest dla obserwatora najbardziej zagęszczoną częścią doby: w ciągu czterdziestu minut pojawia się na niebie więcej rzeczy niż przez całą resztę dnia i nocy. I pojawiają się w bardzo powtarzalnej kolejności, co warto znać, bo dzięki temu wiadomo, na co czekać.</p>
+
+    <p><strong>Jeszcze przed zachodem</strong> — jeśli powietrze jest czyste, na wschodzie widać już zaczątek cienia Ziemi. Warto rzucić okiem, zanim zrobi się wyraźny.</p>
+
+    <p><strong>Kilka minut po</strong> — pojawia się Wenus, jeśli akurat jest wieczorną gwiazdą. Bywa tak jasna, że regularnie trafia na policję jako zgłoszenie niezidentyfikowanego obiektu. Zaraz po niej Jowisz.</p>
+
+    <p><strong>Dziesięć do dwudziestu minut</strong> — cień Ziemi i Pas Wenus w pełnej krasie, chmury wysokiego piętra świecą pomarańczem, zaczyna się błękitna godzina. To najbogatszy wizualnie moment całej doby.</p>
+
+    <p><strong>Dwadzieścia do czterdziestu minut</strong> — przelatują satelity. Są dobrze widoczne właśnie teraz i tylko teraz: my jesteśmy już w cieniu, a one na wysokości kilkuset kilometrów wciąż w słońcu. Świecą odbitym światłem i przesuwają się miarowo, bez migania — to jest różnica wobec samolotu. Najjaśniejsza jest Międzynarodowa Stacja Kosmiczna, która potrafi przewyższyć Wenus.</p>
+
+    <p><strong>Po godzinie</strong> — poza miastem widać Drogę Mleczną, a jesienią i wiosną, przy wyjątkowo czystym niebie, także <span class="term-cyan">światło zodiakalne</span>: bardzo słaby, skośny stożek jasności wzdłuż ekliptyki. To światło słoneczne rozproszone na pyle międzyplanetarnym — czyli dokładnie ten sam mechanizm co w Rozdziale 3, tylko z pyłem zamiast powietrza i w skali Układu Słonecznego.</p>
+
+    <p>Zwróćmy uwagę na jedną wspólną cechę satelitów, Pasa Wenus i chmur świecących po zachodzie: wszystkie trzy są widoczne dlatego, że <strong>są wyżej niż my, więc dla nich Słońce jeszcze nie zaszło</strong>. Zmierzch jest w gruncie rzeczy godziną, w której wysokość zaczyna mieć znaczenie.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Rzadkość · kiedy niebo robi się fioletowe</div>
+    <h2>Purpurowe światło po erupcjach</h2>
+
+    <p>Raz na kilkanaście lat zdarza się w Polsce zjawisko, które łatwo przegapić, jeśli się nie wie, że istnieje: mniej więcej dwadzieścia minut po zachodzie całe zachodnie niebo zapala się głęboką, nienaturalną purpurą — kolorem, którego przy zwykłym zmierzchu po prostu nie ma.</p>
+
+    <p>To <strong>purpurowe światło</strong>, i jest skutkiem drobnych kropelek kwasu siarkowego zawieszonych w stratosferze po wielkiej erupcji wulkanicznej. Warstwa ta leży na wysokości dwudziestu kilku kilometrów, czyli znacznie wyżej niż pogoda, i jest oświetlana jeszcze długo po tym, jak dolna atmosfera weszła w cień. Rozproszone na niej czerwone światło miesza się z błękitem wciąż świecącej wyżej warstwy — i wychodzi purpura.</p>
+
+    <p>Po Pinatubo w 1991 roku widywano to w Europie przez kilkanaście miesięcy. Warto znać ten kolor, bo jest to jeden z niewielu przypadków, gdy patrząc w polskie niebo, widzimy skutek zdarzenia po drugiej stronie planety.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Kiedy jest błękitna godzina.</strong> Zaczyna się mniej więcej wtedy, gdy Słońce jest cztery stopnie pod horyzontem, i trwa do jakichś ośmiu. W Polsce oznacza to od dwudziestu minut zimą do niemal godziny w czerwcu. Praktycznie: dwadzieścia do czterdziestu minut po zachodzie — a najlepsza chwila na zdjęcie miasta wypada wtedy, gdy jasność nieba zrówna się z jasnością okien, czyli zwykle w środku tego okna.</p>
+    <p><strong>Cień Ziemi widać znacznie częściej, niż się wydaje.</strong> Nie wymaga żadnych szczególnych warunków poza jednym: czystym wschodnim horyzontem i brakiem chmur w tamtej stronie. Wystarczy po zachodzie odwrócić się i spojrzeć nisko. Zdumiewająco wiele osób nigdy tego nie zrobiło, bo cały zmierzch spędza wpatrzone w stronę, gdzie zaszło Słońce.</p>
+    <p><strong>Mierzenie ręką.</strong> Wyciągnięta na całą długość ramienia pięść to około dziesięć stopni, palec wskazujący około jednego, rozstawiona dłoń około dwudziestu. Można tym sprawdzić, jak szybko rośnie cień Ziemi — wychodzi mniej więcej jedna pięść na dziesięć minut. To ta sama linijka, której użyjemy przy tęczy i halo.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>zmierzch cywilny</dt>
+      <dd>Od zachodu do 6° Słońca pod horyzontem. Widać jeszcze bez sztucznego światła.</dd>
+      <dt>zmierzch żeglarski</dt>
+      <dd>Od 6° do 12°. Widać jednocześnie gwiazdy i horyzont — okno dla nawigacji astronomicznej.</dd>
+      <dt>zmierzch astronomiczny</dt>
+      <dd>Od 12° do 18°. Po nim niebo jest w pełni ciemne. W Polsce w czerwcu nie występuje.</dd>
+      <dt>błękitna godzina</dt>
+      <dd>Okres głębokiego granatu po zachodzie, mniej więcej między 4° a 8° pod horyzontem.</dd>
+      <dt>pasmo Chappuis</dt>
+      <dd>Szerokie pasmo pochłaniania ozonu w żółci i czerwieni. Odpowiada za granat błękitnej godziny.</dd>
+      <dt>cień Ziemi</dt>
+      <dd>Szarosiny pas nad wschodnim horyzontem po zachodzie: obszar atmosfery, do którego nie dociera już bezpośrednie światło Słońca.</dd>
+      <dt>Pas Wenus</dt>
+      <dd>Różowa wstęga nad cieniem Ziemi. Powietrze oświetlone światłem, które przeszło przez całą atmosferę i zaczerwieniło się po drodze.</dd>
+      <dt>purpurowe światło</dt>
+      <dd>Rzadka purpurowa poświata kilkanaście minut po zachodzie, wywołana aerozolem wulkanicznym w stratosferze.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Wspomnieliśmy przy zachodzie, że Słońce, które widzimy nad horyzontem, fizycznie już zaszło. Następny rozdział bierze tę myśl i idzie z nią do końca: co jeszcze powietrze robi ze światłem, gdy tylko przestanie być jednorodne. Okaże się, że mamy tu spłaszczone Słońce, kałuże na suchym asfalcie, zamki widoczne nad pustym morzem i zielony błysk, którego istnienia wielu ludzi nie chce przyjąć do wiadomości.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>
@@ -46,5 +327,33 @@
 </div>
 
 <script src="../assets/interactive.js"></script>
+<script type="module">
+import { createDiagram3D } from '../assets/sky3d.js';
+const R = 1.6;
+createDiagram3D(document.getElementById('cienLab'), {
+  camera: { dist: 11, phi: 1.45, theta: 0.9, minDist: 5, maxDist: 26 },
+  parts: [
+    // planeta
+    { type: 'sphere', r: R, at: [0, 0, 0], color: 'water', opacity: 0.30, wireframe: true },
+    { type: 'sphere', r: R * 0.995, at: [0, 0, 0], color: '#1b1e24', opacity: 1, depthWrite: true },
+    // cienka powloka atmosfery — w prawdziwej skali bylaby niewidoczna,
+    // wiec jest przesadzona; podpis o tym mowi
+    { type: 'sphere', r: R * 1.10, at: [0, 0, 0], color: 'water', opacity: 0.10 },
+    // stozek cienia za planeta
+    { type: 'cone', r: R * 0.98, h: 7.6, at: [0, 0, -4.6], rot: [Math.PI / 2, 0, 0],
+      color: '#0d1018', opacity: 0.72 },
+    { type: 'label', text: 'STOŻEK CIENIA', at: [0, -0.5, -6.4], color: 'muted' },
+    // swiatlo
+    { type: 'arrow', from: [5.6, 1.5, 0], to: [2.2, 1.5, 0], color: 'light' },
+    { type: 'arrow', from: [5.6, 0, 0], to: [2.2, 0, 0], color: 'light' },
+    { type: 'arrow', from: [5.6, -1.5, 0], to: [2.2, -1.5, 0], color: 'light' },
+    { type: 'label', text: 'ŚWIATŁO SŁONECZNE', at: [6.0, 2.3, 0], color: 'light' },
+    // obserwator tuz za terminatorem
+    { type: 'sphere', r: 0.085, at: [0.16, 0.34, 1.55], color: '#ecebe4', opacity: 1, depthWrite: true },
+    { type: 'label', text: 'my — właśnie po zachodzie', at: [0.16, 0.78, 1.55], color: 'text' },
+    { type: 'label', text: 'PAS WENUS · powietrze jeszcze oświetlone', at: [-1.5, 1.85, 0.4], color: 'light' },
+  ],
+});
+</script>
 </body>
 </html>

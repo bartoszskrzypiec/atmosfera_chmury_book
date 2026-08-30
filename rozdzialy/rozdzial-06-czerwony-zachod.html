@@ -28,7 +28,305 @@
   <h1>Dlaczego zachody są czerwone</h1>
   <p class="subtitle">Zachód nie jest czerwony dlatego, że coś się do światła dodaje — tylko dlatego, że po drodze ubywa z niego wszystkiego innego.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Między południem a zachodem światło pokonuje przez atmosferę drogę <strong>kilkudziesięciokrotnie dłuższą</strong>. To jedyna zmienna w całym rozdziale.</li>
+      <li>Czerwień powstaje przez <strong>odejmowanie</strong>: z wiązki ubywa błękitu i zieleni, zostaje to, co najsłabiej się rozprasza. Nic się nie dodaje.</li>
+      <li>Najlepsze kolory przychodzą zwykle <strong>10–20 minut po</strong> zniknięciu Słońca, i wymagają chmur — samo czyste niebo daje zachód ładny, ale nudny.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Mechanizm · jedna zmienna</div>
+    <h2>Dłuższa droga, ten sam mechanizm</h2>
+
+    <p>W poprzednim rozdziale patrzyliśmy na światło, które w drodze przez atmosferę skręciło. Teraz odwróćmy się i popatrzmy na to, które <strong>poleciało prosto</strong> — czyli prosto w nasze oko, z tarczy Słońca.</p>
+
+    <p>Skoro błękit rozprasza się chętniej niż czerwień, to z wiązki lecącej na wprost błękitu <em>ubywa</em>. W południe ubytek jest niewielki, bo droga jest krótka: promień wchodzi w atmosferę praktycznie pionowo i ma do przebycia jedną „grubość atmosfery". Słońce wychodzi wtedy białe.</p>
+
+    <p>Ale gdy Słońce schodzi ku horyzontowi, geometria robi się bezlitosna. Przy piętnastu stopniach nad horyzontem droga wydłuża się blisko czterokrotnie. Przy pięciu — dziesięciokrotnie. Dokładnie na horyzoncie promień przechodzi przez około <span class="term-amber">trzydzieści osiem razy</span> więcej powietrza niż w zenicie.</p>
+
+    <p>I to wystarcza. Przy tak długiej drodze błękit jest rozproszony niemal w całości — rozdano go na boki, po całym niebie. Zieleń też, choć w mniejszym stopniu. Zostaje pomarańcz i czerwień, bo one rozpraszają się najoporniej i jako jedyne dolatują do nas w większości.</p>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">O zachodzie światło zbiera po drodze czerwień, nabiera ciepłej barwy.</p>
+      <p class="myth__right">Nic się nie dodaje. <strong>Czerwień jest tym, co zostało</strong>, gdy zabrano wszystko inne. To odejmowanie, nie dodawanie — jak z sitem, przez które przechodzą tylko największe ziarna.</p>
+      <p class="myth__why">Mit bierze się z tego, że skutek jest „więcej czerwieni niż zwykle", więc naturalnie szukamy źródła, które ją dosypało. Tymczasem czerwieni jest tyle samo co zawsze — po prostu przestała mieć konkurencję.</p>
+    </div>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Droga przez atmosferę</span><span>przesuń wysokość Słońca</span></div>
+      <div class="diagram-controls">
+        <label for="am">Wysokość Słońca</label>
+        <input type="range" id="am" min="0" max="90" step="1" value="45">
+        <span class="value-readout" id="amOut">45° · droga 1,4× dłuższa niż w zenicie</span>
+      </div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="a6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8a33d"/></marker>
+          <linearGradient id="atm6" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4fc3c0" stop-opacity="0.03"/>
+            <stop offset="100%" stop-color="#4fc3c0" stop-opacity="0.20"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="60" width="720" height="185" fill="url(#atm6)"/>
+        <line x1="20" y1="60" x2="740" y2="60" stroke="#4fc3c0" stroke-width="1.1" stroke-dasharray="5 5" opacity="0.7"/>
+        <text x="736" y="53" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#4fc3c0">granica atmosfery</text>
+        <line x1="20" y1="245" x2="740" y2="245" stroke="#8b909b" stroke-width="2"/>
+
+        <circle cx="500" cy="240" r="5.5" fill="#ecebe4"/>
+        <text x="510" y="262" font-family="IBM Plex Mono" font-size="10.5" fill="#ecebe4">my</text>
+
+        <!-- promien poludniowy dla porownania -->
+        <line x1="500" y1="60" x2="500" y2="238" stroke="#4fc3c0" stroke-width="1.6" stroke-dasharray="4 4" opacity="0.55"/>
+        <text x="508" y="90" font-family="IBM Plex Mono" font-size="9.5" fill="#4fc3c0">zenit · 1×</text>
+
+        <line id="amRay" x1="240" y1="60" x2="500" y2="240" stroke="#e8a33d" stroke-width="2.6" marker-end="url(#a6)"/>
+        <circle id="amSun" cx="240" cy="60" r="9" fill="#e8a33d"/>
+
+        <!-- pasek widma tracacego blekit -->
+        <text x="60" y="284" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">co dociera do nas z tarczy:</text>
+        <rect id="amB" x="240" y="272" width="80" height="16" rx="2" fill="#3b82f6"/>
+        <rect id="amG" x="320" y="272" width="80" height="16" rx="2" fill="#4ade80"/>
+        <rect id="amY" x="400" y="272" width="80" height="16" rx="2" fill="#facc15"/>
+        <rect id="amR" x="480" y="272" width="80" height="16" rx="2" fill="#ef4444"/>
+        <text x="580" y="285" font-family="IBM Plex Mono" font-size="10" fill="#8b909b" id="amNote">pełne widmo, Słońce białe</text>
+      </svg>
+      <div class="diagram-caption">Cyjanowa linia to droga w zenicie — jednostka odniesienia. Bursztynowa to droga rzeczywista. Pasek na dole pokazuje, co z widma zostaje.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('am'), out=document.getElementById('amOut');
+        var ray=document.getElementById('amRay'), sun=document.getElementById('amSun');
+        var note=document.getElementById('amNote');
+        var B=document.getElementById('amB'),G=document.getElementById('amG'),
+            Y=document.getElementById('amY'),R=document.getElementById('amR');
+        var OX=500, OY=240, TOP=60;
+        function fmt(n,d){ return n.toFixed(d).replace('.',','); }
+        function update(){
+          var e=parseFloat(sl.value);
+          var er=Math.max(e,0.6)*Math.PI/180;
+          // masa optyczna: 1/sin, z lagodnym ograniczeniem przy horyzoncie
+          var am=1/Math.sin(er); if(am>38) am=38;
+          var dy=OY-TOP;
+          var dx=dy/Math.tan(er); if(dx>640) dx=640;
+          var sx=OX-dx, sy=TOP;
+          ray.setAttribute('x1',sx.toFixed(1)); ray.setAttribute('y1',sy.toFixed(1));
+          sun.setAttribute('cx',sx.toFixed(1)); sun.setAttribute('cy',sy.toFixed(1));
+          // ile zostaje z kazdego pasma: exp(-tau0*am*(500/lambda)^4)
+          function zost(lam){ return Math.exp(-0.115*am*Math.pow(500/lam,4)); }
+          var kB=zost(450), kG=zost(530), kY=zost(590), kR=zost(660);
+          var w=[kB,kG,kY,kR].map(function(k){ return 80*k; });
+          var x=240;
+          [B,G,Y,R].forEach(function(el,i){
+            el.setAttribute('x',x.toFixed(1)); el.setAttribute('width',Math.max(0.5,w[i]).toFixed(1));
+            x+=w[i];
+          });
+          var opis = am<1.15 ? 'pełne widmo, Słońce białe'
+                   : (am<2 ? 'ledwie zauważalne ocieplenie'
+                   : (am<4 ? 'błękit wyraźnie osłabiony — Słońce żółknie'
+                   : (am<10 ? 'zostaje pomarańcz' : 'zostaje sama czerwień')));
+          note.textContent=opis;
+          out.textContent=e.toFixed(0)+'° · droga '+fmt(am,1)+'× dłuższa niż w zenicie';
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Sprawdzenie · smog nie pomaga</div>
+    <h2>Najlepsze zachody są w czystym powietrzu</h2>
+
+    <p>Bardzo rozpowszechnione przekonanie mówi, że zanieczyszczenia dają piękne zachody. Brzmi to prawdopodobnie, bo obie rzeczy kojarzą się z czerwienią. Jest jednak w przeważającej większości przypadków <strong>nieprawdziwe</strong>.</p>
+
+    <p>Wiemy już dlaczego, z Rozdziału 3. Aerozol — pył, spaliny, kropelki — jest duży w porównaniu z falą, więc rozprasza wszystkie barwy jednakowo i dokłada do obrazu <span class="term-amber">bieli, nie koloru</span>. Zamiast wysycić zachód, rozcieńcza go. Efektem nie jest ogień, tylko brudnobrązowa mgiełka, w której Słońce gaśnie kilka stopni nad horyzontem, zanim zdąży się porządnie zaczerwienić.</p>
+
+    <p>Najbardziej nasycone zachody widuje się więc w powietrzu <strong>czystym i suchym</strong>: nad morzem po sztormie, w górach, dzień po przejściu chłodnego frontu, zimą przy mroźnym wietrze z północy.</p>
+
+    <p>Jest jednak jeden wyjątek i jest na tyle spektakularny, że warto go znać. Wielkie erupcje wulkaniczne wyrzucają drobne kropelki kwasu siarkowego do <em>stratosfery</em> — powyżej pogody, gdzie nic ich nie wypłukuje i gdzie utrzymują się latami. Te cząstki są znacznie drobniejsze niż zwykły pył, bliżej reżimu Rayleigha, i rozłożone równomiernie po całej planecie. Po erupcji Krakatau w 1883 roku zachody na całym świecie były przez dwa lata tak intensywne, że w kilku miastach wzywano straż pożarną do nieistniejących pożarów. Po wybuchu Pinatubo w 1991 roku zjawisko powtórzyło się w łagodniejszej postaci.</p>
+
+    <p>Zwróćmy uwagę, że wyjątek nie łamie reguły, tylko ją potwierdza: liczy się nie „ile brudu", tylko <strong>jakiego rozmiaru cząstki i na jakiej wysokości</strong>. To znowu ten sam mechanizm z Rozdziału 3, przyłożony do innego przypadku.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Kompozycja · zachód robią chmury</div>
+    <h2>Czyste niebo daje słaby zachód</h2>
+
+    <p>Tu dochodzimy do rzeczy, która zaskakuje najbardziej, a jest banalnie prosta, gdy się ją raz zobaczy. <strong>Sam mechanizm czerwienienia nie wystarcza, żeby zachód był piękny.</strong> Przy zupełnie czystym niebie dostajemy ładny gradient i tyle. Spektakl robią chmury.</p>
+
+    <p>Powód jest czysto geometryczny. Kiedy Słońce jest już pod horyzontem <em>naszym</em>, wciąż świeci na chmury, które wiszą kilka kilometrów nad nami — dla nich nie zaszło jeszcze. Światło, które do nich dociera, przeszło przez maksymalnie długą drogę przez atmosferę, więc jest już głęboko pomarańczowe albo czerwone. I oświetla te chmury <span class="term-amber">od spodu</span>, czyli od strony, którą my widzimy.</p>
+
+    <p>Stąd trzy praktyczne wnioski, które warto zapamiętać dosłownie:</p>
+
+    <p><strong>Najlepszy moment jest po zachodzie, nie w jego trakcie.</strong> Zwykle dziesięć do dwudziestu minut po zniknięciu tarczy. Większość ludzi w tym momencie już schowała aparat i wróciła do samochodu.</p>
+
+    <p><strong>Potrzebne są chmury średniego albo wysokiego piętra</strong> — takie, które są dostatecznie wysoko, żeby Słońce nadal je oświetlało spod horyzontu. Chmury niskie w tym czasie są już w cieniu Ziemi i wychodzą po prostu szare.</p>
+
+    <p><strong>Nie może ich być za dużo przy samym horyzoncie.</strong> Jeśli na zachodzie stoi zwarta ściana chmur, zablokuje światło i nie dojdzie ono do niczego wyżej. Idealny układ to chmury nad nami i czysty pas tuż nad horyzontem — dosłownie okno, przez które Słońce może przecisnąć promień.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Anatomia dobrego zachodu</span><span>gdzie muszą stać chmury</span></div>
+      <svg viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="a6b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#e8a33d"/></marker>
+        </defs>
+        <line x1="20" y1="270" x2="740" y2="270" stroke="#8b909b" stroke-width="2"/>
+        <text x="26" y="288" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">horyzont</text>
+
+        <!-- slonce pod horyzontem -->
+        <circle cx="70" cy="296" r="16" fill="#e8a33d" fill-opacity="0.35"/>
+        <text x="70" y="322" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#e8a33d">Słońce już pod horyzontem</text>
+
+        <!-- okno przy horyzoncie -->
+        <rect x="120" y="238" width="120" height="30" rx="4" fill="none" stroke="#4fc3c0" stroke-width="1.2" stroke-dasharray="4 4"/>
+        <text x="180" y="230" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4fc3c0">czysty pas — okno</text>
+
+        <!-- promienie w gore -->
+        <g stroke="#e8a33d" stroke-width="2" marker-end="url(#a6b)">
+          <line x1="96" y1="286" x2="330" y2="120"/>
+          <line x1="100" y1="290" x2="470" y2="86"/>
+          <line x1="104" y1="292" x2="620" y2="140"/>
+        </g>
+
+        <!-- chmury wysokie oswietlone od spodu -->
+        <g>
+          <ellipse cx="360" cy="104" rx="76" ry="17" fill="#e8a33d" fill-opacity="0.45"/>
+          <ellipse cx="360" cy="98" rx="70" ry="14" fill="#ecebe4" fill-opacity="0.16"/>
+          <ellipse cx="510" cy="72" rx="86" ry="15" fill="#e8a33d" fill-opacity="0.5"/>
+          <ellipse cx="510" cy="66" rx="80" ry="12" fill="#ecebe4" fill-opacity="0.16"/>
+          <ellipse cx="655" cy="128" rx="60" ry="13" fill="#e8a33d" fill-opacity="0.35"/>
+        </g>
+        <text x="510" y="46" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">chmury wysokie · dla nich Słońce jeszcze nie zaszło</text>
+
+        <!-- chmury niskie w cieniu -->
+        <ellipse cx="300" cy="212" rx="70" ry="14" fill="#454c55"/>
+        <ellipse cx="450" cy="224" rx="56" ry="12" fill="#454c55"/>
+        <text x="378" y="252" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">chmury niskie · już w cieniu Ziemi, wychodzą szare</text>
+
+        <circle cx="180" cy="264" r="4.5" fill="#ecebe4"/>
+        <text x="192" y="268" font-family="IBM Plex Mono" font-size="10" fill="#ecebe4">my</text>
+      </svg>
+      <div class="diagram-caption">Zachód nie dzieje się na zachodzie. Dzieje się nad naszą głową — dlatego warto się odwrócić.</div>
+    </div>
+
+
+  <div class="viz3d" id="zachodLab">
+    <div class="viz3d__head">
+      <p class="viz3d__title">Ten sam silnik co w poprzednim rozdziale — teraz skierowany na horyzont</p>
+      <p class="viz3d__sub">Zejdźmy Słońcem poniżej zera i zobaczmy, co dzieje się z niebem, kiedy tarczy już nie ma. Suwak zamętu pokazuje, dlaczego smog psuje zachód, zamiast go poprawiać.</p>
+    </div>
+    <div class="viz3d__stage">
+      <canvas></canvas>
+      <div class="viz3d__badge">przeciągnij, żeby się rozejrzeć</div>
+      <div class="viz3d__fallback">
+        <strong>Ten widget potrzebuje WebGL</strong>
+        <span>Wywód obok jest kompletny bez niego — diagram drogi przez atmosferę pokazuje ten sam mechanizm liczbowo.</span>
+      </div>
+    </div>
+    <div class="viz3d__controls">
+      <label for="zElev">Wysokość Słońca</label>
+      <input type="range" id="zElev" data-sky="sunElev" data-sky-decimals="0" data-sky-unit="&deg;" min="-8" max="40" step="0.5" value="4">
+      <span class="value-readout" data-sky-out="sunElev"></span>
+
+      <label for="zTurb">Zamęt powietrza</label>
+      <input type="range" id="zTurb" data-sky="turbidity" data-sky-decimals="1" min="0.4" max="9" step="0.1" value="1.1">
+      <span class="value-readout" data-sky-out="turbidity"></span>
+    </div>
+    <div class="viz3d__note">
+      <p>Warto zejść suwakiem poniżej zera i zobaczyć, że <strong>niebo nie gaśnie razem ze Słońcem</strong>. Jeszcze przez kilkanaście minut góra nieba dostaje światło — bo dla powietrza kilkadziesiąt kilometrów nad nami Słońce naprawdę jeszcze nie zaszło. Dokładnie to samo dzieje się z chmurami wysokiego piętra i dlatego to one robią zachód.</p>
+    </div>
+  </div>
+
+    <p>I stąd rada, która brzmi najbardziej niedorzecznie ze wszystkich w tej książce, a jest szczerze najlepsza: <strong>podczas zachodu warto co jakiś czas odwrócić się plecami do Słońca</strong>. Bardzo często najlepszy kolor jest po przeciwnej stronie nieba, gdzie chmury dostają światło pod idealnym kątem i świecą różem na tle wschodzącego cienia Ziemi. Zajmiemy się tym w następnym rozdziale.</p>
+  </div>
+
+
+  <div class="section">
+    <div class="section-eyebrow">Pora roku · dlaczego czerwiec różni się od listopada</div>
+    <h2>Ile trwa zachód i dlaczego to zależy od kalendarza</h2>
+
+    <p>Zachód nie jest wydarzeniem punktowym, tylko procesem — a jego długość zmienia się w Polsce w ciągu roku zaskakująco mocno. Decyduje o tym jedna rzecz: <strong>pod jakim kątem Słońce przecina horyzont</strong>.</p>
+
+    <p>Latem, blisko przesilenia, Słońce schodzi ku horyzontowi po torze mocno pochylonym — wchodzi w niego ukośnie i długo pozostaje tuż pod nim. Zimą tor jest bardziej stromy. Efekt: w Gdańsku w czerwcu złota godzina naprawdę trwa około godziny, a niebo nie robi się całkiem ciemne przez całą noc. W grudniu ta sama złota godzina kurczy się do kilkunastu minut, ale za to Słońce jest przez cały dzień nisko, więc światło jest ciepłe od rana do wieczora.</p>
+
+    <p>Im dalej na północ, tym efekt silniejszy — a za kołem podbiegunowym latem Słońce w ogóle przestaje zachodzić. W tropikach jest odwrotnie: tam tor jest niemal pionowy przez cały rok, więc zmierzch trwa dwadzieścia minut i noc zapada gwałtownie. Kto był na wakacjach bliżej równika, zna to uczucie „przed chwilą było jasno".</p>
+
+    <p>Dla fotografującego oznacza to rzecz praktyczną i mało oczywistą: <span class="term-cyan">najwygodniejsze miesiące na zachody w Polsce to nie lato, tylko wrzesień, październik i marzec</span>. Zachód wypada wtedy o cywilizowanej porze, złota godzina jest wciąż długa, a powietrze po chłodnych nocach bywa wyjątkowo czyste.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Kąt zejścia Słońca</span><span>Polska, 52°N</span></div>
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="190" x2="720" y2="190" stroke="#8b909b" stroke-width="2"/>
+        <text x="64" y="208" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">horyzont</text>
+
+        <g stroke-width="2.4" fill="none">
+          <line x1="120" y1="40" x2="250" y2="228" stroke="#6e93be"/>
+          <line x1="330" y1="40" x2="424" y2="228" stroke="#e8a33d"/>
+          <line x1="560" y1="40" x2="608" y2="228" stroke="#4fc3c0"/>
+        </g>
+        <g font-family="IBM Plex Mono" font-size="10.5" text-anchor="middle">
+          <text x="185" y="32" fill="#6e93be">CZERWIEC</text>
+          <text x="377" y="32" fill="#e8a33d">MARZEC / WRZESIEŃ</text>
+          <text x="584" y="32" fill="#4fc3c0">GRUDZIEŃ</text>
+          <text x="185" y="248" fill="#8b909b">tor płaski · zmierzch długi</text>
+          <text x="377" y="248" fill="#8b909b">pośrednio</text>
+          <text x="584" y="248" fill="#8b909b">tor stromy · zmierzch krótki</text>
+        </g>
+        <g font-family="IBM Plex Mono" font-size="10" fill="#ecebe4" text-anchor="middle">
+          <text x="185" y="176">~55 min</text>
+          <text x="377" y="176">~35 min</text>
+          <text x="584" y="176">~25 min</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">Trzy tory Słońca w tej samej skali. Czas zmierzchu to nie kwestia „długości dnia", tylko nachylenia toru.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Refrakcja · Słońce, którego już nie ma</div>
+    <h2>To, co widzimy, zaszło kilka minut temu</h2>
+
+    <p>Na koniec rzecz, która jest w tym wszystkim najdziwniejsza. W chwili, gdy patrzymy na dolny brzeg tarczy Słońca dotykający horyzontu, <strong>Słońce jest już geometrycznie pod horyzontem</strong> — i to całe, w całości.</p>
+
+    <p>Powietrze załamuje światło, bo jest gęstsze przy ziemi niż wyżej. Promień biegnący do nas z bardzo małego kąta zakrzywia się lekko w dół, a my — jak zawsze — interpretujemy go tak, jakby przyszedł po linii prostej. W efekcie widzimy Słońce <span class="term-cyan">podniesione</span> o mniej więcej pół stopnia, czyli akurat tyle, ile wynosi średnica jego tarczy.</p>
+
+    <p>Zbieg okoliczności jest niemal komiczny: podniesienie wypada dokładnie tyle, ile średnica. Więc gdy widzimy Słońce właśnie dotykające horyzontu dolnym brzegiem, w rzeczywistości jego górny brzeg jest już poniżej. Cały zachód, od pierwszego dotknięcia po zniknięcie, oglądamy jako <strong>obraz czegoś, czego tam już nie ma</strong>.</p>
+
+    <p>Ta sama refrakcja spłaszcza tarczę. Dolny brzeg jest bliżej horyzontu, więc podnoszony jest silniej niż górny — i koło robi się elipsą. To widać gołym okiem i to jest najprostszy dowód na istnienie zjawiska, jaki można sobie wyobrazić. Wystarczy raz spojrzeć uważnie.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-g-refrakcja-i-zielony-blysk.html">↓ Dodatek G — refrakcja w liczbach i zielony błysk</a>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Jak przewidzieć dobry zachód z popołudnia.</strong> Sprawdzamy trzy rzeczy około godziny szesnastej. Czy są chmury średniego lub wysokiego piętra — Altocumulus, Cirrus, Altostratus przetykany prześwitami? Czy zachodni horyzont jest wolny od zwartej ściany chmur? Czy powietrze jest czyste, to znaczy czy widać dalekie obiekty ostro? Trzy razy tak oznacza wysokie szanse. Najczęściej taki układ trafia się dzień po przejściu chłodnego frontu, gdy zachmurzenie się rozrywa, a powietrze jest świeżo przepłukane.</p>
+    <p><strong>Zostańmy dwadzieścia minut dłużej.</strong> To najtańsza rada w tej książce i najczęściej ignorowana. Kolor po zachodzie narasta, osiąga maksimum i dopiero potem gaśnie — a większość ludzi wychodzi w momencie, gdy tarcza znika, czyli mniej więcej wtedy, gdy zaczyna się najciekawsze.</p>
+    <p><strong>Ekspozycja.</strong> Automatyka próbuje wyciągnąć ciemny pierwszy plan i przepala niebo, tracąc dokładnie ten kolor, dla którego przyszliśmy. Warto zmierzyć ekspozycję na najjaśniejszej części nieba i celowo niedoświetlić o pół działki. Sylwetki drzew i dachów mają wyjść czarne — tak je zresztą widzimy, bo nasze oko też nie ma tam żadnego zapasu.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>masa optyczna</dt>
+      <dd>Ile razy dłuższą drogę przez atmosferę przebywa promień w porównaniu z drogą pionową. W zenicie 1, przy horyzoncie około 38.</dd>
+      <dt>ekstynkcja</dt>
+      <dd>Osłabienie wiązki w drodze przez ośrodek — suma tego, co zostało rozproszone i pochłonięte. To ona odbiera zachodowi błękit.</dd>
+      <dt>refrakcja atmosferyczna</dt>
+      <dd>Zakrzywienie promienia w powietrzu o zmiennej gęstości. Podnosi obraz Słońca o mniej więcej średnicę tarczy i spłaszcza je przy horyzoncie.</dd>
+      <dt>złota godzina</dt>
+      <dd>Okres tuż po wschodzie i przed zachodem, gdy światło jest ciepłe i miękkie. Trwa w Polsce od kilkunastu minut latem do ponad godziny zimą.</dd>
+      <dt>aerozol stratosferyczny</dt>
+      <dd>Drobne cząstki wyrzucone przez wielkie erupcje powyżej pogody. Utrzymują się latami i dają wyjątkowo intensywne zachody na całej planecie.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Słońce zaszło, a niebo dopiero się rozkręca. W następnym rozdziale zajmiemy się godziną, która dla większości ludzi jest po prostu „robi się ciemno", a w rzeczywistości ma wyraźną strukturę: trzy osobne zmierzche, granatowy kolor pochodzący ze zupełnie nieoczekiwanego źródła, i dwie różne różowo-szare wstęgi na wschodzie, które prawie wszyscy mylą ze sobą.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>
@@ -45,5 +343,27 @@
 </div>
 
 <script src="../assets/interactive.js"></script>
+<script type="module">
+import { createSkyDome, bindSliders } from '../assets/sky3d.js';
+const host = document.getElementById('zachodLab');
+const sky = createSkyDome(host, { sunElev: 4, fov: 68, pitch: 0.06, exposure: 1.1 });
+if (sky.ok) bindSliders(host, sky, {
+  fmt(v, el) {
+    if (el.dataset.sky === 'turbidity') {
+      const o = v < 0.8 ? 'powietrze wyjątkowo czyste — najlepsze zachody'
+              : v < 1.6 ? 'czysty dzień'
+              : v < 3.5 ? 'lekka mgiełka, kolor już blednie'
+              : v < 6 ? 'wyraźne zamglenie — zachód gaśnie wysoko'
+              : 'smog — brudnobrązowo zamiast ognia';
+      return v.toFixed(1).replace('.', ',') + ' · ' + o;
+    }
+    const s = v.toFixed(0) + '°';
+    if (v < -0.5) return s + ' · Słońce pod horyzontem';
+    if (v < 1) return s + ' · dotyka horyzontu';
+    if (v < 6) return s + ' · złota godzina';
+    return s;
+  },
+});
+</script>
 </body>
 </html>

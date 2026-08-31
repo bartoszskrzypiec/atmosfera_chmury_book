@@ -73,8 +73,19 @@ function boot(host, opts = {}) {
   }
 
   const t = theme(host);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setClearColor(new THREE.Color(opts.clear || t.bg), 1);
+
+  /* Skala renderowania. Shadery raymarchowane (niebo, chmura) liczą tysiące
+     operacji na piksel, więc renderujemy je w obnizonej rozdzielczosci i
+     pozwalamy CSS je rozciagnac. Na miekkim, chmurnym obrazie tego nie widac,
+     a koszt spada z kwadratem skali. Widgety geometryczne zostaja przy 1. */
+  let skala = opts.renderScale != null ? opts.renderScale : 1;
+  const maxDpr = opts.maxPixelRatio != null ? opts.maxPixelRatio : 2;
+  function ustawSkale(v) {
+    skala = Math.max(0.28, Math.min(1, v));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDpr) * skala);
+    resize();
+  }
 
   const scene = new THREE.Scene();
   const camera = opts.ortho
@@ -106,31 +117,55 @@ function boot(host, opts = {}) {
   }
   const ro = new ResizeObserver(resize);
   ro.observe(stage);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDpr) * skala);
   resize();
 
   /* Widoczność. Poza ekranem pętla w ogóle nie chodzi. */
   const io = new IntersectionObserver((entries) => {
     state.visible = entries.some((e) => e.isIntersecting);
     if (state.visible) { state.needsRender = true; tick(); }
-  }, { rootMargin: '120px' });
+  }, { rootMargin: '0px' });
   io.observe(stage);
 
   let raf = 0;
-  function tick() {
+  let zmierzone = 0;          // ile klatek juz zmierzylismy
+  let ostatniaAnim = 0;       // do ograniczenia animacji do ~12 kl./s
+
+  function tick(teraz) {
     if (state.disposed || !state.visible) { raf = 0; return; }
-    const wantsLoop = state.animating && !reducedMotion();
-    if (state.needsRender || wantsLoop) {
-      for (const cb of state.frameCbs) cb(performance.now());
+    const now = teraz || performance.now();
+    const chceAnimowac = state.animating && !reducedMotion();
+    /* Animacja dławiona do ~12 klatek na sekundę. Dryf chmury to powolny ruch,
+       nikt nie zauważy różnicy wobec 60 kl./s, a koszt spada pięciokrotnie. */
+    const czasNaAnim = chceAnimowac && (now - ostatniaAnim) >= 80;
+
+    if (state.needsRender || czasNaAnim) {
+      const start = performance.now();
+      for (const cb of state.frameCbs) cb(now);
       renderer.render(scene, camera);
       state.needsRender = false;
+      if (czasNaAnim) ostatniaAnim = now;
+
+      /* Adaptacyjna jakość. Mierzymy kilka pierwszych klatek i jeśli sprzęt
+         nie wyrabia, schodzimy z rozdzielczością. Lepiej lekko rozmyta chmura
+         niż strona, która nie reaguje na kliknięcia. */
+      if (zmierzone < 3 && opts.adaptive !== false) {
+        const koszt = performance.now() - start;
+        zmierzone++;
+        if (koszt > 45 && skala > 0.3) {
+          ustawSkale(skala * (koszt > 160 ? 0.5 : 0.72));
+          zmierzone = 0;
+        }
+      }
     }
-    raf = wantsLoop || state.needsRender ? requestAnimationFrame(tick) : 0;
+    raf = (chceAnimowac || state.needsRender) ? requestAnimationFrame(tick) : 0;
   }
   state.invalidate = () => {
     state.needsRender = true;
     if (state.visible && !raf) raf = requestAnimationFrame(tick);
   };
   state.onFrame = (cb) => state.frameCbs.push(cb);
+  state.setRenderScale = ustawSkale;
   state.animate = (on) => {
     state.animating = on;
     if (on) state.invalidate();
@@ -213,7 +248,11 @@ function orbit(state, cfg = {}) {
     el.addEventListener('pointerup', end);
     el.addEventListener('pointercancel', end);
 
+    /* Zoom kolkiem TYLKO z wcisnietym Ctrl/Cmd, jak w mapach. Bez tego widget
+       wysoki na 450 px przechwytywal przewijanie strony: czytelnik przewijajacy
+       tekst zatrzymywal sie na widgecie i strona przestawala reagowac na kolko. */
     el.addEventListener('wheel', (e) => {
+      if (!e.ctrlKey && !e.metaKey) return;   // zwykle kolko przewija strone
       e.preventDefault();
       s.dist = Math.min(s.maxDist, Math.max(s.minDist, s.dist * (1 + Math.sign(e.deltaY) * 0.12)));
       apply(); state.invalidate();
@@ -328,8 +367,10 @@ const float H_MIE    = 1200.0;   // skala wysokosci dla aerozolu
 const vec3  BETA_RAY = vec3(5.5e-6, 13.0e-6, 22.4e-6); // ~1/lambda^4
 const float BETA_MIE = 21e-6;
 const float MIE_G    = 0.76;
-const int   STEPS_VIEW  = 24;
-const int   STEPS_LIGHT = 6;
+// Kroki marszu. Kazdy krok widzenia odpala wewnetrzna petle swiatla, wiec
+// koszt to iloczyn tych dwoch liczb — obniżenie ich jest najtanszym zyskiem.
+const int   STEPS_VIEW  = 14;
+const int   STEPS_LIGHT = 4;
 
 // Przeciecie promienia ze sfera o srodku w (0,0,0). Zwraca (blizsze, dalsze).
 vec2 raySphere(vec3 o, vec3 d, float r){
@@ -461,7 +502,7 @@ void main(){
  *                      yaw/pitch, exposure, fov (stopnie), spin (auto-obrót doby)
  */
 export function createSkyDome(host, cfg = {}) {
-  const st = boot(host, { clear: '#0b0d12' });
+  const st = boot(host, { clear: '#0b0d12', renderScale: 0.6, maxPixelRatio: 1.5 });
   if (!st) return { ok: false, set() {}, dispose() {} };
 
   const U = {
@@ -591,14 +632,17 @@ float vnoise(vec3 x){
         mix(hash(i + vec3(0,1,1)), hash(i + vec3(1,1,1)), f.x), f.y), f.z);
 }
 
+/* Trzy oktawy zamiast pieciu. Kazda oktawa to osiem wywolan hash, a fbm jest
+   wolane 4 razy na krok marszu — piata oktawa kosztowala wiecej niz wnosila
+   przy chmurze rozmytej i tak przez rozpraszanie wielokrotne. */
 float fbm(vec3 p){
   float s = 0.0, a = 0.5;
-  for (int i = 0; i < 5; i++){
+  for (int i = 0; i < 3; i++){
     s += a * vnoise(p);
     p = p * 2.02 + vec3(1.7, 9.2, 3.3);
     a *= 0.5;
   }
-  return s;
+  return s * 1.14;   // wyrownanie zakresu po usunieciu dwoch oktaw
 }
 
 /* Gestosc w punkcie. Profil pionowy (miekki dol, miekka gora) razy szum.
@@ -613,7 +657,8 @@ float density(vec3 p){
   float profile = smoothstep(0.0, 0.06 + 0.10 * uLumpy, h)
                 * (1.0 - smoothstep(0.55 - 0.35 * uLumpy + 0.25 * uIce, 1.0, h));
 
-  vec3 q = p * 0.55 + vec3(uTime * 0.02, 0.0, 0.0);
+  float skala = 1.35 / max(uThick, 0.35);
+  vec3 q = p * skala + vec3(uTime * 0.02, 0.0, 0.0);
   float base = fbm(q);
   float detail = fbm(q * 3.1 + vec3(0.0, uTime * 0.05, 0.0));
 
@@ -656,19 +701,24 @@ void main(){
   float t0, t1;
   if (abs(dir.y) < 1e-4){
     if (ro.y < uBase || ro.y > top) { gl_FragColor = vec4(pow(col, vec3(1.0/2.2)), 1.0); return; }
-    t0 = 0.0; t1 = 60.0;
+    t0 = 0.0; t1 = 140.0;
   } else {
     float ta = (uBase - ro.y) / dir.y;
     float tb = (top - ro.y) / dir.y;
     t0 = min(ta, tb); t1 = max(ta, tb);
     t0 = max(t0, 0.0);
-    t1 = min(t1, 60.0);
+    t1 = min(t1, 140.0);
   }
   if (t1 <= t0){ gl_FragColor = vec4(pow(col, vec3(1.0/2.2)), 1.0); return; }
 
-  const int STEPS = 48;
-  float dt = (t1 - t0) / float(STEPS);
-  float t = t0 + dt * hash(vec3(gl_FragCoord.xy, 1.0)) ;  // jitter zabija banding
+  /* Krok marszu ograniczony od gory. Bez tego Cumulonimbus (10 km grubosci)
+     dostawal krok dlugi na 400 m i jitter, ktory mial ukryc banding, zamieniał
+     sie w widoczne ziarno. Petla i tak konczy sie wczesniej przez przerwanie
+     przy niskiej transmitancji, wiec ograniczenie nie kosztuje w cienkich
+     chmurach nic, a w grubych ratuje obraz. */
+  const int STEPS = 34;
+  float dt = min((t1 - t0) / float(STEPS), 0.5);
+  float t = t0 + dt * hash(vec3(gl_FragCoord.xy, 1.0)) * 0.6;
 
   float transmittance = 1.0;
   vec3 scattered = vec3(0.0);
@@ -682,8 +732,8 @@ void main(){
     if (d > 0.001){
       // Krotki march w strone Slonca — to on robi jasna gore i ciemny spod.
       float shadow = 0.0;
-      float ls = 0.35;
-      for (int j = 1; j <= 5; j++){
+      float ls = max(0.30, uThick * 0.23);
+      for (int j = 1; j <= 3; j++){
         vec3 lp = p + uSunDir * (ls * float(j));
         shadow += density(lp) * ls;
       }
@@ -693,7 +743,7 @@ void main(){
       float multi = exp(-shadow * 0.32) * 0.45;
       vec3 lit = vec3(1.0, 0.97, 0.92) * (lightT * ph * 3.4 + multi)
                + sky * 0.38 * (0.25 + 0.75 * lightT);
-      float a = 1.0 - exp(-d * dt * 7.0);
+      float a = 1.0 - exp(-d * dt * 7.0);   // dt jest teraz wieksze, wiec zostaje
       scattered += transmittance * a * lit;
       transmittance *= 1.0 - a;
     }
@@ -708,25 +758,27 @@ void main(){
 
 /** Presety rodzajów chmur — to jest cała różnica między nimi. */
 export const CLOUD_PRESETS = {
-  //               podstawa grubosc gestosc pokrycie klebiastosc lod  zasieg
-  stratus:       { base: 0.5, thick: 0.9, density: 1.6, coverage: 0.97, lumpy: 0.06, ice: 0.0,  spread: 26 },
-  stratocumulus: { base: 1.1, thick: 1.1, density: 2.6, coverage: 0.72, lumpy: 0.72, ice: 0.0,  spread: 20 },
-  nimbostratus:  { base: 0.6, thick: 2.8, density: 2.2, coverage: 0.99, lumpy: 0.12, ice: 0.15, spread: 26 },
-  cumulus:       { base: 1.5, thick: 1.5, density: 2.4, coverage: 0.86, lumpy: 0.92, ice: 0.0,  spread: 3.2 },
-  congestus:     { base: 1.5, thick: 3.6, density: 2.6, coverage: 0.88, lumpy: 0.95, ice: 0.10, spread: 3.6 },
-  cumulonimbus:  { base: 1.4, thick: 5.6, density: 2.8, coverage: 0.90, lumpy: 0.88, ice: 0.55, spread: 4.6 },
-  altocumulus:   { base: 3.0, thick: 0.55, density: 3.2, coverage: 0.68, lumpy: 0.78, ice: 0.05, spread: 16 },
-  altostratus:   { base: 3.0, thick: 1.2, density: 1.1, coverage: 0.97, lumpy: 0.06, ice: 0.25, spread: 24 },
-  cirrus:        { base: 5.0, thick: 0.8, density: 0.55, coverage: 0.80, lumpy: 0.52, ice: 1.0,  spread: 14 },
-  cirrostratus:  { base: 5.0, thick: 0.7, density: 0.30, coverage: 0.95, lumpy: 0.06, ice: 1.0,  spread: 24 },
+  // Jednostka sceny = 1 KILOMETR. Wysokosci i gruboscii sa realne, bo widget
+  // podpisuje je liczbami i czytelnik ma je porownywac z prawdziwym niebem.
+  //               podstawa grubosc gestosc pokrycie klebiastosc lod  zasieg [km]
+  stratus:       { base: 0.3, thick: 0.5, density: 2.6, coverage: 0.97, lumpy: 0.06, ice: 0.0,  spread: 24 },
+  stratocumulus: { base: 1.0, thick: 0.7, density: 3.4, coverage: 0.72, lumpy: 0.72, ice: 0.0,  spread: 20 },
+  nimbostratus:  { base: 0.6, thick: 3.0, density: 1.9, coverage: 0.99, lumpy: 0.12, ice: 0.15, spread: 26 },
+  cumulus:       { base: 1.2, thick: 1.0, density: 3.2, coverage: 0.86, lumpy: 0.92, ice: 0.0,  spread: 2.2 },
+  congestus:     { base: 1.2, thick: 4.0, density: 2.4, coverage: 0.88, lumpy: 0.95, ice: 0.10, spread: 3.0 },
+  cumulonimbus:  { base: 1.0, thick: 10.0, density: 2.0, coverage: 0.90, lumpy: 0.86, ice: 0.55, spread: 5.5 },
+  altocumulus:   { base: 3.5, thick: 0.4, density: 4.4, coverage: 0.66, lumpy: 0.78, ice: 0.05, spread: 16 },
+  altostratus:   { base: 3.5, thick: 1.5, density: 1.3, coverage: 0.97, lumpy: 0.06, ice: 0.25, spread: 24 },
+  cirrus:        { base: 8.0, thick: 0.8, density: 0.75, coverage: 0.80, lumpy: 0.52, ice: 1.0,  spread: 16 },
+  cirrostratus:  { base: 8.0, thick: 0.7, density: 0.40, coverage: 0.95, lumpy: 0.06, ice: 1.0,  spread: 26 },
 };
 
 export function createCloudVolume(host, cfg = {}) {
-  const st = boot(host, { clear: '#141821' });
+  const st = boot(host, { clear: '#141821', renderScale: 0.55, maxPixelRatio: 1.5 });
   if (!st) return { ok: false, set() {}, dispose() {} };
 
   const p = Object.assign(
-    { base: 1.5, thick: 1.5, density: 2.4, coverage: 0.86, lumpy: 0.92, ice: 0.0, spread: 3.2 },
+    { base: 1.2, thick: 1.0, density: 3.2, coverage: 0.86, lumpy: 0.92, ice: 0.0, spread: 2.2 },
     cfg.preset ? CLOUD_PRESETS[cfg.preset] : null,
     cfg
   );
@@ -763,7 +815,10 @@ export function createCloudVolume(host, cfg = {}) {
      Odleglosc liczymy z podstawy i grubosci, nie z zasiegu poziomego:
      poklad ogląda sie z bliska od spodu, a nie z 26 jednostek z boku. */
   function frameDist(base, thick) {
-    return Math.min(16, Math.max(5, base * 2 + thick * 2.5 + 4));
+    // Wysokosc calej chmury nad obserwatorem podzielona przez tangens polowy
+    // kadru — czyli tyle, zeby zmiescila sie w pionie. Cumulonimbus (11 km)
+    // musi wyjsc przytlaczajacy, a Stratus (0,8 km) ogladany z bliska.
+    return Math.min(46, Math.max(4.5, (base + thick) * 1.9 + 2.6));
   }
   const cam = {
     theta: cfg.theta != null ? cfg.theta : 0.0,
@@ -797,9 +852,12 @@ export function createCloudVolume(host, cfg = {}) {
 
   st.onFrame((now) => {
     U.uRes.value.set(st.stage.clientWidth || 1, st.stage.clientHeight || 1);
-    if (cfg.drift !== false && !reducedMotion()) U.uTime.value = now / 1000;
+    if (cfg.drift === true && !reducedMotion()) U.uTime.value = now / 1000;
   });
-  if (cfg.drift !== false) st.animate(true);
+  /* Dryf domyslnie WYLACZONY. Chmura licząca się bez przerwy potrafiła zająć
+     przeglądarkę tak, że strona przestawała reagować na kliknięcia — a ruch
+     wnosił tu bardzo niewiele. Renderujemy raz i przy każdej zmianie suwaka. */
+  if (cfg.drift === true) st.animate(true);
 
   if (cfg.interactive !== false) {
     st.stage.classList.add('is-grab');

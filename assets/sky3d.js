@@ -10,8 +10,12 @@
  *   --text  --text-muted  --border  --accent  --viz-a  --viz-b  --viz-grid  --viz-bg
  *
  * Trzy rzeczy, które robi każdy widget, i o których łatwo zapomnieć:
- *  1. Brak WebGL2 → element dostaje klasę .no-webgl, CSS pokazuje .viz3d__fallback,
- *     a canvas znika. Czytelnik nigdy nie ogląda pustego czarnego prostokąta.
+ *  1. Każda awaria pokazuje .viz3d__fallback ze zdaniem, co zawiodło — brak
+ *     WebGL, błąd shadera, a przy otwarciu strony z dysku także niewczytany
+ *     moduł (tego boot() nie widzi, bo w ogóle nie rusza — łapie to wartownik
+ *     w assets/interactive.js). boot() ustawia host.dataset.sky3d na 'ok' /
+ *     'webgl' / 'shader' i woła window.__sky3dPokazBrak. Czytelnik nigdy nie
+ *     ogląda pustego czarnego prostokąta.
  *  2. IntersectionObserver → poza ekranem nie renderujemy w ogóle. Przy jedenastu
  *     widgetach w książce to nie optymalizacja, tylko warunek używalności na telefonie.
  *  3. prefers-reduced-motion → pętla animacji milczy, render tylko na zmianę parametru.
@@ -55,6 +59,16 @@ function boot(host, opts = {}) {
   const canvas = stage.querySelector('canvas');
   if (!canvas) return null;
 
+  /* Jedno miejsce na "widget się nie uda": stan na host.dataset.sky3d (czyta go
+     wartownik w interactive.js), klasa .no-webgl (CSS pokazuje fallback) i zdanie
+     z powodem. przerwij() dokłada return null dla wczesnego wyjścia z boot(). */
+  function oznaczBrak(powod) {
+    host.dataset.sky3d = powod;
+    host.classList.add('no-webgl');
+    if (window.__sky3dPokazBrak) window.__sky3dPokazBrak(host, powod);
+  }
+  function przerwij(powod) { oznaczBrak(powod); return null; }
+
   let renderer;
   try {
     renderer = new THREE.WebGLRenderer({
@@ -64,13 +78,20 @@ function boot(host, opts = {}) {
       powerPreference: 'low-power',
     });
   } catch (e) {
-    host.classList.add('no-webgl');
-    return null;
+    return przerwij('webgl');
   }
   if (!renderer.getContext()) {
-    host.classList.add('no-webgl');
-    return null;
+    return przerwij('webgl');
   }
+
+  /* Błąd kompilacji/linkowania shadera nie rzuca wyjątku — three.js tylko
+     loguje. Bez tego haka raymarchowane niebo/chmura zostawiłyby pusty
+     prostokąt w kolorze czyszczenia. */
+  renderer.debug.onShaderError = (gl, prog, glVertexShader, glFragmentShader) => {
+    oznaczBrak('shader');
+    console.error('sky3d: shader nie skompilowany\n',
+      gl.getShaderInfoLog(glFragmentShader) || gl.getProgramInfoLog(prog));
+  };
 
   const t = theme(host);
   renderer.setClearColor(new THREE.Color(opts.clear || t.bg), 1);
@@ -184,6 +205,7 @@ function boot(host, opts = {}) {
     renderer.dispose();
   };
 
+  host.dataset.sky3d = 'ok';
   return state;
 }
 

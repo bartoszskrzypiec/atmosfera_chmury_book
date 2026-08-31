@@ -262,6 +262,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,
    z szerokoscia kolumny, a nie zostawiac czarnego pasa na telefonie. */
 .viz3d__stage{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--bg-panel-alt);}
 .viz3d__stage canvas{display:block;width:100%;height:100%;}
+/* Silnik bez aspect-ratio (przegladarka sprzed 2021) zwinalby scene do
+   wysokosci 0 — wtedy nawet fallback bylby niewidoczny. */
+@supports not (aspect-ratio: 1){.viz3d__stage,.sim__stage{min-height:210px;}}
 .viz3d__stage.is-grab canvas{cursor:grab;}
 .viz3d__stage.is-grab canvas:active{cursor:grabbing;}
 
@@ -275,6 +278,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,
 .viz3d.no-webgl .viz3d__fallback{display:flex;}
 .viz3d.no-webgl .viz3d__stage canvas{display:none;}
 .viz3d__fallback strong{color:var(--text);font-weight:600;}
+/* Linia z powodem awarii, dopisywana przez assets/interactive.js.
+   Jasniejsza od zdania wlasciwego rozdzialu (ktore zostaje w --text-dim). */
+.viz3d__why{color:var(--text);max-width:46ch;}
 
 /* Panel suwakow. Grid 3-kolumnowy (etykieta / suwak / odczyt) trzyma
    odczyty w jednej kolumnie, wiec liczby nie skacza w poziomie przy

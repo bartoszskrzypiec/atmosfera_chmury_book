@@ -26,7 +26,176 @@
   <h1>Kalendarz nieba</h1>
   <p class="subtitle">Co i kiedy da się zobaczyć w Polsce, miesiąc po miesiącu. Od chmur srebrzystych w czerwcu po słupy świetlne w styczniu.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">Jak używać</div>
+    <ul>
+      <li>Wszystkie godziny i daty dotyczą <strong>środkowej Polski</strong> — mniej więcej szerokości Łodzi. Na północy zmierzchy są dłuższe, na południu krótsze; różnica między Suwałkami a Zakopanem sięga w czerwcu 40 minut.</li>
+      <li>Miesiące nie są tu równe. Czerwiec i lipiec mają po jednej rzeczy nie do zobaczenia kiedy indziej; luty i listopad są głównie o świetle.</li>
+      <li>Godziny podano w czasie <strong>urzędowym</strong>, czyli z uwzględnieniem zmiany czasu.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Zegar roku</div>
+    <h2>Trzy rzeczy zmieniające się przez cały rok</h2>
+
+    <p>Zanim przejdziemy do miesięcy, warto zobaczyć trzy krzywe, z których wynika prawie wszystko poniżej. Nie są niezależne — wszystkie trzy to skutki jednego faktu: <strong>nachylenia osi Ziemi</strong>.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Środkowa Polska, 52°N</span><span>godziny i długości</span></div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#2a2f38" stroke-width="1">
+          <line x1="70" y1="40" x2="70" y2="250"/><line x1="70" y1="250" x2="726" y2="250"/>
+        </g>
+        <g fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">
+          <text x="97" y="268">I</text><text x="151" y="268">II</text><text x="206" y="268">III</text><text x="260" y="268">IV</text>
+          <text x="315" y="268">V</text><text x="370" y="268">VI</text><text x="424" y="268">VII</text><text x="479" y="268">VIII</text>
+          <text x="533" y="268">IX</text><text x="588" y="268">X</text><text x="643" y="268">XI</text><text x="697" y="268">XII</text>
+        </g>
+
+        <text x="20" y="34" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11">długość dnia</text>
+        <path d="M97,222 L151,200 L206,166 L260,126 L315,94 L370,78 L424,84 L479,112 L533,152 L588,192 L643,220 L697,232"
+              fill="none" stroke="#e8a33d" stroke-width="2.5"/>
+        <g fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="10.5">
+          <text x="360" y="68">16 h 45 min</text><text x="666" y="248">7 h 40 min</text>
+        </g>
+
+        <text x="20" y="52" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">długość zmierzchu</text>
+        <path d="M97,232 L151,230 L206,226 L260,218 L315,200 L370,178 L424,182 L479,206 L533,222 L588,229 L643,232 L697,234"
+              fill="none" stroke="#4fc3c0" stroke-width="2.5" stroke-dasharray="6 4"/>
+        <text x="366" y="170" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="10.5">ok. 2 h</text>
+        <text x="86" y="246" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="10.5">ok. 1 h 40 min</text>
+
+        <text x="20" y="70" fill="#9c82d8" font-family="IBM Plex Mono, monospace" font-size="11">wysokość Słońca w południe</text>
+        <path d="M97,214 L151,196 L206,168 L260,134 L315,106 L370,92 L424,98 L479,124 L533,158 L588,190 L643,212 L697,220"
+              fill="none" stroke="#9c82d8" stroke-width="2" opacity="0.65"/>
+        <g fill="#9c82d8" font-family="IBM Plex Mono, monospace" font-size="10.5" opacity="0.8">
+          <text x="356" y="86">61°</text><text x="690" y="236">14°</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">Kluczowa jest <strong>krzywa cyjanowa</strong>. Długość dnia zmienia się dwukrotnie, ale długość zmierzchu — czyli okna, w którym niebo jest najciekawsze — tylko o jedną trzecią, i to inaczej rozłożoną. W czerwcu zmierzch prawie nie chce się skończyć, w grudniu ledwie zdąży się zacząć.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Miesiąc po miesiącu</div>
+    <h2>Kalendarz</h2>
+
+    <div class="month">
+      <div class="month__name">Styczeń</div>
+      <ul class="month__items">
+        <li><span class="when">cały dzień</span> — <strong>Halo 22°.</strong> Zima to najlepszy sezon na zjawiska lodowe. Słońce stoi nisko, powietrze jest zimne aż do ziemi, a Cirrostratus częsty. Warto wyrobić sobie odruch zasłaniania Słońca kciukiem przy każdym wyjściu — <em>halo widuje się kilkanaście razy w roku, ale tylko wtedy, gdy się patrzy</em>. → <a href="../rozdzialy/rozdzial-20-halo.html">R.20</a></li>
+        <li><span class="when">mroźne poranki</span> — <strong>Słupy świetlne.</strong> Nad latarniami i światłami miasta, przy temperaturze poniżej −10°C. Pionowe kolumny światła z płasko unoszących się kryształków. Miejskie, nie astronomiczne — najlepiej widoczne z okna.</li>
+        <li><span class="when">ok. 15:45</span> — <strong>Najkrótsze użyteczne popołudnie w roku.</strong> Zachód wypada tak wcześnie, że złota godzina i tak jest w środku dnia pracy. Za to zmierzch trwa niecałe 1 h 40 min i wszystko dzieje się szybko.</li>
+        <li><span class="when">po opadach śniegu</span> — <strong>Niebieskie cienie na śniegu.</strong> Najczystszy dowód, że cienie na dworze są oświetlone niebem, a niebo jest niebieskie. Na trawie tego nie widać, bo trawa jest zielona. → <a href="../rozdzialy/rozdzial-05-niebieskie-niebo.html">R.5</a></li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Luty</div>
+      <ul class="month__items">
+        <li><span class="when">cały miesiąc</span> — <strong>Szczyt sezonu na halo i słońca poboczne.</strong> Ta sama pogoda co w styczniu, ale dzień jest już o półtorej godziny dłuższy, więc szans jest więcej.</li>
+        <li><span class="when">przy bezchmurnym niebie</span> — <strong>Najgłębszy błękit w roku.</strong> Zimne powietrze mieści mało pary wodnej, a zimą jest mniej aerozoli z roślinności. Niebo bywa w lutym ciemniejsze i bardziej nasycone niż kiedykolwiek latem. → <a href="../rozdzialy/rozdzial-05-niebieskie-niebo.html">R.5</a></li>
+        <li><span class="when">17:00–17:30</span> — <strong>Pierwsze zachody po godzinach pracy.</strong> Praktyczny początek sezonu fotograficznego.</li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Marzec</div>
+      <ul class="month__items">
+        <li><span class="when">ok. 20 marca</span> — <strong>Równonoc.</strong> Jedyne dwa dni w roku, gdy Słońce wschodzi dokładnie na wschodzie i zachodzi dokładnie na zachodzie. Dobry moment, żeby raz na zawsze sprawdzić, gdzie w naszej okolicy jest który kierunek świata.</li>
+        <li><span class="when">popołudniami</span> — <strong>Powrót Cumulusów.</strong> Pierwsze chmury pięknej pogody od jesieni. Słońce znów grzeje ziemię na tyle, żeby ruszyła termika. Płaskie dna na jednej wysokości. → <a href="../rozdzialy/rozdzial-17-cumulus-cumulonimbus.html">R.17</a></li>
+        <li><span class="when">przełom marca i kwietnia</span> — <strong>Pierwsze burze.</strong> Zwykle chłodne, niskie, z gradem drobnym jak kasza. Krótkie i gwałtowne.</li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Kwiecień</div>
+      <ul class="month__items">
+        <li><span class="when">po przelotnym deszczu</span> — <strong>Najlepsza tęcza w roku.</strong> Kwiecień daje idealny układ: przelotne opady z osobnych chmur, a między nimi Słońce nisko nad horyzontem. Trzeba stać tyłem do Słońca i patrzeć w stronę odchodzącego deszczu. → <a href="../rozdzialy/rozdzial-19-tecza.html">R.19</a></li>
+        <li><span class="when">rano</span> — <strong>Altocumulus castellanus.</strong> Kwiecień i maj to sezon na wieżyczki: jeśli rano widać je na średnim piętrze, po południu bardzo prawdopodobna burza. → <a href="../rozdzialy/rozdzial-15-chmury-srednie.html">R.15</a></li>
+        <li><span class="when">bezchmurne wieczory</span> — <strong>Cień Ziemi na wschodzie.</strong> Ciemnoszary pas tuż nad wschodnim horyzontem, nad nim różowy pas Wenus. Widoczny przez ok. 20 minut po zachodzie. Wiosną najczystszy, bo powietrze jest jeszcze zimowo przejrzyste. → <a href="../rozdzialy/rozdzial-07-zmierzch.html">R.7</a></li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Maj</div>
+      <ul class="month__items">
+        <li><span class="when">popołudnia</span> — <strong>Początek prawdziwego sezonu burzowego.</strong> Ziemia jest już ciepła, a w górze zalega jeszcze zimne powietrze. Ta różnica napędza najbardziej spektakularne Cumulonimbusy w roku.</li>
+        <li><span class="when">wieczory</span> — <strong>Kowadła oświetlone od dołu.</strong> Burza 50 km dalej, oświetlona zachodzącym Słońcem, jest jednym z najefektowniejszych widoków w polskim niebie — i całkowicie bezpiecznym z tej odległości. → <a href="../rozdzialy/rozdzial-23-burza.html">R.23</a></li>
+        <li><span class="when">koniec maja</span> — <strong>Zaczyna się okno na chmury srebrzyste.</strong> Bardzo wcześnie, ale pierwsze zdarzenia notuje się już pod koniec miesiąca.</li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Czerwiec</div>
+      <ul class="month__items">
+        <li><span class="when">23:00–01:00</span> — <strong>Chmury srebrzyste. Rzecz nie do zobaczenia w żadnym innym miesiącu poza lipcem.</strong> Świecące niebiesko-srebrne włókna nisko nad północnym horyzontem, gdy reszta nieba jest już ciemna. To najwyższe chmury w atmosferze — 82 km — i widać je tylko dlatego, że Słońce, głęboko pod naszym horyzontem, wciąż je oświetla. → <a href="../dodatki/dodatek-q-chmury-srebrzyste.html">Dodatek Q</a></li>
+        <li><span class="when">przez całą noc</span> — <strong>Niebo nie robi się całkiem ciemne.</strong> W północnej Polsce zmierzch żeglarski trwa aż do świtu — przez trzy tygodnie nie ma prawdziwej nocy.</li>
+        <li><span class="when">ok. 21 czerwca</span> — <strong>Przesilenie.</strong> Słońce zachodzi najbardziej na północny zachód w całym roku. Warto zapamiętać ten punkt na horyzoncie: przez resztę roku zachody będą już tylko wracać na południe.</li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Lipiec</div>
+      <ul class="month__items">
+        <li><span class="when">23:00–01:00</span> — <strong>Szczyt sezonu chmur srebrzystych.</strong> Statystycznie najlepszy miesiąc. Patrzymy na północ, między 10° a 20° nad horyzontem, mniej więcej 1,5–2 godziny po zachodzie.</li>
+        <li><span class="when">upalne popołudnia</span> — <strong>Superkomórki.</strong> Najgroźniejsze polskie burze przypadają na lipiec i sierpień. Sygnał ostrzegawczy widoczny gołym okiem: chmura, która przestaje wyglądać jak jeden kalafior, a zaczyna jak obracająca się góra. → <a href="../rozdzialy/rozdzial-24-superkomorki.html">R.24</a></li>
+        <li><span class="when">po burzy, przed zachodem</span> — <strong>Mammatus.</strong> Workowate wybrzuszenia pod kowadłem odchodzącej burzy, podświetlone z boku. Trwają kilkanaście minut. → <a href="../rozdzialy/rozdzial-18-odmiany-i-osobliwosci.html">R.18</a></li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Sierpień</div>
+      <ul class="month__items">
+        <li><span class="when">11–13 sierpnia</span> — <strong>Perseidy.</strong> Nie chmury i nie optyka atmosfery, ale najlepszy w roku pretekst, żeby spędzić noc pod niebem. Przy okazji: bezchmurna sierpniowa noc to dobra okazja do zobaczenia, jak nisko nad horyzontem gaśnie zodiakalne światło.</li>
+        <li><span class="when">poranki</span> — <strong>Powrót mgieł.</strong> Noce robią się chłodne, dni jeszcze gorące — powietrze przy ziemi schładza się nocą poniżej punktu rosy. Mgła radiacyjna nad łąkami o świcie, znikająca w godzinę po wschodzie. → <a href="../dodatki/dodatek-o-katalog-mgiel.html">Dodatek O</a></li>
+        <li><span class="when">zachody</span> — <strong>Najbardziej czerwone zachody sezonu.</strong> Powietrze jest o tej porze roku najbardziej zapylone: pyłki, kurz z pól, dym. Więcej aerozoli to mniej błękitu i głębsza czerwień. → <a href="../rozdzialy/rozdzial-06-czerwony-zachod.html">R.6</a></li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Wrzesień</div>
+      <ul class="month__items">
+        <li><span class="when">ok. 23 września</span> — <strong>Równonoc jesienna.</strong> Od teraz zmierzchy będą się skracać najszybciej w całym roku — w okolicach równonocy dzień ubywa o niecałe 4 minuty dziennie.</li>
+        <li><span class="when">cały miesiąc</span> — <strong>Najlepszy miesiąc na fotografię nieba.</strong> Powietrze już się przeczyściło po lecie, ale chmur jest jeszcze dużo i są zróżnicowane. Do tego złota godzina wypada o rozsądnej porze. → <a href="../dodatki/dodatek-x-fotografia-nieba.html">Dodatek X</a></li>
+        <li><span class="when">wieczory</span> — <strong>Fale Kelvina-Helmholtza.</strong> Rząd załamujących się fal na brzegu chmury, jak morskie bałwany. Trwają 2–5 minut, więc widzi je ten, kto akurat patrzył. Jesień daje na nie największe szanse, bo warstwy powietrza o różnych prędkościach są wtedy najwyraźniej rozdzielone.</li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Październik</div>
+      <ul class="month__items">
+        <li><span class="when">poranki</span> — <strong>Szczyt sezonu mgieł.</strong> Długie noce i wciąż ciepła ziemia. Mgła w dolinach o świcie, widziana z góry, jest zresztą najlepszym możliwym dowodem, że mgła to po prostu Stratus, który usiadł. → <a href="../rozdzialy/rozdzial-16-chmury-niskie.html">R.16</a></li>
+        <li><span class="when">ok. 18:00</span> — <strong>Ostatni miesiąc z zachodem po pracy.</strong> Po zmianie czasu w ostatni weekend października zachód przeskakuje na 16:30.</li>
+        <li><span class="when">bezchmurne noce</span> — <strong>Pierwsze przymrozki i szron.</strong> Szron nie jest zamarzniętą rosą — to para wodna, która pominęła stan ciekły. Widać to po kryształkach: rosa zamarznięta daje kulki, szron igiełki. → <a href="../rozdzialy/rozdzial-09-niewidzialna-woda.html">R.9</a></li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Listopad</div>
+      <ul class="month__items">
+        <li><span class="when">tygodniami</span> — <strong>Stratus i Stratocumulus, dzień po dniu.</strong> To nie jest zła pogoda przez przypadek: nad Polską zalega wtedy wilgotne powietrze pod warstwą inwersji, której nie ma co przebić. Chmura niska zamyka niebo i nie ma czym jej rozbić — Słońce jest już za słabe. → <a href="../rozdzialy/rozdzial-16-chmury-niskie.html">R.16</a></li>
+        <li><span class="when">rzadkie przejaśnienia</span> — <strong>Najkrótsza złota godzina w roku, i najdłuższa.</strong> Paradoks: Słońce jest tak nisko, że praktycznie cały dzień ma barwę złotej godziny — ale jeśli chmury się nie rozejdą, nie zobaczymy jej wcale.</li>
+        <li><span class="when">w górach</span> — <strong>Powyżej inwersji.</strong> Listopad to najlepszy miesiąc, żeby wyjechać ponad chmury. Morze Stratocumulusa w dolinach i czyste, granatowe niebo powyżej.</li>
+      </ul>
+    </div>
+
+    <div class="month">
+      <div class="month__name">Grudzień</div>
+      <ul class="month__items">
+        <li><span class="when">ok. 21 grudnia</span> — <strong>Przesilenie zimowe.</strong> Słońce w południe na wysokości zaledwie 14° — niżej, niż stoi latem o siódmej rano. Stąd długie cienie przez cały dzień.</li>
+        <li><span class="when">15:20–16:30</span> — <strong>Błękitna godzina o rozsądnej porze.</strong> Jedyny miesiąc, w którym cały cykl zachodu i błękitnej godziny mieści się przed kolacją. → <a href="../rozdzialy/rozdzial-07-zmierzch.html">R.7</a></li>
+        <li><span class="when">mroźne, wilgotne dni</span> — <strong>Mgła lodowa i pył diamentowy.</strong> Poniżej −15°C zawieszone w powietrzu kryształki iskrzą w słońcu jak zawiesina brokatu. W Polsce rzadkie, ale zdarza się na wschodzie i w kotlinach górskich.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Jedna rzecz warta zapamiętania z całego kalendarza</div>
+    <p><strong>Chmury srebrzyste w czerwcu i lipcu.</strong> Wszystko inne w tej tabeli prędzej czy później się powtórzy — halo w każdą zimę, tęcza po każdym przelotnym deszczu. Chmury srebrzyste mają okno długie na sześć tygodni w roku, wymagają bezchmurnej północnej strony nieba około północy i nie zdarzają się co noc. Kto przegapi lipiec, czeka rok.</p>
+    <p>Praktycznie: warto w czerwcu i lipcu wyrobić sobie odruch spojrzenia na północ przed pójściem spać. To kosztuje dziesięć sekund, a jest jedyną drogą do zobaczenia chmury, która unosi się trzy razy wyżej niż przelatują samoloty i świeci, gdy reszta nieba jest już ciemna.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

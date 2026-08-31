@@ -26,7 +26,387 @@
   <h1>Klucz do rozpoznawania chmur</h1>
   <p class="subtitle">Drzewo decyzyjne na telefon: wysoko czy nisko, kłaczki czy warstwa, widać przez nią Słońce — i wychodzi nazwa.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">Zanim zaczniemy</div>
+    <ul>
+      <li>Stajemy tyłem do Słońca albo je zasłaniamy dłonią. Patrzenie prosto w Słońce nic nie da poza plamami przed oczami.</li>
+      <li>Wybieramy <strong>jedną</strong> chmurę albo jedno piętro. Na niebie bywają trzy naraz i wtedy klucz da trzy różne odpowiedzi — wszystkie prawdziwe.</li>
+      <li>Do mierzenia wielkości używamy wyciągniętej ręki: mały palec to około 1°, trzy palce razem około 5°. Ta miarka wraca w pytaniach.</li>
+    </ul>
+  </div>
+
+  <div class="diagram-frame">
+    <div class="diagram-hud"><span>Miarka na wyciągniętej ręce</span><span>działa u każdego</span></div>
+    <svg viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg">
+      <text x="20" y="24" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="12">wyciągnięta ręka, patrzymy jednym okiem</text>
+      <g font-family="IBM Plex Sans, sans-serif" font-size="13" fill="#ecebe4">
+        <rect x="40" y="52" width="18" height="46" rx="5" fill="#4fc3c0" opacity="0.55"/>
+        <text x="70" y="72">mały palec</text><text x="70" y="90" fill="#8b909b" font-size="12">≈ 1° — tyle ma Księżyc razy dwa</text>
+
+        <rect x="300" y="52" width="52" height="46" rx="5" fill="#4fc3c0" opacity="0.55"/>
+        <text x="364" y="72">trzy palce</text><text x="364" y="90" fill="#8b909b" font-size="12">≈ 5°</text>
+
+        <rect x="560" y="52" width="105" height="46" rx="5" fill="#4fc3c0" opacity="0.55"/>
+        <text x="560" y="122">rozstawiona dłoń ≈ 20°</text>
+      </g>
+      <text x="20" y="140" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">Miarka działa niezależnie od wzrostu: kto ma większą dłoń, ma też dłuższą rękę.</text>
+    </svg>
+    <div class="diagram-caption">Wielkość pojedynczego kłaczka jest w rozpoznawaniu chmur ważniejsza niż wygląd całości — bo mówi wprost o odległości, czyli o wysokości chmury.</div>
+  </div>
+
+  <div class="tree" id="klucz">
+    <div class="tree__crumbs" id="crumbs"></div>
+    <div id="scena"></div>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Gdy klucz nie działa</div>
+    <p><strong>Niebo bywa niejednoznaczne i to nie jest błąd klucza.</strong> Chmury przechodzą jedna w drugą — Stratocumulus rozpada się w Cumulusy, Cirrostratus gęstnieje w Altostratus. Jeśli dwie odpowiedzi wydają się równie dobre, prawdopodobnie patrzymy właśnie na przejście, a obie nazwy są po trosze słuszne. Wtedy najciekawsze jest sprawdzić za pół godziny, w którą stronę poszło.</p>
+    <p>Jeśli nic nie pasuje, warto zajrzeć do Rozdziału 18 — do odmian i osobliwości. Mammatus, Asperitas, Lenticularis i fale Kelvina-Helmholtza nie są osobnymi rodzajami, więc w tym kluczu ich nie ma, a wyglądają na tyle nietypowo, że zwykle to właśnie one łamią klucz.</p>
+  </div>
+
+<script>
+(function(){
+  'use strict';
+
+  var DRZEWO = {
+    start: {
+      q: 'Ile widać przez tę chmurę?',
+      hint: 'To pytanie o piętro. Im wyżej chmura, tym mniej w niej wody i tym więcej światła przez nią przechodzi.',
+      opts: [
+        { t: 'Jest biała i cienka, Słońce lub Księżyc świeci przez nią wyraźnie', s: 'Nie ma w niej szarych cieni. Nie rzuca cienia na ziemię.', go: 'wysokie' },
+        { t: 'Ma szare cienie, ale niebo za nią czasem prześwituje', s: 'Słońce widać jako rozmytą plamę albo wcale. Chmura ma rysunek: kłaczki, pasy, faliste dno.', go: 'srednie' },
+        { t: 'Jest wyraźnie szara albo ciemna, zwłaszcza od spodu', s: 'Słońca nie widać wcale, albo chmura jest zwartym kłębem z ciemnym, płaskim dnem.', go: 'niskie' }
+      ]
+    },
+
+    wysokie: {
+      q: 'Jaki ma kształt?',
+      hint: 'Piętro wysokie: 5–13 km, cała z kryształków lodu. Stąd miękkie, włókniste brzegi i możliwość halo.',
+      opts: [
+        { t: 'Włókna, pasma, haczyki — jak pociągnięcia pędzlem', s: 'Osobne smugi na błękitnym tle, często zakrzywione na końcu.', go: '=cirrus' },
+        { t: 'Jednolita mleczna zasłona na dużej części nieba', s: 'Błękit blednie, ale Słońce daje jeszcze cień. Bardzo często widać wokół niego jasny pierścień.', go: '=cirrostratus' },
+        { t: 'Drobne ziarenka albo łuski, ułożone w ławicę', s: 'Pojedyncze ziarenko jest mniejsze niż mały palec na wyciągniętej ręce.', go: '=cirrocumulus' }
+      ]
+    },
+
+    srednie: {
+      q: 'Warstwa czy kłaczki?',
+      hint: 'Piętro średnie: 2–7 km. Mieszanka kropelek i lodu — stąd i szarość, i miękkość naraz.',
+      opts: [
+        { t: 'Ławica kłaczków albo wałków, z cieniem po jednej stronie', s: 'Pojedynczy kłaczek jest większy niż mały palec, ale mniejszy niż trzy palce na wyciągniętej ręce.', go: 'ac' },
+        { t: 'Jednolita szara zasłona, Słońce jak przez mleczną szybę', s: 'Widać, gdzie jest Słońce, ale nie widać jego brzegu. Nie ma halo. Nie rzuca wyraźnego cienia.', go: '=altostratus' },
+        { t: 'Ciemnoszara, jednolita, Słońca nie widać wcale — i pada', s: 'Deszcz albo śnieg, równy, od godzin.', go: '=nimbostratus' }
+      ]
+    },
+
+    ac: {
+      q: 'Czy z tych kłaczków wyrastają w górę wieżyczki?',
+      hint: 'To jedno z niewielu pytań w tym kluczu, które ma konsekwencję na dziś po południu.',
+      opts: [
+        { t: 'Nie, są płaskie — jak ławica rybek albo baranki', s: 'Równa ławica, płaskie góry.', go: '=altocumulus' },
+        { t: 'Tak, mają blanki i wieżyczki jak mur zamku', s: 'Górna krawędź jest postrzępiona, poszczególne kłaczki wyrastają w górę.', go: '=altocumulus-cast' }
+      ]
+    },
+
+    niskie: {
+      q: 'Czy z niej pada?',
+      hint: 'Piętro niskie: od ziemi do 2 km. Prawie zawsze z kropelek wody.',
+      opts: [
+        { t: 'Nie pada', s: 'Ewentualnie mżawka, ale nie deszcz.', go: 'niskie2' },
+        { t: 'Pada równo, godzinami, z jednolicie szarego nieba', s: 'Nie widać, gdzie zaczyna się chmura, a gdzie kończy. Nie widać Słońca.', go: '=nimbostratus' },
+        { t: 'Pada przelotnie i mocno, z wyraźnego, spiętrzonego kłębu', s: 'Między opadami wychodzi Słońce. Deszcz ma widoczny początek i koniec.', go: 'cb' }
+      ]
+    },
+
+    niskie2: {
+      q: 'Warstwa czy osobne kłęby?',
+      hint: 'Kluczowe jest, czy widać między chmurami błękit.',
+      opts: [
+        { t: 'Bezkształtna szarość nisko nad dachami, bez rysunku', s: 'Jak mgła, która nie doszła do ziemi. Górna krawędź budynków może w niej ginąć.', go: '=stratus' },
+        { t: 'Ławica sklejonych wałków albo bochenków, z ciemniejszymi szczelinami', s: 'Pojedynczy element jest większy niż trzy palce na wyciągniętej ręce. Zajmuje dużą część nieba.', go: '=stratocumulus' },
+        { t: 'Osobne białe kłęby z płaskim dnem, między nimi błękit', s: 'Wyraźne brzegi, dno wszystkich na tej samej wysokości.', go: 'cu' }
+      ]
+    },
+
+    cu: {
+      q: 'Wyższa czy szersza?',
+      hint: 'Cumulus to jedna historia rozłożona na godziny. Proporcje mówią, w którym jest miejscu.',
+      opts: [
+        { t: 'Wyraźnie szersza niż wysoka — płaska poducha', s: 'Wygląda jak przyklejona do jednej wysokości.', go: '=cumulus-humilis' },
+        { t: 'Mniej więcej tak wysoka jak szeroka, góra się kłębi', s: 'Kalafior w budowie, ale jeszcze nie wieża.', go: '=cumulus-mediocris' },
+        { t: 'Wyraźnie wyższa niż szersza — wieża kalafiora', s: 'Rośnie na oczach, w kilkanaście minut widać różnicę.', go: 'cb' }
+      ]
+    },
+
+    cb: {
+      q: 'Jak wygląda sam szczyt?',
+      hint: 'To najważniejsze pytanie w całym kluczu — jedyne, którego odpowiedź może zmienić plany na najbliższą godzinę.',
+      opts: [
+        { t: 'Ostro zarysowany kalafior, twarde, wyraźne wypukłości', s: 'Szczyt wygląda jak zbite białe kule. Wciąż rośnie.', go: '=cumulus-congestus' },
+        { t: 'Rozmyty, włóknisty, rozlewa się na boki w kształt kowadła', s: 'Górna krawędź straciła ostrość — jest miękka i pasiasta.', go: '=cumulonimbus' }
+      ]
+    }
+  };
+
+  function chmura(sciezka, kolor, opis){
+    return '<svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="' + opis + '">'
+      + '<line x1="0" y1="176" x2="640" y2="176" stroke="#2a2f38" stroke-width="2"/>'
+      + '<rect x="24" y="160" width="26" height="16" fill="#2a2f38"/><rect x="58" y="150" width="18" height="26" fill="#2a2f38"/>'
+      + '<path d="M596,176 L604,150 L612,176 Z" fill="#2a2f38"/>'
+      + sciezka + '</svg>';
+  }
+
+  var LOD = '#9c82d8', WODA = '#e8e6dd';
+
+  var WYNIKI = {
+    'cirrus': {
+      nazwa: 'Cirrus', pl: 'pierzasta', pietro: 'wysokie · 5–13 km · lód',
+      svg: chmura('<g stroke="' + LOD + '" fill="none" stroke-linecap="round">'
+        + '<path d="M60,60 C160,46 260,52 330,40" stroke-width="4" opacity="0.85"/><path d="M330,40 C348,36 356,46 344,56" stroke-width="4" opacity="0.85"/>'
+        + '<path d="M150,86 C250,74 340,80 410,66" stroke-width="3.4" opacity="0.7"/><path d="M410,66 C428,62 436,72 424,82" stroke-width="3.4" opacity="0.7"/>'
+        + '<path d="M280,110 C360,102 440,106 510,96" stroke-width="2.8" opacity="0.55"/>'
+        + '<path d="M380,132 C440,126 500,128 550,120" stroke-width="2.4" opacity="0.4"/></g>', 'Włókniste pasma z haczykami'),
+      znaczy: 'Sam w sobie nie znaczy nic — Cirrus bywa też w środku pięknego dnia. Znaczy coś dopiero <strong>w liczbie mnogiej i w ruchu</strong>: jeśli w ciągu kilku godzin pasm przybywa i zaczynają się zlewać w mleczną zasłonę, to czoło frontu ciepłego. Deszcz za 12–18 godzin.',
+      patrz: 'Haczyki na końcach pasm to opadające kryształki lodu, znoszone przez wiatr wiejący z inną prędkością niż wyżej. Cirrus rysuje wiatr, którego nie da się zobaczyć inaczej.',
+      r: 14, rt: 'Chmury wysokie'
+    },
+    'cirrostratus': {
+      nazwa: 'Cirrostratus', pl: 'pierzasto-warstwowa', pietro: 'wysokie · 5–13 km · lód',
+      svg: chmura('<rect x="0" y="20" width="640" height="120" fill="' + LOD + '" opacity="0.18"/>'
+        + '<rect x="0" y="20" width="640" height="120" fill="url(#csg)"/>'
+        + '<defs><linearGradient id="csg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + LOD + '" stop-opacity="0.1"/><stop offset="1" stop-color="' + LOD + '" stop-opacity="0"/></linearGradient></defs>'
+        + '<circle cx="320" cy="80" r="14" fill="#e8a33d"/>'
+        + '<circle cx="320" cy="80" r="52" fill="none" stroke="#e8a33d" stroke-width="3" opacity="0.75"/>'
+        + '<text x="386" y="86" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="13">halo 22°</text>', 'Mleczna zasłona z halo wokół Słońca'),
+      znaczy: '<strong>Najbardziej wiarygodna zapowiedź w całym niebie.</strong> Cirrostratus to Cirrus, który się rozlał — czyli front ciepły już nadchodzi. Deszcz zwykle za 8–14 godzin. Jeśli zasłona gęstnieje i szarzeje, zegar tyka.',
+      patrz: 'Halo 22° pojawia się prawie wyłącznie na Cirrostratusie, bo tylko ta chmura ma jednocześnie dość lodu i dość przezroczystości. Widoczne halo to praktycznie potwierdzenie rozpoznania.',
+      r: 14, rt: 'Chmury wysokie'
+    },
+    'cirrocumulus': {
+      nazwa: 'Cirrocumulus', pl: 'pierzasto-kłębiasta', pietro: 'wysokie · 5–13 km · lód',
+      svg: chmura('<g fill="' + LOD + '" opacity="0.7">'
+        + '<circle cx="150" cy="60" r="7"/><circle cx="176" cy="58" r="6"/><circle cx="202" cy="62" r="7"/><circle cx="228" cy="57" r="6"/><circle cx="254" cy="61" r="7"/><circle cx="280" cy="58" r="6"/><circle cx="306" cy="62" r="7"/><circle cx="332" cy="59" r="6"/><circle cx="358" cy="61" r="7"/><circle cx="384" cy="57" r="6"/><circle cx="410" cy="61" r="7"/><circle cx="436" cy="59" r="6"/>'
+        + '<circle cx="163" cy="84" r="7"/><circle cx="189" cy="82" r="6"/><circle cx="215" cy="86" r="7"/><circle cx="241" cy="81" r="6"/><circle cx="267" cy="85" r="7"/><circle cx="293" cy="82" r="6"/><circle cx="319" cy="86" r="7"/><circle cx="345" cy="83" r="6"/><circle cx="371" cy="85" r="7"/><circle cx="397" cy="81" r="6"/><circle cx="423" cy="85" r="7"/>'
+        + '<circle cx="176" cy="108" r="6"/><circle cx="202" cy="106" r="5"/><circle cx="228" cy="110" r="6"/><circle cx="254" cy="105" r="5"/><circle cx="280" cy="109" r="6"/><circle cx="306" cy="106" r="5"/><circle cx="332" cy="110" r="6"/><circle cx="358" cy="107" r="5"/><circle cx="384" cy="109" r="6"/></g>', 'Drobne ziarenka ułożone w regularną ławicę'),
+      znaczy: 'Najrzadszy z dziesięciu rodzajów i najkrótko żyjący — zwykle rozpada się w kilkanaście minut w Cirrus albo Cirrostratus. Bywa oznaką niestabilności na dużej wysokości. Stare określenie „niebo makrelowe” dotyczy właśnie jego i zapowiada zmianę pogody w ciągu doby.',
+      patrz: 'Rozstrzygający jest rozmiar, nie wygląd: <strong>ziarenko mniejsze niż mały palec</strong> to Cirrocumulus, większe to Altocumulus. Bez tego sprawdzenia obie chmury wyglądają identycznie.',
+      r: 14, rt: 'Chmury wysokie'
+    },
+    'altocumulus': {
+      nazwa: 'Altocumulus', pl: 'średnia kłębiasta', pietro: 'średnie · 2–7 km · woda i lód',
+      svg: chmura('<g fill="' + WODA + '">'
+        + '<ellipse cx="140" cy="70" rx="34" ry="15" opacity="0.85"/><ellipse cx="215" cy="68" rx="32" ry="14" opacity="0.85"/><ellipse cx="288" cy="71" rx="35" ry="15" opacity="0.85"/><ellipse cx="363" cy="68" rx="32" ry="14" opacity="0.85"/><ellipse cx="436" cy="71" rx="34" ry="15" opacity="0.85"/><ellipse cx="508" cy="69" rx="30" ry="13" opacity="0.85"/>'
+        + '<ellipse cx="165" cy="106" rx="34" ry="15" opacity="0.75"/><ellipse cx="240" cy="104" rx="32" ry="14" opacity="0.75"/><ellipse cx="313" cy="107" rx="35" ry="15" opacity="0.75"/><ellipse cx="388" cy="104" rx="32" ry="14" opacity="0.75"/><ellipse cx="461" cy="107" rx="34" ry="15" opacity="0.75"/></g>'
+        + '<g fill="#6e93be" opacity="0.5">'
+        + '<ellipse cx="140" cy="80" rx="30" ry="7"/><ellipse cx="215" cy="78" rx="28" ry="6"/><ellipse cx="288" cy="81" rx="31" ry="7"/><ellipse cx="363" cy="78" rx="28" ry="6"/><ellipse cx="436" cy="81" rx="30" ry="7"/></g>', 'Ławica płaskich kłaczków z cieniem od spodu'),
+      znaczy: 'Sam w sobie: powietrze na średniej wysokości jest lekko niestabilne. Zwykle nic z tego nie wynika. Jeśli jednak Altocumulus pojawia się <strong>rano latem</strong>, warto pamiętać o wersji z wieżyczkami — to samo pole może się do południa przebudować.',
+      patrz: 'Cień. Altocumulus ma szarą spodnią stronę, Cirrocumulus jest biały na wylot. Cień oznacza, że w chmurze jest ciekła woda, a więc że jest niżej.',
+      r: 15, rt: 'Chmury średnie'
+    },
+    'altocumulus-cast': {
+      nazwa: 'Altocumulus castellanus', pl: 'średnia kłębiasta z wieżyczkami', pietro: 'średnie · 2–7 km · woda i lód',
+      svg: chmura('<g fill="' + WODA + '" opacity="0.9">'
+        + '<rect x="120" y="96" width="380" height="18" rx="6"/>'
+        + '<path d="M132,96 v-26 a12,12 0 0 1 24,0 v26 z"/><path d="M176,96 v-38 a13,13 0 0 1 26,0 v38 z"/><path d="M222,96 v-22 a11,11 0 0 1 22,0 v22 z"/><path d="M264,96 v-44 a14,14 0 0 1 28,0 v44 z"/><path d="M312,96 v-30 a12,12 0 0 1 24,0 v30 z"/><path d="M356,96 v-40 a13,13 0 0 1 26,0 v40 z"/><path d="M402,96 v-24 a11,11 0 0 1 22,0 v24 z"/><path d="M444,96 v-34 a12,12 0 0 1 24,0 v34 z"/></g>'
+        + '<rect x="120" y="108" width="380" height="8" rx="4" fill="#6e93be" opacity="0.55"/>'
+        + '<text x="516" y="72" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="13">blanki</text>', 'Kłaczki z wieżyczkami wyrastającymi w górę'),
+      znaczy: '<strong>To jest ostrzeżenie i warto je potraktować poważnie.</strong> Wieżyczki oznaczają, że powietrze na średniej wysokości jest niestabilne już rano. Jeśli dzień się dogrzeje, po południu jest wysokie prawdopodobieństwo burz — i to burz silniejszych niż zwykłe popołudniowe.',
+      patrz: 'To jedyny wpis w tym kluczu, który nie jest rodzajem, tylko gatunkiem. Zasługuje na osobne miejsce, bo żadna inna chmura średniego piętra nie daje tak konkretnej prognozy na tę samą dobę.',
+      r: 15, rt: 'Chmury średnie'
+    },
+    'altostratus': {
+      nazwa: 'Altostratus', pl: 'średnia warstwowa', pietro: 'średnie · 2–7 km · woda i lód',
+      svg: chmura('<rect x="0" y="18" width="640" height="126" fill="#8b909b" opacity="0.42"/>'
+        + '<circle cx="320" cy="80" r="30" fill="#e8a33d" opacity="0.3"/>'
+        + '<circle cx="320" cy="80" r="18" fill="#e8a33d" opacity="0.35"/>'
+        + '<text x="378" y="86" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="13">Słońce bez brzegu</text>', 'Jednolita szara zasłona, Słońce jako rozmyta plama'),
+      znaczy: 'Front ciepły jest już blisko. Altostratus to zagęszczony Cirrostratus i kolejny krok tej samej sekwencji. <strong>Deszcz zwykle w ciągu 4–8 godzin</strong>, a jeśli zasłona ciemnieje i obniża się — wcześniej.',
+      patrz: 'Klasyczny sprawdzian: „Słońce jak przez mleczną szybę”. Widać, gdzie jest, ale nie widać jego krawędzi, i nie rzuca ostrego cienia. Przy Cirrostratusie cień jeszcze jest, przy Nimbostratusie Słońca nie ma wcale.',
+      r: 15, rt: 'Chmury średnie'
+    },
+    'nimbostratus': {
+      nazwa: 'Nimbostratus', pl: 'deszczowa warstwowa', pietro: 'niskie do średniego · opad ciągły',
+      svg: chmura('<rect x="0" y="10" width="640" height="112" fill="#5a6068" opacity="0.75"/>'
+        + '<path d="M0,122 Q60,134 120,122 Q180,134 240,122 Q300,134 360,122 Q420,134 480,122 Q540,134 600,122 Q620,128 640,122 L640,110 L0,110 Z" fill="#5a6068" opacity="0.75"/>'
+        + '<g stroke="#4fc3c0" stroke-width="1.6" opacity="0.55">'
+        + '<line x1="60" y1="128" x2="52" y2="172"/><line x1="110" y1="126" x2="102" y2="172"/><line x1="160" y1="130" x2="152" y2="172"/><line x1="210" y1="126" x2="202" y2="172"/><line x1="260" y1="129" x2="252" y2="172"/><line x1="310" y1="126" x2="302" y2="172"/><line x1="360" y1="130" x2="352" y2="172"/><line x1="410" y1="127" x2="402" y2="172"/><line x1="460" y1="129" x2="452" y2="172"/><line x1="510" y1="126" x2="502" y2="172"/><line x1="560" y1="130" x2="552" y2="172"/></g>', 'Ciemna jednolita warstwa z ciągłym opadem'),
+      znaczy: 'Front ciepły <strong>już nad nami</strong>. Deszcz albo śnieg, równy, bez przerw, zwykle na kilka do kilkunastu godzin. Nie będzie burzy — to opad z chmury warstwowej, więc bez gwałtowności, ale i bez końca.',
+      patrz: 'Nimbostratus nie ma widocznej podstawy ani szczytu — to jedyna chmura, której nie da się „obejrzeć”, bo jest się pod nią i już. Rozmyte, postrzępione strzępy niżej to <em>pannus</em>, chmury pomocnicze tworzące się w padającym deszczu.',
+      r: 16, rt: 'Chmury niskie'
+    },
+    'stratus': {
+      nazwa: 'Stratus', pl: 'warstwowa', pietro: 'niskie · 0–2 km · woda',
+      svg: chmura('<rect x="0" y="82" width="640" height="66" fill="#9aa0a8" opacity="0.55"/>'
+        + '<rect x="0" y="72" width="640" height="16" fill="#9aa0a8" opacity="0.3"/>'
+        + '<rect x="24" y="140" width="26" height="36" fill="#2a2f38"/><rect x="58" y="118" width="18" height="58" fill="#2a2f38"/>'
+        + '<rect x="58" y="118" width="18" height="26" fill="#9aa0a8" opacity="0.55"/>'
+        + '<text x="110" y="112" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="13">szczyt budynku ginie w chmurze</text>', 'Niska jednolita szarość, w której gina szczyty budynków'),
+      znaczy: 'Nie zapowiada nic gwałtownego. Stratus to <strong>mgła, która nie doszła do ziemi</strong>, i tak samo jak mgła oznacza po prostu, że powietrze jest wilgotne i spokojne. Może dać mżawkę. Może trwać dzień albo trzy — typowy polski listopad.',
+      patrz: 'Rozstrzygający jest brak rysunku. Stratocumulus ma widoczne wałki i szczeliny; Stratus jest równą, bezkształtną szarością. Jeśli w ciągu dnia zaczyna się w nim pojawiać struktura, Słońce go rozbija — i za godzinę może być Stratocumulus.',
+      r: 16, rt: 'Chmury niskie'
+    },
+    'stratocumulus': {
+      nazwa: 'Stratocumulus', pl: 'kłębiasto-warstwowa', pietro: 'niskie · 0,5–2 km · woda',
+      svg: chmura('<g fill="' + WODA + '" opacity="0.88">'
+        + '<ellipse cx="90" cy="82" rx="72" ry="26"/><ellipse cx="230" cy="76" rx="80" ry="30"/><ellipse cx="380" cy="82" rx="76" ry="27"/><ellipse cx="525" cy="78" rx="82" ry="29"/></g>'
+        + '<g fill="#6e93be" opacity="0.55">'
+        + '<ellipse cx="90" cy="98" rx="66" ry="12"/><ellipse cx="230" cy="96" rx="74" ry="13"/><ellipse cx="380" cy="99" rx="70" ry="12"/><ellipse cx="525" cy="97" rx="76" ry="13"/></g>'
+        + '<text x="196" y="140" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="13">szczeliny, przez które widać błękit</text>', 'Ławica dużych sklejonych wałków z ciemnym spodem'),
+      znaczy: 'Najczęstsza chmura na świecie i zwykle najmniej znacząca. Oznacza wilgotne, ustabilizowane powietrze pod warstwą, która nie pozwala mu iść wyżej — <strong>tę warstwę nazywamy inwersją</strong>. Deszczu praktycznie nie daje. Bywa wieczorną pozostałością po dziennych Cumulusach.',
+      patrz: 'Miarka rozstrzyga: pojedynczy wałek <strong>szerszy niż trzy palce</strong> to Stratocumulus, węższy to Altocumulus. Dwie te chmury pomylić najłatwiej, a różnica wysokości między nimi to kilka kilometrów.',
+      r: 16, rt: 'Chmury niskie'
+    },
+    'cumulus-humilis': {
+      nazwa: 'Cumulus humilis', pl: 'kłębiasta niska', pietro: 'niskie · podstawa 0,6–2 km · woda',
+      svg: chmura('<g fill="' + WODA + '">'
+        + '<path d="M100,110 a26,26 0 0 1 26,-26 a30,30 0 0 1 56,-6 a24,24 0 0 1 34,32 z"/>'
+        + '<path d="M280,110 a22,22 0 0 1 22,-22 a26,26 0 0 1 48,-5 a20,20 0 0 1 28,27 z"/>'
+        + '<path d="M430,110 a24,24 0 0 1 24,-24 a28,28 0 0 1 52,-5 a22,22 0 0 1 30,29 z"/></g>'
+        + '<line x1="80" y1="110" x2="580" y2="110" stroke="#e8a33d" stroke-width="2" stroke-dasharray="7 6"/>'
+        + '<text x="80" y="130" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="13">wszystkie dna na tej samej wysokości</text>', 'Płaskie białe kłęby z równym, płaskim dnem'),
+      znaczy: '<strong>Chmura pięknej pogody</strong> i tak się ją nazywa. Powietrze jest lekko niestabilne przy ziemi, ale wyżej coś je zatrzymuje. Jeśli do popołudnia nie urosną, dzień będzie słoneczny. Zwykle znikają po zachodzie razem z termiką, która je karmiła.',
+      patrz: 'Płaskie dno na jednej wysokości u wszystkich chmur w okolicy to najpiękniejszy fakt w całej książce — poziom kondensacji jest dla całej masy powietrza wspólny. Jak kreska narysowana w powietrzu linijką.',
+      r: 17, rt: 'Cumulus i Cumulonimbus'
+    },
+    'cumulus-mediocris': {
+      nazwa: 'Cumulus mediocris', pl: 'kłębiasta średnia', pietro: 'niskie z rozbudową · woda',
+      svg: chmura('<g fill="' + WODA + '">'
+        + '<path d="M200,118 a34,34 0 0 1 20,-32 a34,34 0 0 1 26,-40 a36,36 0 0 1 62,10 a32,32 0 0 1 40,28 a30,30 0 0 1 22,34 z"/>'
+        + '<path d="M430,118 a22,22 0 0 1 22,-22 a26,26 0 0 1 48,-4 a20,20 0 0 1 28,26 z" opacity="0.85"/></g>'
+        + '<line x1="180" y1="118" x2="560" y2="118" stroke="#e8a33d" stroke-width="2" stroke-dasharray="7 6"/>'
+        + '<path d="M285,130 v40" stroke="#e8a33d" stroke-width="2" opacity="0.6"/><path d="M285,50 v-16" stroke="#e8a33d" stroke-width="2" opacity="0.6"/>'
+        + '<text x="300" y="42" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="13">rośnie</text>', 'Kłąb mniej więcej tak wysoki jak szeroki'),
+      znaczy: 'Etap pośredni i dlatego wart uwagi: <strong>o tej chmurze nie mówi się z wyglądu, tylko z tempa</strong>. Jeśli w ciągu 20 minut wyraźnie urosła, do popołudnia będzie z niej congestus, a może i burza. Jeśli stoi w miejscu — nic z tego nie będzie.',
+      patrz: 'Warto zapamiętać jej wygląd o godzinie i sprawdzić o dwie później. To najprostsza obserwacja meteorologiczna, jaką da się zrobić bez żadnego sprzętu, a przewiduje resztę dnia lepiej niż większość aplikacji.',
+      r: 17, rt: 'Cumulus i Cumulonimbus'
+    },
+    'cumulus-congestus': {
+      nazwa: 'Cumulus congestus', pl: 'kłębiasta spiętrzona', pietro: 'pionowa · szczyt do 6 km · woda',
+      svg: chmura('<g fill="' + WODA + '">'
+        + '<path d="M230,150 a40,40 0 0 1 14,-46 a34,34 0 0 1 10,-44 a30,30 0 0 1 22,-30 a30,30 0 0 1 52,6 a34,34 0 0 1 26,40 a38,38 0 0 1 22,40 a36,36 0 0 1 18,34 z"/></g>'
+        + '<line x1="210" y1="150" x2="440" y2="150" stroke="#e8a33d" stroke-width="2" stroke-dasharray="7 6"/>'
+        + '<text x="460" y="46" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="13">szczyt wciąż ostry</text>'
+        + '<text x="460" y="66" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">= jeszcze woda, jeszcze nie lód</text>', 'Wieża kalafiora z ostro zarysowanym szczytem'),
+      znaczy: '<strong>Przelotny deszcz w ciągu godziny, możliwa burza.</strong> To Cumulonimbus, któremu brakuje jeszcze jednego kroku. Jeżeli rośnie, a niebo wokół dostarcza wilgoci, ten krok zwykle następuje. Dobry moment, żeby przestać planować dwie godziny w polu.',
+      patrz: 'Cała różnica między congestusem a burzą siedzi w szczycie. Dopóki jest ostry, składa się z kropelek. Kiedy zmarznie w lód, rozmyje się — i wtedy chmura zmienia nazwę.',
+      r: 17, rt: 'Cumulus i Cumulonimbus'
+    },
+    'cumulonimbus': {
+      nazwa: 'Cumulonimbus', pl: 'kłębiasta deszczowa', pietro: 'pionowa · szczyt 8–13 km · woda i lód',
+      svg: chmura('<g fill="' + WODA + '">'
+        + '<path d="M240,150 a44,44 0 0 1 10,-52 a36,36 0 0 1 6,-42 a30,30 0 0 1 24,-24 a30,30 0 0 1 48,4 a34,34 0 0 1 20,36 a40,40 0 0 1 20,44 a38,38 0 0 1 16,34 z"/></g>'
+        + '<path d="M150,42 Q250,22 320,26 Q400,22 500,42 Q440,58 320,56 Q210,58 150,42 Z" fill="' + LOD + '" opacity="0.55"/>'
+        + '<path d="M500,42 Q560,44 590,50" stroke="' + LOD + '" stroke-width="3" fill="none" opacity="0.45"/>'
+        + '<g stroke="#4fc3c0" stroke-width="1.8" opacity="0.5">'
+        + '<line x1="270" y1="152" x2="262" y2="174"/><line x1="300" y1="152" x2="292" y2="174"/><line x1="330" y1="152" x2="322" y2="174"/><line x1="360" y1="152" x2="352" y2="174"/></g>'
+        + '<text x="120" y="86" fill="' + LOD + '" font-family="IBM Plex Mono, monospace" font-size="13">kowadło = lód</text>', 'Wieża z rozlanym kowadłem u szczytu'),
+      znaczy: '<strong>Burza. Wracamy pod dach.</strong> Ulewa, wyładowania, możliwy grad i gwałtowny wiatr przed samym opadem. Piorun potrafi uderzyć kilkanaście kilometrów od chmury, w pozornie czyste niebo — dlatego liczy się 30 minut od ostatniego grzmotu, a nie od ostatniej kropli.',
+      patrz: 'Kowadło jest płaskie, bo chmura doszła do tropopauzy i nie ma dokąd rosnąć — rozlewa się więc na boki. Strona, w którą jest wyciągnięte, pokazuje kierunek wiatru w górze, czyli zwykle kierunek, z którego burza nadciąga.',
+      r: 17, rt: 'Cumulus i Cumulonimbus'
+    }
+  };
+
+  var ROZDZIALY = {
+    14: 'rozdzial-14-chmury-wysokie.html',
+    15: 'rozdzial-15-chmury-srednie.html',
+    16: 'rozdzial-16-chmury-niskie.html',
+    17: 'rozdzial-17-cumulus-cumulonimbus.html'
+  };
+
+  var scena = document.getElementById('scena');
+  var crumbs = document.getElementById('crumbs');
+  if (!scena) return;
+
+  function sciezkaZHasha(){
+    var h = (location.hash || '').replace(/^#/, '');
+    if (!h) return [];
+    var czesci = h.split('-').filter(function(x){ return /^\d+$/.test(x); });
+    return czesci.map(Number);
+  }
+
+  // Przechodzi drzewo wg listy wybranych indeksow. Zwraca liste wezlow
+  // i ewentualny wynik. Sciezka niezgodna z drzewem jest przycinana.
+  function przejdz(sciezka){
+    var wezel = 'start', przebyte = [], wynik = null, uzyte = [];
+    for (var i = 0; i < sciezka.length; i++) {
+      var w = DRZEWO[wezel];
+      if (!w) break;
+      var opt = w.opts[sciezka[i]];
+      if (!opt) break;
+      przebyte.push({ wezel: wezel, wybor: sciezka[i], tekst: opt.t });
+      uzyte.push(sciezka[i]);
+      if (opt.go.charAt(0) === '=') { wynik = opt.go.slice(1); wezel = null; break; }
+      wezel = opt.go;
+    }
+    return { wezel: wezel, przebyte: przebyte, wynik: wynik, uzyte: uzyte };
+  }
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+  function rysujPytanie(klucz, stan){
+    var w = DRZEWO[klucz];
+    var h = '<div class="tree__step is-active">';
+    h += '<p class="tree__q">' + esc(w.q) + '</p>';
+    h += '<p class="tree__hint">' + esc(w.hint) + '</p>';
+    h += '<div class="tree__opts">';
+    w.opts.forEach(function(o, i){
+      h += '<button class="tree__opt" data-i="' + i + '">' + esc(o.t)
+         + '<small>' + esc(o.s) + '</small></button>';
+    });
+    h += '</div></div>';
+    scena.innerHTML = h;
+    Array.prototype.forEach.call(scena.querySelectorAll('.tree__opt'), function(b){
+      b.addEventListener('click', function(){
+        location.hash = stan.uzyte.concat([Number(b.dataset.i)]).join('-');
+      });
+    });
+  }
+
+  function rysujWynik(id){
+    var r = WYNIKI[id];
+    var h = '<div class="result-card">';
+    h += '<div class="result-card__genus">' + esc(r.pietro) + '</div>';
+    h += '<h2 class="result-card__name">' + esc(r.nazwa) + '</h2>';
+    h += '<p class="result-card__pl">po polsku: ' + esc(r.pl) + '</p>';
+    h += r.svg;
+    h += '<p class="result-card__means"><strong>Co z tego wynika:</strong> ' + r.znaczy + '</p>';
+    h += '<p class="result-card__means"><strong>Na co jeszcze patrzeć:</strong> ' + r.patrz + '</p>';
+    h += '<p class="result-card__means"><a href="../rozdzialy/' + ROZDZIALY[r.r] + '">→ Rozdział ' + r.r + ': ' + esc(r.rt) + '</a></p>';
+    h += '</div>';
+    h += '<div class="tree__opts" style="margin-top:20px"><button class="tree__opt" id="odnowa">Zacznij od nowa<small>Inna chmura albo inne piętro na tym samym niebie.</small></button></div>';
+    scena.innerHTML = h;
+    document.getElementById('odnowa').addEventListener('click', function(){
+      if (location.hash) { location.hash = ''; } else { rysuj(); }
+    });
+  }
+
+  function rysujOkruchy(stan){
+    if (!stan.przebyte.length) { crumbs.innerHTML = 'krok 1'; return; }
+    var h = '<button data-do="0">start</button>';
+    stan.przebyte.forEach(function(p, i){
+      var skrot = p.tekst.length > 34 ? p.tekst.slice(0, 33) + '…' : p.tekst;
+      h += ' › <button data-do="' + (i + 1) + '">' + esc(skrot) + '</button>';
+    });
+    crumbs.innerHTML = h;
+    Array.prototype.forEach.call(crumbs.querySelectorAll('button'), function(b){
+      b.addEventListener('click', function(){
+        location.hash = stan.uzyte.slice(0, Number(b.dataset.do)).join('-');
+      });
+    });
+  }
+
+  function rysuj(){
+    var stan = przejdz(sciezkaZHasha());
+    rysujOkruchy(stan);
+    if (stan.wynik) rysujWynik(stan.wynik);
+    else rysujPytanie(stan.wezel || 'start', stan);
+  }
+
+  window.addEventListener('hashchange', rysuj);
+  rysuj();
+})();
+</script>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

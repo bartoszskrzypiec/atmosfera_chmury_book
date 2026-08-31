@@ -27,7 +27,224 @@
   <h1>Superkomórka, i niebo, na które już nie da się patrzeć tak samo</h1>
   <p class="subtitle">Jedna rzecz odróżnia zwykłą burzę od takiej, która niszczy powiat: to, czy prąd wstępujący zaczął się obracać. Na koniec — co z tym wszystkim zrobić.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Zwykłą burzę od superkomórki dzieli jedna rzecz: <strong>ścinanie wiatru</strong>, które sprawia, że prąd wstępujący zaczyna się obracać.</li>
+      <li>Obracający się prąd nie zostaje zalany własnym deszczem — dlatego superkomórka żyje <strong>godzinami</strong>, a nie minutami.</li>
+      <li>Cała ta książka to jeden mechanizm — światło i powietrze — oglądany w różnych skalach. Ostatni rozdział zbiera to i mówi, co dalej.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Ścinanie · jedna rzecz, która zmienia wszystko</div>
+    <h2>Dlaczego kolumna zaczyna wirować</h2>
+
+    <p>W poprzednim rozdziale zwykła komórka zabiła się sama: jej prąd zstępujący rozlał się po ziemi i odciął dopływ paliwa do prądu wstępującego. Kluczowe było to, że oba prądy były <strong>w tym samym miejscu</strong> — deszcz spadał dokładnie tam, skąd wznosiło się powietrze.</p>
+
+    <p>Wystarczy to rozdzielić, żeby wszystko się zmieniło. A rozdziela to <span class="term-cyan">ścinanie wiatru</span>: sytuacja, w której wiatr na różnych wysokościach wieje z różną prędkością albo z różnych kierunków.</p>
+
+    <p>Dzieje się wtedy tak. Różnica prędkości między warstwami wprawia powietrze w obrót wokół osi <em>poziomej</em> — jak ołówek toczony między dłońmi. Gdy silny prąd wstępujący trafi na taki toczący się wałek, <strong>podnosi go i stawia pionowo</strong>. Obrót wokół osi poziomej zamienia się w obrót wokół pionowej.</p>
+
+    <p>I mamy <strong>mezocyklon</strong>: obracającą się kolumnę powietrza o średnicy kilku kilometrów, będącą sercem superkomórki.</p>
+
+    <p>Konsekwencja jest taka, że prąd wstępujący i zstępujący przestają sobie przeszkadzać — obrót i przechylenie kolumny sprawiają, że deszcz spada <em>obok</em>, a nie na wznoszące się powietrze. Silnik dostaje paliwo w sposób ciągły. Zamiast czterdziestu minut burza żyje <span class="term-amber">trzy, sześć, czasem więcej godzin</span>, przemierzając setki kilometrów.</p>
+
+    <p>Warto docenić, jak mała jest przyczyna wobec skutku. Jedna zmienna — to, czy wiatr zmienia się z wysokością — decyduje o różnicy między przelotną ulewą a systemem, który potrafi zniszczyć powiat.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Ścinanie wiatru</span><span>przesuń różnicę prędkości</span></div>
+      <div class="diagram-controls">
+        <label for="scin">Ścinanie wiatru</label>
+        <input type="range" id="scin" min="0" max="100" step="1" value="15">
+        <span class="value-readout" id="scinOut">słabe · zwykła komórka, ok. 40 minut</span>
+      </div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <line x1="40" y1="280" x2="720" y2="280" stroke="#8b909b" stroke-width="2"/>
+        <!-- profil wiatru -->
+        <text x="70" y="34" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">PROFIL WIATRU</text>
+        <g id="scinWind"></g>
+        <!-- kolumna -->
+        <path id="scinCol" d="" fill="#4fc3c0" fill-opacity="0.18" stroke="#4fc3c0" stroke-width="1.4"/>
+        <ellipse id="scinRot" cx="430" cy="200" rx="0" ry="0" fill="none" stroke="#e8a33d" stroke-width="2.4" stroke-dasharray="7 5"/>
+        <text id="scinRotLab" x="430" y="176" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d" opacity="0">mezocyklon · obrót</text>
+        <!-- opad -->
+        <g id="scinRain" stroke="#6e93be" stroke-width="1.3"></g>
+        <text x="380" y="308" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b" id="scinNote">deszcz spada na własny prąd wstępujący i go dusi</text>
+      </svg>
+      <div class="diagram-caption">Przy słabym ścinaniu deszcz spada na kolumnę i ją gasi. Przy silnym — spada obok, a kolumna pracuje dalej.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('scin'), out=document.getElementById('scinOut');
+        var wind=document.getElementById('scinWind'), col=document.getElementById('scinCol');
+        var rot=document.getElementById('scinRot'), lab=document.getElementById('scinRotLab');
+        var rain=document.getElementById('scinRain'), note=document.getElementById('scinNote');
+        function update(){
+          var t=parseFloat(sl.value)/100;
+          // strzalki wiatru: dluzsze im wyzej, tym silniejsze scinanie
+          var w='';
+          for(var i=0;i<6;i++){
+            var y=250-i*40, dl=18+t*i*17;
+            w+='<line x1="70" y1="'+y+'" x2="'+(70+dl)+'" y2="'+y+'" stroke="#6e93be" stroke-width="2"/>'+
+               '<path d="M '+(70+dl)+','+(y-4)+' L '+(70+dl+7)+','+y+' L '+(70+dl)+','+(y+4)+' Z" fill="#6e93be"/>';
+          }
+          wind.innerHTML=w;
+          // kolumna: przy scinaniu pochyla sie
+          var poch=t*90;
+          col.setAttribute('d','M 380,278 C 372,220 380,150 '+(392+poch*0.5)+',96 '+
+            'C '+(400+poch*0.7)+',72 '+(452+poch)+',74 '+(462+poch)+',98 '+
+            'C '+(482+poch*0.8)+',150 480,222 470,278 Z');
+          // obrot pojawia sie przy silnym scinaniu
+          var mez=Math.max(0,(t-0.42)/0.58);
+          rot.setAttribute('rx',(mez*54).toFixed(0)); rot.setAttribute('ry',(mez*22).toFixed(0));
+          rot.setAttribute('cx',(425+poch*0.35).toFixed(0));
+          rot.setAttribute('stroke-opacity',mez.toFixed(2));
+          lab.setAttribute('opacity',mez.toFixed(2));
+          lab.setAttribute('x',(425+poch*0.35).toFixed(0));
+          // deszcz: przy slabym scinaniu na kolumne, przy silnym obok
+          var rx0 = 384 + t*150, r='';
+          for(var k=0;k<7;k++){ var x=rx0+k*17; r+='<line x1="'+x+'" y1="200" x2="'+(x-6)+'" y2="276"/>'; }
+          rain.innerHTML=r;
+          var o,n;
+          if(t<0.3){ o='słabe · zwykła komórka, ok. 40 minut'; n='deszcz spada na własny prąd wstępujący i go dusi'; }
+          else if(t<0.55){ o='umiarkowane · komórka żyje dłużej'; n='deszcz zaczyna spadać z boku kolumny'; }
+          else { o='silne · SUPERKOMÓRKA, godziny'; n='kolumna wiruje, deszcz spada obok — silnik pracuje dalej'; }
+          out.textContent=o; note.textContent=n;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Anatomia · co widać z ziemi</div>
+    <h2>Gdzie patrzeć i czego szukać</h2>
+
+    <p>Superkomórka ma wyraźną, powtarzalną budowę i — co ważne dla obserwatora — jej najgroźniejsza część nie jest tam, gdzie pada.</p>
+
+    <p><strong>Obszar bezopadowy.</strong> Pod prądem wstępującym, po stronie, z której burza nadchodzi. Nie pada tam, bo wszystko jest niesione w górę. Paradoksalnie to właśnie ta spokojna, sucha część jest sercem systemu.</p>
+
+    <p><strong>Chmura ścianowa (wall cloud).</strong> Lokalne, wyraźne obniżenie podstawy w obszarze bezopadowym, o średnicy kilkuset metrów do kilku kilometrów. Powstaje, bo prąd wstępujący zasysa wilgotne powietrze z okolicy deszczu, a to skrapla się niżej niż reszta chmury. Jeśli chmura ścianowa <span class="term-amber">wyraźnie się obraca</span>, to jest znak, że mezocyklon sięga blisko ziemi — i to jest najpoważniejszy sygnał ostrzegawczy, jaki da się zobaczyć gołym okiem.</p>
+
+    <p><strong>Kurtyna opadu.</strong> Z boku i z tyłu. Tam pada, tam bywa grad.</p>
+
+    <p><strong>Kowadło z przebiciem wierzchołka.</strong> Rozległe, często z mammatusami po przejściu.</p>
+
+    <p><strong>Tuba.</strong> Lej schodzący z chmury ścianowej. Gdy dosięgnie ziemi — trąba powietrzna.</p>
+
+    <p>Rozróżnienie, które warto znać, bo bywa mylone i ma znaczenie praktyczne: <span class="term-cyan">arcus jest poziomy, ciągnie się przez horyzont i po nim robi się wietrznie i chłodno; chmura ścianowa jest lokalna, obniża się w jednym miejscu i nic pod nią nie pada</span>. Arcus jest widowiskowy, ale rutynowy. Obracająca się chmura ścianowa jest rzadka i poważna.</p>
+
+    <p>Na radarze superkomórkę zdradza <strong>echo hakowe</strong> — charakterystyczny haczyk na krawędzi obszaru opadu, powstający, bo mezocyklon owija kurtynę deszczu wokół siebie. To sygnał, po którym synoptyk wystawia ostrzeżenie, często kilkanaście minut przed pojawieniem się trąby.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Rodzina burz · pięć struktur</div>
+    <h2>Od pojedynczej komórki do derecho</h2>
+
+    <p>Superkomórka jest jednym z kilku sposobów, na jakie konwekcja potrafi się zorganizować. Warto znać całą rodzinę, bo nazwy pojawiają się w ostrzeżeniach:</p>
+
+    <p><strong>Pojedyncza komórka</strong> — to z Rozdziału 23. Czterdzieści minut, przelotna ulewa, słabe ścinanie.</p>
+
+    <p><strong>Multikomórka</strong> — grupa komórek w różnych fazach życia; gdy jedna zanika, front szkwałowy uruchamia następną. System żyje godzinami, choć każda komórka krótko. Najczęstsza forma burz w Polsce.</p>
+
+    <p><strong>Linia szkwałowa</strong> — komórki ustawione w linię ciągnącą się czasem na setki kilometrów, przemieszczające się razem. Daje gwałtowny wiatr na całej długości.</p>
+
+    <p><strong>Bow echo</strong> — linia szkwałowa wygięta w łuk, bo środek przyspiesza. Wygięcie oznacza szczególnie silny wiatr w tym miejscu.</p>
+
+    <p><strong>Derecho</strong> — rozległy, długotrwały układ wiatrowy pokonujący setki kilometrów. W Polsce zdarza się rzadko, ale zdarza — <span class="term-amber">nawałnica z 11 sierpnia 2017</span> nad Pomorzem i Kujawami miała ten charakter, powaliła miliony drzew i była jednym z najbardziej niszczycielskich zjawisk pogodowych w powojennej historii kraju.</p>
+
+    <p><strong>Superkomórka</strong> — pojedyncza, obracająca się, długowieczna. Odpowiada za większość dużego gradu i praktycznie za wszystkie silne trąby.</p>
+
+    <p>Co do trąb w Polsce: występują, i nie są tak rzadkie, jak się sądzi. Notuje się kilkanaście do kilkudziesięciu rocznie, głównie od maja do sierpnia, najczęściej w pasie centralnym i na Kujawach. Większość jest słaba. Silne, niszczące trąby zdarzają się średnio raz na kilka lat. To znacznie mniej niż w Stanach, ale zdecydowanie nie „u nas takich rzeczy nie ma".</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-w-superkomorka-i-traby.html">↓ Dodatek W — superkomórka, grad i trąby powietrzne w Polsce</a>
+
+    <div class="panel">
+      <div class="panel-label">Bezpieczeństwo · dwa mity, które zabijają</div>
+      <ul>
+        <li><strong>Nie otwieramy okien</strong> „żeby wyrównać ciśnienie". To nieprawda i strata czasu — budynki niszczy wiatr, nie różnica ciśnień. Otwarte okno pogarsza sprawę, bo wpuszcza wiatr do środka.</li>
+        <li><strong>Nie chowamy się pod wiaduktem.</strong> Wiadukt zwęża przepływ i <em>przyspiesza</em> wiatr, a przy okazji jest pułapką na odłamki. To jeden z najgroźniejszych możliwych wyborów.</li>
+        <li><strong>Właściwie:</strong> najniższa kondygnacja, pomieszczenie wewnętrzne bez okien, z dala od ścian zewnętrznych. Na otwartej przestrzeni — zagłębienie terenu, twarzą do ziemi, z rękami na głowie.</li>
+        <li><strong>W samochodzie</strong> przy trąbie: wyjść i szukać zagłębienia, a nie próbować przejechać. Przy zwykłej burzy z piorunami odwrotnie — samochód jest bezpieczny.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Domknięcie · co właściwie przeczytaliśmy</div>
+    <h2>Jeden mechanizm, dwadzieścia cztery rozdziały</h2>
+
+    <p>Zaczęliśmy od zdania, że powietrze jest rzeczą. Kończymy przy systemie burzowym o energii bomby jądrowej. Warto na koniec zobaczyć, jak niewiele rzeczy trzeba było po drodze wprowadzić.</p>
+
+    <p><strong>Światło robi z materią cztery rzeczy</strong>: odbija się, załamuje, rozprasza i pochłania. Z rozpraszania wyszedł błękit nieba, czerwień zachodu, biel chmury, szarość jej spodu, bladość dalekich gór i mleczność smogu — a o wszystkim decydował jeden parametr: rozmiar cząstki wobec długości fali. Z załamania wyszła tęcza, halo, spłaszczone Słońce i miraże. Z dyfrakcji — wieńce, glorie i opalizacja.</p>
+
+    <p><strong>Powietrze robi jedną rzecz</strong>: unosi się, gdy jest rzadsze od otoczenia, a rozprężając się, stygnie. Z tego jednego zdania wyszły wszystkie chmury, wszystkie fronty i wszystkie burze. Woda dołożyła do tego ciepło utajone — i zamieniła bierne unoszenie w silnik.</p>
+
+    <p>To wszystko. Dwa mechanizmy, jeden dla światła i jeden dla powietrza, oglądane w skalach od mikrometra do tysiąca kilometrów.</p>
+
+    <p>Jeśli coś z tej książki ma zostać na dłużej, to najchętniej nie nazwy chmur — te i tak wrócą, gdy będą potrzebne — tylko nawyk zadawania pytania <em>dlaczego akurat tak</em>. Płaskie dno chmury nie jest przypadkiem. Kąt 22 stopni nie jest przypadkiem. To, że zachód jest lepszy dwadzieścia minut po zachodzie, nie jest przypadkiem. Wszystko, co widać w górze, jest skutkiem czegoś — i prawie zawsze da się dojść, czego.</p>
+
+    <div class="myth">
+      <div class="myth__label">Ostatnie sprostowanie</div>
+      <p class="myth__wrong">Żeby patrzeć na niebo ze zrozumieniem, trzeba mieć wykształcenie fizyczne.</p>
+      <p class="myth__right">Cała ta książka nie zawierała w tekście głównym ani jednego wzoru. Wystarczyło kilkanaście pojęć, jedna linijka w postaci wyciągniętej ręki i gotowość, żeby czasem odwrócić się plecami do Słońca.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Co dalej · na dworze i w internecie</div>
+    <h2>Gdzie iść z tym dalej</h2>
+
+    <p><strong>Trzy strony w tej książce są zrobione do wyjęcia telefonu na dworze:</strong></p>
+
+    <p><a href="../teren/klucz-rozpoznawania-chmur.html">Klucz do rozpoznawania chmur</a> — drzewo decyzyjne, przez które przechodzi się w kilkanaście sekund i które kończy się nazwą.</p>
+
+    <p><a href="../teren/kalendarz-nieba.html">Kalendarz nieba</a> — co i kiedy da się zobaczyć w Polsce, miesiąc po miesiącu.</p>
+
+    <p><a href="../teren/sciaga-prognoza-z-nieba.html">Ściąga: co ta chmura zapowiada</a> — widzisz X, za Y godzin będzie Z, z uczciwie podaną skutecznością.</p>
+
+    <p><strong>Narzędzia, które warto mieć.</strong> Radar opadowy w telefonie (najlepiej taki z animacją wstecz, żeby widzieć kierunek). Zdjęcia satelitarne. Ostrzeżenia IMGW. Do obserwacji zjawisk optycznych wystarczy wyciągnięta ręka i nawyk zasłaniania Słońca dłonią.</p>
+
+    <p><strong>Rzeczy, które warto zobaczyć raz w życiu</strong>, a które są w zasięgu z polskiego podwórka: łuk okołozenitalny (Rozdział 20 — prawie nikt go nie widział, bo nikt nie patrzy do góry), obłoki srebrzyste w czerwcu (Rozdział 18), cień Ziemi z Pasem Wenus (Rozdział 7 — dostępny prawie każdego pogodnego wieczoru), pełny cykl chmury kłębiastej w jedno popołudnie (Rozdział 17).</p>
+
+    <p>I jedna rzecz na koniec, najprostsza ze wszystkich: <strong>warto czasem po prostu stanąć i popatrzeć w górę przez pięć minut</strong>. Nie po to, żeby coś rozpoznać. Po to, żeby zobaczyć, że się rusza.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Poziomy ostrzeżeń IMGW.</strong> Stopień 1 (żółty) — zjawiska niebezpieczne, zachować ostrożność, zwykle wystarczy nie planować dłuższych wyjść. Stopień 2 (pomarańczowy) — duże ryzyko szkód, warto zabezpieczyć meble ogrodowe i nie parkować pod drzewami. Stopień 3 (czerwony) — zjawiska ekstremalne, realne zagrożenie życia; wtedy zostajemy w domu i to nie jest przesada.</p>
+    <p><strong>Radar czyta się w trzydzieści sekund.</strong> Włączamy animację z ostatniej godziny i patrzymy nie na to, gdzie burza jest, tylko dokąd się przesunęła. Ekstrapolacja tego ruchu o godzinę do przodu jest zaskakująco dobrą prognozą i lepszą niż jakikolwiek opis słowny.</p>
+    <p><strong>Sierpień 2017 jako punkt odniesienia.</strong> Warto raz obejrzeć zdjęcia satelitarne i radarowe z tamtej nocy, bo pokazują, jak wygląda derecho w skali kraju. To jednocześnie przypomnienie, że opisywane tu zjawiska nie są egzotyką z innego kontynentu.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>ścinanie wiatru</dt>
+      <dd>Zmiana prędkości lub kierunku wiatru z wysokością. Warunek powstania superkomórki.</dd>
+      <dt>mezocyklon</dt>
+      <dd>Obracająca się kolumna powietrza o średnicy kilku kilometrów, serce superkomórki.</dd>
+      <dt>superkomórka</dt>
+      <dd>Burza z trwałym mezocyklonem. Żyje godzinami; odpowiada za większość dużego gradu i silnych trąb.</dd>
+      <dt>chmura ścianowa (wall cloud)</dt>
+      <dd>Lokalne obniżenie podstawy pod prądem wstępującym, bez opadu pod spodem. Obracająca się jest poważnym ostrzeżeniem.</dd>
+      <dt>echo hakowe</dt>
+      <dd>Haczykowaty kształt na obrazie radarowym, powstający, gdy mezocyklon owija wokół siebie kurtynę deszczu.</dd>
+      <dt>linia szkwałowa</dt>
+      <dd>Komórki ustawione w linię, przemieszczające się razem i dające gwałtowny wiatr na całej długości.</dd>
+      <dt>derecho</dt>
+      <dd>Rozległy, długotrwały układ wiatrowy pokonujący setki kilometrów. W Polsce rzadki — przykładem nawałnica z sierpnia 2017.</dd>
+      <dt>tuba</dt>
+      <dd>Lej zwisający z chmury ścianowej. Po dotknięciu ziemi — trąba powietrzna.</dd>
+    </dl>
+  </div>
+
+  <div class="closing">
+    <p>Zaczęliśmy od pytania, dlaczego niebo jest niebieskie, i okazało się, że odpowiedź na nie jest jednocześnie odpowiedzią na to, dlaczego chmura jest biała, dlaczego zachód jest czerwony i dlaczego dalekie góry sinieją.</p>
+    <p>Reszta jest już nad głową, codziennie, za darmo.</p>
+    <div class="sign">Koniec</div>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

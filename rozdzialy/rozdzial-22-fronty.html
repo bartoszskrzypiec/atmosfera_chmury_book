@@ -28,7 +28,252 @@
   <h1>Front nadchodzi</h1>
   <p class="subtitle">Front atmosferyczny nie jest ścianą. Jest bardzo płaską pochylnią, po której ciepłe powietrze wjeżdża na zimne — i dlatego zapowiada się chmurami na dobę wcześniej.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Front nie jest ścianą. To bardzo <strong>płaska pochylnia</strong> o nachyleniu rzędu 1:150 — dlatego zapowiada się chmurami na dobę wcześniej.</li>
+      <li>Sekwencja Cirrus → Cirrostratus → Altostratus → Nimbostratus to <strong>zegar</strong>, którego wszystkie wskazówki już znamy z Części IV.</li>
+      <li>Front chłodny jest znacznie bardziej stromy, więc wszystko dzieje się szybciej: krótko, gwałtownie i z przejaśnieniem na końcu.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Masy powietrza · dlaczego w ogóle są granice</div>
+    <h2>Powietrze nie miesza się tak łatwo, jak by mogło</h2>
+
+    <p>Można by oczekiwać, że atmosfera jest jednorodną kąpielą, w której wszystko się wymieszało. Tak nie jest — i przyczyna jest prosta: powietrze zbyt długo stoi nad jednym miejscem.</p>
+
+    <p>Wielka masa powietrza zalegająca tygodniami nad północnym Atlantykiem przejmuje cechy tego miejsca: robi się chłodna i wilgotna. Inna, stojąca nad Saharą, robi się gorąca i sucha. Trzecia, nad Syberią zimą, staje się bardzo zimna i bardzo sucha.</p>
+
+    <p>Gdy takie masy zaczną się przemieszczać i spotkają, <strong>nie mieszają się od razu</strong>. Różnią się gęstością — a jak wiemy z Rozdziału 11, powietrze gęstsze wsuwa się pod rzadsze zamiast się z nim mieszać. Powstaje granica, która utrzymuje się dniami i przesuwa jak obiekt.</p>
+
+    <p>Tę granicę nazywamy <span class="term-cyan">frontem atmosferycznym</span>. Nazwa pochodzi z I wojny światowej — norwescy meteorolodzy uznali, że starcie dwóch mas powietrza przypomina linię frontu, i określenie zostało.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Kształt · najważniejsza poprawka w tym rozdziale</div>
+    <h2>Front jest pochylnią, nie ścianą</h2>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Front to ściana zimnego powietrza, która się na nas nasuwa.</p>
+      <p class="myth__right">Front to <strong>bardzo płaska, pochylona powierzchnia</strong>. Front ciepły ma nachylenie rzędu 1:150 — to znaczy, że na każde 150 kilometrów w poziomie podnosi się o jeden kilometr. Linia rysowana na mapie to tylko ślad przecięcia tej powierzchni z ziemią.</p>
+      <p class="myth__why">Mapy pogodowe rysują front jako grubą linię z trójkącikami, więc naturalnie wyobrażamy sobie pionową ścianę. Ta pomyłka uniemożliwia jednak zrozumienie czegokolwiek dalej — bo cała użyteczność frontu bierze się właśnie z tego, że jest płaski.</p>
+    </div>
+
+    <p>Zobaczmy, co z tego nachylenia wynika. Skoro powierzchnia frontu podnosi się tak łagodnie, to jej górna część — na wysokości ośmiu kilometrów — znajduje się jakieś <strong>tysiąc kilometrów przed</strong> linią frontu na ziemi.</p>
+
+    <p>A ponieważ ciepłe powietrze wjeżdża po tej pochylni w górę, to chmury zaczynają się tworzyć właśnie tam, tysiąc kilometrów wcześniej. Widzimy je więc na długo przedtem, zanim front do nas dotrze.</p>
+
+    <p>To jest cały sekret przewidywania pogody z nieba. <span class="term-amber">Wysokość chmury mówi nam, jak daleko jest front.</span> Chmury wysokie — front jeszcze dzień drogi stąd. Chmury średnie — kilka godzin. Chmury niskie i opadowe — jesteśmy pod nim.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Front ciepły w przekroju</span><span>nachylenie zachowane</span></div>
+      <svg viewBox="0 0 760 340" xmlns="http://www.w3.org/2000/svg">
+        <line x1="40" y1="290" x2="730" y2="290" stroke="#8b909b" stroke-width="2"/>
+        <g font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b" text-anchor="middle">
+          <text x="120" y="310">1000 km</text><text x="300" y="310">600 km</text>
+          <text x="480" y="310">300 km</text><text x="660" y="310">0 km</text>
+        </g>
+        <text x="380" y="330" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">odległość od linii frontu na ziemi</text>
+
+        <!-- klin zimnego powietrza -->
+        <path d="M 660,290 L 40,64 L 40,290 Z" fill="#6e93be" fill-opacity="0.16" stroke="#6e93be" stroke-width="1.6"/>
+        <text x="150" y="266" font-family="IBM Plex Mono" font-size="11" fill="#6e93be">ZIMNE POWIETRZE (cofa się)</text>
+        <text x="670" y="266" font-family="IBM Plex Mono" font-size="11" fill="#e8a33d" text-anchor="end">CIEPŁE</text>
+
+        <!-- cieple powietrze wjezdza po pochylni -->
+        <g stroke="#e8a33d" stroke-width="1.6" fill="none" opacity="0.85">
+          <path d="M 700,270 L 560,214"/><path d="M 700,240 L 470,166"/><path d="M 700,206 L 360,118"/>
+        </g>
+
+        <!-- chmury wzdluz pochylni -->
+        <g stroke="#9c82d8" stroke-width="1.5" fill="none">
+          <path d="M 66,72 q 22,-10 44,-2 M 92,86 q 24,-12 48,-3 M 124,100 q 20,-9 42,-2"/>
+        </g>
+        <text x="110" y="52" font-family="IBM Plex Sans" font-size="12" fill="#9c82d8">Cirrus</text>
+        <text x="110" y="38" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">za 12–24 h</text>
+
+        <rect x="196" y="108" width="120" height="14" rx="3" fill="#9c82d8" fill-opacity="0.35"/>
+        <text x="256" y="98" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#9c82d8">Cirrostratus</text>
+        <text x="256" y="84" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">halo · za 8–12 h</text>
+
+        <rect x="348" y="140" width="150" height="34" rx="4" fill="#e8a33d" fill-opacity="0.28"/>
+        <text x="424" y="130" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#e8a33d">Altostratus</text>
+        <text x="424" y="116" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">mokre Słońce · za 4–6 h</text>
+
+        <rect x="520" y="176" width="190" height="80" rx="4" fill="#454c55"/>
+        <g stroke="#6e93be" stroke-width="1.2">
+          <line x1="546" y1="256" x2="540" y2="288"/><line x1="586" y1="256" x2="580" y2="288"/>
+          <line x1="626" y1="256" x2="620" y2="288"/><line x1="666" y1="256" x2="660" y2="288"/>
+        </g>
+        <text x="615" y="168" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#ecebe4">Nimbostratus</text>
+        <text x="615" y="154" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">pada · teraz</text>
+
+        <circle cx="120" cy="286" r="4.5" fill="#ecebe4"/>
+        <text x="120" y="278" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#ecebe4">my</text>
+      </svg>
+      <div class="diagram-caption">Pochylnia jest tu narysowana stromiej, niż jest naprawdę — przy prawdziwym nachyleniu 1:150 mieściłaby się w grubości kreski.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Zegar · sekwencja, którą już znamy</div>
+    <h2>Cztery chmury, dwanaście godzin</h2>
+
+    <p>Teraz najprzyjemniejsza rzecz w tej książce: składamy w całość wszystko z Części IV, nie ucząc się niczego nowego.</p>
+
+    <p>Front ciepły nasuwa się na nas i kolejne fragmenty jego pochylni przechodzą nam nad głową — od najwyższych do najniższych. Wygląda to tak:</p>
+
+    <p><strong>Doba wcześniej: Cirrus.</strong> Pierwsze włókna na zachodnim horyzoncie, początkowo rzadkie, potem gęstniejące. Niebo wciąż niebieskie, słońce pełne.</p>
+
+    <p><strong>Osiem do dwunastu godzin: Cirrostratus.</strong> Welon rozlewa się na całe niebo. Pojawia się halo — często zauważamy je, zanim zauważymy chmurę. Przedmioty wciąż rzucają cień.</p>
+
+    <p><strong>Cztery do sześciu godzin: Altostratus.</strong> Warstwa gęstnieje. Słońce robi się mokre — widoczne jako jasna plama bez ostrego brzegu. <span class="term-amber">Cienie znikają.</span> To najbardziej użyteczny moment całej sekwencji.</p>
+
+    <p><strong>Godzina do trzech: Nimbostratus.</strong> Nie widać już, gdzie jest Słońce. Podstawa obniża się, robi się ciemno. Zaczyna padać — początkowo słabo, potem równo i długo.</p>
+
+    <p><strong>Po froncie: sektor ciepły.</strong> Deszcz ustaje, robi się cieplej i parno, zachmurzenie zwykle niskie i jednolite — Stratus albo Stratocumulus. Wilgotno i nijako.</p>
+
+    <p>Te przedziały czasowe nie są dokładne i zależą od tego, jak szybko front się przesuwa. Ale kolejność jest <strong>bardzo powtarzalna</strong> i to ona jest wartościowa. Jeśli po czystym niebie pojawiają się Cirrusy, potem halo, potem znikają cienie — mamy nie prognozę, tylko obserwację frontu w trakcie przechodzenia.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Zegar frontu ciepłego</span><span>przesuń czas</span></div>
+      <div class="diagram-controls">
+        <label for="zeg">Godzin do deszczu</label>
+        <input type="range" id="zeg" min="0" max="24" step="0.5" value="18">
+        <span class="value-readout" id="zegOut">18 h · Cirrus, pierwsze włókna</span>
+      </div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <rect id="zegSky" x="40" y="30" width="680" height="180" rx="6" fill="#4a7fb5"/>
+        <g id="zegCloud"></g>
+        <circle id="zegSun" cx="160" cy="80" r="20" fill="#fff3d8"/>
+        <circle id="zegHalo" cx="160" cy="80" r="52" fill="none" stroke="#ecebe4" stroke-width="4" stroke-opacity="0"/>
+        <line x1="40" y1="210" x2="720" y2="210" stroke="#8b909b" stroke-width="2"/>
+        <rect x="330" y="176" width="8" height="34" fill="#2a2f38"/>
+        <circle cx="334" cy="172" r="16" fill="#2a2f38"/>
+        <ellipse id="zegShadow" cx="376" cy="212" rx="34" ry="6" fill="#0f1115" fill-opacity="0.7"/>
+        <g id="zegRain" stroke="#6e93be" stroke-width="1.3"></g>
+        <text x="380" y="252" text-anchor="middle" font-family="IBM Plex Sans" font-size="14" fill="#ecebe4" id="zegName">Cirrus</text>
+        <text x="380" y="274" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b" id="zegSign">niebo niebieskie, cień ostry</text>
+      </svg>
+      <div class="diagram-caption">Ten sam widok nieba w kolejnych godzinach. Cienie na ziemi zmieniają się razem z chmurą — i to one są najlepszym wskaźnikiem.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('zeg'), out=document.getElementById('zegOut');
+        var sky=document.getElementById('zegSky'), cloud=document.getElementById('zegCloud');
+        var sun=document.getElementById('zegSun'), halo=document.getElementById('zegHalo');
+        var sh=document.getElementById('zegShadow'), rain=document.getElementById('zegRain');
+        var name=document.getElementById('zegName'), sign=document.getElementById('zegSign');
+        function update(){
+          var h=parseFloat(sl.value);
+          var t=1-h/24;   // 0 = daleko, 1 = deszcz
+          var n,s,skyCol,haloOp,sunOp,shOp,c='',r='';
+          if(h>13){
+            n='Cirrus'; s='niebo niebieskie, cień ostry'; skyCol='#4a7fb5'; haloOp=0; sunOp=1; shOp=0.7;
+            for(var i=0;i<5;i++){ var x=120+i*118, y=52+((i*29)%26);
+              c+='<path d="M '+x+','+y+' q 30,-12 62,-3" fill="none" stroke="#e5e9ef" stroke-width="2" stroke-opacity="0.75"/>'; }
+          } else if(h>7){
+            n='Cirrostratus'; s='halo wokół Słońca, cień jeszcze jest'; skyCol='#6f92b4'; haloOp=0.6; sunOp=0.95; shOp=0.42;
+            c='<rect x="40" y="30" width="680" height="180" fill="#e5e9ef" fill-opacity="0.18"/>';
+          } else if(h>3){
+            n='Altostratus'; s='mokre Słońce — CIENIE ZNIKŁY'; skyCol='#8d97a2'; haloOp=0; sunOp=0.42; shOp=0.05;
+            c='<rect x="40" y="30" width="680" height="180" fill="#c9ced5" fill-opacity="0.55"/>';
+          } else if(h>0.4){
+            n='Nimbostratus'; s='nie widać, gdzie jest Słońce'; skyCol='#5f666e'; haloOp=0; sunOp=0; shOp=0;
+            c='<rect x="40" y="30" width="680" height="180" fill="#474d55" fill-opacity="0.92"/>';
+          } else {
+            n='Nimbostratus · pada'; s='deszcz ciągły, równy, na wiele godzin'; skyCol='#4d545c'; haloOp=0; sunOp=0; shOp=0;
+            c='<rect x="40" y="30" width="680" height="180" fill="#3f454d" fill-opacity="0.95"/>';
+            for(var k=0;k<26;k++){ var rx=60+k*26; r+='<line x1="'+rx+'" y1="170" x2="'+(rx-7)+'" y2="208"/>'; }
+          }
+          sky.setAttribute('fill',skyCol);
+          cloud.innerHTML=c; rain.innerHTML=r;
+          halo.setAttribute('stroke-opacity',haloOp);
+          sun.setAttribute('fill-opacity',sunOp);
+          sh.setAttribute('fill-opacity',shOp);
+          name.textContent=n; sign.textContent=s;
+          out.textContent=(h<0.4?'teraz':h.toFixed(1).replace('.',',')+' h')+' · '+n;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Front chłodny · ta sama rzecz, tylko stromo</div>
+    <h2>Krótko, gwałtownie i z przejaśnieniem</h2>
+
+    <p>Front chłodny to sytuacja odwrotna: to zimne powietrze naciera i wsuwa się pod ciepłe. Mechanicznie jest podobnie, ale jest jedna różnica, z której wynika wszystko: <strong>front chłodny jest znacznie bardziej stromy</strong> — nachylenie rzędu 1:50 zamiast 1:150.</p>
+
+    <p>Ciepłe powietrze nie wjeżdża więc łagodnie po pochylni, tylko zostaje <span class="term-amber">gwałtownie wypchnięte w górę</span> na wąskim pasie. A gwałtowne wznoszenie to, jak wiemy z Rozdziału 17, przepis na chmury kłębiaste — z Cumulonimbusem włącznie.</p>
+
+    <p>Przebieg wygląda zupełnie inaczej:</p>
+
+    <p><strong>Zapowiedź jest krótka albo żadna.</strong> Nie ma dwunastu godzin cirrusów. Czasem widać zbliżający się wał chmur na horyzoncie, i to wszystko.</p>
+
+    <p><strong>Przejście jest gwałtowne.</strong> Ulewa, szkwał, często burza, czasem grad. Trwa od kilkunastu minut do godziny.</p>
+
+    <p><strong>Za frontem szybko się przejaśnia.</strong> I to jest cecha rozpoznawcza. Po froncie chłodnym napływa chłodne, suche, przemieszane powietrze — a to daje niebo z pojedynczymi Cumulusami, świetną widoczność i, jak pamiętamy z Rozdziału 5, najgłębszy błękit, jaki da się w Polsce zobaczyć.</p>
+
+    <p>Stąd praktyczna zasada, którą warto znać: <span class="term-cyan">po froncie ciepłym pogoda robi się nijaka, po froncie chłodnym — piękna</span>. Dzień po przejściu chłodnego frontu to najlepszy moment na zdjęcia, na góry i na obserwację nieba.</p>
+
+    <p>Jest jeszcze trzeci przypadek. Front chłodny porusza się szybciej niż ciepły, więc z czasem go dogania. Gdy go dogoni, ciepłe powietrze zostaje całkowicie wypchnięte w górę i przestaje dotykać ziemi — powstaje <strong>front okluzji</strong>. Objawy są mieszane: długi opad jak przy froncie ciepłym, ale z domieszką gwałtowności. Okluzja to typowo faza schyłkowa niżu i najczęstsza forma frontu docierająca nad Polskę, bo do nas niże docierają zwykle już dojrzałe.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-u-fronty-na-mapie.html">↓ Dodatek U — fronty na mapie synoptycznej: jak czytać izobary</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Reguły ludowe · sprawdźmy je uczciwie</div>
+    <h2>Które przysłowia działają, a które nie</h2>
+
+    <p>Skoro potrafimy już czytać niebo mechanicznie, warto przyłożyć tę wiedzę do reguł, które krążą od pokoleń. Nie chodzi o wyśmianie ich ani o bezkrytyczne przyjęcie — chodzi o sprawdzenie, czy stoi za nimi mechanizm.</p>
+
+    <p><strong>„Halo wokół Słońca — będzie deszcz."</strong> <span class="term-cyan">Działa częściowo.</span> Halo oznacza Cirrostratusa, a Cirrostratus jest drugim etapem sekwencji przedfrontowej. Ale bywa też resztką po odległej burzy albo pojedynczą warstwą bez ciągu dalszego. Skuteczność rzędu połowy do dwóch trzecich przypadków — całkiem dobrze jak na regułę sprzed setek lat.</p>
+
+    <p><strong>„Czerwone niebo wieczorem — piękna pogoda; czerwone rano — deszcz."</strong> <span class="term-cyan">Ma podstawę.</span> W naszej strefie pogoda idzie z zachodu. Czerwony zachód oznacza, że na zachodzie — czyli tam, skąd przyjdzie jutrzejsza pogoda — niebo jest czyste, bo światło mogło przejść nisko nad horyzontem. Czerwony wschód oznacza czyste niebo na wschodzie, czyli za nami, a przed nami może być cokolwiek. Reguła jest więc uzasadniona, choć słabsza, niż sugeruje jej kategoryczne brzmienie.</p>
+
+    <p><strong>„Jaskółki latają nisko — będzie padać."</strong> <span class="term-amber">Słabo uzasadnione.</span> Popularne wyjaśnienie mówi, że owady latają niżej przy wysokiej wilgotności. Badania nie potwierdzają tego jednoznacznie, a jaskółki zmieniają wysokość lotu z wielu powodów. Traktowałbym to jako ciekawostkę kulturową, nie prognozę.</p>
+
+    <p><strong>„Ciśnienie spada — będzie padać."</strong> <span class="term-cyan">Działa, ale to objaw.</span> Rozbieraliśmy to w Rozdziale 1: spadek ciśnienia towarzyszy zbliżaniu się niżu, ale mechanizmem jest wznoszenie powietrza, nie samo ciśnienie. Jako wskaźnik — dobry; jako wyjaśnienie — mylący.</p>
+
+    <p><strong>„Szyszki się zamykają przed deszczem."</strong> <span class="term-cyan">Prawda, ale nie prognoza.</span> Łuski szyszek reagują na wilgotność higroskopijnie — zamykają się, gdy jest wilgotno. Mierzą więc wilgotność <em>teraz</em>, a nie zapowiadają deszcz.</p>
+
+    <p>Warto zauważyć wzorzec: reguły oparte na <strong>obserwacji nieba</strong> działają zaskakująco dobrze, bo niebo naprawdę zawiera informację o tym, co nadchodzi. Reguły oparte na zachowaniu zwierząt są znacznie słabsze. To ma sens — chmura jest częścią nadchodzącego układu, a jaskółka tylko reaguje na to, co już jest.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Sprawdźmy zegar na sobie.</strong> Gdy następnym razem prognoza zapowie deszcz za kilkanaście godzin, warto spojrzeć w niebo i sprawdzić, na którym etapie sekwencji jesteśmy. Cirrus — zgadza się, jeszcze daleko. Altostratus — powinno padać za kilka godzin. To jedno ćwiczenie zamienia całą Część IV z wiedzy w umiejętność.</p>
+    <p><strong>Kierunek ma znaczenie.</strong> W Polsce pogoda przychodzi zwykle z zachodu, bo tam płynie prąd strumieniowy. Warto więc obserwować przede wszystkim <em>zachodni horyzont</em>. Chmury nadciągające z południa albo wschodu zwykle oznaczają układ nietypowy — i częściej niż zwykle coś gwałtownego.</p>
+    <p><strong>Dzień po froncie chłodnym.</strong> Jeśli planujemy wyjście w góry, zdjęcia albo obserwację nieba, to najlepszy możliwy termin. Powietrze jest wtedy czyste, widoczność ogromna, niebo najgłębiej niebieskie, a Cumulusy dają ładne cienie na stokach. Warto planować pod to zamiast pod weekend.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>masa powietrza</dt>
+      <dd>Wielki obszar powietrza o jednorodnych cechach, nabytych przez długie zaleganie nad jednym rodzajem podłoża.</dd>
+      <dt>front atmosferyczny</dt>
+      <dd>Pochylona powierzchnia graniczna między dwiema masami powietrza. Linia na mapie to jej ślad na ziemi.</dd>
+      <dt>front ciepły</dt>
+      <dd>Ciepłe powietrze nasuwa się na cofające się zimne. Nachylenie ok. 1:150, sekwencja chmur na kilkanaście godzin, opad ciągły.</dd>
+      <dt>front chłodny</dt>
+      <dd>Zimne powietrze wsuwa się pod ciepłe. Nachylenie ok. 1:50, przejście gwałtowne, za nim przejaśnienie.</dd>
+      <dt>front okluzji</dt>
+      <dd>Powstaje, gdy front chłodny dogoni ciepły i wypchnie ciepłe powietrze całkowicie w górę. Faza schyłkowa niżu.</dd>
+      <dt>sektor ciepły</dt>
+      <dd>Obszar ciepłego powietrza między frontem ciepłym a chłodnym. Parno, nisko, jednolicie.</dd>
+      <dt>izobara</dt>
+      <dd>Linia łącząca punkty o jednakowym ciśnieniu. Im gęściej ułożone, tym silniejszy wiatr.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Front chłodny bywa gwałtowny, ale prawdziwa gwałtowność zaczyna się wtedy, gdy pojedyncza komórka konwekcyjna dostanie dość energii, żeby stać się samodzielnym systemem. Zajrzymy do środka burzy: skąd bierze się wiatr uderzający przed deszczem, dlaczego grad rośnie tak duży i co naprawdę widzimy, gdy widzimy piorun.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

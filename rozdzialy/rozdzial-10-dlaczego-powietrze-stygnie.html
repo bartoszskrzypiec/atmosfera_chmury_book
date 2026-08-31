@@ -229,6 +229,132 @@
     </div>
   </div>
 
+  <div class="section">
+    <div class="section-eyebrow">Liczby · dwie stałe, które warto poznać</div>
+    <h2>Sucho dziesięć, mokro sześć</h2>
+
+    <p>Tempo, w jakim wznoszące się powietrze stygnie, nie jest dowolne. Jest to <strong>stała fizyczna</strong> — taka sama nad Warszawą, nad Saharą i nad Antarktydą, bo wynika wyłącznie z tego, jak powietrze reaguje na spadek ciśnienia.</p>
+
+    <p>A ściślej: są dwie takie stałe, bo powietrze zachowuje się inaczej przed skropleniem i po nim.</p>
+
+    <div class="worked">
+      <div class="wlabel">Dwa tempa stygnięcia</div>
+      <div class="step">Powietrze bez chmury (nienasycone): <span class="v">stygnie o 10°C na każdy kilometr w górę</span></div>
+      <div class="step">Powietrze w chmurze (nasycone): <span class="v">stygnie o około 6°C na kilometr</span></div>
+      <div class="step">Różnica: <span class="result">około 4°C na kilometr</span> — to ciepło oddane przy skraplaniu</div>
+      <div class="check">Wartość dla powietrza w chmurze jest podana z zaokrągleniem, bo nie jest stała — zależy od temperatury. W ciepłym, wilgotnym powietrzu skrapla się dużo wody, więc ciepła wraca dużo i tempo spada nawet do 4°C na kilometr. W zimnym powietrza wilgoci jest mało, więc wartość zbliża się do suchych dziesięciu. Innymi słowy: <strong>im cieplej, tym silniej chmura sama siebie napędza</strong>.</div>
+    </div>
+
+    <p>Te dwie liczby wystarczają, żeby policzyć całkiem sporo rzeczy o niebie — i właśnie dlatego meteorolog rysuje profil temperatury na wykresie, zamiast go zgadywać.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Stygnięcie przed i po skropleniu</span><span>start: 22°C przy ziemi</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="130" y1="24" x2="130" y2="256" stroke="#2a2f38" stroke-width="1.5"/>
+        <line x1="130" y1="256" x2="720" y2="256" stroke="#2a2f38" stroke-width="1.5"/>
+
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8b909b" text-anchor="end">
+          <text x="122" y="260">0 km</text><text x="122" y="198">1 km</text><text x="122" y="140">2 km</text>
+          <text x="122" y="82">3 km</text><text x="122" y="30">4 km</text>
+        </g>
+
+        <line x1="130" y1="198" x2="720" y2="198" stroke="#e8a33d" stroke-width="1.6" stroke-dasharray="5 5" opacity="0.7"/>
+        <text x="600" y="192" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11">poziom kondensacji</text>
+
+        <path d="M660,256 L540,198" stroke="#6e93be" stroke-width="3"/>
+        <path d="M540,198 L468,140 L396,82 L340,30" stroke="#4fc3c0" stroke-width="3"/>
+        <path d="M540,198 L420,140 L300,82 L192,30" stroke="#6e93be" stroke-width="2" stroke-dasharray="6 5" opacity="0.55"/>
+
+        <circle cx="660" cy="256" r="5" fill="#e8a33d"/>
+        <circle cx="540" cy="198" r="5" fill="#e8a33d"/>
+
+        <g font-family="IBM Plex Mono, monospace" font-size="11.5">
+          <text x="672" y="248" fill="#ecebe4">22°C</text>
+          <text x="500" y="216" fill="#ecebe4">12°C</text>
+          <text x="430" y="134" fill="#4fc3c0">6°C</text>
+          <text x="356" y="76" fill="#4fc3c0">0°C</text>
+          <text x="300" y="26" fill="#4fc3c0">−6°C</text>
+          <text x="180" y="26" fill="#6e93be" opacity="0.8">−18°C</text>
+        </g>
+
+        <text x="150" y="46" fill="#6e93be" font-family="IBM Plex Sans, sans-serif" font-size="12" opacity="0.8">gdyby nie było skraplania</text>
+        <text x="150" y="286" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">Poniżej poziomu kondensacji: 10°C na km. Powyżej: około 6°C na km.</text>
+      </svg>
+      <div class="diagram-caption">Załamanie linii na wysokości poziomu kondensacji jest całą treścią tego rozdziału. Od tego punktu powietrze stygnie wolniej, bo skraplająca się para oddaje mu ciepło z powrotem — i właśnie ta różnica pozwala chmurze piąć się dalej w górę.</div>
+    </div>
+
+    <p>Warto zobaczyć, jak duża to różnica. Bez skraplania powietrze wyniesione na 4 km miałoby −18°C. Ze skraplaniem ma −6°C — czyli jest <strong>o dwanaście stopni cieplejsze</strong> od wersji suchej. A ponieważ cieplejsze znaczy lżejsze od otoczenia, znaczy też: dalej się wznosi.</p>
+
+    <p>To jest właściwy sens zdania „chmura sama się napędza”. Nie chodzi o metaforę, tylko o dwanaście stopni przewagi nad powietrzem, które wilgoci nie miało.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Sprawdzenie · dlaczego to nie jest ogrzewanie od Słońca</div>
+    <h2>Trzy sposoby, żeby coś ostygło — i tylko jeden z nich tu działa</h2>
+
+    <p>Naturalne wyjaśnienie, dlaczego w górach jest zimniej, brzmi: „bo dalej od nagrzanej ziemi”. Brzmi rozsądnie i jest błędne. Warto zobaczyć dlaczego, bo przy okazji porządkuje to całą resztę.</p>
+
+    <p>Ciało może stracić ciepło na trzy sposoby. <strong>Przez przewodzenie</strong> — oddając je czemuś, czego dotyka. <strong>Przez promieniowanie</strong> — wypromieniowując energię w przestrzeń. I <strong>przez rozprężanie</strong> — wykonując pracę przeciw otoczeniu, które na nie napiera.</p>
+
+    <p>Wznoszące się powietrze traci ciepło <span class="term-amber">wyłącznie trzecim sposobem</span>. Nie oddaje go otaczającemu powietrzu, bo powietrze fatalnie przewodzi ciepło — na tyle fatalnie, że robi się z niego izolację ścian. Nie wypromieniowuje go też w żadnej znaczącej ilości w ciągu kilkunastu minut, jakie zajmuje mu wzniesienie się o kilometr.</p>
+
+    <p>Zostaje rozprężanie. Bąbel idący w górę wchodzi w powietrze o coraz niższym ciśnieniu, więc puchnie. Puchnąc, <strong>rozpycha otoczenie</strong> — a rozpychanie to praca, a praca kosztuje energię. Energia bierze się z jedynego dostępnego źródła, czyli z ruchu własnych cząsteczek. Wolniejsze cząsteczki to niższa temperatura.</p>
+
+    <div class="worked">
+      <div class="wlabel">Dlaczego to nie jest „oddawanie ciepła w górę”</div>
+      <div class="step">Bąbel nie stracił <span class="k">ani jednej cząsteczki</span> ani jednego dżula na rzecz otoczenia</div>
+      <div class="step">Energia nie zniknęła: <span class="v">zamieniła się w pracę rozpychania</span></div>
+      <div class="step">Dowód: <span class="v">sprowadzony z powrotem w dół, ogrzewa się dokładnie tak samo</span></div>
+      <div class="check">Ta odwracalność jest najmocniejszym argumentem. Gdyby powietrze stygło, oddając ciepło otoczeniu, sprowadzenie go na dół nic by nie odzyskało — ciepło już by uciekło. A ono odzyskuje wszystko co do stopnia. To znaczy, że nic nie uciekło, tylko zostało zamienione w pracę i z powrotem.</div>
+    </div>
+
+    <p>Praktyczny wniosek jest taki, że <strong>powietrze nie ma pamięci o tym, jak wysoko było</strong> — ma tylko pamięć o tym, ile wody straciło po drodze. Jeżeli po drodze nic się nie skropliło, powrót w dół przywraca dokładnie stan wyjściowy. Jeżeli skropliło się i spadło jako deszcz, wraca cieplejsze i suchsze, niż wyruszyło. To dokładnie mechanizm halnego z poprzedniej sekcji, opisany od strony bilansu energii.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Obraz · to samo na jednym rysunku</div>
+    <h2>Bąbel, który rośnie, bo nikt go już nie ściska</h2>
+
+    <p>Cały mechanizm da się narysować jednym obrazkiem, a warto go mieć w głowie, bo wraca w tej książce jeszcze kilkanaście razy.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Ten sam bąbel na czterech wysokościach</span><span>ta sama liczba cząsteczek</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="u10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8a33d"/></marker>
+        </defs>
+        <line x1="60" y1="262" x2="720" y2="262" stroke="#2a2f38" stroke-width="2"/>
+        <line x1="90" y1="250" x2="90" y2="40" stroke="#e8a33d" stroke-width="2" marker-end="url(#u10)" opacity="0.5"/>
+
+        <circle cx="180" cy="222" r="26" fill="#4fc3c0" opacity="0.3" stroke="#4fc3c0" stroke-width="1.8"/>
+        <circle cx="330" cy="168" r="34" fill="#4fc3c0" opacity="0.24" stroke="#4fc3c0" stroke-width="1.8"/>
+        <circle cx="490" cy="112" r="44" fill="#4fc3c0" opacity="0.18" stroke="#4fc3c0" stroke-width="1.8"/>
+        <circle cx="655" cy="62" r="54" fill="#4fc3c0" opacity="0.13" stroke="#4fc3c0" stroke-width="1.8"/>
+
+        <g fill="#ecebe4">
+          <circle cx="172" cy="216" r="2.4"/><circle cx="188" cy="228" r="2.4"/><circle cx="180" cy="210" r="2.4"/><circle cx="190" cy="216" r="2.4"/><circle cx="170" cy="230" r="2.4"/><circle cx="184" cy="234" r="2.4"/>
+          <circle cx="318" cy="158" r="2.4"/><circle cx="344" cy="176" r="2.4"/><circle cx="330" cy="148" r="2.4"/><circle cx="346" cy="158" r="2.4"/><circle cx="314" cy="182" r="2.4"/><circle cx="334" cy="188" r="2.4"/>
+          <circle cx="470" cy="98" r="2.4"/><circle cx="512" cy="128" r="2.4"/><circle cx="490" cy="82" r="2.4"/><circle cx="518" cy="98" r="2.4"/><circle cx="466" cy="136" r="2.4"/><circle cx="496" cy="144" r="2.4"/>
+          <circle cx="628" cy="42" r="2.4"/><circle cx="682" cy="84" r="2.4"/><circle cx="655" cy="20" r="2.4"/><circle cx="692" cy="46" r="2.4"/><circle cx="622" cy="94" r="2.4"/><circle cx="662" cy="106" r="2.4"/>
+        </g>
+
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8b909b" text-anchor="middle">
+          <text x="180" y="278">0 km · 1013 hPa</text><text x="330" y="278">1 km · 900 hPa</text>
+          <text x="490" y="278">2 km · 795 hPa</text><text x="655" y="278">3 km · 700 hPa</text>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#e8a33d" text-anchor="middle">
+          <text x="180" y="196">22°C</text><text x="330" y="128">12°C</text><text x="490" y="60">6°C</text><text x="655" y="140">0°C</text>
+        </g>
+        <text x="60" y="24" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">sześć cząsteczek w każdym bąblu — zmienia się objętość, nie zawartość</text>
+      </svg>
+      <div class="diagram-caption">W każdym z czterech bąbli jest tyle samo powietrza. Zmienia się tylko to, jak mocno otoczenie je ściska — a im mniej ściska, tym bardziej bąbel się rozpycha i tym więcej energii na to zużywa. Temperatura jest miarą tego, co zostało.</div>
+    </div>
+
+    <p>Widać na nim jedną rzecz, którą łatwo przeoczyć w opisie słownym: <strong>bąbel nie rozrzedza się dlatego, że coś z niego ucieka</strong>. Liczba cząsteczek jest stała przez cały czas. Rozrzedza się dlatego, że te same cząsteczki zajmują coraz więcej miejsca — a zajmują go coraz więcej, bo z zewnątrz coraz mniej je ściska.</p>
+
+    <p>I stąd bierze się jeszcze jeden wniosek, przydatny w Rozdziale 11: <em>tempo stygnięcia zależy tylko od tego, jak szybko spada ciśnienie</em>. A ciśnienie spada z wysokością mniej więcej tak samo wszędzie na Ziemi. Dlatego dziesięć stopni na kilometr jest liczbą uniwersalną, a nie regułą kciuka dopasowaną do Polski.</p>
+  </div>
+
   <div class="panel practice">
     <div class="panel-label">Z praktyki</div>
     <p><strong>Reguła kciuka dla wysokości chmur.</strong> Weźmy z prognozy temperaturę i punkt rosy przy ziemi. Różnicę podzielmy przez dwa i pomnóżmy przez cztery — wyjdzie mniej więcej wysokość podstawy chmur w setkach metrów. Przy 25°C i punkcie rosy 13°C: różnica 12, dzielone przez 2 to 6, razy 4 to 24 — czyli podstawa około 2400 metrów. Reguła działa zaskakująco dobrze i wyjaśnimy ją w Rozdziale 12.</p>

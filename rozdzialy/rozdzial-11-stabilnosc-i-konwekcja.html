@@ -218,6 +218,195 @@
     <p>Termika ma też swój rytm dobowy, wart zapamiętania: rusza mniej więcej dwie godziny po wschodzie, nabiera siły do wczesnego popołudnia, maksimum osiąga między czternastą a szesnastą i zamiera przed zachodem. Dlatego kłębiaste chmurki, które rano rosną, wieczorem po prostu znikają — <strong>silnik się wyłączył</strong>, a to, co zostało, wyparowuje.</p>
   </div>
 
+  <div class="section">
+    <div class="section-eyebrow">Wykres · narzędzie, którym mierzy się chwiejność</div>
+    <h2>Dwie linie i wszystko, co z nich wynika</h2>
+
+    <p>Meteorolog nie ocenia chwiejności na oko. Rysuje dwie linie na jednym wykresie i patrzy, która jest po której stronie. To najprostsze narzędzie w całej prognozie pogody i warto je raz zobaczyć, bo pokazuje mechanizm, o którym mówiliśmy słowami.</p>
+
+    <p><strong>Linia pierwsza</strong> to <span class="term-raster">rzeczywista temperatura powietrza na kolejnych wysokościach</span>. Mierzy się ją balonem wypuszczanym dwa razy na dobę — w Polsce robi to kilka stacji, między innymi Legionowo, Łeba i Wrocław.</p>
+
+    <p><strong>Linia druga</strong> to <span class="term-amber">temperatura, jaką miałby bąbel powietrza wyniesiony z ziemi</span>, stygnący według stałych z Rozdziału 10: dziesięć stopni na kilometr przed skropleniem, około sześciu po.</p>
+
+    <p>I teraz cała reguła, w jednym zdaniu: <strong>tam, gdzie bąbel jest cieplejszy od otoczenia, wznosi się dalej sam z siebie</strong>. Tam, gdzie chłodniejszy — opada z powrotem.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Bąbel kontra otoczenie</span><span>trzy typy dnia</span></div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#8b909b">
+          <text x="20" y="20">zimniej ←   temperatura   → cieplej</text>
+        </g>
+
+        <g>
+          <line x1="40" y1="40" x2="40" y2="266" stroke="#2a2f38" stroke-width="1.4"/>
+          <line x1="40" y1="266" x2="240" y2="266" stroke="#2a2f38" stroke-width="1.4"/>
+          <path d="M212,266 L96,50" stroke="#6e93be" stroke-width="2.5"/>
+          <path d="M212,266 L120,50" stroke="#e8a33d" stroke-width="2.5" stroke-dasharray="6 4"/>
+          <text x="140" y="292" text-anchor="middle" fill="#4fc3c0" font-family="IBM Plex Sans, sans-serif" font-size="13">stabilnie</text>
+          <text x="140" y="310" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5">bąbel zawsze chłodniejszy</text>
+        </g>
+
+        <g>
+          <line x1="290" y1="40" x2="290" y2="266" stroke="#2a2f38" stroke-width="1.4"/>
+          <line x1="290" y1="266" x2="490" y2="266" stroke="#2a2f38" stroke-width="1.4"/>
+          <path d="M462,266 L392,160 L346,50" stroke="#6e93be" stroke-width="2.5"/>
+          <path d="M462,266 L392,160 L330,50" stroke="#e8a33d" stroke-width="2.5" stroke-dasharray="6 4"/>
+          <circle cx="392" cy="160" r="5" fill="#e8a33d"/>
+          <text x="400" y="152" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="10.5">poziom kondensacji</text>
+          <text x="390" y="292" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Sans, sans-serif" font-size="13">warunkowo chwiejnie</text>
+          <text x="390" y="310" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5">bąbel wygrywa dopiero po skropleniu</text>
+        </g>
+
+        <g>
+          <line x1="540" y1="40" x2="540" y2="266" stroke="#2a2f38" stroke-width="1.4"/>
+          <line x1="540" y1="266" x2="740" y2="266" stroke="#2a2f38" stroke-width="1.4"/>
+          <path d="M712,266 L600,50" stroke="#6e93be" stroke-width="2.5"/>
+          <path d="M712,266 L640,50" stroke="#e8a33d" stroke-width="2.5" stroke-dasharray="6 4"/>
+          <text x="640" y="292" text-anchor="middle" fill="#9c82d8" font-family="IBM Plex Sans, sans-serif" font-size="13">chwiejnie</text>
+          <text x="640" y="310" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5">bąbel cieplejszy od samego dołu</text>
+        </g>
+
+        <g font-family="IBM Plex Mono, monospace" font-size="11">
+          <rect x="580" y="14" width="14" height="3" fill="#6e93be"/><text x="600" y="20" fill="#8b909b">otoczenie</text>
+          <rect x="672" y="14" width="14" height="3" fill="#e8a33d"/><text x="692" y="20" fill="#8b909b">bąbel</text>
+        </g>
+      </svg>
+      <div class="diagram-caption">Bursztynowa linia po prawej stronie niebieskiej znaczy: bąbel cieplejszy, czyli lżejszy, czyli wznosi się dalej. Środkowy przypadek jest w Polsce najczęstszy i najciekawszy — dzień, który sam z siebie nic by nie zrobił, ale wystarczy popchnąć bąbel do poziomu kondensacji, a dalej pojedzie sam.</div>
+    </div>
+
+    <p>Środkowy wykres opisuje typowy burzowy dzień i wyjaśnia coś, co inaczej wygląda na kaprys pogody: <strong>dlaczego burza wybucha nagle, po godzinach spokoju</strong>. Powietrze przez cały ranek nie chce się wznosić, bo poniżej poziomu kondensacji jest chłodniejsze od otoczenia. Ale jeśli coś je tam dopchnie — nagrzane pole, zbocze, front — to od tego punktu bąbel jest już cieplejszy i reszta dzieje się sama, na przestrzeni dziesięciu kilometrów w górę.</p>
+
+    <p>To także powód, dla którego <strong>prognoza burzowa jest tak trudna</strong>. Warunki bywają gotowe na całym obszarze, ale wyzwolenie zależy od lokalnego szczegółu: czy akurat tam było pole zamiast lasu, czy przeszedł słaby front, czy wiatr napotkał wzniesienie. Model widzi warunki; nie widzi, czy ktoś pociągnie za spust.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Praktyka · jak to wygląda z ziemi</div>
+    <h2>Trzy niebiosa i po czym je poznać rano</h2>
+
+    <p>Cały ten rozdział da się sprowadzić do jednej obserwacji porannej, którą można zrobić przez okno przy kawie. Chodzi o odpowiedź na pytanie: <em>ile pionu ma dzisiejsze niebo</em>.</p>
+
+    <div class="worked">
+      <div class="wlabel">Co widać rano i co z tego wynika na popołudnie</div>
+      <div class="step"><span class="k">Niebo bez chmur albo płaskie warstwy, dym z komina ściele się poziomo</span> — <span class="v">stabilnie</span>. Dzień będzie spokojny, po południu nic nie urośnie. Za to możliwa mgła i smog.</div>
+      <div class="step"><span class="k">Płaskie Cumulusy pojawiające się ok. 10:00 i nierosnące</span> — <span class="v">chwiejność ograniczona</span>. Ładny dzień, wieczorem chmury się zwiną.</div>
+      <div class="step"><span class="k">Cumulusy rosnące szybko po 11:00, wyraźnie kalafiorowe</span> — <span class="v">chwiejność wyraźna</span>. Po południu przelotne opady, możliwa burza.</div>
+      <div class="step"><span class="k">Altocumulus castellanus rano na średnim piętrze</span> — <span class="v">chwiejność już wysoko</span>. Podwyższone ryzyko burz, i to silniejszych niż zwykle.</div>
+      <div class="check">Najbardziej informacyjny jest przypadek trzeci i sposób, w jaki się go sprawdza. Nie chodzi o to, że chmury są — chodzi o to, czy w ciągu dwudziestu minut wyraźnie urosły. Jedno spojrzenie mówi, jakie są chmury; dwa spojrzenia w odstępie pół godziny mówią, jaki będzie dzień.</div>
+    </div>
+
+    <p>Warto zauważyć, że wszystkie cztery obserwacje dotyczą tego samego: <strong>jak daleko w pionie powietrze zdołało zajść</strong>. Chwiejność nie jest cechą pogody, tylko cechą profilu temperatury — a chmury są jedynym sposobem, w jaki ten profil daje się zobaczyć gołym okiem.</p>
+
+    <p>I stąd bierze się coś, co przewija się przez całą tę książkę: chmura nie jest ozdobą nieba ani skutkiem pogody. Jest <em>przyrządem pomiarowym</em>, który atmosfera rysuje sama dla siebie — a my mamy do niego wgląd za darmo, wystarczy podnieść głowę.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Inwersja · dwa rysunki do tego, co widać zimą</div>
+    <h2>Warstwa, pod którą wszystko zostaje</h2>
+
+    <p>Inwersja to sytuacja odwrócona względem normalnej: warstwa, w której <strong>wyżej jest cieplej, a nie zimniej</strong>. Powietrze z dołu, wznosząc się, trafia na coś cieplejszego od siebie — i nie ma jak przez to przejść. Zatrzymuje się jak balon pod sufitem.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Kotlina zimą, wieczór bezchmurny</span><span>inwersja radiacyjna</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,258 L120,258 L230,150 L350,258 L520,258 L640,140 L760,258 L760,290 L0,290 Z" fill="#2a2f38"/>
+
+        <rect x="0" y="176" width="760" height="82" fill="#6e93be" opacity="0.22"/>
+        <line x1="0" y1="176" x2="760" y2="176" stroke="#e8a33d" stroke-width="2.5"/>
+        <text x="16" y="168" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="12">inwersja — tu robi się cieplej z wysokością</text>
+
+        <g fill="#9aa0a8" opacity="0.5">
+          <ellipse cx="230" cy="216" rx="96" ry="20"/><ellipse cx="200" cy="230" rx="70" ry="16"/>
+          <ellipse cx="580" cy="222" rx="80" ry="18"/>
+        </g>
+        <text x="230" y="252" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="11">mgła i smog zostają pod spodem</text>
+
+        <g stroke="#4fc3c0" stroke-width="2" fill="none" opacity="0.8">
+          <path d="M110,250 q4,-30 0,-58"/><path d="M110,192 q-14,-8 -26,-4"/><path d="M110,192 q14,-8 26,-4"/>
+        </g>
+        <text x="60" y="212" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">dym rozpływa się</text>
+        <text x="60" y="228" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">w bok, nie w górę</text>
+
+        <circle cx="660" cy="80" r="18" fill="#e8a33d" opacity="0.85"/>
+        <text x="500" y="86" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12.5">powyżej inwersji: czyste niebo,</text>
+        <text x="500" y="106" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12.5">świeci słońce, widok na morze chmur</text>
+
+        <line x1="640" y1="140" x2="640" y2="176" stroke="#ecebe4" stroke-width="1.4" stroke-dasharray="3 3"/>
+        <text x="654" y="158" fill="#ecebe4" font-family="IBM Plex Mono, monospace" font-size="11">szczyt ponad</text>
+      </svg>
+      <div class="diagram-caption">To jest w jednym obrazku cały polski listopad w kotlinie i cała odpowiedź na pytanie, dlaczego w górach o tej porze roku bywa słonecznie, gdy w dolinie jest szaro od tygodnia. Nie chodzi o wysokość — chodzi o to, czy jest się nad kreską, czy pod nią.</div>
+    </div>
+
+    <p>Inwersja powstaje najłatwiej w bezchmurną, bezwietrzną noc. Ziemia wypromieniowuje ciepło w przestrzeń i szybko stygnie; powietrze tuż przy niej stygnie razem z nią, a to kilkadziesiąt metrów wyżej zostaje ciepłe. Rano mamy więc zimną warstwę pod ciepłą — czyli dokładnie sytuację odwróconą.</p>
+
+    <p>Konsekwencje są bardzo praktyczne i wszystkie wynikają z jednego: <strong>nic, co jest pod inwersją, nie ma jak się z niej wydostać</strong>.</p>
+
+    <ul class="compact">
+      <li><strong>Smog.</strong> Spaliny z pieców i samochodów gromadzą się w warstwie o grubości kilkudziesięciu metrów zamiast rozproszyć się w całej troposferze. Stąd smogowe epizody w polskich kotlinach — Kraków, Nowy Sącz, Rybnik — zawsze przy wyżu i bezwietrznej pogodzie, nigdy przy wietrze.</li>
+      <li><strong>Mgła.</strong> Wilgoć też zostaje pod spodem i po ochłodzeniu poniżej punktu rosy skrapla się w mgłę, która nie ma jak się rozejść.</li>
+      <li><strong>Chmury, które nie rosną.</strong> Cumulus dochodzący do inwersji rozpłaszcza się i zamienia w Stratocumulusa. To dlatego ławice Stratocumulusa mają tak równą górną krawędź — jest to odcisk warstwy, przez którą nie dało się przejść.</li>
+      <li><strong>Dźwięk niesie się dalej.</strong> Inwersja zakrzywia fale dźwiękowe z powrotem ku ziemi zamiast pozwolić im uciec w górę. Stąd wrażenie, że mroźnym rankiem słychać pociąg z drugiego końca doliny.</li>
+    </ul>
+
+    <p>Odwrotna strona tego samego mechanizmu jest jednym z ładniejszych widoków, jakie oferuje polska zima: wyjazd w góry ponad warstwę inwersji. Sto metrów przewyższenia potrafi zamienić szarość trwającą tydzień w słońce i granatowe niebo, a w dole zostaje gładkie, białe morze Stratocumulusa z wystającymi z niego szczytami. Widać wtedy dosłownie kreskę, o której mówi ten rozdział.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Spust · dlaczego chmury nie są rozłożone równo</div>
+    <h2>Termik startuje z konkretnego miejsca</h2>
+
+    <p>Gdyby wznoszenie zależało wyłącznie od profilu temperatury, chmury pokrywałyby niebo równomiernie. A nie pokrywają — Cumulusy stoją w wyraźnych, oddzielonych kępach, między którymi jest czysty błękit. Powód jest przy ziemi.</p>
+
+    <p>Słońce grzeje wszystko jednakowo, ale <strong>nie wszystko jednakowo się nagrzewa</strong>. Suche, ciemne, pozbawione roślinności powierzchnie oddają ciepło powietrzu szybko. Mokre, jasne i porośnięte — wolno, bo część energii idzie na parowanie zamiast na ogrzewanie.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Skąd startują termiki</span><span>lipcowe południe</span></div>
+      <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="t11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8a33d"/></marker>
+        </defs>
+        <line x1="0" y1="224" x2="760" y2="224" stroke="#2a2f38" stroke-width="2"/>
+
+        <rect x="20" y="212" width="150" height="12" fill="#2f7a3f" opacity="0.6"/>
+        <rect x="190" y="212" width="140" height="12" fill="#8a6a3a" opacity="0.75"/>
+        <rect x="350" y="212" width="130" height="12" fill="#4a5a6a" opacity="0.8"/>
+        <rect x="500" y="212" width="120" height="12" fill="#2a4a6a" opacity="0.8"/>
+        <rect x="640" y="212" width="110" height="12" fill="#8a8a5a" opacity="0.7"/>
+
+        <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#8b909b" text-anchor="middle">
+          <text x="95" y="244">las</text><text x="260" y="244">zaorane pole</text><text x="415" y="244">asfalt, dach</text>
+          <text x="560" y="244">jezioro</text><text x="695" y="244">ściernisko</text>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#e8a33d" text-anchor="middle">
+          <text x="95" y="262">+2°C</text><text x="260" y="262">+8°C</text><text x="415" y="262">+12°C</text>
+          <text x="560" y="262">+0°C</text><text x="695" y="262">+6°C</text>
+        </g>
+
+        <g stroke="#e8a33d" stroke-width="2" fill="none">
+          <path d="M260,208 q-6,-40 0,-70" marker-end="url(#t11)" opacity="0.7"/>
+          <path d="M415,208 q6,-56 0,-96" marker-end="url(#t11)" opacity="0.95"/>
+          <path d="M695,208 q-6,-32 0,-56" marker-end="url(#t11)" opacity="0.55"/>
+        </g>
+
+        <g fill="#ecebe4">
+          <path d="M232,120 a16,16 0 0 1 16,-16 a18,18 0 0 1 30,-2 a14,14 0 0 1 16,18 z" opacity="0.9"/>
+          <path d="M378,84 a20,20 0 0 1 18,-20 a22,22 0 0 1 38,-2 a18,18 0 0 1 20,22 z"/>
+          <path d="M670,140 a13,13 0 0 1 13,-13 a15,15 0 0 1 26,-2 a12,12 0 0 1 13,15 z" opacity="0.8"/>
+        </g>
+        <line x1="20" y1="120" x2="740" y2="120" stroke="#e8a33d" stroke-width="1.4" stroke-dasharray="6 5" opacity="0.45"/>
+        <text x="20" y="112" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11" opacity="0.8">poziom kondensacji — wspólny dla wszystkich</text>
+
+        <text x="20" y="28" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">Nad jeziorem i nad lasem nie ma chmury, bo nie ma termiku. Nad polem i asfaltem jest.</text>
+      </svg>
+      <div class="diagram-caption">Nadwyżki temperatury są przybliżone i dotyczą samej warstwy przy gruncie. Kluczowe jest to, że mapa chmur na niebie jest w pogodny dzień <strong>mapą tego, co jest pod nimi</strong> — a nie przypadkowym rozkładem.</div>
+    </div>
+
+    <p>To wyjaśnia obserwację, którą łatwo zrobić samemu: w bezchmurny letni dzień <strong>nad dużym jeziorem prawie nigdy nie ma Cumulusów</strong>, a nad sąsiadującym z nim polem są. Woda nagrzewa się bardzo powoli, więc nie oddaje powietrzu ciepła, więc nie ma czym wystartować termik. Ten sam efekt widać z samolotu nad wybrzeżem: pas chmur zaczyna się dokładnie tam, gdzie kończy się morze.</p>
+
+    <p>Szybownicy używają tej wiedzy wprost — szukają termików nad zaoranymi polami, ścierniskami i zabudowaniami, a omijają lasy i wodę. Chmura jest dla nich znacznikiem: <em>tam kończy się kolumna wznoszącego się powietrza</em>. Lecą nie do chmury, tylko pod nią.</p>
+
+    <p>Jest w tym jeszcze jeden wniosek, przydatny w Części VI. Skoro chmura oznacza, co jest pod nią, to <strong>zmiana krajobrazu zmienia niebo</strong>. Osuszone torfowisko, wycięty las, rozlane miasto — każde z nich przesuwa mapę termików, a więc i mapę chmur. Nie jest to teoretyczne: nad dużymi miastami mierzy się realnie więcej konwekcji i więcej opadów po ich zawietrznej stronie.</p>
+  </div>
+
   <div class="panel practice">
     <div class="panel-label">Z praktyki</div>
     <p><strong>Jak z porannego nieba ocenić popołudnie.</strong> Jeśli o dziewiątej rano niebo jest już usiane małymi kłębiastymi chmurkami z płaskimi dnami — dzień będzie chwiejny i po południu warto się spodziewać sporego rozwoju, może burzy. Jeśli o dziewiątej niebo jest gładkie, mgliste albo pokryte jednolitą warstwą, prawdopodobnie zostanie takie do wieczora. Jeśli widać wieżyczki na chmurach średniego piętra — to sygnał chwiejności wysoko i najlepsza domowa zapowiedź burzy, o czym w Rozdziale 15.</p>

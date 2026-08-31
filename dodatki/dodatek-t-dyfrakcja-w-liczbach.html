@@ -26,7 +26,57 @@
   <h1>Dyfrakcja w liczbach</h1>
   <p class="subtitle">Rozmiar wieńca a rozmiar kropli — jak odczytać jedno z drugiego, stojąc na balkonie.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Krążek Airy'ego · podstawowa skala</div>
+    <h2>Wzór, który wiąże pierścień z kroplą</h2>
+
+    <p>Fala napotykająca okrągłą przeszkodę o średnicy <strong>d</strong> tworzy za nią wzór dyfrakcyjny: jasny środek i koncentryczne pierścienie. Pierwsze minimum wypada pod kątem:</p>
+
+    <div class="formula">sin θ ≈ 1,22 · <span class="vec" data-tip="Długość fali światła, ok. 550 nm dla zieleni">λ</span> / <span class="vec" data-tip="Średnica kropli">d</span><span class="sub">θ (theta) — kąt od kierunku na źródło. Współczynnik 1,22 pochodzi z pierwszego zera funkcji Bessela dla otworu kołowego.</span></div>
+
+    <p>Kluczowa jest odwrotna proporcjonalność: <strong>mniejsza kropla daje większy pierścień</strong>. To odróżnia wieniec od halo i tęczy, których kąty są stałe.</p>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: promień wieńca dla różnych kropel</div>
+      <div class="step">Kropla <span class="v">d = 5 µm</span>: sin θ = 1,22 · 0,55 / 5 = 0,134 → <span class="result">θ ≈ 7,7°</span></div>
+      <div class="step">Kropla <span class="v">d = 10 µm</span>: → <span class="result">θ ≈ 3,8°</span></div>
+      <div class="step">Kropla <span class="v">d = 20 µm</span>: → <span class="result">θ ≈ 1,9°</span></div>
+      <div class="step">Kropla <span class="v">d = 40 µm</span>: → <span class="result">θ ≈ 1,0°</span></div>
+      <div class="check">Odwracając: mierząc wieniec wyciągniętą ręką, odczytujemy rozmiar kropel. Pierścień wielkości dwóch palców (ok. 3,5°) oznacza krople około 11 µm — typowa świeża chmura. Pierścień ledwie większy od tarczy Księżyca oznacza krople około 40 µm — chmura starsza, krople zdążyły urosnąć.</div>
+    </div>
+
+    <p>Ten sam wzór z tym samym współczynnikiem opisuje granicę rozdzielczości teleskopu i aparatu — tylko że tam d jest średnicą obiektywu, a nie kropli. To jedno z ładniejszych powtórzeń tego samego rachunku w zupełnie różnych kontekstach.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Warunek widoczności</div>
+    <h2>Dlaczego wieniec wymaga jednorodnych kropel</h2>
+
+    <p>Skoro promień pierścienia zależy od rozmiaru kropli, to w chmurze o kroplach różnej wielkości pierścienie różnych rozmiarów nakładają się i wzajemnie wypełniają. Wynikiem jest biaława poświata bez struktury — zwana <em>aureolą</em> — zamiast wyraźnych barwnych kół.</p>
+
+    <p>Ostry, kolorowy wieniec wymaga więc <strong>wąskiego rozkładu rozmiarów kropel</strong>. Występuje to w chmurach świeżych, gdzie kropelki dopiero co powstały na podobnych jądrach i nie zdążyły urosnąć nierównomiernie przez koalescencję.</p>
+
+    <p>Stąd praktyczna reguła obserwacyjna: <span class="term-cyan">im ładniejszy wieniec, tym młodsza chmura</span>. Najlepsze wieńce daje cienki Altocumulus przesuwający się przed Księżycem, a nie gruby Stratus.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Gloria · gdzie prosty rachunek zawodzi</div>
+    <h2>Rozproszenie wsteczne bez teorii promieni</h2>
+
+    <p>Gloria pojawia się dokładnie w kierunku antysłonecznym — czyli światło musi wrócić o 180°. Śledząc promienie w kropli, nie da się otrzymać silnego powrotu pod takim kątem: prosty rachunek geometryczny daje w tym kierunku znikomo mało światła.</p>
+
+    <p>Wyjaśnienie wymaga uwzględnienia <strong>fal powierzchniowych</strong>: fala, która ledwie muska kroplę, może biec przez pewien odcinek wzdłuż jej powierzchni i wypromieniować się wstecz. Interferencja takich fal z różnych stron kropli daje pierścienie.</p>
+
+    <p>Pełny opis wymaga teorii Mie i został dopracowany dopiero w drugiej połowie XX wieku. Praktyczna zależność jest jednak taka sama jak dla wieńca — <strong>rozmiar pierścieni jest odwrotnie proporcjonalny do rozmiaru kropel</strong> — więc gloria również jest przyrządem pomiarowym.</p>
+
+    <div class="worked">
+      <div class="wlabel">Typowe rozmiary glorii z samolotu</div>
+      <div class="step">Krople <span class="v">5 µm</span> (chmura świeża, wysoka): pierwszy pierścień <span class="k">ok. 9°</span></div>
+      <div class="step">Krople <span class="v">15 µm</span> (typowy Stratocumulus): <span class="k">ok. 3°</span></div>
+      <div class="step">Krople <span class="v">30 µm</span> (chmura dojrzała): <span class="k">ok. 1,5°</span></div>
+      <div class="check">Lecąc nad zróżnicowaną pokrywą chmur, widać, jak gloria pulsuje i zmienia średnicę — to zmiany rozmiaru kropel w kolejnych fragmentach chmury pod nami, odczytywane w czasie rzeczywistym.</div>
+    </div>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

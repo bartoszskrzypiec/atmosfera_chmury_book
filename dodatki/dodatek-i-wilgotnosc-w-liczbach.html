@@ -26,7 +26,58 @@
   <h1>Wilgotność w liczbach</h1>
   <p class="subtitle">Wilgotność względna i bezwzględna, punkt rosy, wzór Magnusa i dlaczego metafora gąbki jest formalnie błędna.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Prężność pary · liczba, która rządzi wszystkim</div>
+    <h2>Wzór Magnusa</h2>
+
+    <p>Nasycenie zależy prawie wyłącznie od temperatury i opisuje je empiryczny wzór Magnusa-Tetensa, dokładny do ułamka procenta w zakresie ziemskich temperatur:</p>
+
+    <div class="formula">e<sub>s</sub>(<span class="vec" data-tip="Temperatura w stopniach Celsjusza">T</span>) = 6,112 · e<sup>(17,62·T)/(243,12+T)</sup><span class="sub">e<sub>s</sub> — prężność pary nasyconej, w hektopaskalach. T — temperatura w °C. Wartość 6,112 hPa to prężność nad wodą przy 0°C.</span></div>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: ile wody mieści się przy różnych temperaturach</div>
+      <div class="step">T = −10°C: <span class="v">e_s = 2,86 hPa</span> → około <span class="k">2,3 g/m³</span></div>
+      <div class="step">T = 0°C: <span class="v">e_s = 6,11 hPa</span> → około <span class="k">4,8 g/m³</span></div>
+      <div class="step">T = 10°C: <span class="v">e_s = 12,3 hPa</span> → około <span class="k">9,4 g/m³</span></div>
+      <div class="step">T = 20°C: <span class="v">e_s = 23,4 hPa</span> → około <span class="k">17,3 g/m³</span></div>
+      <div class="step">T = 30°C: <span class="v">e_s = 42,5 hPa</span> → około <span class="result">30,4 g/m³</span></div>
+      <div class="check">Warto zauważyć tempo: między 0 a 30°C ilość wody rośnie ponad sześciokrotnie. Podwojenie następuje mniej więcej co 10 stopni — to reguła praktyczna warta zapamiętania.</div>
+    </div>
+
+    <p>Zamiana prężności na zawartość w gramach na metr sześcienny:</p>
+
+    <div class="formula">ρ<sub>v</sub> = 216,7 · e / (273,15 + <span class="vec" data-tip="Temperatura w stopniach Celsjusza">T</span>)<span class="sub">ρ<sub>v</sub> — wilgotność bezwzględna w g/m³. e — rzeczywista prężność pary w hPa.</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Trzy miary wilgotności</div>
+    <h2>Względna, bezwzględna, punkt rosy</h2>
+
+    <p><strong>Wilgotność względna</strong> to stosunek rzeczywistej prężności pary do prężności nasycenia w danej temperaturze: RH = e / e<sub>s</sub> · 100%. Zależy od dwóch rzeczy naraz, więc sama w sobie mówi niewiele.</p>
+
+    <p><strong>Wilgotność bezwzględna</strong> to gramy wody na metr sześcienny. Uczciwa miara ilości, ale niewygodna, bo zmienia się przy samym rozprężaniu powietrza.</p>
+
+    <p><strong>Punkt rosy</strong> to temperatura, przy której obecna para stałaby się nasycona. Jest miarą bezwzględnej zawartości, ale wyrażoną w wygodnych stopniach — i, w odróżnieniu od wilgotności bezwzględnej, <span class="term-cyan">nie zmienia się przy zwykłym ogrzewaniu ani chłodzeniu powietrza</span>, dopóki nie dojdzie do skraplania. To dlatego jest w meteorologii miarą pierwszego wyboru.</p>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: dlaczego 60% w styczniu i w lipcu to co innego</div>
+      <div class="step">Styczeń, T = 0°C, RH = 60%: <span class="v">e = 0,6 · 6,11 = 3,67 hPa</span> → <span class="k">2,9 g/m³</span>, punkt rosy <span class="k">−6,7°C</span></div>
+      <div class="step">Lipiec, T = 28°C, RH = 60%: <span class="v">e = 0,6 · 37,8 = 22,7 hPa</span> → <span class="k">16,3 g/m³</span>, punkt rosy <span class="k">19,4°C</span></div>
+      <div class="step">Stosunek zawartości wody: <span class="result">5,6 razy więcej w lipcu</span></div>
+      <div class="check">Ta sama liczba w prognozie, dwa zupełnie inne światy. Stąd rada z Rozdziału 9: szukajmy punktu rosy, nie procentów.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Dlaczego gąbka jest formalnie błędna</div>
+    <h2>Powietrze nie uczestniczy</h2>
+
+    <p>Prężność pary nasyconej zależy wyłącznie od temperatury <em>wody</em> i jej własności — nie od obecności ani ilości powietrza. Można to sprawdzić: nad wodą w naczyniu próżniowym prężność pary nasyconej przy 20°C wynosi dokładnie te same 23,4 hPa, mimo braku jakiegokolwiek powietrza.</p>
+
+    <p>Metafora gąbki sugeruje, że powietrze „trzyma” wodę w jakichś miejscach, których liczba rośnie z temperaturą. Nic takiego nie zachodzi. Rośnie natomiast szybkość ucieczki cząsteczek z powierzchni cieczy — bo mają więcej energii — i dlatego równowaga między parowaniem a skraplaniem ustala się przy większej ilości pary.</p>
+
+    <p>Praktyczna konsekwencja tej różnicy: gąbka podpowiada, że w suchym powietrzu woda „nie ma się czego trzymać”. Prawdziwy mechanizm mówi, że parowanie zależy od <strong>różnicy między prężnością nasycenia a rzeczywistą prężnością</strong> — i dlatego pranie znakomicie schnie w mroźny, słoneczny dzień, choć wilgotność względna bywa wtedy wysoka.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

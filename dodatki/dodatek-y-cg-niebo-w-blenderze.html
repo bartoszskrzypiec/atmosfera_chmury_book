@@ -26,7 +26,81 @@
   <h1>Tak to robi Blender: Sky Texture i suwak Sun Elevation</h1>
   <p class="subtitle">Co naprawdę liczy Sky Texture, skąd w niej suwak Turbidity i dlaczego zmiana kąta Słońca przelicza kolor całego nieba.</p>
 
-  <!-- TRESC -->
+  <div class="note">Ten dodatek jest lekki z założenia. Nie ma tu ani jednego wzoru i nie trzeba umieć obsługiwać Blendera, żeby go przeczytać. Chodzi o jedno: pokazać, że program graficzny liczy dokładnie to, o czym była mowa w Rozdziałach 5–7 — i że jego suwaki mają nazwy zjawisk, które już znamy.</div>
+
+  <div class="section">
+    <div class="section-eyebrow">Punkt wyjścia · dwa sposoby na niebo</div>
+    <h2>Obrazek nieba albo model nieba</h2>
+
+    <p>Program do grafiki trójwymiarowej musi skądś wziąć światło, które pada na scenę. Ma dwie drogi.</p>
+
+    <p><strong>Zdjęcie nieba.</strong> Panorama zrobiona aparatem, rozpięta na kuli wokół sceny. Wygląda idealnie, bo jest prawdziwa. Ale jest jednym konkretnym niebem z jednej konkretnej chwili: nie da się w niej przesunąć Słońca, zmienić pory dnia ani dołożyć mgły. Chcąc inne niebo, trzeba mieć inne zdjęcie.</p>
+
+    <p><strong>Model nieba.</strong> Zamiast obrazka — przepis. Program dostaje kierunek na Słońce i kilka liczb opisujących powietrze, a barwę każdego punktu nieba <em>wylicza</em>. Tak działa węzeł <span class="term-cyan">Sky Texture</span> w Blenderze i jego odpowiedniki w innych programach.</p>
+
+    <p>Drugie podejście jest droższe obliczeniowo i nigdy nie będzie tak przekonujące jak dobra fotografia. Ma jednak własność, której fotografia mieć nie może: <strong>jeden suwak zmienia porę dnia, a wszystko inne dostosowuje się samo</strong>. Barwa nieba, kolor światła słonecznego, długość i barwa cieni, poświata na horyzoncie. Bo to nie są cztery ustawienia — to cztery skutki jednej przyczyny.</p>
+
+    <p>Dokładnie o to samo chodziło w Rozdziale 5, gdy przesuwaliśmy suwak wysokości Słońca w widgecie i całe niebo szło za nim.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Co liczy Sky Texture</div>
+    <h2>Program robi to samo, co Rozdział 5, tylko dla każdego piksela</h2>
+
+    <p>Kiedy renderer patrzy w niebo, wysyła promień w górę i pyta: jaka jest barwa w tym kierunku? Przepis, którym odpowiada, jest tym samym rozumowaniem, które przeszliśmy w Rozdziale 5.</p>
+
+    <div class="worked">
+      <div class="wlabel">Cztery kroki, które wykonuje program dla jednego kierunku</div>
+      <div class="step">1. <span class="k">Ile powietrza po drodze.</span> Idąc od oka w wybranym kierunku, sumuje gęstość powietrza. W górę — mało. Ku horyzontowi — kilkadziesiąt razy więcej.</div>
+      <div class="step">2. <span class="k">Ile światła się tu rozproszyło.</span> W każdym punkcie tej drogi sprawdza, ile światła słonecznego w ogóle dociera, i jaka jego część odbija się akurat w stronę oka.</div>
+      <div class="step">3. <span class="k">Podział na barwy.</span> Cząsteczki powietrza rozpraszają błękit dużo silniej niż czerwień — to rozpraszanie Rayleigha z Rozdziału 5. Pyły i kropelki rozpraszają wszystkie barwy podobnie, głównie do przodu — to rozpraszanie Mie z Rozdziału 8.</div>
+      <div class="step">4. <span class="k">Ile ubyło po drodze.</span> To, co się rozproszyło ku nam, po drodze też częściowo ucieka na boki. Przy niskim Słońcu ubytek błękitu jest tak duży, że zostaje sama czerwień — czyli zachód z Rozdziału 6.</div>
+      <div class="check">To nie jest uproszczony opis czegoś innego. To jest, co do struktury, ten sam rachunek, który wykonuje widget 3D w Rozdziale 5, a różnica polega na liczbie punktów pomiarowych i dokładności danych o atmosferze. Czerwony zachód nie jest w tym modelu wpisany — <em>wychodzi</em> z kroków 3 i 4, tak jak wychodzi na niebie.</div>
+    </div>
+
+    <p>Warto zatrzymać się przy jednej konsekwencji. W modelu nieba nikt nie zapisał reguły „przy niskim Słońcu niebo ma być pomarańczowe”. Zapisano tylko, jak zachowuje się światło w powietrzu. Pomarańcz pojawia się sam, jako wynik — i to jest test, czy model opisuje mechanizm, czy tylko odtwarza wygląd.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Suwaki · i co za nimi stoi</div>
+    <h2>Sun Elevation, Turbidity, Dust, Ozone</h2>
+
+    <p>Węzeł Sky Texture w trybie Nishita ma kilka suwaków. Każdy odpowiada czemuś, co w tej książce ma już swój rozdział.</p>
+
+    <div class="worked">
+      <div class="wlabel">Suwak → zjawisko → gdzie o tym było</div>
+      <div class="step"><span class="k">Sun Elevation</span> — wysokość Słońca nad horyzontem. Steruje długością drogi światła przez atmosferę. <span class="v">R.6</span></div>
+      <div class="step"><span class="k">Sun Rotation</span> — azymut, czyli z której strony świeci. Sam w sobie nie zmienia barwy nieba, tylko obraca całą scenę światła. <span class="v">R.7</span></div>
+      <div class="step"><span class="k">Altitude</span> — wysokość obserwatora. Wyżej znaczy mniej powietrza nad głową: niebo ciemnieje i staje się bardziej granatowe. <span class="v">R.1, R.8</span></div>
+      <div class="step"><span class="k">Air</span> — gęstość cząsteczek powietrza, czyli siła rozpraszania Rayleigha. Podkręcony daje niebo gęściej niebieskie. <span class="v">R.5</span></div>
+      <div class="step"><span class="k">Dust</span> — ilość aerozoli: pyłu, soli morskiej, spalin. To rozpraszanie Mie. Podkręcony wybiela niebo i tworzy jasną obwódkę wokół Słońca. <span class="v">R.8</span></div>
+      <div class="step"><span class="k">Ozone</span> — warstwa ozonu, pochłaniająca część światła. Odpowiada za to, że niebo zenitalne pozostaje niebieskie także w głębokim zmierzchu. <span class="v">R.7</span></div>
+      <div class="check">Suwak <strong>Dust</strong> jest tym, którego najczęściej brakuje w renderach wyglądających „za czysto”. Prawdziwe niebo nad miastem prawie nigdy nie jest tak nasycone jak domyślne ustawienie. Podniesienie Dust psuje kolor w sposób, w jaki psuje go rzeczywistość — i dlatego dodaje wiarygodności.</div>
+    </div>
+
+    <p>Starsze tryby tego samego węzła — Preetham i Hosek/Wilkie — nie liczą atmosfery krok po kroku. Są <strong>dopasowanymi formułami</strong>: ktoś policzył setki nieb dokładną metodą, a potem znalazł prostą funkcję dającą podobny wynik szybciej. Działa to znakomicie dla Słońca nad horyzontem, ale poniżej pewnej wysokości przestaje, bo nie ma za sobą mechanizmu — tylko dopasowanie do przykładów. To dlatego Nishita jako jedyny z trzech potrafi pokazać niebo, gdy Słońce jest już pod horyzontem.</p>
+
+    <p>Różnica jest pouczająca poza grafiką. Model dopasowany do przykładów jest szybki i doskonały w zakresie, który widział. Model oparty na mechanizmie bywa wolniejszy, ale rozsądnie zachowuje się także tam, gdzie nikt go nie sprawdzał.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Praktyka · trzy rzeczy, które warto wiedzieć</div>
+    <h2>Czego uczy zabawa tym suwakiem</h2>
+
+    <p><strong>Kolor światła słonecznego nie jest osobnym ustawieniem.</strong> W renderze z modelem nieba nie ustawia się „ciepłego światła zachodu”. Ustawia się niską pozycję Słońca, a ciepła barwa pojawia się sama, bo światło przechodzi przez więcej powietrza. Ustawianie jej ręcznie jest częstym błędem — i zwykle widać go po tym, że cienie mają barwę niepasującą do nieba.</p>
+
+    <p><strong>Cienie na zewnątrz nie są czarne, tylko niebieskie.</strong> W cień nie dociera bezpośrednie Słońce, ale dociera światło rozproszone przez całe niebo — a ono jest niebieskie. Model nieba daje ten efekt za darmo, bo niebo jest w nim źródłem światła, nie tłem. To najprostszy sprawdzian, czy render zewnętrzny został oświetlony niebem, czy tylko jedną lampą.</p>
+
+    <p><strong>Południe jest trudniejsze niż zachód.</strong> Zachód wybacza wiele — jest kolorowy i wszyscy pamiętają go z przesadą. Południe ma niebo o wąskim zakresie barw i twarde, krótkie cienie, więc każdy błąd w proporcjach widać od razu. W grafice, tak jak w fotografii, godziny okołopołudniowe są najmniej wybaczające.</p>
+
+    <div class="worked">
+      <div class="wlabel">Eksperyment na dziesięć minut</div>
+      <div class="step">Scena: <span class="v">płaszczyzna, sześcian, Sky Texture jako tło świata</span></div>
+      <div class="step">Przesunąć Sun Elevation od <span class="v">60° do −4°</span>, renderując co 10°</div>
+      <div class="step">Patrzeć <span class="v">nie na niebo, tylko na cień sześcianu</span></div>
+      <div class="check">Cień przechodzi od krótkiego i chłodnoszarego do długiego i wyraźnie niebieskiego, podczas gdy oświetlona ściana robi się pomarańczowa. Rozjazd barwy między światłem a cieniem jest tym większy, im niżej Słońce — bo światło bezpośrednie traci błękit, a światło z nieba składa się prawie wyłącznie z niego. To ta sama obserwacja, którą w Rozdziale 7 robiliśmy patrząc na śnieg w cieniu budynku.</div>
+    </div>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

@@ -26,7 +26,73 @@
   <h1>Kryształy lodu i katalog zjawisk halo</h1>
   <p class="subtitle">Geometria sześciokąta, kąty łamiące 60° i 90°, orientacje kryształów i mapa nieba z kilkunastoma zjawiskami.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Geometria · dwa kąty łamiące</div>
+    <h2>Skąd 22° i skąd 46°</h2>
+
+    <p>Sześciokątny słupek lodu oferuje światłu dwie pary ścian pod dwoma różnymi kątami. Odchylenie liczy się tak samo jak dla zwykłego pryzmatu:</p>
+
+    <div class="formula">D<sub>min</sub> = 2 · arcsin(<span class="vec" data-tip="Współczynnik załamania lodu, 1,31">n</span> · sin(<span class="vec" data-tip="Kąt łamiący pryzmatu">A</span>/2)) − <span class="vec" data-tip="Kąt łamiący pryzmatu">A</span><span class="sub">D<sub>min</sub> — minimalne odchylenie. A — kąt łamiący. n — współczynnik załamania lodu, 1,31.</span></div>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: oba halo</div>
+      <div class="step">Ściany boczne co druga, <span class="v">A = 60°</span>:</div>
+      <div class="step">D = 2·arcsin(1,31 · sin30°) − 60 = 2·arcsin(0,655) − 60</div>
+      <div class="step">D = 2 · 40,9° − 60 = <span class="result">21,8°</span> — halo małe</div>
+      <div class="step">Ściana boczna i podstawa, <span class="v">A = 90°</span>:</div>
+      <div class="step">D = 2·arcsin(1,31 · sin45°) − 90 = 2·arcsin(0,926) − 90</div>
+      <div class="step">D = 2 · 67,8° − 90 = <span class="result">45,7°</span> — halo duże</div>
+      <div class="check">Zwróćmy uwagę, czego w tym rachunku NIE MA: rozmiaru kryształu, jego wysokości ani temperatury. Stąd stałość kąta, o której była mowa w Rozdziale 20.</div>
+    </div>
+
+    <p>Dyspersja: współczynnik załamania lodu wynosi 1,3066 dla czerwieni i 1,3170 dla fioletu. Daje to halo o promieniu 21,54° dla czerwieni i 22,37° dla fioletu — czyli <strong>czerwień bliżej Słońca</strong>. Rozpiętość jest mała, dlatego barwy halo są blade w porównaniu z tęczą.</p>
+
+    <p>Uwaga na kąt graniczny: dla A = 90° promień może wejść tylko pod dość dużym kątem, inaczej ulega całkowitemu odbiciu wewnętrznemu. Dlatego halo 46° jest znacznie słabsze i rzadsze niż 22°.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Orientacja · katalog wynikający z ułożenia</div>
+    <h2>Co powstaje przy jakim ułożeniu</h2>
+
+    <div class="worked">
+      <div class="wlabel">Kryształy zorientowane przypadkowo</div>
+      <div class="step"><span class="k">Halo 22°</span> — pełne koło, ściany boczne</div>
+      <div class="step"><span class="k">Halo 46°</span> — pełne koło, ściana i podstawa; słabe</div>
+    </div>
+
+    <div class="worked">
+      <div class="wlabel">Płytki ułożone poziomo (spadają płasko)</div>
+      <div class="step"><span class="k">Słońca poboczne</span> — po bokach Słońca, 22° przy niskim Słońcu, dalej gdy wyżej</div>
+      <div class="step"><span class="k">Łuk okołozenitalny</span> — nad Słońcem, blisko zenitu; wymaga Słońca poniżej 32°</div>
+      <div class="step"><span class="k">Łuk okołohoryzontalny</span> — równolegle do horyzontu, wymaga Słońca powyżej 58° — w Polsce rzadki, bo Słońce tak wysoko bywa tylko latem w południe</div>
+      <div class="step"><span class="k">Okrąg parheliczny</span> — biała linia przez całe niebo, z odbicia od pionowych ścian</div>
+    </div>
+
+    <div class="worked">
+      <div class="wlabel">Słupki ułożone poziomo (toczą się wokół długiej osi)</div>
+      <div class="step"><span class="k">Łuk styczny górny i dolny</span> — dotykają halo 22° od góry i od dołu</div>
+      <div class="step"><span class="k">Łuk supralateralny i infralateralny</span> — związane z halo 46°</div>
+    </div>
+
+    <div class="worked">
+      <div class="wlabel">Odbicia od płaskich powierzchni</div>
+      <div class="step"><span class="k">Słup świetlny</span> — pionowa smuga; bez własnych barw, bo to odbicie, nie załamanie</div>
+      <div class="step"><span class="k">Subsłońce</span> — odbicie Słońca widoczne poniżej horyzontu, tylko z samolotu</div>
+    </div>
+
+    <p>Kompletne wyświetlenie halo, z kilkunastoma zjawiskami naraz, zdarza się kilka razy w dekadzie i wymaga bardzo jednorodnych kryształów — najczęściej notowane jest na Antarktydzie i w Skandynawii. W Polsce realnie dostępne są: halo 22°, słońca poboczne, łuk styczny, słup świetlny i łuk okołozenitalny.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Dlaczego płytki leżą płasko</div>
+    <h2>Stabilizacja aerodynamiczna</h2>
+
+    <p>Płytka lodu spadająca w powietrzu ustawia się poziomo z tego samego powodu, dla którego kartka papieru opada płasko, a nie krawędzią: opór jest największy przy największym przekroju poprzecznym, a każde wychylenie tworzy moment prostujący.</p>
+
+    <p>Stabilizacja działa dobrze tylko w wąskim zakresie rozmiarów — dla płytek o średnicy od kilkudziesięciu do kilkuset mikrometrów i przy słabej turbulencji. Dlatego słońca poboczne bywają wyraźne w powietrzu spokojnym, a w turbulentnym rozmywają się w zwykłe halo.</p>
+
+    <p>To zresztą wyjaśnia obserwację praktyczną: <strong>słońca poboczne najczęściej widuje się zimą przy mroźnej, bezwietrznej pogodzie</strong>, a halo 22° o każdej porze roku.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

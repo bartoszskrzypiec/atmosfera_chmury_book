@@ -26,7 +26,67 @@
   <h1>Adiabaty, emagram i CAPE</h1>
   <p class="subtitle">Gradient suchoadiabatyczny i wilgotnoadiabatyczny, czytanie emagramu, LCL, CAPE i CIN — instrukcja obsługi dla samouka.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Dwie adiabaty · liczby za Rozdziałem 10</div>
+    <h2>Dlaczego 9,8 i dlaczego około 6</h2>
+
+    <p>Wznosząca się porcja powietrza stygnie, bo się rozpręża i wykonuje pracę przeciw otoczeniu. Jeśli nie ma w niej skraplania, tempo tego stygnięcia jest stałe i wynika wprost ze stałych fizycznych:</p>
+
+    <div class="formula">Γ<sub>d</sub> = <span class="vec" data-tip="Przyspieszenie ziemskie, 9,81 m/s²">g</span> / <span class="vec" data-tip="Ciepło właściwe powietrza przy stałym ciśnieniu, 1005 J/(kg·K)">c<sub>p</sub></span> = 9,81 / 1005 ≈ 0,0098 K/m<span class="sub">Γ<sub>d</sub> (gamma) — gradient suchoadiabatyczny. Wynik w kelwinach na metr; po przeliczeniu: 9,8°C na kilometr.</span></div>
+
+    <p>Zwróćmy uwagę, że nie ma tu nic o pogodzie, porze roku ani wilgotności. <strong>9,8°C na kilometr to stała</strong> — i to jest powód, dla którego w Rozdziale 11 mogliśmy porównywać ją z profilem otoczenia jak z linijką.</p>
+
+    <p>Gradient wilgotnoadiabatyczny jest inny, bo skraplanie oddaje ciepło utajone i spowalnia stygnięcie. Nie jest stały — zależy od tego, ile wody się skrapla, a to zależy od temperatury:</p>
+
+    <div class="worked">
+      <div class="wlabel">Gradient wilgotny w różnych warunkach</div>
+      <div class="step">Powietrze ciepłe (+20°C, dużo pary): <span class="v">≈ 4°C/km</span> — dużo skraplania, mocne dogrzewanie</div>
+      <div class="step">Powietrze umiarkowane (0°C): <span class="v">≈ 6°C/km</span></div>
+      <div class="step">Powietrze zimne (−30°C, mało pary): <span class="v">≈ 8,5°C/km</span> — prawie jak sucha</div>
+      <div class="check">Stąd wniosek istotny dla burz: im cieplejsze i wilgotniejsze powietrze u podstawy, tym większa różnica między adiabatą wilgotną a profilem otoczenia — czyli tym więcej energii do wykorzystania.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Emagram · wykres, na którym to widać</div>
+    <h2>Jak czytać sondaż</h2>
+
+    <p>Meteorolodzy przedstawiają profil atmosfery na wykresie zwanym emagramem (albo skew-T). Oś pozioma to temperatura, pionowa — ciśnienie, rosnące w dół, co odpowiada wysokości rosnącej ku górze.</p>
+
+    <p>Rysuje się na nim dwie krzywe pomiarowe z balonu sondażowego:</p>
+
+    <p><strong>Krzywa temperatury</strong> — jak zmienia się temperatura otoczenia z wysokością.</p>
+
+    <p><strong>Krzywa punktu rosy</strong> — jak zmienia się wilgotność. Im bliżej obu krzywych, tym wilgotniej; gdy się stykają, powietrze jest nasycone i tam jest chmura.</p>
+
+    <p>Trzy poziomy warto umieć odczytać:</p>
+
+    <p><span class="term-cyan">LCL</span> (poziom kondensacji) — gdzie wznoszona porcja osiąga nasycenie. To jest dno chmury z Rozdziału 12.</p>
+
+    <p><span class="term-amber">LFC</span> (poziom swobodnej konwekcji) — gdzie porcja staje się cieplejsza od otoczenia i przestaje potrzebować popychania.</p>
+
+    <p><span class="term-violet">EL</span> (poziom równowagi) — gdzie znowu robi się chłodniejsza od otoczenia. To wysokość kowadła.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">CAPE i CIN · dwie liczby z prognoz burzowych</div>
+    <h2>Ile energii i ile trzeba, żeby ją odblokować</h2>
+
+    <p><strong>CAPE</strong> (Convective Available Potential Energy) to pole między krzywą porcji a krzywą otoczenia, na odcinku od LFC do EL — czyli zapas energii dostępny dla konwekcji. Podaje się go w dżulach na kilogram.</p>
+
+    <div class="worked">
+      <div class="wlabel">Jak czytać CAPE</div>
+      <div class="step"><span class="v">0–500 J/kg</span> — konwekcja słaba, najwyżej Cumulusy</div>
+      <div class="step"><span class="v">500–1500 J/kg</span> — możliwe burze, typowe polskie lato</div>
+      <div class="step"><span class="v">1500–2500 J/kg</span> — burze silne</div>
+      <div class="step"><span class="v">powyżej 2500 J/kg</span> — potencjał na zjawiska gwałtowne</div>
+      <div class="check">Prędkość prądu wstępującego z grubsza: w = √(2·CAPE). Dla 2000 J/kg wychodzi 63 m/s — w praktyce mniej, bo tarcie i mieszanie zjadają część, ale rząd wielkości pasuje do obserwowanych 40 m/s w silnych burzach.</div>
+    </div>
+
+    <p><strong>CIN</strong> (Convective Inhibition) to pole po drugiej stronie — energia, którą trzeba włożyć, żeby porcja w ogóle dotarła do LFC. To jest liczbowy opis „czapy” z Rozdziału 11.</p>
+
+    <p>Ta para tłumaczy, dlaczego burze wybuchają nagle. Duże CAPE i duże CIN to sytuacja naładowanej strzelby z bezpiecznikiem: cały dzień nic się nie dzieje, a po południu, gdy nagrzewanie zje CIN, wszystko rusza naraz.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

@@ -26,7 +26,129 @@
   <h1>Fotografia nieba</h1>
   <p class="subtitle">Ekspozycja przy zachodzie i błękitnej godzinie, filtr polaryzacyjny, telefon kontra aparat i granica uczciwej obróbki.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Problem · dlaczego zdjęcie zawodzi</div>
+    <h2>Oko widzi zakres, którego czujnik nie ma</h2>
+
+    <p>Prawie każde rozczarowujące zdjęcie zachodu ma tę samą przyczynę i nie jest nią aparat. Jest nią <strong>rozpiętość tonalna</strong> — stosunek jasności najjaśniejszego do najciemniejszego miejsca w kadrze.</p>
+
+    <p>Przy zachodzie Słońca niebo tuż nad tarczą bywa <span class="term-amber">kilkaset razy jaśniejsze</span> niż ciemne drzewa na pierwszym planie. Nasze oko radzi sobie z tym dwoma sposobami naraz: źrenica zmienia się w ułamku sekundy, a mózg składa obraz z wielu spojrzeń w różne części sceny. Czujnik aparatu robi jedno spojrzenie, jedną ekspozycją, i musi wybrać.</p>
+
+    <p>Stąd dwa typowe wyniki: <strong>albo niebo jest ładne, a pierwszy plan czarny</strong>, <strong>albo pierwszy plan jest widoczny, a niebo wypalone na biało</strong>. Aparat nie zawiódł. Wykonał wybór, którego nikt świadomie nie podjął.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Rozpiętość sceny kontra zakres czujnika</span><span>zachód, EV</span></div>
+      <svg viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg">
+        <text x="20" y="24" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="12">jasność w scenie (skala EV, każdy krok to podwojenie)</text>
+
+        <line x1="60" y1="200" x2="720" y2="200" stroke="#2a2f38" stroke-width="1.5"/>
+        <g fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">
+          <text x="90" y="220">0</text><text x="195" y="220">4</text><text x="300" y="220">8</text>
+          <text x="405" y="220">12</text><text x="510" y="220">16</text><text x="615" y="220">20</text><text x="700" y="220">23</text>
+        </g>
+
+        <rect x="80" y="52" width="200" height="26" rx="4" fill="#6e93be" opacity="0.35"/>
+        <text x="90" y="70" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12">cienie na pierwszym planie</text>
+
+        <rect x="300" y="52" width="180" height="26" rx="4" fill="#4fc3c0" opacity="0.35"/>
+        <text x="310" y="70" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12">niebo w połowie wysokości</text>
+
+        <rect x="520" y="52" width="190" height="26" rx="4" fill="#e8a33d" opacity="0.45"/>
+        <text x="530" y="70" fill="#14161a" font-family="IBM Plex Sans, sans-serif" font-size="12" font-weight="600">niebo przy tarczy</text>
+
+        <text x="20" y="118" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="12">scena obejmuje ok. 18 EV</text>
+        <line x1="80" y1="132" x2="710" y2="132" stroke="#8b909b" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+        <text x="20" y="164" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="12">jedna ekspozycja łapie ok. 12 EV</text>
+        <rect x="230" y="146" width="315" height="14" rx="3" fill="none" stroke="#e8a33d" stroke-width="2"/>
+        <text x="240" y="182" fill="#e8a33d" font-family="IBM Plex Sans, sans-serif" font-size="12">to okno przesuwamy ekspozycją — reszta sceny wypada poza kadr tonalny</text>
+      </svg>
+      <div class="diagram-caption">EV to skala logarytmiczna: każdy krok podwaja jasność. Sześć EV różnicy między sceną a czujnikiem to 64 razy. Nie da się tego „poprawić w telefonie” — trzeba albo przesunąć okno, albo zrobić więcej niż jedno zdjęcie.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Ekspozycja · trzy rozwiązania</div>
+    <h2>Co zrobić z brakującymi sześcioma EV</h2>
+
+    <p><strong>Zdecydować, co jest tematem.</strong> Najprostsze i najczęściej najlepsze. Jeśli tematem jest niebo, mierzymy jasność nieba i godzimy się na czarną sylwetkę pierwszego planu — sylwetka jest kompozycyjnie mocna, a nie wadliwa. Praktycznie: dotknięcie jasnej części nieba na ekranie telefonu, a w aparacie ekspozycja punktowa na niebo, zwykle z korektą −1 EV.</p>
+
+    <p><strong>Zmniejszyć różnicę filtrem połówkowym.</strong> Szkło ciemne u góry, przezroczyste u dołu, przyciemniające samo niebo o 2–3 EV, zanim światło dotrze do czujnika. Zaleta wobec obróbki jest zasadnicza: <em>informacja nigdy nie zostaje utracona</em>, więc nie ma czego odzyskiwać. Wada: działa dobrze tylko przy prostym horyzoncie.</p>
+
+    <p><strong>Zrobić kilka zdjęć i złożyć je.</strong> Trzy ekspozycje różniące się o 2 EV pokrywają razem 16 EV. To robi tryb HDR w telefonie, automatycznie i bez pytania. Warunek: <strong>scena nie może się ruszać</strong> — przy szybko płynących chmurach składanie zostawia widoczne duchy.</p>
+
+    <div class="worked">
+      <div class="wlabel">Ustawienia startowe · zachód i błękitna godzina</div>
+      <div class="step">Zachód, niebo jako temat: <span class="v">ISO 100 · f/8 · 1/125 s · korekta −1 EV</span></div>
+      <div class="step">15 minut po zachodzie: <span class="v">ISO 100 · f/8 · 1/15 s</span> — już potrzebny statyw lub oparcie</div>
+      <div class="step">Błękitna godzina, pełnia: <span class="v">ISO 400 · f/5,6 · 2 s · statyw</span></div>
+      <div class="step">Balans bieli: <span class="v">ustawiony ręcznie, nie automat</span></div>
+      <div class="check">Balans bieli jest tu ważniejszy niż wszystko powyżej. Automat jest zaprojektowany tak, żeby usuwać barwne zafarby — a zachód <em>jest</em> jednym wielkim zafarbem. Automatyczny balans bieli sumiennie odbiera zachodowi to, po co go fotografujemy. Ustawienie stałej wartości około 5500 K zachowuje pomarańcz taki, jaki widzimy.</div>
+    </div>
+
+    <p>Światło zmienia się przy zachodzie szybciej, niż podpowiada intuicja: <strong>w ciągu 20 minut po zachodzie ubywa około 4 EV</strong>, czyli szesnastokrotnie. Ustawienia sprzed dziesięciu minut są już nieaktualne. Jeśli fotografujemy w trybie ręcznym, trzeba poprawiać co kilka minut.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Polaryzator · jedyny filtr nie do podrobienia</div>
+    <h2>Filtr, którego nie zastąpi obróbka</h2>
+
+    <p>Z Dodatku E wiemy, że światło nieba jest częściowo spolaryzowane, najsilniej <strong>90° od Słońca</strong>. Filtr polaryzacyjny przepuszcza tylko jedną płaszczyznę drgań, więc obrócony odpowiednio wycina znaczną część światła rozproszonego — i niebo w tym pasie ciemnieje o 1–2 EV, zyskując nasycenie.</p>
+
+    <p>To jedyny efekt fotograficzny, którego <strong>nie da się odtworzyć w obróbce</strong>. Suwak nasycenia zmienia kolor pikseli, które już są; polaryzator zmienia to, które fotony w ogóle wpadają do aparatu. Przy okazji usuwa odblaski z mokrych liści i z wody, co często robi więcej dla zdjęcia niż samo niebo.</p>
+
+    <div class="worked">
+      <div class="wlabel">Jak go ustawić bez zgadywania</div>
+      <div class="step">Pistolet z palca wskazującego i kciuka: <span class="v">kciuk w Słońce, palec pokazuje pas maksymalnej polaryzacji</span></div>
+      <div class="step">Obracamy filtr, patrząc przez wizjer: <span class="v">niebo ciemnieje i rozjaśnia się co 90°</span></div>
+      <div class="step">Koszt: <span class="v">−1 do −2 EV</span> — trzeba wydłużyć czas albo podnieść ISO</div>
+      <div class="check">Przy szerokim kącie polaryzator bywa szkodliwy. Kadr obejmujący 100° obejmuje jednocześnie strefę silnej i słabej polaryzacji, więc niebo wychodzi nierówno przyciemnione — ciemna plama na środku, jasne brzegi. Poniżej 24 mm (w przeliczeniu na pełną klatkę) lepiej go zdjąć.</div>
+    </div>
+
+    <p>Polaryzator nie działa na Słońce w kadrze ani w kierunku przeciwnym do Słońca — tam polaryzacja jest bliska zeru. Przy fotografowaniu samego zachodu jest więc bezużyteczny; przy fotografowaniu <em>krajobrazu oświetlonego zachodem</em>, patrząc w bok, robi największą różnicę.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Telefon kontra aparat</div>
+    <h2>Gdzie przebiega prawdziwa różnica</h2>
+
+    <p>Telefon ma mały czujnik i krótką ogniskową, ale ma też coś, czego aparat nie ma: <strong>składa każde naciśnięcie migawki z kilkunastu klatek</strong>. To rekompensuje bardzo wiele — na tyle, że przy zachodzie różnica w gotowym pliku bywa niewielka.</p>
+
+    <p>Różnice, które zostają, są dwie i obie mają znaczenie akurat przy niebie.</p>
+
+    <p><strong>Rozdzielczość kątowa.</strong> Halo 22° zmieści się w każdym szerokim obiektywie. Ale <em>słońca poboczne</em>, iryzacja na brzegu chmury czy struktura Cirrusa uncinus wymagają teleobiektywu. Telefon z „zoomem 5×” zwykle daje 120 mm — to działa. Zoom cyfrowy powyżej tego jest tylko powiększaniem pikseli.</p>
+
+    <p><strong>Kontrola nad tym, co robi automat.</strong> Telefon dąży do zdjęcia „ładnego”: rozjaśnia cienie, podbija nasycenie, wyrównuje niebo. Do zdjęcia zjawiska atmosferycznego to bywa katastrofą — pas Wenus zostaje wyrównany razem z resztą nieba i znika. Tryb RAW albo tryb ręczny (w telefonie zwykle „Pro”) wyłącza tę uczynność.</p>
+
+    <div class="worked">
+      <div class="wlabel">Co realnie poprawi zdjęcia nieba, po kolei</div>
+      <div class="step">1. <span class="v">Wyłączyć automatyczny balans bieli</span> — zero kosztu, największy zysk</div>
+      <div class="step">2. <span class="v">Fotografować w RAW</span> — zachowuje 2–3 EV informacji w jasnych partiach</div>
+      <div class="step">3. <span class="v">Statyw albo cokolwiek stabilnego</span> — otwiera całą błękitną godzinę</div>
+      <div class="step">4. <span class="v">Polaryzator</span> — jeśli jest gdzie go przykręcić</div>
+      <div class="step">5. <span class="v">Dłuższa ogniskowa</span> — dopiero tutaj zaczyna się wydawanie pieniędzy</div>
+      <div class="check">Kolejność jest odwrotna do kolejności, w jakiej te rzeczy się zwykle kupuje. Pierwsze trzy pozycje nic nie kosztują albo kosztują tyle co nic, a odpowiadają za większość różnicy między zdjęciem zachodu, które coś przypomina, a takim, które nie przypomina niczego.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Obróbka · gdzie jest granica</div>
+    <h2>Kiedy zdjęcie przestaje być zdjęciem nieba</h2>
+
+    <p>To nie jest pytanie techniczne, tylko pytanie o to, co obiecujemy oglądającemu. Zdjęcie zjawiska atmosferycznego niesie ukrytą obietnicę: <em>tak to wyglądało</em>. Obróbka jest uczciwa dopóty, dopóki tej obietnicy nie łamie.</p>
+
+    <p>Roboczy podział, który sprawdza się w praktyce:</p>
+
+    <ul class="compact">
+      <li><strong>Odzyskiwanie tego, co widzieliśmy.</strong> Rozjaśnienie cieni, przywrócenie balansu bieli, odzyskanie jasnych partii z RAW-a. To naprawianie ograniczeń czujnika, nie zmyślanie.</li>
+      <li><strong>Podkreślanie.</strong> Kontrast, lekkie nasycenie, wyostrzenie. Dopóki proporcje między barwami zostają, zdjęcie nadal mówi prawdę o zjawisku.</li>
+      <li><strong>Zmyślanie.</strong> Podmienione niebo, dołożone gwiazdy, nasycenie podkręcone tak, że pomarańcz robi się karmazynem. Zdjęcie może być piękne, ale przestaje być świadectwem — a przy zjawisku rzadkim, jak halo albo chmury srebrzyste, właśnie świadectwem miało być.</li>
+    </ul>
+
+    <p>Jest jeden praktyczny sprawdzian, niezależny od gustu. <strong>Czy ktoś, kto stał obok, rozpoznałby to, co widział?</strong> Jeśli tak — obróbka pomogła. Jeśli powiedziałby „nie było aż tak” — zdjęcie mówi o programie, nie o niebie.</p>
+
+    <p>Wersja praktyczna: warto zachować plik RAW. Nie z powodów archiwalnych, tylko dlatego, że przy niezwykłym zjawisku — trzech słońcach pobocznych naraz, mammatusie po burzy — pytanie „czy to naprawdę tak wyglądało” pojawi się na pewno. Wtedy oryginał jest jedyną odpowiedzią.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

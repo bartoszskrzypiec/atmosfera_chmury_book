@@ -26,7 +26,45 @@
   <h1>Prędkość opadania i prawo Stokesa</h1>
   <p class="subtitle">Dlaczego kropelka chmurowa opada centymetr na sekundę, a kropla deszczu osiem metrów — z rachunkiem.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Prawo Stokesa · dla bardzo małych kropel</div>
+    <h2>Opór rośnie z promieniem, ciężar z sześcianem</h2>
+
+    <p>Kropla spadająca w powietrzu przyspiesza, dopóki opór nie zrówna się z ciężarem. Potem opada ze stałą prędkością graniczną. Dla bardzo małych kropel, gdy przepływ jest laminarny, opór opisuje prawo Stokesa:</p>
+
+    <div class="formula">v = 2 · <span class="vec" data-tip="Gęstość wody minus gęstość powietrza, ok. 1000 kg/m³">Δρ</span> · <span class="vec" data-tip="Przyspieszenie ziemskie, 9,81 m/s²">g</span> · <span class="vec" data-tip="Promień kropli, w metrach">r</span>² / (9 · <span class="vec" data-tip="Lepkość dynamiczna powietrza, 1,8·10⁻⁵ Pa·s">η</span>)<span class="sub">v — prędkość graniczna opadania, w m/s. Kluczowe jest r² — prędkość rośnie z KWADRATEM promienia.</span></div>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: kropelka chmurowa</div>
+      <div class="step">Promień <span class="v">r = 10 µm = 1·10⁻⁵ m</span></div>
+      <div class="step">v = 2 · 1000 · 9,81 · (1·10⁻⁵)² / (9 · 1,8·10⁻⁵)</div>
+      <div class="step">v = 2 · 1000 · 9,81 · 1·10⁻¹⁰ / 1,62·10⁻⁴</div>
+      <div class="step">Wynik: <span class="result">v ≈ 0,012 m/s</span>, czyli około <span class="k">1,2 cm/s</span></div>
+      <div class="check">Typowy prąd wstępujący w termiku ma 1 m/s — osiemdziesiąt razy więcej. Dlatego kropelka nie ma szans opaść i chmura wisi, mimo że waży setki ton. To jest liczbowa odpowiedź na pytanie z Rozdziału 12.</div>
+    </div>
+
+    <p>Kwadratowa zależność od promienia jest tu najważniejsza. Dwukrotnie większa kropelka opada czterokrotnie szybciej — dlatego wzrost kropli tak gwałtownie zmienia sytuację i dlatego istnieje wyraźny próg między „wisi” a „pada”.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Poza Stokesem · duże krople</div>
+    <h2>Gdzie wzór przestaje działać</h2>
+
+    <p>Prawo Stokesa zakłada przepływ laminarny wokół kropli. Powyżej promienia około 40 µm przepływ robi się turbulentny, opór rośnie szybciej niż przewiduje wzór i prędkość przestaje rosnąć z kwadratem promienia. Dla dużych kropel skaluje się mniej więcej jak pierwiastek z promienia.</p>
+
+    <div class="worked">
+      <div class="wlabel">Rzeczywiste prędkości opadania</div>
+      <div class="step">Kropelka chmurowa, <span class="v">10 µm</span>: <span class="k">1,2 cm/s</span> — praktycznie zawieszona</div>
+      <div class="step">Duża kropelka, <span class="v">50 µm</span>: <span class="k">27 cm/s</span></div>
+      <div class="step">Mżawka, <span class="v">100 µm</span>: <span class="k">70 cm/s</span></div>
+      <div class="step">Mały deszcz, <span class="v">0,5 mm</span>: <span class="k">2,1 m/s</span></div>
+      <div class="step">Typowy deszcz, <span class="v">2 mm</span>: <span class="k">6,5 m/s</span></div>
+      <div class="step">Duża kropla, <span class="v">5 mm</span>: <span class="result">9,1 m/s</span> — i to jest praktycznie maksimum</div>
+      <div class="check">Powyżej 5 mm kropla się rozpada, więc deszcz nie może padać szybciej niż około 9 m/s — jakieś 33 km/h. To dlatego stanie na deszczu jest nieprzyjemne, ale nie niebezpieczne, w odróżnieniu od gradu, który przy 5 cm średnicy osiąga 30 m/s.</div>
+    </div>
+
+    <p>Ta sama fizyka tłumaczy, dlaczego pył zawieszony utrzymuje się w powietrzu tygodniami, a piasek opada w sekundy — i dlaczego popiół z wielkich erupcji potrafi krążyć w stratosferze latami.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

@@ -26,7 +26,61 @@
   <h1>Rozpraszanie w liczbach: skąd bierze się czwarta potęga</h1>
   <p class="subtitle">Przekrój czynny, zależność 1/λ⁴, przejście od reżimu Rayleigha do Mie, i dlaczego granica wypada akurat tam, gdzie wypada.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Przekrój czynny · miara „jak chętnie”</div>
+    <h2>Skąd bierze się czwarta potęga</h2>
+
+    <p>Wielkość opisująca, jak skutecznie cząstka rozprasza światło, nazywa się <strong>przekrojem czynnym</strong>. Ma wymiar powierzchni i można ją rozumieć jako „efektywny rozmiar tarczy”, którą cząstka nadstawia fali — niekoniecznie równy jej rozmiarowi geometrycznemu.</p>
+
+    <p>Dla cząstki znacznie mniejszej od długości fali (reżim Rayleigha) przekrój czynny wynosi:</p>
+
+    <div class="formula">σ = (2π⁵/3) · <span class="vec" data-tip="Średnica cząstki">d</span>⁶ / <span class="vec" data-tip="Długość fali światła">λ</span>⁴ · ((n²−1)/(n²+2))²<span class="sub">σ (sigma) — przekrój czynny, w m². d — średnica cząstki. λ (lambda) — długość fali. n — współczynnik załamania materiału cząstki.</span></div>
+
+    <p>Dla naszych celów istotne są dwie zależności ukryte w tym zapisie:</p>
+
+    <p><strong>σ ∝ d⁶</strong> — szósta potęga średnicy. Dwukrotnie większa cząstka rozprasza 64 razy mocniej. To dlatego garstka aerozolu potrafi zdominować rozpraszanie nad nieporównanie liczniejszymi cząsteczkami gazu.</p>
+
+    <p><strong>σ ∝ 1/λ⁴</strong> — czwarta potęga długości fali w mianowniku. To jest zależność z Rozdziału 5.</p>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: fiolet wobec czerwieni</div>
+      <div class="step">Fiolet: <span class="v">λ = 400 nm</span>, czerwień: <span class="v">λ = 700 nm</span></div>
+      <div class="step">Stosunek przekrojów: <span class="v">(700/400)⁴ = 1,75⁴</span></div>
+      <div class="step">1,75² = 3,06; 3,06² = <span class="result">9,4</span></div>
+      <div class="check">Czyli fiolet rozprasza się na cząsteczce powietrza ponad dziewięć razy chętniej niż czerwień. Dla błękitu 470 nm wychodzi 4,9 raza — i to jest liczba pokazywana przez suwak w Rozdziale 5.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Skąd potęga czwarta</div>
+    <h2>Rozkołysany elektron</h2>
+
+    <p>Wyprowadzenie w skrócie, bez rachunków. Fala świetlna to biegnące pole elektryczne. Trafiając na cząsteczkę, rozkołysuje jej elektrony — powstaje drgający dipol.</p>
+
+    <p>Drgający ładunek promieniuje, a moc wypromieniowana jest proporcjonalna do <strong>kwadratu przyspieszenia</strong>. Przyspieszenie drgania harmonicznego rośnie z <strong>kwadratem częstotliwości</strong>. Kwadrat kwadratu daje czwartą potęgę częstotliwości — a że częstotliwość jest odwrotnie proporcjonalna do długości fali, dostajemy 1/λ⁴.</p>
+
+    <p>Kluczowe założenie: cząsteczka musi być na tyle mała, żeby całe pole „widziało” ją jednocześnie. Gdy rozmiar zbliża się do długości fali, różne części cząstki czują pole w różnych fazach, promieniowanie z nich zaczyna się wygaszać i cała zależność się psuje.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Parametr rozmiaru · gdzie leży granica</div>
+    <h2>Trzy reżimy i jedna liczba</h2>
+
+    <p>Granicę między reżimami wyznacza bezwymiarowy <strong>parametr rozmiaru</strong>:</p>
+
+    <div class="formula">x = π · <span class="vec" data-tip="Średnica cząstki">d</span> / <span class="vec" data-tip="Długość fali">λ</span><span class="sub">x — parametr rozmiaru, bez jednostki. Mówi, ile długości fal mieści się na obwodzie cząstki.</span></div>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: gdzie kończy się Rayleigh</div>
+      <div class="step">Reżim Rayleigha wymaga <span class="v">x ≪ 1</span>, w praktyce x poniżej 0,2</div>
+      <div class="step">Dla światła zielonego (λ = 550 nm): <span class="v">d &lt; 0,2 · 550 / π ≈ 35 nm</span></div>
+      <div class="step">Cząsteczka azotu ma 0,3 nm, czyli <span class="result">x ≈ 0,0017</span> — głęboko w reżimie Rayleigha</div>
+      <div class="step">Kropelka chmurowa 20 µm: <span class="v">x = π · 20000 / 550 ≈ 114</span> — daleko poza nim</div>
+      <div class="check">Między nimi, dla x rzędu jedności, leży reżim Mie: cząstki 100–1000 nm, czyli dokładnie typowy aerozol miejski. Dlatego smog jest tak skuteczny w wybielaniu nieba.</div>
+    </div>
+
+    <p>W reżimie Mie nie ma prostego wzoru — rozwiązanie Mie z 1908 roku to nieskończony szereg funkcji specjalnych, liczony numerycznie. Praktyczny wniosek pozostaje jednak prosty i jest tym z Rozdziału 3: zależność od barwy zanika, rozpraszanie robi się silne i skierowane do przodu.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

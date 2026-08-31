@@ -26,7 +26,61 @@
   <h1>Geometria tęczy: skąd dokładnie 42°</h1>
   <p class="subtitle">Kąt minimalnego odchylenia, druga tęcza, pas Aleksandra i moment, w którym teoria promieni przestaje wystarczać.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Kąt odchylenia · skąd maksimum</div>
+    <h2>Rachunek Kartezjusza</h2>
+
+    <p>Promień trafiający w kroplę w odległości <strong>b</strong> od jej osi (mierzonej w promieniach kropli, więc b od 0 do 1) wchodzi pod kątem padania <em>i</em>, gdzie sin i = b. Wewnątrz biegnie pod kątem załamania <em>r</em>, danym prawem Snella:</p>
+
+    <div class="formula">sin <span class="vec" data-tip="Kąt padania na powierzchnię kropli">i</span> = <span class="vec" data-tip="Współczynnik załamania wody, 1,333 dla światła żółtego">n</span> · sin <span class="vec" data-tip="Kąt załamania wewnątrz kropli">r</span><span class="sub">n — współczynnik załamania wody względem powietrza. Zależy nieznacznie od barwy: 1,331 dla czerwieni, 1,343 dla fioletu.</span></div>
+
+    <p>Całkowite odchylenie promienia po dwóch załamaniach i jednym odbiciu wewnętrznym wynosi:</p>
+
+    <div class="formula">D = 2(<span class="vec" data-tip="Kąt padania">i</span> − <span class="vec" data-tip="Kąt załamania">r</span>) + (180° − 2<span class="vec" data-tip="Kąt załamania">r</span>) = 180° + 2<span class="vec" data-tip="Kąt padania">i</span> − 4<span class="vec" data-tip="Kąt załamania">r</span><span class="sub">D — całkowite odchylenie od pierwotnego kierunku. Kąt widzenia tęczy to 180° − D.</span></div>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: gdzie D osiąga minimum</div>
+      <div class="step">Szukamy dD/di = 0, czyli <span class="v">2 − 4·(dr/di) = 0</span>, stąd <span class="v">dr/di = 0,5</span></div>
+      <div class="step">Z prawa Snella: cos i = n · cos r · (dr/di), więc <span class="v">cos i = 0,5 · n · cos r</span></div>
+      <div class="step">Rozwiązanie dla n = 1,333: <span class="v">i ≈ 59,6°</span>, <span class="v">r ≈ 40,4°</span></div>
+      <div class="step">D = 180 + 2(59,6) − 4(40,4) = <span class="v">138°</span></div>
+      <div class="step">Kąt widzenia: <span class="result">180° − 138° = 42°</span></div>
+      <div class="check">Parametr zderzenia w minimum: b = sin(59,6°) = 0,86 — czyli promienie tworzące tęczę trafiają w kroplę blisko jej krawędzi, nie w środek. To dlatego suwak w Rozdziale 19 pokazuje tęczę dopiero przy dużych wartościach.</div>
+    </div>
+
+    <p>Kluczowe jest to, że w otoczeniu minimum funkcja jest <strong>płaska</strong> — mała zmiana b prawie nie zmienia D. Dlatego wiele promieni o różnych b wychodzi pod niemal identycznym kątem i światło się tam spiętrza. To spiętrzenie jest tęczą.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Druga tęcza i pas Aleksandra</div>
+    <h2>Dwa odbicia, kąt większy, barwy odwrócone</h2>
+
+    <p>Przy dwóch odbiciach wewnętrznych odchylenie wynosi D = 360° + 2i − 6r, a minimum wypada tak, że kąt widzenia to około <strong>51°</strong>.</p>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: kąty dla obu tęcz i obu skrajnych barw</div>
+      <div class="step">Tęcza główna, czerwień (n = 1,331): <span class="v">42,4°</span></div>
+      <div class="step">Tęcza główna, fiolet (n = 1,343): <span class="v">40,6°</span></div>
+      <div class="step">Tęcza wtórna, czerwień: <span class="v">50,4°</span></div>
+      <div class="step">Tęcza wtórna, fiolet: <span class="v">53,6°</span></div>
+      <div class="check">Zwróćmy uwagę na kolejność: w tęczy głównej czerwień jest DALEJ od środka, w tęczy wtórnej BLIŻEJ. Stąd odwrócenie barw. A obszar między 42,4° a 50,4° nie dostaje światła z żadnego z tych dwóch mechanizmów — i to jest pas Aleksandra.</div>
+    </div>
+
+    <p>Każde dodatkowe odbicie zabiera energię, więc tęcza wtórna jest około dziesięć razy słabsza. Tęcze trzeciego i czwartego rzędu istnieją, ale wypadają po stronie Słońca (przy 40° i 45° od niego) i toną w blasku; sfotografowano je po raz pierwszy dopiero w 2011 roku.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Granice modelu · gdzie promienie zawodzą</div>
+    <h2>Teoria Airy'ego i łuki nadliczbowe</h2>
+
+    <p>Powyższy rachunek traktuje światło jako promienie i przewiduje ostrą granicę jasności przy 42°. Obserwacja pokazuje coś innego: przejście jest rozmyte, a pod fioletowym brzegiem widać czasem wąskie, różowo-zielone prążki.</p>
+
+    <p>To <strong>łuki nadliczbowe</strong> i wynikają z interferencji. Promienie o różnych parametrach zderzenia wychodzą pod tym samym kątem, ale przebyły różne drogi optyczne — więc ich fale nakładają się, w niektórych kątach wzmacniając, w innych wygaszając.</p>
+
+    <p>George Airy opisał to w 1838 roku, wprowadzając funkcję nazwaną później jego imieniem. Pełne rozwiązanie wymaga jednak teorii Mie i jest numeryczne.</p>
+
+    <p>Praktyczna konsekwencja: <strong>łuki nadliczbowe widać tylko przy małych i jednorodnych kroplach</strong>, poniżej mniej więcej 1 mm. Przy dużych kroplach prążki różnych rozmiarów nakładają się i znikają. Dlatego widuje się je najczęściej przy mżawce albo na skraju kurtyny deszczu, nie w środku ulewy.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

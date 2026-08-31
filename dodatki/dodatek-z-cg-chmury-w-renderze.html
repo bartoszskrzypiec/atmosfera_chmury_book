@@ -26,7 +26,108 @@
   <h1>Dlaczego chmury w renderze są tak drogie</h1>
   <p class="subtitle">Czym różni się powierzchnia od objętości, co robi ray marching i dlaczego jedna chmura potrafi kosztować więcej niż całe miasto w tle.</p>
 
-  <!-- TRESC -->
+  <div class="note">Ten dodatek też jest lekki i bez wzorów. Odpowiada na jedno pytanie, które zadaje sobie każdy, kto pierwszy raz włączy render z chmurą: dlaczego cała scena liczyła się dwie minuty, a po dodaniu jednej chmury liczy się dwie godziny.</div>
+
+  <div class="section">
+    <div class="section-eyebrow">Powierzchnia kontra objętość</div>
+    <h2>Skąd bierze się cała różnica</h2>
+
+    <p>Prawie wszystko w renderze jest <strong>powierzchnią</strong>. Stół, samochód, twarz, ściana. Promień światła leci, trafia w powierzchnię — i w tym momencie jest po pytaniu. Wiadomo, gdzie się zatrzymał, i wystarczy policzyć, jak odbija się w tym jednym punkcie.</p>
+
+    <p>Chmura nie ma powierzchni. Promień w nią wlatuje i przez kilometr albo dziesięć leci przez ośrodek, w którym <em>w każdym miejscu</em> może się zdarzyć rozproszenie. Nie ma jednego punktu do policzenia. Jest cała droga.</p>
+
+    <p>To jest cała różnica i wynika wprost z tego, czym chmura jest. Z Rozdziału 9 wiemy, że chmura to zawiesina kropelek o średnicy około 20 mikrometrów, oddalonych od siebie o mniej więcej milimetr. W jednym metrze sześciennym jest ich <span class="term-cyan">rzędu stu milionów</span>. Nikt ich nie modeluje pojedynczo — zamiast tego opisuje się je jako ciągłą gęstość, ale konsekwencja pozostaje: <strong>zdarzenie może zajść wszędzie po drodze, a nie w jednym miejscu</strong>.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Promień na powierzchni i promień w objętości</span><span>ile punktów do policzenia</span></div>
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="az1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8a33d"/></marker>
+        </defs>
+
+        <text x="20" y="26" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="12">powierzchnia — jeden punkt</text>
+        <rect x="240" y="60" width="18" height="130" fill="#6e93be" opacity="0.5"/>
+        <line x1="30" y1="125" x2="236" y2="125" stroke="#e8a33d" stroke-width="2.5" marker-end="url(#az1)"/>
+        <circle cx="240" cy="125" r="6" fill="#e8a33d"/>
+        <line x1="240" y1="125" x2="150" y2="60" stroke="#e8a33d" stroke-width="2" opacity="0.6"/>
+        <text x="30" y="214" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">trafienie kończy pytanie:</text>
+        <text x="30" y="232" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">jedno rozproszenie, jedno sprawdzenie światła</text>
+
+        <text x="420" y="26" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="12">objętość — dziesiątki punktów</text>
+        <ellipse cx="590" cy="120" rx="130" ry="62" fill="#4fc3c0" opacity="0.13"/>
+        <ellipse cx="545" cy="105" rx="70" ry="42" fill="#4fc3c0" opacity="0.13"/>
+        <ellipse cx="640" cy="132" rx="62" ry="38" fill="#4fc3c0" opacity="0.13"/>
+        <line x1="410" y1="125" x2="730" y2="125" stroke="#e8a33d" stroke-width="2.5"/>
+        <g fill="#e8a33d">
+          <circle cx="474" cy="125" r="3.5"/><circle cx="496" cy="125" r="3.5"/><circle cx="518" cy="125" r="3.5"/>
+          <circle cx="540" cy="125" r="3.5"/><circle cx="562" cy="125" r="3.5"/><circle cx="584" cy="125" r="3.5"/>
+          <circle cx="606" cy="125" r="3.5"/><circle cx="628" cy="125" r="3.5"/><circle cx="650" cy="125" r="3.5"/>
+          <circle cx="672" cy="125" r="3.5"/><circle cx="694" cy="125" r="3.5"/>
+        </g>
+        <g stroke="#9c82d8" stroke-width="1.5" opacity="0.75">
+          <line x1="474" y1="125" x2="474" y2="68"/><line x1="518" y1="125" x2="518" y2="68"/>
+          <line x1="562" y1="125" x2="562" y2="68"/><line x1="606" y1="125" x2="606" y2="68"/>
+          <line x1="650" y1="125" x2="650" y2="68"/><line x1="694" y1="125" x2="694" y2="68"/>
+        </g>
+        <text x="410" y="214" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">każdy punkt to osobne pytanie o gęstość,</text>
+        <text x="410" y="232" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">a fioletowe strzałki to osobne pytanie o światło</text>
+      </svg>
+      <div class="diagram-caption">Po lewej jedno trafienie. Po prawej kilkadziesiąt kroków, a przy każdym kroku dodatkowy promień w stronę Słońca — czyli kilkaset zapytań zamiast jednego. Ta różnica nie jest kwestią optymalizacji, tylko kształtu problemu.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Ray marching · jak się przez to przechodzi</div>
+    <h2>Chodzenie małymi krokami zamiast trafiania</h2>
+
+    <p>Skoro nie da się „trafić” w chmurę, renderer przez nią <strong>przechodzi</strong>. Dzieli drogę promienia na kroki i w każdym pyta o dwie rzeczy: ile tu jest kropelek i ile światła tu dociera. Pierwsze jest tanie. Drugie nie.</p>
+
+    <p>Żeby wiedzieć, ile światła dociera do punktu w środku chmury, trzeba wysłać z niego promień w stronę Słońca — i <em>ten</em> promień też przechodzi przez chmurę krok po kroku. Czyli w każdym z kilkudziesięciu kroków głównego promienia wykonujemy kilka albo kilkanaście kroków dodatkowych.</p>
+
+    <div class="worked">
+      <div class="wlabel">Rachunek na jeden piksel</div>
+      <div class="step">Kroków przez chmurę: <span class="v">64</span></div>
+      <div class="step">W każdym kroku promień do Słońca po <span class="v">8 kroków</span></div>
+      <div class="step">Razem zapytań o gęstość: <span class="result">64 × 9 = 576</span></div>
+      <div class="step">Jedno zapytanie o gęstość to szum proceduralny: <span class="v">ok. 5 warstw</span></div>
+      <div class="step">Operacji na piksel: <span class="result">rzędu 10 tysięcy</span></div>
+      <div class="check">Powierzchnia w tym samym miejscu kosztowałaby kilkadziesiąt operacji. Chmura kosztuje ich kilkanaście tysięcy — i to jest szacunek dolny, bo zakłada, że światło rozprasza się w chmurze tylko raz. W rzeczywistości rozprasza się dziesiątki razy, o czym niżej.</div>
+    </div>
+
+    <p>Ten sam rachunek stoi za widgetami 3D w tej książce, tylko z ostro przyciętymi liczbami: 34 kroki zamiast 64, 3 kroki do Słońca zamiast 8, szum z 3 warstw zamiast 5. Dzięki temu chmura liczy się w kilkanaście milisekund zamiast w minutach — kosztem miękkości, której na małym obrazku i tak nie widać. To dokładnie ta wymiana, którą robi każdy silnik gry.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Rozproszenia wielokrotne</div>
+    <h2>Dlaczego biel chmury jest droga</h2>
+
+    <p>W Rozdziale 12 ustaliliśmy, dlaczego chmura jest biała: kropelki są duże w porównaniu z długością fali, więc rozpraszają wszystkie barwy jednakowo. Ale ustaliliśmy też coś, co dla renderu jest kosztowniejsze — że światło w chmurze <strong>odbija się między kropelkami wiele razy</strong>, zanim wyjdzie na zewnątrz. Kilkadziesiąt, czasem kilkaset razy.</p>
+
+    <p>To właśnie te wielokrotne odbicia dają chmurze jej wygląd: miękkie przejście od jasnej góry do szarego spodu, świecące brzegi pod światło, wrażenie, że chmura jest <em>gęsta</em>, a nie że jest mgiełką. Renderer liczący tylko jedno rozproszenie daje chmurę, która wygląda jak brudny dym.</p>
+
+    <p>A koszt rośnie zabójczo. Jedno rozproszenie to jeden promień do Słońca. Dwa — to promień do Słońca z każdego punktu, w którym mogło zajść pierwsze. Trzy — to samo do potęgi. <strong>Dlatego każdy praktyczny renderer w pewnym momencie przestaje liczyć i zaczyna zgadywać</strong>: po kilku rozproszeniach resztę zastępuje przybliżeniem, które nie jest poprawne fizycznie, ale wygląda podobnie i kosztuje stałą kwotę.</p>
+
+    <div class="worked">
+      <div class="wlabel">Trzy poziomy uczciwości, w kolejności ceny</div>
+      <div class="step"><span class="k">Jedno rozproszenie.</span> Szybkie, używane w grach i w widgetach tej książki. Chmura wychodzi zbyt ciemna i zbyt płaska.</div>
+      <div class="step"><span class="k">Kilka rozproszeń plus przybliżenie reszty.</span> Standard w filmie. Wygląda dobrze, kosztuje minuty na klatkę.</div>
+      <div class="step"><span class="k">Pełna symulacja aż do wyjścia fotonu.</span> Poprawne, używane w nauce o klimacie. Godziny na obraz.</div>
+      <div class="check">Warto zauważyć, że rosnąca cena kupuje tu coraz mniej wyglądu. Przejście z pierwszego poziomu na drugi zmienia obraz radykalnie; przejście z drugiego na trzeci widać głównie na wykresach. Dlatego film zatrzymał się na drugim i nie zamierza iść dalej.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Konsekwencje · co z tego wynika w praktyce</div>
+    <h2>Dlaczego chmury w grach są płaskie, a w filmach powolne</h2>
+
+    <p><strong>W grze budżet na klatkę to kilkanaście milisekund na wszystko.</strong> Chmura wolumetryczna liczona uczciwie nie ma szans, więc gry stosują kolejne uniki: chmura renderowana w czwartej części rozdzielczości i rozmyta, wynik rozłożony na kilkanaście klatek, dalekie chmury wypalone raz i traktowane jak tło. Stąd charakterystyczne artefakty — chmury, które doganiają obrót kamery z opóźnieniem.</p>
+
+    <p><strong>W filmie budżetem są godziny.</strong> Dlatego chmury filmowe wyglądają, ale sceny z nimi są w produkcji pilnowane osobno. Typowa reguła kciuka jest taka, że ujęcie z chmurą wolumetryczną kosztuje kilka razy więcej niż to samo ujęcie bez niej — i że opłaca się to sprawdzić, zanim ktoś zatwierdzi sto takich ujęć.</p>
+
+    <p>Jest w tym coś, co warto zabrać poza grafikę. Chmura jest droga do policzenia <strong>z tego samego powodu, dla którego jest ładna</strong>. Jej wygląd bierze się z rozproszeń, które zachodzą w całej objętości, nie na brzegu — i nie ma sposobu, żeby dostać ten wygląd, nie płacąc za tę objętość. Programy potrafią tę cenę obejść przybliżeniami, ale nie potrafią jej znieść.</p>
+
+    <p>I ostatnia rzecz, którą widać dopiero z tej perspektywy. Ilekroć patrzymy na zwykły Cumulus w słoneczne popołudnie, oglądamy wynik obliczenia, którego nikt nie potrafi wykonać dokładnie w rozsądnym czasie — a które atmosfera wykonuje w czasie rzeczywistym, w każdej chwili, nad całą planetą naraz.</p>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

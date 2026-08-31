@@ -26,7 +26,64 @@
   <h1>Jednostki, skale i rzędy wielkości</h1>
   <p class="subtitle">Hektopaskale, kilometry, masa atmosfery, gęstość z wysokością — z rachunkami, żeby liczby z Rozdziału 1 dało się sprawdzić.</p>
 
-  <!-- TRESC -->
+  <div class="section">
+    <div class="section-eyebrow">Jednostki · co znaczą liczby w prognozie</div>
+    <h2>Hektopaskal, milibar i milimetr słupa rtęci</h2>
+
+    <p>Ciśnienie podaje się w meteorologii w <strong>hektopaskalach</strong> (hPa). Paskal to jeden niuton na metr kwadratowy — jednostka bardzo mała, więc używa się stukrotności. Typowe ciśnienie przy poziomie morza to 1013,25 hPa.</p>
+
+    <p>Starsze mapy podają milibary. Zbieg okoliczności jest wygodny: <strong>1 mb = 1 hPa</strong> dokładnie, więc liczby są identyczne i nie trzeba niczego przeliczać. Zmiana nazwy w latach osiemdziesiątych była kosmetyczna.</p>
+
+    <p>Barometry rtęciowe podawały milimetry słupa rtęci: 1013,25 hPa to 760 mm Hg. Stąd „ciśnienie 760" w starszych tekstach.</p>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: ile waży powietrze nad metrem kwadratowym</div>
+      <div class="step">Ciśnienie to siła na jednostkę powierzchni: <span class="v">p = 101 325 Pa = 101 325 N/m²</span></div>
+      <div class="step">Masa dająca taki ciężar: <span class="v">m = p / g = 101 325 / 9,81</span></div>
+      <div class="step">Wynik: <span class="result">≈ 10 330 kg na każdy metr kwadratowy</span></div>
+      <div class="check">Sprawdzenie rzędu wielkości: powierzchnia Ziemi to 5,1·10¹⁴ m², więc cała atmosfera waży około 5,3·10¹⁸ kg — mniej więcej milionową część masy planety. Zgadza się z wartościami podręcznikowymi.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Skala wysokości · skąd „co 5,5 km o połowę”</div>
+    <h2>Dlaczego ciśnienie spada wykładniczo</h2>
+
+    <p>Ciśnienie na danej wysokości to ciężar powietrza powyżej. Im wyżej, tym mniej powietrza zostało — ale zarazem im rzadsze powietrze, tym wolniej ciśnienie spada z każdym kolejnym metrem. Ta samozwrotność daje krzywą wykładniczą.</p>
+
+    <div class="formula">p(<span class="vec" data-tip="Wysokość nad poziomem morza, w metrach">h</span>) = p₀ · e<sup>−h/H</sup><span class="sub">p₀ — ciśnienie przy poziomie morza, 1013 hPa. H — skala wysokości, dla atmosfery Ziemi około 8500 m. e — podstawa logarytmu naturalnego, 2,718.</span></div>
+
+    <p>Skala wysokości <strong>H</strong> to wysokość, na której ciśnienie spada „e razy”, czyli do 37 procent. Nie jest stała — zależy od temperatury, więc zimą jest nieco mniejsza niż latem — ale 8,5 km to dobre przybliżenie.</p>
+
+    <div class="worked">
+      <div class="wlabel">Policzone: gdzie jest połowa atmosfery</div>
+      <div class="step">Szukamy h takiego, że <span class="v">e<sup>−h/8500</sup> = 0,5</span></div>
+      <div class="step">Logarytmujemy: <span class="v">−h/8500 = ln 0,5 = −0,693</span></div>
+      <div class="step">Stąd <span class="result">h = 5 890 m</span> — czyli poniżej Mont Blanc.</div>
+      <div class="check">Podręcznikowa wartość to 5,5 km. Różnica bierze się stąd, że skala wysokości maleje z wysokością, bo wyżej jest zimniej — nasze przybliżenie stałego H lekko zawyża.</div>
+    </div>
+
+    <p>Ta sama reguła daje pozostałe liczby z Rozdziału 1: 90 procent masy poniżej 16 km, 99 procent poniżej 32 km, 99,9 procent poniżej 48 km.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Rzędy wielkości · do zapamiętania</div>
+    <h2>Liczby, które warto mieć w głowie</h2>
+
+    <div class="worked">
+      <div class="wlabel">Ściąga</div>
+      <div class="step">Gęstość powietrza przy ziemi: <span class="v">1,2 kg/m³</span></div>
+      <div class="step">Ciśnienie przy poziomie morza: <span class="v">1013 hPa</span></div>
+      <div class="step">Skala wysokości: <span class="v">8,5 km</span></div>
+      <div class="step">Promień Ziemi: <span class="v">6371 km</span> — stosunek do skali wysokości: <span class="k">750:1</span></div>
+      <div class="step">Tropopauza nad Polską: <span class="v">11 km</span>, nad równikiem 17 km, nad biegunem 8 km</div>
+      <div class="step">Spadek temperatury w troposferze: <span class="v">6,5°C/km</span> średnio</div>
+      <div class="step">Kropelka chmurowa: <span class="v">20 µm</span>, kropla deszczu: <span class="v">2 mm</span> — stosunek objętości <span class="k">1 000 000:1</span></div>
+      <div class="step">Zawartość wody w chmurze: <span class="v">0,5 g/m³</span></div>
+      <div class="step">Długość fali światła: <span class="v">400–700 nm</span>, cząsteczka azotu: <span class="v">0,3 nm</span></div>
+      <div class="check">Warto zauważyć, że prawie wszystkie ciekawe zjawiska w tej książce biorą się ze stosunków tych liczb, a nie z nich samych.</div>
+    </div>
+  </div>
 
   <div class="site-nav">
     <a href="../index.html">← Spis treści</a>

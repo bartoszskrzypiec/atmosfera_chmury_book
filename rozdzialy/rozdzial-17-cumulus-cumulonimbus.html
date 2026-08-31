@@ -28,7 +28,188 @@
   <h1>Od bawełnianej kulki do kowadła</h1>
   <p class="subtitle">Ta sama chmura, która o dziesiątej wygląda jak kłębek waty, o siedemnastej może mieć dwanaście kilometrów wysokości i własną energetykę.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Cumulus humilis, mediocris, congestus i Cumulonimbus to nie cztery chmury, tylko <strong>jedna historia rozłożona na kilka godzin</strong>.</li>
+      <li>Płaskie dno i kalafiorowy wierzchołek to <strong>dwie różne granice</strong>: dno wyznacza poziom kondensacji, wierzchołek — moment, w którym kończy się wyporność.</li>
+      <li>Jedyna pewna oznaka, że chmura stała się burzowa, to <strong>zlodzenie wierzchołka</strong>: ostre kalafiorowe kontury robią się miękkie i włókniste.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Ciąg dalszy · to jedna chmura, nie cztery</div>
+    <h2>Cztery stopnie tej samej rzeczy</h2>
+
+    <p>Klasyfikacja podaje cztery osobne nazwy i to jest mylące, bo sugeruje cztery gatunki. W rzeczywistości patrzymy na <strong>jeden obiekt w czterech momentach swojego życia</strong> — i przy odrobinie cierpliwości da się to zobaczyć w ciągu jednego popołudnia, nie ruszając się z miejsca.</p>
+
+    <p><span class="term-cyan">Cumulus humilis</span> — „skromny". Szerszy niż wyższy, płaskie dno, zaokrąglona góra, wygląda jak kłębek waty. Pojawia się przed południem, gdy ruszy termika. To chmura pięknej pogody i nic z niej nie spadnie.</p>
+
+    <p><span class="term-cyan">Cumulus mediocris</span> — mniej więcej tak wysoki, jak szeroki. Góra zaczyna się piętrzyć. Wczesne popołudnie.</p>
+
+    <p><span class="term-cyan">Cumulus congestus</span> — „stłoczony", wyraźnie wyższy niż szerszy, o wypukłej, kalafiorowej górze. Może już z niego przelotnie padać. Po angielsku nazywany <em>towering cumulus</em>, wieża.</p>
+
+    <p><span class="term-amber">Cumulonimbus</span> — wierzchołek dotarł do tropopauzy i rozlał się w kowadło. Pada, grzmi, czasem grad.</p>
+
+    <p>Przejście przez cały ten ciąg zajmuje typowo od trzydziestu minut do dwóch godzin. To jest w atmosferze rzadkość: większość opisywanych w tej książce zjawisk trwa albo sekundy, albo dni. Rozwój chmury kłębiastej mieści się akurat w takim czasie, że da się go obejrzeć od początku do końca, siedząc na kocu.</p>
+
+    <div class="viz3d" id="cyklLab">
+      <div class="viz3d__head">
+        <p class="viz3d__title">Jedno popołudnie, jedna chmura</p>
+        <p class="viz3d__sub">Suwak jest w istocie zegarem. Zmienia głównie jedną liczbę — grubość — a wraz z nią zmienia się nazwa.</p>
+      </div>
+      <div class="viz3d__stage">
+        <canvas></canvas>
+        <div class="viz3d__badge">przeciągnij, żeby obejść · Ctrl+kółko przybliża</div>
+        <div class="viz3d__fallback">
+          <strong>Ten widget potrzebuje WebGL</strong>
+          <span>Diagram poniżej pokazuje ten sam ciąg jako rysunek, z zaznaczoną tropopauzą i kowadłem.</span>
+        </div>
+      </div>
+      <div class="viz3d__presets">
+        <button data-preset="cumulus" class="is-active">humilis · 11:00</button>
+        <button data-preset="congestus">congestus · 14:00</button>
+        <button data-preset="cumulonimbus">Cumulonimbus · 16:00</button>
+      </div>
+      <div class="viz3d__controls">
+        <label for="cyklT">Grubość chmury</label>
+        <input type="range" id="cyklT" data-sky="thick" min="0.6" max="11" step="0.1" value="1">
+        <span class="value-readout" data-sky-out="thick"></span>
+      </div>
+      <div class="viz3d__note">
+        <p>Warto poruszyć samym suwakiem grubości i zobaczyć, że <strong>podstawa nie drgnie</strong>. Chmura rośnie wyłącznie w górę, bo dno jest przywiązane do poziomu kondensacji, a ten zależy od temperatury i punktu rosy przy ziemi — czyli od czegoś, co przez popołudnie zmienia się bardzo niewiele.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Dwie granice · góra i dół rządzą się czym innym</div>
+    <h2>Dlaczego dno jest płaskie, a góra kalafiorowa</h2>
+
+    <p>To pytanie wygląda na jedno, a są to dwa całkiem różne pytania z dwiema różnymi odpowiedziami. Warto je rozdzielić, bo razem tłumaczą wygląd każdej chmury kłębiastej, jaką kiedykolwiek zobaczymy.</p>
+
+    <p><strong>Dno jest płaskie, bo jest granicą warunku.</strong> Wiemy to z Rozdziału 12: całe powietrze w okolicy ma podobną temperaturę i punkt rosy, więc każda wznosząca się porcja osiąga nasycenie na tej samej wysokości. Poniżej — para niewidzialna. Powyżej — kropelki. Granica jest ostra i pozioma, bo warunek jest ostry i jednakowy w całej okolicy.</p>
+
+    <p><strong>Góra jest kalafiorowa, bo jest granicą ruchu.</strong> Wierzchołek to miejsce, gdzie wznoszące się powietrze wypycha się w spokojne otoczenie i miesza się z nim. Mieszanie jest z natury chaotyczne i dzieje się w wielu skalach naraz — stąd bąble na bąblach, czyli dokładnie to, co widzimy jako kalafior. Wierzchołek nie ma jednej wysokości, bo każda porcja ma trochę inną energię.</p>
+
+    <p>Jest w tym jeszcze jedna elegancka konsekwencja. Skoro góra chmury ciągle się miesza z suchym otoczeniem, to ciągle na brzegach paruje — i właśnie dlatego rosnący Cumulus wygląda, jakby kipiał. Nie jest to złudzenie: patrzymy na kropelki powstające i znikające w tempie kilkunastu sekund.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Cztery stopnie i tropopauza</span><span>jedno popołudnie</span></div>
+      <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg">
+        <line x1="40" y1="320" x2="730" y2="320" stroke="#8b909b" stroke-width="2"/>
+        <line x1="40" y1="252" x2="730" y2="252" stroke="#4fc3c0" stroke-width="1.3" stroke-dasharray="6 5"/>
+        <text x="46" y="246" font-family="IBM Plex Mono" font-size="10" fill="#4fc3c0">poziom kondensacji — wspólne dno</text>
+        <line x1="40" y1="56" x2="730" y2="56" stroke="#ecebe4" stroke-width="1.4" stroke-dasharray="6 4" opacity="0.6"/>
+        <text x="724" y="50" text-anchor="end" font-family="IBM Plex Mono" font-size="10" fill="#ecebe4">tropopauza · sufit</text>
+
+        <!-- humilis -->
+        <path d="M 76,252 C 70,238 78,228 92,226 C 100,216 118,218 124,228 C 140,228 146,240 140,252 Z"
+              fill="#4fc3c0" fill-opacity="0.22" stroke="#4fc3c0" stroke-width="1.2"/>
+        <text x="108" y="284" text-anchor="middle" font-family="IBM Plex Sans" font-size="11.5" fill="#ecebe4">humilis</text>
+        <text x="108" y="300" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">11:00</text>
+
+        <!-- mediocris -->
+        <path d="M 216,252 C 208,228 216,204 234,198 C 242,184 264,186 272,198 C 292,200 300,226 292,252 Z"
+              fill="#4fc3c0" fill-opacity="0.22" stroke="#4fc3c0" stroke-width="1.2"/>
+        <text x="254" y="284" text-anchor="middle" font-family="IBM Plex Sans" font-size="11.5" fill="#ecebe4">mediocris</text>
+        <text x="254" y="300" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">12:30</text>
+
+        <!-- congestus -->
+        <path d="M 366,252 C 356,206 364,158 384,138 C 390,118 418,116 428,134 C 452,138 462,190 452,252 Z"
+              fill="#4fc3c0" fill-opacity="0.24" stroke="#4fc3c0" stroke-width="1.3"/>
+        <text x="410" y="284" text-anchor="middle" font-family="IBM Plex Sans" font-size="11.5" fill="#ecebe4">congestus</text>
+        <text x="410" y="300" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">14:00 · już kropi</text>
+
+        <!-- cumulonimbus z kowadlem -->
+        <path d="M 552,252 C 540,190 548,120 566,90 C 574,72 606,70 616,88 C 642,96 654,180 646,252 Z"
+              fill="#4fc3c0" fill-opacity="0.22" stroke="#4fc3c0" stroke-width="1.3"/>
+        <path d="M 566,88 C 512,66 486,60 470,56 L 726,56 C 700,60 646,72 616,88 Z"
+              fill="#9c82d8" fill-opacity="0.26" stroke="#9c82d8" stroke-width="1.2"/>
+        <text x="598" y="284" text-anchor="middle" font-family="IBM Plex Sans" font-size="11.5" fill="#e8a33d">Cumulonimbus</text>
+        <text x="598" y="300" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">16:00 · burza</text>
+        <text x="598" y="40" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#9c82d8">kowadło — z lodu</text>
+
+        <text x="385" y="346" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">wszystkie cztery mają dno na tej samej wysokości — bo to jedna masa powietrza</text>
+      </svg>
+      <div class="diagram-caption">Cyjan to woda ciekła, fiolet to lód. Zmiana koloru wierzchołka jest tą samą informacją, co zmiana kształtu.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Sygnał · moment, w którym robi się poważnie</div>
+    <h2>Zlodzenie wierzchołka</h2>
+
+    <p>Teraz najbardziej praktyczna rzecz w tym rozdziale. Rosnący congestus i dojrzały Cumulonimbus wyglądają z ziemi podobnie — obie są wielkie, białe i piętrzące się. Jak odróżnić chmurę, która zaraz przyniesie przelotny deszcz, od takiej, która przyniesie burzę z piorunami?</p>
+
+    <p>Nie po ciemności. Nie po wielkości. Po <strong>fakturze wierzchołka</strong>.</p>
+
+    <p>Dopóki chmura jest zbudowana z kropelek wody, jej krawędzie są <span class="term-cyan">ostre i wyraźnie odcięte</span> — kropelki są gęsto upakowane i chmura ma niemal powierzchnię. Gdy wierzchołek dotrze na wysokość, gdzie woda zamarza, kropelki zamieniają się w kryształy — a wtedy, dokładnie z powodów opisanych w Rozdziale 14, faktura zmienia się na <span class="term-violet">miękką, włóknistą, rozmytą</span>.</p>
+
+    <p>Ta zmiana wyglądu to moment, w którym Cumulus congestus formalnie staje się Cumulonimbusem. I nie jest to kosmetyka: <strong>zlodzenie jest warunkiem powstania wyładowań</strong>. Elektryzacja burzy wymaga zderzeń kryształków lodu z gradzinkami w obecności wody przechłodzonej. Bez lodu nie ma piorunów — więc widoczna zmiana faktury naprawdę odpowiada zmianie tego, do czego chmura jest zdolna.</p>
+
+    <p>W praktyce: <span class="term-amber">jeśli wierzchołek wielkiej białej chmury zrobił się z ostrego miękki, mamy do czynienia z burzą, nawet jeśli jeszcze nie grzmi.</span> To jedyny wizualny test w tej książce, który warto traktować jako ostrzeżenie bezpieczeństwa.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Kowadło · sufit i to, co go przebija</div>
+    <h2>Dlaczego szczyt jest płaski</h2>
+
+    <p>Kowadło poznaliśmy już w Rozdziale 2: chmura rośnie do tropopauzy, tam kończy się wyporność, więc energia idąca dotąd w pion musi pójść w poziom. Warto dołożyć trzy szczegóły, bo wszystkie są widoczne z ziemi i wszystkie coś znaczą.</p>
+
+    <p><strong>Kowadło jest z lodu i dlatego jest białe i włókniste.</strong> Na jedenastu kilometrach nie ma innej możliwości. Bywa rozwiane na dziesiątki kilometrów i to ono sprawia, że burzę widać ze stu kilometrów.</p>
+
+    <p><strong>Kierunek kowadła pokazuje, dokąd idzie burza</strong> — z grubsza, bo pokazuje wiatr na dużej wysokości, a burza przesuwa się mniej więcej z nim. To użyteczne: stojąc daleko, patrzymy, w którą stronę „wieje" ogon kowadła.</p>
+
+    <p><strong>Przebicie wierzchołka.</strong> Jeśli prąd wstępujący jest bardzo silny, ma dość rozpędu, żeby wepchnąć się kilkaset metrów ponad tropopauzę, mimo że traci już wyporność. Tworzy się wtedy kopuła wystająca ponad płaszczyznę kowadła — po angielsku <em>overshooting top</em>. Widziana z satelity albo z boku, z daleka, jest jednym z najpewniejszych znaków, że mamy do czynienia z burzą bardzo silną. Wrócimy do tego w Rozdziale 24.</p>
+
+    <p>Jest jeszcze jeden szczegół, który wygląda na drobiazg, a jest ładnym potwierdzeniem całej mechaniki: <strong>pileus</strong>, czyli czapeczka. To gładka, soczewkowata chmurka pojawiająca się na kilka minut tuż nad rosnącą wieżą. Powstaje, bo wieża pcha przed sobą warstwę wilgotnego powietrza i unosi ją — dokładnie jak fala nad grzbietem górskim z Rozdziału 15, tylko że tu „górą" jest sama chmura. Pileus oznacza więc <span class="term-amber">bardzo szybkie wznoszenie</span> i jest znakiem, że chmura właśnie mocno przyspiesza.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Skala · ile w tym energii</div>
+    <h2>Jedna komórka burzowa</h2>
+
+    <p>Zanim przejdziemy do Części V, warto ustawić skalę, bo Cumulonimbus jest największym pojedynczym obiektem, jaki opisuje ta książka.</p>
+
+    <p>Typowa komórka burzowa ma podstawę o średnicy kilku kilometrów i wysokość dwunastu. Zawiera rzędu <strong>pół miliona ton wody</strong> — sto razy więcej niż zwykły Cumulus z Rozdziału 12.</p>
+
+    <p>Ale najbardziej uderza nie masa, tylko energia. Skraplanie tej ilości wody uwalnia ciepło utajone rzędu <span class="term-amber">10<sup>15</sup> dżuli</span> — porównywalne z energią sporej bomby jądrowej. Różnica jest taka, że burza uwalnia to przez godzinę i w objętości kilkudziesięciu kilometrów sześciennych, więc nie niszczy okolicy; napędza za to prądy wstępujące dochodzące do czterdziestu metrów na sekundę i wyrzuca grad kilometry w górę.</p>
+
+    <p>Zwróćmy uwagę, skąd ta energia pochodzi. Nie z wiatru, nie z ciśnienia, nie z elektryczności. Ze <strong>skraplania pary wodnej</strong> — czyli z ciepła utajonego, o którym była mowa w Rozdziale 10 i które przez cały czas siedziało niewidoczne w przezroczystym powietrzu. Burza jest w gruncie rzeczy maszyną, która zamienia wilgoć w ruch.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Obserwacja jednego popołudnia.</strong> W ciepły, chwiejny dzień warto wybrać jedną chmurę około jedenastej i wracać do niej wzrokiem co dwadzieścia minut. Nie zawsze coś z tego wyjdzie — większość humilisów po prostu wyparuje — ale gdy trafimy, obejrzymy pełen ciąg z tego rozdziału na własne oczy. To jedno popołudnie uczy więcej niż cały ten tekst.</p>
+    <p><strong>Test wierzchołka przed wyjściem w góry.</strong> Ostre, kalafiorowe kontury — chmura jeszcze rośnie, jest czas. Miękka, włóknista góra — to już Cumulonimbus i pora schodzić, nawet jeśli jeszcze nie grzmi. W górach ta różnica bywa różnicą między niedogodnością a poważnym kłopotem.</p>
+    <p><strong>Kowadło na horyzoncie.</strong> Widzimy je z bardzo daleka, więc nie oznacza zagrożenia tu i teraz. Warto natomiast zobaczyć, w którą stronę ciągnie się jego ogon i porównać z kierunkiem, w którym chmura się przesuwa. Jeśli burza rośnie i idzie w naszą stronę, mamy zwykle od trzydziestu minut do dwóch godzin.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>Cumulus humilis / mediocris / congestus</dt>
+      <dd>Trzy stopnie rozbudowy chmury kłębiastej: szersza niż wyższa, mniej więcej kwadratowa, wyraźnie wyższa niż szersza.</dd>
+      <dt>Cumulonimbus (Cb)</dt>
+      <dd>Chmura burzowa. Formalnie zaczyna się w momencie zlodzenia wierzchołka.</dd>
+      <dt>zlodzenie wierzchołka</dt>
+      <dd>Zamiana kropelek w kryształy na szczycie chmury. Widoczna jako zmiana faktury z ostrej na włóknistą; warunek powstawania wyładowań.</dd>
+      <dt>kowadło (incus)</dt>
+      <dd>Płaskie, rozlane na boki zwieńczenie Cumulonimbusa, zbudowane z lodu. Ślad uderzenia w tropopauzę.</dd>
+      <dt>przebicie wierzchołka</dt>
+      <dd>Kopuła wypychana ponad płaszczyznę kowadła przez bardzo silny prąd wstępujący. Znak burzy wyjątkowo silnej.</dd>
+      <dt>pileus</dt>
+      <dd>Gładka czapeczka nad szybko rosnącą wieżą. Oznacza gwałtowne wznoszenie.</dd>
+      <dt>komórka burzowa</dt>
+      <dd>Pojedyncza jednostka konwekcyjna z własnym prądem wstępującym i zstępującym. Żyje typowo 30–60 minut.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Mamy dziesięć rodzajów i wiemy, skąd się biorą. Zostały te chmury, które wyglądają, jakby ktoś się pomylił: wypukłości skierowane w dół, falująca podstawa jak odwrócone morze, fale rozbijające się w powietrzu i chmury świecące w środku nocy osiemdziesiąt kilometrów nad nami.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>
@@ -45,5 +226,33 @@
 </div>
 
 <script src="../assets/interactive.js"></script>
+<script type="module">
+import { createCloudVolume, CLOUD_PRESETS, bindSliders, bindPresets } from '../assets/sky3d.js';
+const host = document.getElementById('cyklLab');
+// dist podane recznie: automatyczne kadrowanie odsuwa kamere tak, zeby zmiescic
+// 11 km chmury, przez co Cumulonimbus wychodzil maly. Tutaj chcemy odwrotnie —
+// ma byc przytlaczajacy, bo o to chodzi w calym rozdziale.
+const w = createCloudVolume(host, Object.assign({}, CLOUD_PRESETS.cumulus, { dist: 9 }));
+if (w.ok) {
+  const b = bindSliders(host, w, {
+    fmt(v) {
+      const o = v < 1.4 ? 'humilis — szersza niż wyższa'
+              : v < 2.6 ? 'mediocris — mniej więcej kwadratowa'
+              : v < 6 ? 'congestus — wieża, już może kropić'
+              : 'Cumulonimbus — sięga tropopauzy';
+      return v.toFixed(1).replace('.', ',') + ' km · ' + o;
+    },
+  });
+  bindPresets(host, w, {
+    onChange(name) {
+      const el = host.querySelector('input[data-sky="thick"]');
+      if (el) el.value = CLOUD_PRESETS[name].thick;
+      // kadrowanie rosnie z chmura, ale wolniej niz domyslne
+      w.set({ dist: 9 + CLOUD_PRESETS[name].thick * 1.15 });
+      b.refresh();
+    },
+  });
+}
+</script>
 </body>
 </html>

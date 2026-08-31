@@ -28,7 +28,207 @@
   <h1>Piętro średnie: szarość, która coś zapowiada</h1>
   <p class="subtitle">Kiedy Słońce zaczyna wyglądać jak przez matową szybę, mamy kilka godzin, żeby zdążyć przed deszczem.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li><strong>Altostratus</strong> to „mokre Słońce" — tarcza widoczna jak przez matową szybę, a przedmioty na ziemi przestają rzucać cień. To najbardziej użyteczny pojedynczy sygnał w całej książce.</li>
+      <li><strong>Altocumulus</strong> to baranki wielkości palca na wyciągniętej ręce, z wyraźnymi cieniami. Cienie są tym, co odróżnia go od piętra wyżej.</li>
+      <li><strong>Altocumulus castellanus</strong> — wieżyczki rano — to najlepsza domowa zapowiedź popołudniowej burzy, jaką da się dostać za darmo.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Altostratus · sygnał, który warto znać</div>
+    <h2>Kiedy Słońce przestaje rzucać cienie</h2>
+
+    <p>Altostratus to szara albo szaroniebieska warstwa zajmująca zwykle całe niebo. Nie ma w niej struktury, nie ma brzegów, nie ma nic, co przyciągałoby wzrok — i właśnie dlatego większość ludzi nie odróżnia go od zwykłego zachmurzenia.</p>
+
+    <p>Ma jednak jedną cechę, która czyni go najbardziej praktyczną chmurą w całym atlasie. Przez Altostratusa Słońce wciąż prześwituje, ale <strong>jako rozmyta jasna plama bez ostrego brzegu</strong> — dokładnie tak, jakby patrzeć przez matową szybę albo mleczne szkło. Angielskie określenie brzmi <em>watery sun</em>, mokre Słońce, i jest bardzo trafne.</p>
+
+    <p>Test jest prosty i rozstrzygający: <span class="term-amber">czy przedmioty na ziemi rzucają cień?</span></p>
+
+    <p><strong>Cień jest, choć miękki</strong> — mamy Cirrostratusa, piętro wyżej. Welon lodowy przepuszcza dość światła.</p>
+
+    <p><strong>Cienia nie ma, ale widać, gdzie jest Słońce</strong> — to Altostratus. Chmura zgęstniała już na tyle, że rozprasza światło we wszystkie strony.</p>
+
+    <p><strong>Nie widać nawet, gdzie jest Słońce</strong> — to już Nimbostratus, piętro niżej, i najpewniej zaraz zacznie padać.</p>
+
+    <p>Ta trójka to nie są trzy różne chmury. To <strong>jedna chmura w trzech stadiach gęstnienia</strong>, bo front ciepły nasuwa się stopniowo i jego warstwa robi się nad nami coraz grubsza. Widząc przejście od halo przez mokre Słońce do jednolitej szarości, obserwujemy dosłownie, jak front na nas wjeżdża. Ułożymy to w zegar w Rozdziale 22.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Test cienia</span><span>przesuń grubość warstwy</span></div>
+      <div class="diagram-controls">
+        <label for="cien15">Grubość warstwy</label>
+        <input type="range" id="cien15" min="0" max="100" step="1" value="20">
+        <span class="value-readout" id="cien15Out">Cirrostratus · cień miękki, ale jest</span>
+      </div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <rect id="c15sky" x="40" y="30" width="680" height="180" fill="#5b8fbe"/>
+        <rect id="c15cloud" x="40" y="30" width="680" height="40" fill="#d8dde3" fill-opacity="0.5"/>
+        <circle id="c15sun" cx="230" cy="108" r="26" fill="#fff6e0"/>
+        <circle id="c15glow" cx="230" cy="108" r="52" fill="#fff6e0" fill-opacity="0.18"/>
+
+        <line x1="40" y1="210" x2="720" y2="210" stroke="#8b909b" stroke-width="2"/>
+        <!-- drzewo i jego cien -->
+        <rect x="520" y="150" width="10" height="60" fill="#2a2f38"/>
+        <circle cx="525" cy="146" r="26" fill="#2a2f38"/>
+        <ellipse id="c15shadow" cx="586" cy="212" rx="52" ry="8" fill="#0f1115" fill-opacity="0.75"/>
+        <text x="525" y="246" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">drzewo</text>
+        <text id="c15lab" x="600" y="246" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">cień wyraźny</text>
+        <text x="380" y="280" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#8b909b">to jedna chmura w trzech stadiach, nie trzy różne chmury</text>
+      </svg>
+      <div class="diagram-caption">Cień na ziemi jest lepszym przyrządem niż wygląd samej chmury — bo mierzy to, co naprawdę się zmienia: grubość warstwy.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('cien15'), out=document.getElementById('cien15Out');
+        var cloud=document.getElementById('c15cloud'), sun=document.getElementById('c15sun');
+        var glow=document.getElementById('c15glow'), sh=document.getElementById('c15shadow');
+        var sky=document.getElementById('c15sky'), lab=document.getElementById('c15lab');
+        function update(){
+          var t=parseFloat(sl.value)/100;
+          cloud.setAttribute('height',(40+t*150).toFixed(0));
+          cloud.setAttribute('fill-opacity',(0.35+t*0.62).toFixed(2));
+          sky.setAttribute('fill', t<0.4 ? '#5b8fbe' : (t<0.75 ? '#7d8a95' : '#5f666e'));
+          // Slonce rozmywa sie i gasnie
+          sun.setAttribute('r',(26+t*30).toFixed(0));
+          sun.setAttribute('fill-opacity',Math.max(0,1-t*1.35).toFixed(2));
+          glow.setAttribute('fill-opacity',(0.22*Math.max(0,1-t*0.9)).toFixed(2));
+          // cien slabnie i znika
+          var moc=Math.max(0,1-t*1.9);
+          sh.setAttribute('fill-opacity',(0.75*moc).toFixed(2));
+          sh.setAttribute('rx',(52+t*26).toFixed(0));
+          var n,o;
+          if(t<0.35){ n='Cirrostratus · cień miękki, ale jest'; o='cień wyraźny'; }
+          else if(t<0.72){ n='Altostratus · mokre Słońce, cienia brak'; o='cienia już nie ma'; }
+          else { n='Nimbostratus · nie widać, gdzie jest Słońce'; o='jednolita szarość'; }
+          out.textContent=n; lab.textContent=o;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Altocumulus · baranki średniego piętra</div>
+    <h2>Ziarna, które mają cień</h2>
+
+    <p>Altocumulus to najczęstsza chmura średniego piętra i jedna z ładniejszych na niebie: pola albo rzędy zaokrąglonych kłębków, często ułożonych regularnie jak bruk albo fale.</p>
+
+    <p>Rozpoznanie sprowadza się do dwóch testów, które poznaliśmy w Rozdziale 13, a które warto tu powtórzyć, bo są naprawdę używane:</p>
+
+    <p><strong>Test wielkości.</strong> Pojedynczy kłębek Altocumulusa ma na wyciągniętej ręce wielkość mniej więcej palca wskazującego — od jednego do pięciu stopni. Mniejszy niż paznokieć to Cirrocumulus; większy niż pięść to Stratocumulus.</p>
+
+    <p><strong>Test cienia.</strong> Altocumulus <span class="term-amber">ma cienie</span> — kłębki są szare od spodu i jasne od góry. Cirrocumulus jest na to za cienki i cieni nie ma wcale. Ten test bywa wygodniejszy, bo nie wymaga mierzenia.</p>
+
+    <p>Altocumulus występuje w wielu odmianach i akurat tutaj warto poznać kilka nazw, bo widuje się je co tydzień i naprawdę coś znaczą:</p>
+
+    <p><span class="term-cyan">undulatus</span> — ułożone w fale. Świadczy o ścinaniu wiatru między warstwami.</p>
+
+    <p><span class="term-cyan">radiatus</span> — ułożone w równoległe pasma, które przez perspektywę zdają się zbiegać na horyzoncie. To ta sama perspektywa, co przy smugach słonecznych w Rozdziale 8.</p>
+
+    <p><span class="term-cyan">perlucidus</span> — z prześwitami między kłębkami, przez które widać niebo.</p>
+
+    <p><span class="term-cyan">lenticularis</span> — soczewkowate, gładkie, o kształcie migdała. O nich osobno za chwilę.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Castellanus · darmowe ostrzeżenie</div>
+    <h2>Wieżyczki rano znaczą burzę po południu</h2>
+
+    <p>Jest jedna odmiana Altocumulusa, którą warto znać nawet wtedy, gdy reszta nazw nas nie interesuje. Nazywa się <strong>castellanus</strong> — od <em>castellum</em>, zamek — bo kłębki wypuszczają w górę małe wieżyczki, przez co górna krawędź chmury wygląda jak blanki muru.</p>
+
+    <p>Wieżyczki znaczą jedno: <span class="term-amber">na średnim piętrze powietrze jest chwiejne</span>. Coś się tam już unosi, choć jeszcze słabo. A skoro chwiejność jest wysoko już rano, to gdy Słońce dołoży w ciągu dnia energii od dołu, konwekcja dostanie warunki do rozbudowy na całą wysokość troposfery.</p>
+
+    <p>Praktyczna reguła brzmi: <strong>Altocumulus castellanus widziany rano oznacza wyraźnie podwyższone ryzyko burz po południu</strong>. To jedna z niewielu prognoz „z nieba", która ma sensowną skuteczność — w polskich warunkach sprawdza się częściej niż w połowie przypadków, co przy darmowej obserwacji z okna jest zdumiewająco dobrym wynikiem.</p>
+
+    <p>Warto ją zestawić z tym, co wiemy z Rozdziału 11: to, czy dzień będzie burzowy, rozstrzyga się rano i zależy od profilu temperatury. Castellanus jest po prostu <strong>widoczną oznaką tego profilu</strong> — chmurą, która pokazuje nam liczbę, do której inaczej nie mamy dostępu.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Zwykły Altocumulus i castellanus</span><span>różnica warta zapamiętania</span></div>
+      <svg viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="30" width="320" height="150" rx="8" fill="#3f5f92" fill-opacity="0.30"/>
+        <g fill="#ecebe4" fill-opacity="0.85">
+          <ellipse cx="96" cy="110" rx="26" ry="11"/><ellipse cx="158" cy="104" rx="24" ry="10"/>
+          <ellipse cx="218" cy="112" rx="27" ry="11"/><ellipse cx="282" cy="106" rx="25" ry="10"/>
+          <ellipse cx="126" cy="136" rx="24" ry="9"/><ellipse cx="196" cy="140" rx="22" ry="9"/>
+          <ellipse cx="262" cy="136" rx="24" ry="9"/>
+        </g>
+        <g fill="#6e7c8c" fill-opacity="0.6">
+          <ellipse cx="96" cy="119" rx="24" ry="5"/><ellipse cx="158" cy="112" rx="22" ry="5"/>
+          <ellipse cx="218" cy="121" rx="25" ry="5"/><ellipse cx="282" cy="114" rx="23" ry="5"/>
+        </g>
+        <text x="200" y="200" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" fill="#ecebe4">Altocumulus zwykły</text>
+        <text x="200" y="220" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">płaskie kłębki, góra gładka</text>
+
+        <rect x="400" y="30" width="320" height="150" rx="8" fill="#3f5f92" fill-opacity="0.30"/>
+        <g fill="#ecebe4" fill-opacity="0.9">
+          <path d="M 440,128 L 440,96 L 452,96 L 452,84 L 464,84 L 464,96 L 478,96 L 478,88 L 490,88 L 490,128 Z"/>
+          <path d="M 512,130 L 512,92 L 524,92 L 524,76 L 536,76 L 536,92 L 550,92 L 550,86 L 562,86 L 562,130 Z"/>
+          <path d="M 584,128 L 584,98 L 598,98 L 598,82 L 610,82 L 610,98 L 624,98 L 624,90 L 636,90 L 636,128 Z"/>
+          <path d="M 656,130 L 656,100 L 668,100 L 668,88 L 680,88 L 680,100 L 692,100 L 692,130 Z"/>
+        </g>
+        <g fill="#6e7c8c" fill-opacity="0.65">
+          <rect x="440" y="126" width="50" height="8"/><rect x="512" y="128" width="50" height="8"/>
+          <rect x="584" y="126" width="52" height="8"/><rect x="656" y="128" width="36" height="8"/>
+        </g>
+        <text x="560" y="200" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" fill="#e8a33d">Altocumulus castellanus</text>
+        <text x="560" y="220" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">wieżyczki w górę — chwiejność wysoko</text>
+      </svg>
+      <div class="diagram-caption">Zobaczone rano wieżyczki są jedyną rzeczą z tego rozdziału, którą naprawdę warto zapamiętać na pamięć.</div>
+    </div>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-b-adiabaty-i-emagram.html">↓ Dodatek B — skąd biorą się liczby opisujące chwiejność</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Lenticularis · chmura, która stoi w wichurze</div>
+    <h2>Migdał nad górami</h2>
+
+    <p>Nad Tatrami, Karkonoszami i Bieszczadami widuje się czasem chmurę o kształcie gładkiego migdału albo soczewki, czasem piętrzącą się w kilka nałożonych talerzy. To <strong>Altocumulus lenticularis</strong> — i jest najlepszą możliwą ilustracją tego, co ustaliliśmy w Rozdziale 12: że chmura jest procesem, a nie przedmiotem.</p>
+
+    <p>Powstaje tak. Wiatr napiera na grzbiet górski i musi się przez niego przedostać, więc podnosi się. Za grzbietem opada, potem znów się podnosi — powietrze zaczyna falować w pionie, jak woda za kamieniem w rzece. Fale te ciągną się czasem na dziesiątki kilometrów w głąb lądu.</p>
+
+    <p>W każdym <em>grzbiecie</em> takiej fali powietrze jest uniesione, więc schłodzone poniżej punktu rosy — i tam skrapla się chmura. W każdej <em>dolinie</em> fali powietrze jest opuszczone, ogrzane, więc chmura wyparowuje.</p>
+
+    <p>Efekt jest zdumiewający: <span class="term-cyan">chmura stoi nieruchomo, choć wieje wichura</span>. Powietrze przelatuje przez nią z prędkością stu kilometrów na godzinę, ale sam proces — a więc i kształt — trwa w miejscu, przywiązany do przeszkody. Dlatego lenticularis ma tak nienaturalnie gładkie brzegi: nie jest kłębiony przez turbulencję, tylko rzeźbiony przez ustabilizowany przepływ.</p>
+
+    <p>To także powód, dla którego chmury soczewkowate regularnie trafiają do doniesień o niezidentyfikowanych obiektach latających. Gładki, symetryczny, nieruchomy dysk nad górami, często podświetlony o zachodzie na pomarańczowo, naprawdę nie wygląda jak zwykła chmura.</p>
+
+    <p>Dla lotnictwa lenticularis jest znakiem ostrzegawczym: fala, która ją tworzy, oznacza silne prądy pionowe i turbulencję. Szybownicy natomiast traktują ją jako zaproszenie — w fali górskiej można wznieść się bardzo wysoko, a rekordy wysokości w szybownictwie ustanawia się właśnie w takich warunkach.</p>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Sprawdzajmy cień, nie chmurę.</strong> Gdy niebo robi się jednolicie szare, najprostsza diagnoza to spojrzeć pod nogi. Jest wyraźny cień — front jeszcze daleko. Cień zniknął, ale widać jasną plamę Słońca — mamy Altostratusa, deszcz zwykle w ciągu kilku godzin. Nie widać nawet plamy — pada albo zaraz zacznie.</p>
+    <p><strong>Altocumulus czy Cirrocumulus.</strong> Jeśli nie mamy pewności, szukamy cieni. Kłębki szare od spodu to Altocumulus. Jednolicie białe, bez najmniejszego zacienienia — Cirrocumulus. Ten test działa nawet na zdjęciu, w przeciwieństwie do testu wielkości kątowej.</p>
+    <p><strong>Wieżyczki rano.</strong> Warto wyrobić sobie nawyk jednego spojrzenia w niebo przy porannej kawie w ciepłej połowie roku. Jeśli chmury średniego piętra mają postrzępioną, wieżyczkowatą górną krawędź — planujmy popołudnie tak, żeby dało się szybko wrócić pod dach.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>Altostratus (As)</dt>
+      <dd>Jednolita szara warstwa piętra średniego. Słońce widoczne jak przez matową szybę, przedmioty nie rzucają cienia.</dd>
+      <dt>Altocumulus (Ac)</dt>
+      <dd>Kłębki piętra średniego, wielkości palca na wyciągniętej ręce, z wyraźnymi cieniami.</dd>
+      <dt>castellanus</dt>
+      <dd>Odmiana z wieżyczkami skierowanymi w górę. Oznacza chwiejność na wysokości chmury — rano zapowiada burze.</dd>
+      <dt>lenticularis</dt>
+      <dd>Chmura soczewkowata, gładka, nieruchoma mimo silnego wiatru. Powstaje w grzbiecie fali górskiej.</dd>
+      <dt>undulatus / radiatus / perlucidus</dt>
+      <dd>Odmiany opisujące układ: fale, równoległe pasma, prześwity między elementami.</dd>
+      <dt>fala górska</dt>
+      <dd>Pionowe falowanie powietrza za grzbietem górskim. Tworzy chmury soczewkowate i silną turbulencję.</dd>
+      <dt>mokre Słońce</dt>
+      <dd>Potoczna nazwa wyglądu tarczy przez Altostratusa: jasna plama bez ostrego brzegu.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Ostatnie piętro w dół — i zarazem to, które w Polsce oglądamy najczęściej. Trzy odcienie szarości, które potrafią zająć pół roku, a które znaczą trzy zupełnie różne rzeczy: kilka godzin nudy, cały dzień deszczu albo przejaśnienie za pół godziny. Przy okazji rozstrzygniemy, czym właściwie jest mgła — bo nie jest chmurą, która spadła.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

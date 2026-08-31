@@ -28,7 +28,203 @@
   <h1>Wieńce, glorie i opalizacja</h1>
   <p class="subtitle">Kolorowe pierścienie tuż wokół Księżyca pozwalają zmierzyć rozmiar kropel w chmurze, do której nigdy nie dolecimy.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Trzecie zachowanie światła: <strong>dyfrakcja</strong>, czyli zaginanie się na krawędziach. Nie odbicie i nie załamanie.</li>
+      <li>Wieniec wokół Księżyca pozwala <strong>zmierzyć rozmiar kropel</strong> w chmurze: im mniejsze krople, tym większy pierścień.</li>
+      <li><strong>Gloria</strong> — pierścienie wokół cienia własnej głowy — jest zjawiskiem, którego teoria promieni w ogóle nie przewiduje.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Mechanizm · światło zagina się na krawędziach</div>
+    <h2>Trzecia rzecz, którą robi światło</h2>
+
+    <p>W Rozdziale 19 użyliśmy załamania i odbicia, w Rozdziale 20 — załamania w pryzmacie i odbicia od płaskich ścianek. Zostało trzecie zachowanie, i jest ono najmniej intuicyjne, bo wymaga potraktowania światła jako fali.</p>
+
+    <p>Rzecz w tym, że fala napotykająca przeszkodę nie rzuca idealnie ostrego cienia. <strong>Zagina się wokół krawędzi</strong> i wchodzi trochę w obszar, który „powinien" być ciemny. Znamy to z dźwięku: słychać kogoś zza rogu, choć go nie widać — bo fala dźwiękowa ma długość rzędu metra i bez trudu opływa róg budynku.</p>
+
+    <p>Światło ma długość fali pół mikrometra, więc zagina się na przeszkodach o porównywalnej wielkości — czyli dokładnie na kropelkach chmurowych. Zagięte fale, biegnące różnymi drogami, nakładają się na siebie: w niektórych kierunkach wzmacniają się, w innych wygaszają. Efekt to <span class="term-cyan">koncentryczne pierścienie</span>.</p>
+
+    <p>To wystarczy do wszystkiego w tym rozdziale. I daje od razu jedną ważną własność: rozmiar pierścieni zależy od <strong>rozmiaru przeszkody</strong> — czyli, w odróżnieniu od halo i tęczy, jest zmienny. Mniejsza przeszkoda zagina fale mocniej, więc daje pierścienie <em>większe</em>. Ta odwrotna zależność jest kluczem do całego rozdziału.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Wieniec · pomiar z podwórka</div>
+    <h2>Pierścienie wokół Księżyca</h2>
+
+    <p>Gdy cienka chmura przesłania Księżyc, widać czasem wokół niego niewielkie, kolorowe pierścienie: jasny obszar tuż przy tarczy, potem brązowawo-czerwonawy brzeg, czasem drugi i trzeci pierścień. To <strong>wieniec</strong> — po łacinie <em>corona</em>.</p>
+
+    <p>Podstawowe rozróżnienie, które warto sobie wbić raz na zawsze, bo to najczęstsza pomyłka w obserwacji nieba:</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Halo czy wieniec</span><span>trzy testy, każdy rozstrzyga</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="34" width="330" height="230" rx="8" fill="#20242c" stroke="#9c82d8" stroke-opacity="0.5"/>
+        <text x="205" y="26" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#9c82d8">HALO · lód</text>
+        <circle cx="205" cy="140" r="86" fill="none" stroke="#ecebe4" stroke-width="6" stroke-opacity="0.45"/>
+        <circle cx="205" cy="140" r="82" fill="none" stroke="#e05a3a" stroke-width="3" stroke-opacity="0.75"/>
+        <circle cx="205" cy="140" r="10" fill="#fff3d8"/>
+        <text x="205" y="182" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#e05a3a">czerwień od wewnątrz</text>
+        <text x="205" y="240" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#ecebe4">duże · 22° · jak rozstawiona dłoń</text>
+        <text x="205" y="258" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">stały rozmiar, zawsze taki sam</text>
+
+        <rect x="392" y="34" width="330" height="230" rx="8" fill="#20242c" stroke="#4fc3c0" stroke-opacity="0.5"/>
+        <text x="557" y="26" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#4fc3c0">WIENIEC · kropelki wody</text>
+        <circle cx="557" cy="140" r="34" fill="#fff3d8" fill-opacity="0.22"/>
+        <circle cx="557" cy="140" r="34" fill="none" stroke="#e05a3a" stroke-width="3" stroke-opacity="0.7"/>
+        <circle cx="557" cy="140" r="26" fill="none" stroke="#5b8fd8" stroke-width="3" stroke-opacity="0.7"/>
+        <circle cx="557" cy="140" r="10" fill="#fff3d8"/>
+        <text x="557" y="192" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#5b8fd8">błękit od wewnątrz</text>
+        <text x="557" y="240" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" fill="#ecebe4">małe · kilka stopni · tuż przy tarczy</text>
+        <text x="557" y="258" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b">rozmiar zmienny — zależy od kropel</text>
+
+        <text x="380" y="288" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#e8a33d">test rozstrzygający: po której stronie jest czerwień</text>
+      </svg>
+      <div class="diagram-caption">Rysunek nie jest w skali — halo jest w rzeczywistości kilkakrotnie większe względem wieńca, niż tu widać.</div>
+    </div>
+
+    <p>A teraz najlepsze. Skoro rozmiar wieńca zależy odwrotnie od rozmiaru kropel, to <strong>mierząc wieniec, mierzymy krople</strong>. Kropelki o średnicy 10 mikrometrów dają pierścień o promieniu jakichś 3 stopni; kropelki 20-mikrometrowe — półtora stopnia; 40-mikrometrowe — poniżej stopnia.</p>
+
+    <p>Stojąc na balkonie z wyciągniętą ręką, jesteśmy więc w stanie oszacować średnicę kropelek w chmurze wiszącej trzy kilometry nad nami, do której nigdy nie dolecimy. To jest, moim zdaniem, jeden z ładniejszych momentów w całej tej książce — i konsekwencja tego samego wzorca, który wracał w każdym rozdziale: <span class="term-cyan">rozmiar cząstki wobec długości fali decyduje o wszystkim</span>.</p>
+
+    <p>Wieniec zdradza też coś jeszcze: <strong>im wyraźniejsze i bardziej okrągłe pierścienie, tym bardziej jednorodne krople</strong>. Jeśli w chmurze są krople różnej wielkości, pierścienie różnych rozmiarów nakładają się i wszystko rozmywa się w białawą poświatę. Ostry, kolorowy wieniec oznacza więc chmurę świeżą, w której krople dopiero co powstały i nie zdążyły urosnąć nierównomiernie.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-t-dyfrakcja-w-liczbach.html">↓ Dodatek T — dyfrakcja w liczbach: jak odczytać rozmiar kropli z rozmiaru wieńca</a>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Opalizacja · perłowe brzegi</div>
+    <h2>Kolory na obrzeżach chmur</h2>
+
+    <p>Opalizacja, zwana też iryzacją, to nieregularne pasma pastelowych barw — najczęściej różu, zieleni i błękitu — pojawiające się na cienkich obrzeżach chmur w pobliżu Słońca. Wygląda to jak perłowa masa albo jak kolory na powierzchni bańki mydlanej.</p>
+
+    <p>Mechanizm jest ten sam co przy wieńcu — to po prostu <strong>fragment wieńca</strong>. Różnica polega na tym, że chmura nie jest jednorodną warstwą przed tarczą, tylko ma nierówny brzeg, w którym rozmiar kropel zmienia się z miejsca na miejsce. Każdy fragment daje pierścień o innym promieniu, więc zamiast koncentrycznych kół dostajemy nieregularne, poplątane pasma.</p>
+
+    <p>Opalizacja wymaga bardzo drobnych i bardzo jednorodnych kropelek, więc pojawia się głównie na <span class="term-amber">świeżych, młodych chmurach</span>: na obrzeżach rosnących Altocumulusów, na chmurach soczewkowatych, na czapeczkach pileus nad wieżami kłębiastymi z Rozdziału 17, i całkiem często na obłokach perłowych — którym to zresztą zawdzięczają nazwę.</p>
+
+    <p>Praktycznie: opalizację widuje się częściej, niż się wydaje, ale trzeba zasłonić Słońce, bo zjawisko jest w promieniu kilku-kilkunastu stopni od tarczy i inaczej ginie w blasku. Ten sam gest, który poznaliśmy przy halo, i ta sama zasada bezpieczeństwa z Rozdziału 4.</p>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Opalizacja chmur działa jak plama oleju na wodzie albo jak bańka mydlana.</p>
+      <p class="myth__right">W bańce mydlanej i plamie oleju barwy biorą się z <strong>interferencji w cienkiej warstwie</strong> — światło odbite od górnej i dolnej powierzchni nakłada się na siebie. W chmurze nie ma żadnej cienkiej warstwy; są pojedyncze kropelki, a barwy biorą się z <strong>dyfrakcji na ich krawędziach</strong>.</p>
+      <p class="myth__why">Efekt wizualny jest łudząco podobny — pastelowe, przechodzące jedna w drugą barwy — więc analogia sama się nasuwa. Prowadzi jednak w złą stronę: gdyby chodziło o cienką warstwę, kolor zależałby od grubości chmury, a zależy od rozmiaru kropel.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Gloria · pierścienie wokół własnego cienia</div>
+    <h2>Zjawisko, którego promienie nie tłumaczą</h2>
+
+    <p>Kto leciał samolotem nad zwartą pokrywą chmur przy niskim Słońcu i patrzył przez okno po stronie cienia, mógł zobaczyć coś zdumiewającego: cień samolotu na chmurach, a wokół niego <strong>zestaw koncentrycznych, barwnych pierścieni</strong>.</p>
+
+    <p>To gloria. Widuje się ją także w górach: stojąc na grani nad morzem chmur albo mgły, z Słońcem za plecami, dostrzega się cień własnej głowy otoczony aureolą. W kulturze alpejskiej nazywa się to czasem „aureolą świętego", a że ludzie widzą pierścienie wyłącznie wokół <em>własnej</em> głowy — bo tylko tam wypada ich punkt antysłoneczny — to historycznie bywało odbierane jako wyróżnienie.</p>
+
+    <p>Gloria powstaje przez <span class="term-cyan">rozproszenie wsteczne</span> na kropelkach: światło wraca dokładnie w stronę, z której przyszło. I tu jest rzecz, którą warto powiedzieć wprost, bo jest uczciwa i rzadko się ją mówi: <strong>prosta teoria promieni, której używaliśmy przy tęczy i halo, w ogóle nie przewiduje glorii</strong>. Śledząc promienie wchodzące w kroplę, nie da się otrzymać silnego powrotu dokładnie do tyłu.</p>
+
+    <p>Pełne wyjaśnienie wymaga potraktowania kropli jako obiektu falowego i uwzględnienia fal biegnących wzdłuż jej powierzchni. To model znacznie trudniejszy, opracowany dopiero w XX wieku. Wniosek dla nas jest jednak prosty i wart zapamiętania: <span class="term-amber">modele mają zakres stosowalności</span>, a gloria jest miejscem, w którym ten z Rozdziału 19 się kończy — i widać to gołym okiem.</p>
+
+    <p>Jak przy wieńcu, rozmiar pierścieni glorii zależy od rozmiaru kropel. Lecąc nad chmurami i widząc, jak gloria pulsuje i zmienia średnicę, patrzymy na zmiany rozmiaru kropel w kolejnych fragmentach chmury pod nami.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Widmo Brockena · olbrzym, który nim nie jest</div>
+    <h2>Perspektywa, nie powiększenie</h2>
+
+    <p>Zjawisku glorii często towarzyszy coś, co ma własną nazwę i własną legendę: <strong>widmo Brockena</strong>. To nasz własny cień rzucony na mgłę lub chmurę, wyglądający na ogromny i sprawiający wrażenie, że stoi kilkanaście metrów dalej — a czasem że się porusza niezależnie od nas.</p>
+
+    <p>Nazwa pochodzi od Brockenu, najwyższego szczytu Harzu w Niemczech, gdzie mgły są częste i gdzie zjawisko opisano jako pierwsze. Doczekało się bogatej mitologii górskiej.</p>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Mgła powiększa cień — dlatego widmo Brockena jest olbrzymie.</p>
+      <p class="myth__right">Cień nie jest powiększony. Jest <strong>rzutowany na krople w różnej odległości</strong>, a nasz mózg, nie mając punktów odniesienia we mgle, zakłada, że stoi daleko — a skoro daleko i wciąż duży, to musi być gigantyczny. To ta sama pomyłka percepcyjna, co przy złudzeniu Księżyca z Rozdziału 4.</p>
+      <p class="myth__why">We mgle nie ma niczego, co pozwoliłoby ocenić odległość: żadnych drzew, krawędzi ani nakładających się planów. Bez tych wskazówek ocena rozmiaru jest zgadywaniem — a mózg zgaduje konsekwentnie w tę samą stronę.</p>
+    </div>
+
+    <p>Wrażenie ruchu ma równie prozaiczne wyjaśnienie: mgła się przemieszcza, więc powierzchnia, na którą pada cień, cały czas się zmienia. Cień „drga" i „skacze", choć my stoimy nieruchomo.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Podsumowanie części · cztery zjawiska, cztery testy</div>
+    <h2>Tabela, którą warto mieć w głowie</h2>
+
+    <p>Zamykamy optykę nieba. Cztery rodziny zjawisk, jakie realnie da się zobaczyć znad polskiego chodnika, i cztery pytania, które je rozstrzygają:</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Cztery zjawiska</span><span>rozstrzygające testy</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">
+          <text x="40" y="34">ZJAWISKO</text>
+          <text x="220" y="34">GDZIE PATRZEĆ</text>
+          <text x="420" y="34">ROZMIAR</text>
+          <text x="560" y="34">Z CZEGO</text>
+        </g>
+        <line x1="40" y1="44" x2="720" y2="44" stroke="#2a2f38"/>
+
+        <g font-family="IBM Plex Sans" font-size="13" fill="#ecebe4">
+          <text x="40" y="82">Tęcza</text>
+          <text x="220" y="82" font-size="12" fill="#8b909b">naprzeciw Słońca</text>
+          <text x="420" y="82" font-size="12" fill="#8b909b">42°, stały</text>
+          <text x="560" y="82" font-size="12" fill="#4fc3c0">krople deszczu</text>
+
+          <text x="40" y="130">Halo</text>
+          <text x="220" y="130" font-size="12" fill="#8b909b">wokół Słońca</text>
+          <text x="420" y="130" font-size="12" fill="#8b909b">22°, stały</text>
+          <text x="560" y="130" font-size="12" fill="#9c82d8">kryształy lodu</text>
+
+          <text x="40" y="178">Wieniec</text>
+          <text x="220" y="178" font-size="12" fill="#8b909b">tuż przy tarczy</text>
+          <text x="420" y="178" font-size="12" fill="#e8a33d">1–5°, ZMIENNY</text>
+          <text x="560" y="178" font-size="12" fill="#4fc3c0">kropelki chmury</text>
+
+          <text x="40" y="226">Gloria</text>
+          <text x="220" y="226" font-size="12" fill="#8b909b">wokół cienia głowy</text>
+          <text x="420" y="226" font-size="12" fill="#e8a33d">kilka °, ZMIENNY</text>
+          <text x="560" y="226" font-size="12" fill="#4fc3c0">kropelki chmury</text>
+        </g>
+        <g stroke="#2a2f38"><line x1="40" y1="96" x2="720" y2="96"/><line x1="40" y1="144" x2="720" y2="144"/><line x1="40" y1="192" x2="720" y2="192"/></g>
+
+        <text x="380" y="268" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#e8a33d">stały rozmiar = załamanie · zmienny rozmiar = dyfrakcja</text>
+        <text x="380" y="288" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#8b909b">to jedno zdanie porządkuje całą Część V</text>
+      </svg>
+      <div class="diagram-caption">Jeśli zapamiętamy tylko dolny wiersz, poradzimy sobie z każdym zjawiskiem optycznym, jakie zobaczymy.</div>
+    </div>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Wieniec przy Księżycu jest najłatwiejszy.</strong> Nie trzeba niczego zasłaniać, bo Księżyc nie razi. Wystarczy noc z cienką warstwą chmur przechodzącą przed pełnią. Warto zmierzyć promień pierwszego kolorowego pierścienia wyciągniętą ręką — jeśli jest wielkości palca, krople mają jakieś 20 mikrometrów.</p>
+    <p><strong>Gloria z samolotu.</strong> Trzeba usiąść po stronie przeciwnej do Słońca — czyli lecąc rano na zachód, po stronie prawej. Patrzymy na cień samolotu na chmurach pod nami. Widać ją zaskakująco często, tylko prawie nikt nie patrzy w tamtą stronę.</p>
+    <p><strong>Opalizacja o każdej porze roku.</strong> Zasłaniamy Słońce krawędzią dachu i patrzymy na brzegi chmur w promieniu kilkunastu stopni. Najlepiej działa na małych, świeżych Altocumulusach — te pastelowe róże i zielenie na skraju chmury to właśnie ona.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>dyfrakcja</dt>
+      <dd>Zaginanie się fali na krawędzi przeszkody. Trzecie — obok odbicia i załamania — zachowanie światła istotne w tej książce.</dd>
+      <dt>wieniec (corona)</dt>
+      <dd>Kolorowe pierścienie tuż wokół Słońca lub Księżyca, z dyfrakcji na kropelkach. Błękit od wewnątrz; rozmiar odwrotnie proporcjonalny do rozmiaru kropel.</dd>
+      <dt>opalizacja (iryzacja)</dt>
+      <dd>Pastelowe pasma barw na obrzeżach chmur. Fragment wieńca powstający tam, gdzie rozmiar kropel zmienia się z miejsca na miejsce.</dd>
+      <dt>gloria</dt>
+      <dd>Barwne pierścienie wokół cienia obserwatora rzuconego na chmurę. Rozproszenie wsteczne; teoria promieni jej nie przewiduje.</dd>
+      <dt>widmo Brockena</dt>
+      <dd>Powiększony pozornie cień obserwatora na mgle. Powiększenie jest perspektywiczne, nie optyczne.</dd>
+      <dt>rozproszenie wsteczne</dt>
+      <dd>Odesłanie światła dokładnie w stronę, z której przyszło. Mechanizm glorii.</dd>
+      <dt>interferencja</dt>
+      <dd>Nakładanie się fal, wzmacniające je w jednych kierunkach i wygaszające w innych. Źródło pierścieni i łuków nadliczbowych.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Ostatnia część, i zarazem moment, w którym wszystko dotąd poznane zaczyna pracować razem. Umiemy nazwać każdą chmurę i wiemy, skąd się bierze — więc teraz zamienimy rozpoznawanie w przewidywanie. Sekwencja chmur przed frontem okaże się zegarem, który da się odczytać z dokładnością do kilku godzin, a wszystkie jego wskazówki już znamy.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>

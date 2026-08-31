@@ -28,7 +28,220 @@
   <h1>Halo: kiedy niebo rysuje lodem</h1>
   <p class="subtitle">Koło wokół Słońca ma zawsze ten sam rozmiar — nieważne, jak wysoko są kryształy i jak duże. To samo w sobie mówi nam, z czego jest zrobione.</p>
 
-  <!-- TRESC -->
+  <div class="panel">
+    <div class="panel-label">TL;DR</div>
+    <ul>
+      <li>Halo ma <strong>zawsze 22°</strong> — niezależnie od wielkości i wysokości kryształów. Ta stałość sama w sobie mówi, że mechanizmem jest geometria sześciokąta.</li>
+      <li>To <strong>załamanie w pryzmacie</strong>, nie odbicie od lodu. Stąd czerwień po stronie wewnętrznej i ciemniejszy środek.</li>
+      <li>O tym, które zjawisko zobaczymy, decyduje <strong>ułożenie kryształów</strong>: chaotyczne daje halo, poziome — słońca poboczne, pionowe — słup świetlny.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Kryształ · sześciokąt i dwa kąty</div>
+    <h2>Lód rośnie w sześciokąty</h2>
+
+    <p>Cząsteczka wody ma kształt zbliżony do litery V, a gdy woda zamarza, cząsteczki układają się w sieć o symetrii sześciokątnej. To dlatego płatki śniegu mają sześć ramion — zawsze sześć, nigdy pięć ani siedem — i to dlatego cały ten rozdział ma sens.</p>
+
+    <p>Kryształ lodu w chmurze wysokiej to najczęściej <strong>sześciokątny słupek albo płytka</strong>: sześć ścian bocznych i dwie sześciokątne podstawy. Dla światła jest to pryzmat, i to pryzmat oferujący dwa różne kąty łamiące:</p>
+
+    <p><span class="term-violet">Przez dwie ściany boczne</span> co drugą — kąt łamiący wynosi <strong>60°</strong>. Minimalne odchylenie takiego pryzmatu w lodzie to około 22 stopnie. To jest halo małe.</p>
+
+    <p><span class="term-violet">Przez ścianę boczną i podstawę</span> — kąt łamiący wynosi <strong>90°</strong>. Minimalne odchylenie to około 46 stopni. To halo duże, znacznie rzadsze i słabsze.</p>
+
+    <p>I tu dochodzimy do rzeczy, która jest w tym rozdziale najmocniejsza. Kąty 60° i 90° są <strong>własnością geometrii sześciokąta</strong>, a nie własnością konkretnego kryształu. Nie zależą od tego, czy kryształ jest duży czy mały, czy jest słupkiem czy płytką, ani na jakiej wysokości się unosi.</p>
+
+    <p>Dlatego <span class="term-amber">halo ma zawsze dokładnie ten sam rozmiar</span>. Nie ma halo „większych" i „mniejszych". Widząc koło wokół Słońca i mierząc, że ma promień mniej więcej dłoni z rozstawionymi palcami na wyciągniętej ręce, wiemy z tego jednego pomiaru, że patrzymy przez miliony sześciokątnych kryształów lodu na wysokości kilku kilometrów. To zdumiewająca ilość informacji jak na jeden gest.</p>
+
+    <div class="viz3d" id="krysztalLab">
+      <div class="viz3d__head">
+        <p class="viz3d__title">Sześciokątny słupek jako pryzmat</p>
+        <p class="viz3d__sub">Obróćmy kryształ i zobaczmy dwa kąty łamiące: 60° między co drugą ścianą boczną, 90° między ścianą a podstawą.</p>
+      </div>
+      <div class="viz3d__stage">
+        <canvas></canvas>
+        <div class="viz3d__badge">przeciągnij, żeby obrócić · Ctrl+kółko przybliża</div>
+        <div class="viz3d__fallback">
+          <strong>Ten widget potrzebuje WebGL</strong>
+          <span>Cała treść mieści się w jednym zdaniu: sześciokąt oferuje kąt 60° i 90°, a to daje halo 22° i 46°.</span>
+        </div>
+      </div>
+      <div class="viz3d__note">
+        <p>Bursztynowa linia to droga promienia wchodzącego jedną ścianą boczną i wychodzącego co drugą. Kąt między wejściem a wyjściem to właśnie 22 stopnie — i nie da się go zmienić, nie zmieniając kształtu kryształu.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Halo 22° · najczęstsze zjawisko lodowe</div>
+    <h2>Koło z ciemnym środkiem</h2>
+
+    <p>Halo małe to białawe albo lekko zabarwione koło wokół Słońca lub Księżyca. Jest znacznie częstsze, niż się wydaje — w Polsce widuje się je kilkadziesiąt razy w roku, tylko że trzeba zasłonić tarczę i spojrzeć.</p>
+
+    <p>Trzy cechy warto znać, bo wszystkie wynikają wprost z mechanizmu:</p>
+
+    <p><strong>Czerwień jest po stronie wewnętrznej.</strong> Jak w każdym pryzmacie, czerwień odchyla się najsłabiej, więc trafia bliżej Słońca. To odwrotnie niż w wieńcu, o którym w następnym rozdziale — i to jest jedyny test, jakiego potrzeba, żeby je rozróżnić.</p>
+
+    <p><strong>Wnętrze koła jest ciemniejsze niż otoczenie.</strong> Bo 22° to <em>minimalne</em> odchylenie: żaden promień nie trafia bliżej Słońca niż tam. Do wnętrza koła nic nie dociera. To dokładnie ta sama logika, co przy pasie Aleksandra z poprzedniego rozdziału.</p>
+
+    <p><strong>Barwy są blade.</strong> Znacznie bledsze niż w tęczy, bo kryształy są ułożone przypadkowo pod wieloma kątami i barwy się mieszają. Zwykle widać wyraźnie tylko czerwonawy brzeg wewnętrzny.</p>
+
+    <p>Halo pojawia się na Cirrostratusie — i tu wraca to, co ustaliliśmy w Rozdziale 14: <span class="term-cyan">halo jest widoczną etykietą chmury, która sama jest prawie niewidoczna</span>. Bardzo często pierwsze zauważamy halo, a dopiero potem welon.</p>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Halo to odbicie światła od kryształków lodu.</p>
+      <p class="myth__right">To <strong>załamanie</strong>, czyli przejście światła przez kryształ na wylot, jak przez pryzmat. Gdyby chodziło o odbicie, nie byłoby ani stałego kąta 22°, ani barw, ani ciemnego środka.</p>
+      <p class="myth__why">„Odbicie” to nasze domyślne wyjaśnienie wszystkiego, co świeci. Rozróżnienie ma jednak konsekwencję praktyczną: zjawiska z załamania mają stałe kąty i barwy, zjawiska z odbicia — nie. Słup świetlny, o którym za chwilę, jest akurat z odbicia i dlatego nie ma ani koloru, ani ustalonego rozmiaru.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Ułożenie · jedna zmienna, całe zoo zjawisk</div>
+    <h2>Od czego zależy, co zobaczymy</h2>
+
+    <p>Skoro kryształy są zawsze sześciokątne, to skąd bierze się tyle różnych zjawisk? Odpowiedź jest jedna i wyjątkowo elegancka: <strong>od tego, jak kryształy są ułożone w powietrzu</strong>.</p>
+
+    <p><span class="term-violet">Ułożenie przypadkowe.</span> Kryształy są małe i turbulencja rzuca nimi we wszystkie strony. Światło wychodzi wtedy pod kątem 22° we wszystkich azymutach naraz — czyli tworzy pełne koło. To jest halo.</p>
+
+    <p><span class="term-amber">Ułożenie poziome.</span> Płytki lodu, spadając, ustawiają się płasko — jak spadający liść albo kartka papieru. Opór powietrza sam je stabilizuje. Wtedy światło wychodzi tylko w płaszczyźnie poziomej, po obu stronach Słońca — i zamiast koła dostajemy dwie jasne plamy. To <strong>słońca poboczne</strong>.</p>
+
+    <p><span class="term-cyan">Ułożenie pionowe albo odbicie od płaskich ścian.</span> Wtedy powstaje pionowa smuga światła nad Słońcem albo pod nim — <strong>słup świetlny</strong>.</p>
+
+    <p>Jedna zmienna, trzy zupełnie różne obrazy. Warto to docenić, bo jest to w tej książce kolejny przypadek tego samego wzorca: nie ma trzech mechanizmów, jest jeden mechanizm w trzech okolicznościach — dokładnie jak przy rozpraszaniu w Rozdziale 3 i przy chmurach w Rozdziale 13.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Ułożenie kryształów</span><span>przesuń stopień uporządkowania</span></div>
+      <div class="diagram-controls">
+        <label for="ulo">Uporządkowanie</label>
+        <input type="range" id="ulo" min="0" max="100" step="1" value="0">
+        <span class="value-readout" id="uloOut">chaotyczne · pełne koło halo 22°</span>
+      </div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <!-- niebo -->
+        <rect x="40" y="26" width="440" height="264" rx="6" fill="#3f5f92" fill-opacity="0.35"/>
+        <circle cx="260" cy="170" r="13" fill="#fff3d8"/>
+        <text x="260" y="200" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" fill="#8b909b">Słońce (zasłonięte dłonią)</text>
+        <circle id="uloRing" cx="260" cy="170" r="96" fill="none" stroke="#ecebe4" stroke-width="7" stroke-opacity="0.55"/>
+        <circle id="uloRingIn" cx="260" cy="170" r="92" fill="none" stroke="#e8a33d" stroke-width="2" stroke-opacity="0.5"/>
+        <ellipse id="uloL" cx="164" cy="170" rx="13" ry="16" fill="#fff3d8" fill-opacity="0"/>
+        <ellipse id="uloR" cx="356" cy="170" rx="13" ry="16" fill="#fff3d8" fill-opacity="0"/>
+        <rect id="uloPillar" x="252" y="60" width="16" height="110" fill="#fff3d8" fill-opacity="0"/>
+
+        <!-- krysztaly -->
+        <text x="620" y="44" text-anchor="middle" font-family="IBM Plex Mono" font-size="10.5" fill="#9c82d8">JAK LEŻĄ KRYSZTAŁY</text>
+        <g id="uloCrystals"></g>
+        <text x="620" y="300" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#8b909b" id="uloNote">rzucane turbulencją we wszystkie strony</text>
+      </svg>
+      <div class="diagram-caption">Po lewej to, co widać na niebie. Po prawej to, co się dzieje z kryształami. Zmienia się tylko jedno.</div>
+      <script>
+      (function(){
+        var sl=document.getElementById('ulo'), out=document.getElementById('uloOut');
+        var ring=document.getElementById('uloRing'), ringIn=document.getElementById('uloRingIn');
+        var L=document.getElementById('uloL'), R=document.getElementById('uloR');
+        var pil=document.getElementById('uloPillar'), cry=document.getElementById('uloCrystals');
+        var note=document.getElementById('uloNote');
+        function krysztal(x,y,rot,skala){
+          return '<g transform="translate('+x+','+y+') rotate('+rot.toFixed(0)+') scale('+skala+')">'+
+                 '<rect x="-13" y="-6" width="26" height="12" rx="1.5" fill="#9c82d8" fill-opacity="0.30" stroke="#9c82d8" stroke-width="1.1"/>'+
+                 '<line x1="-13" y1="-6" x2="-13" y2="6" stroke="#9c82d8" stroke-width="1.1"/>'+
+                 '<line x1="13" y1="-6" x2="13" y2="6" stroke="#9c82d8" stroke-width="1.1"/></g>';
+        }
+        function update(){
+          var t=parseFloat(sl.value)/100;
+          // krysztaly: od losowych katow do poziomych
+          var s='';
+          for(var i=0;i<12;i++){
+            var x=530+(i%4)*60, y=80+Math.floor(i/4)*66;
+            var los=((i*137)%360)-180;
+            var rot=los*(1-t);
+            s+=krysztal(x,y,rot,0.95);
+          }
+          cry.innerHTML=s;
+          // niebo
+          ring.setAttribute('stroke-opacity',(0.55*(1-t)).toFixed(2));
+          ringIn.setAttribute('stroke-opacity',(0.5*(1-t)).toFixed(2));
+          L.setAttribute('fill-opacity',(t*0.95).toFixed(2));
+          R.setAttribute('fill-opacity',(t*0.95).toFixed(2));
+          var o,n;
+          if(t<0.25){ o='chaotyczne · pełne koło halo 22°'; n='rzucane turbulencją we wszystkie strony'; }
+          else if(t<0.7){ o='częściowo uporządkowane · koło słabnie, plamy jaśnieją'; n='część płytek zaczyna układać się płasko'; }
+          else { o='poziome · zostają dwa słońca poboczne'; n='płytki spadają płasko, jak liście'; }
+          out.textContent=o; note.textContent=n;
+        }
+        sl.addEventListener('input',update); update();
+      })();
+      </script>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Słońca poboczne · sprawdzalne w jedno popołudnie</div>
+    <h2>Dwie plamy, które się odsuwają</h2>
+
+    <p>Słońca poboczne — po łacinie <em>parhelia</em>, po angielsku <em>sun dogs</em> — to jasne plamy po obu stronach Słońca, na tej samej wysokości. Często mają czerwonawy brzeg od strony Słońca i białawy albo niebieskawy ogon na zewnątrz.</p>
+
+    <p>Są zaskakująco częste, zwłaszcza zimą, i zaskakująco jasne — potrafią rzucać się w oczy bardziej niż samo halo. Wystarczy raz wiedzieć, czego szukać.</p>
+
+    <p>Jest w nich jednak szczegół, który robi z nich wyjątkowo satysfakcjonującą obserwację. <strong>Słońca poboczne leżą 22° od Słońca tylko wtedy, gdy Słońce jest nisko przy horyzoncie.</strong> Gdy Słońce się podnosi, plamy zaczynają się od niego <span class="term-amber">odsuwać</span> — przy 40 stopniach wysokości są już jakieś 30 stopni od niego, a wyżej robią się tak słabe, że znikają.</p>
+
+    <p>Powód jest geometryczny. Płytki leżą poziomo, więc promień idący od wysoko położonego Słońca wchodzi w nie skośnie, a nie w płaszczyźnie sześciokąta — a przy skośnym przejściu efektywny kąt łamiący rośnie i odchylenie też.</p>
+
+    <p>To jest coś, co da się sprawdzić w ciągu jednego zimowego popołudnia: jeśli rano zobaczymy słońca poboczne blisko halo, a po kilku godzinach wciąż tam są, warto zmierzyć wyciągniętą ręką, czy odległość się zmieniła. Zmieni się — i to jest moment, w którym abstrakcyjna geometria z tego rozdziału robi się namacalna.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Reszta zoo · co jeszcze da się złapać</div>
+    <h2>Słupy, łuki i najładniejsza rzecz na niebie</h2>
+
+    <p><strong>Słup świetlny</strong> to pionowa smuga światła nad Słońcem, widoczna zwykle przy wschodzie i zachodzie. Jest <span class="term-cyan">z odbicia, nie z załamania</span> — światło odbija się od poziomych, płaskich powierzchni spadających kryształów, jak od milionów maleńkich luster ustawionych schodkowo. Dlatego słup nie ma własnych barw: przybiera kolor Słońca, więc o zachodzie jest pomarańczowy albo czerwony.</p>
+
+    <p>Miejska odmiana tego zjawiska bywa spektakularna. W mroźną, bezwietrzną noc, gdy przy ziemi unoszą się kryształki lodu (tak zwany <em>pył diamentowy</em>), nad każdą latarnią i każdą reklamą wyrastają pionowe słupy światła. Efekt jest zupełnie nieziemski, a zdjęcia z Kanady i Syberii regularnie krążą jako rzekome fotomontaże. W Polsce zdarza się to w kotlinach przy silnym mrozie i przy stokach z armatkami śnieżnymi.</p>
+
+    <p><strong>Łuk okołozenitalny</strong> to, moim zdaniem, najładniejsze zjawisko optyczne, jakie da się zobaczyć z polskiego podwórka — i zarazem najczęściej przegapiane. Wygląda jak odwrócona tęcza: barwny łuk uśmiechnięty ku górze, <em>wysoko nad Słońcem</em>, blisko zenitu. Barwy są czystsze niż w tęczy, bo światło przechodzi przez kryształ tylko raz i nie miesza się z niczym.</p>
+
+    <p>Przegapia się go z jednego banalnego powodu: <span class="term-amber">jest za naszymi plecami, wysoko w górze</span>, a ludzie patrzą przed siebie. Pojawia się tylko wtedy, gdy Słońce jest niżej niż 32 stopnie nad horyzontem, więc w Polsce jest dostępny przez większość roku — trzeba tylko odchylić głowę.</p>
+
+    <p><strong>Halo 46°</strong> — duże, słabe koło z tego drugiego kąta łamiącego. Rzadkie i zwykle niepełne.</p>
+
+    <p><strong>Łuk styczny</strong> — jasny łuk dotykający halo od góry, o kształcie zmieniającym się z wysokością Słońca: przy nisko położonym Słońcu wygląda jak rozłożone skrzydła ptaka.</p>
+
+    <p><strong>Okrąg parheliczny</strong> — biała, pozioma linia biegnąca przez całe niebo na wysokości Słońca. Powstaje z odbicia od pionowych ścian kryształów.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-s-krysztaly-i-halo.html">↓ Dodatek S — kryształy lodu i pełny katalog zjawisk halo z mapą nieba</a>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Z praktyki</div>
+    <p><strong>Nawyk, który się opłaca.</strong> Gdy niebo pokrywa się cienkim welonem, zasłaniamy Słońce dłonią albo krawędzią budynku i patrzymy dookoła. Zajmuje to trzy sekundy, a wyłapuje halo, słońca poboczne i łuk styczny. Bez tego gestu nie zobaczymy nic — tarcza po prostu wszystko przepala. <strong>Nigdy nie patrzymy na Słońce przez aparat, lornetkę ani teleobiektyw</strong>, o czym była mowa w Rozdziale 4.</p>
+    <p><strong>Halo czy wieniec.</strong> Najczęstsza pomyłka w obserwacji nieba i jednocześnie najłatwiejsza do rozstrzygnięcia. Halo: <em>duże</em> — promień jak rozstawiona dłoń na wyciągniętej ręce, czerwień <em>od wewnątrz</em>, lód. Wieniec: <em>małe</em> — kilka stopni, tuż przy tarczy, błękit <em>od wewnątrz</em>, kropelki wody. Test kolejności barw jest rozstrzygający.</p>
+    <p><strong>Zima to sezon.</strong> Halo i słońca poboczne widuje się w Polsce najczęściej od listopada do marca, bo wtedy Cirrostratus jest częsty, a Słońce nisko. Warto też pamiętać o Księżycu: halo księżycowe przy pełni jest zjawiskiem zupełnie zwyczajnym, tylko nikt nie patrzy.</p>
+  </div>
+
+  <div class="panel glossary">
+    <div class="panel-label">Słowniczek</div>
+    <dl>
+      <dt>halo 22°</dt>
+      <dd>Koło wokół Słońca lub Księżyca, z załamania w sześciokątnych kryształach. Promień zawsze ten sam, czerwień od wewnątrz.</dd>
+      <dt>kąt łamiący</dt>
+      <dd>Kąt między dwiema ścianami pryzmatu, przez które przechodzi światło. W sześciokącie: 60° (ściany boczne) lub 90° (ściana i podstawa).</dd>
+      <dt>słońca poboczne (parhelia)</dt>
+      <dd>Jasne plamy po bokach Słońca, z poziomo ułożonych płytek lodu. Odsuwają się od Słońca, gdy ono się podnosi.</dd>
+      <dt>słup świetlny</dt>
+      <dd>Pionowa smuga światła nad Słońcem lub latarnią. Z odbicia, nie z załamania — stąd brak własnych barw.</dd>
+      <dt>łuk okołozenitalny</dt>
+      <dd>Barwny łuk wysoko nad Słońcem, wygięty ku górze. Najczystsze barwy na niebie; wymaga Słońca poniżej 32°.</dd>
+      <dt>pył diamentowy</dt>
+      <dd>Kryształki lodu unoszące się tuż przy ziemi przy silnym mrozie. Tworzą słupy nad źródłami światła.</dd>
+      <dt>okrąg parheliczny</dt>
+      <dd>Biała pozioma linia przez całe niebo na wysokości Słońca, z odbicia od pionowych ścian kryształów.</dd>
+    </dl>
+  </div>
+
+  <div class="next">
+    <div class="panel-label" style="color:var(--violet);">Co dalej</div>
+    <p>Zostało trzecie zachowanie światła, którego jeszcze nie użyliśmy. Odbicie mieliśmy przy słupach, załamanie przy tęczy i halo — teraz przyjdzie kolej na <strong>dyfrakcję</strong>, czyli zaginanie się światła na krawędziach. Da nam pierścienie wokół Księżyca, opalizujące obrzeża chmur i pierścienie wokół cienia własnej głowy w samolocie. Przy okazji nauczymy się mierzyć rozmiar kropel w chmurze, do której nigdy nie dolecimy.</p>
+  </div>
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>
@@ -45,5 +258,43 @@
 </div>
 
 <script src="../assets/interactive.js"></script>
+<script type="module">
+import { createDiagram3D } from '../assets/sky3d.js';
+/* Szesciokatny slupek lodu. Promien wchodzi jedna sciana boczna i wychodzi
+   co druga — miedzy nimi kat lamiacy 60 stopni, ktory daje halo 22 stopnie. */
+const R = 1.5;                 // promien opisany szesciokata
+const H = 2.6;                 // dlugosc slupka
+const w = (k) => [R * Math.cos(k * Math.PI / 3), 0, R * Math.sin(k * Math.PI / 3)];
+const sc = (v, s) => [v[0] * s, v[1] * s, v[2] * s];
+// srodki scian bocznych 0 i 2 (co druga) — tam wchodzi i wychodzi promien
+const we = sc([(w(0)[0] + w(1)[0]) / 2, 0, (w(0)[2] + w(1)[2]) / 2], 1);
+const wy = sc([(w(2)[0] + w(3)[0]) / 2, 0, (w(2)[2] + w(3)[2]) / 2], 1);
+
+createDiagram3D(document.getElementById('krysztalLab'), {
+  fov: 40,
+  camera: { dist: 7.5, phi: 0.72, theta: 0.55, minDist: 4, maxDist: 20 },
+  parts: [
+    { type: 'hexPrism', r: R, h: H, at: [0, 0, 0],
+      color: 'ice', opacity: 0.18, edges: true },
+    { type: 'label', text: 'KRYSZTAŁ LODU · sześciokątny słupek', at: [0, 2.3, 0], color: 'ice' },
+    // promien: z zewnatrz -> sciana 0 -> wnetrze -> sciana 2 -> na zewnatrz
+    { type: 'polyline', color: 'light', points: [
+      [we[0] * 3.4, 1.5, we[2] * 3.4],
+      [we[0], 0.28, we[2]],
+      [wy[0], -0.05, wy[2]],
+      [wy[0] * 3.4, -0.75, wy[2] * 3.4],
+    ] },
+    { type: 'sphere', r: 0.075, at: [we[0], 0.28, we[2]], color: 'light', opacity: 1, depthWrite: true },
+    { type: 'sphere', r: 0.075, at: [wy[0], -0.05, wy[2]], color: 'light', opacity: 1, depthWrite: true },
+    { type: 'label', text: 'wchodzi', at: [we[0] * 3.0, 1.9, we[2] * 3.0], color: 'light' },
+    { type: 'label', text: 'wychodzi — odchylone o 22°', at: [wy[0] * 3.0, -1.25, wy[2] * 3.0], color: 'light' },
+    // kat lamiacy 60 stopni miedzy normalnymi scian 0 i 2
+    { type: 'polyline', color: 'muted', opacity: 0.8, points: [
+      [we[0] * 1.9, 0, we[2] * 1.9], [0, 0, 0], [wy[0] * 1.9, 0, wy[2] * 1.9],
+    ] },
+    { type: 'label', text: 'kąt łamiący 60°', at: [0, -0.55, 0], color: 'muted' },
+  ],
+});
+</script>
 </body>
 </html>

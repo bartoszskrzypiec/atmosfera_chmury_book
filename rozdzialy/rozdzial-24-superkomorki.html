@@ -211,6 +211,231 @@
     <p>I jedna rzecz na koniec, najprostsza ze wszystkich: <strong>warto czasem po prostu stanąć i popatrzeć w górę przez pięć minut</strong>. Nie po to, żeby coś rozpoznać. Po to, żeby zobaczyć, że się rusza.</p>
   </div>
 
+  <div class="section">
+    <div class="section-eyebrow">Anatomia · gdzie w superkomórce co jest</div>
+    <h2>Mapa burzy widziana z góry</h2>
+
+    <p>Superkomórka ma stałą, powtarzalną budowę i to jest w niej najbardziej niepokojące: <strong>wygląda podobnie za każdym razem</strong>. Warto znać jej rozkład, bo pozwala on odpowiedzieć na jedyne pytanie, które w terenie ma znaczenie — w którą stronę się oddalić.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Superkomórka z lotu ptaka</span><span>przemieszcza się w prawo</span></div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="a24" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#e8a33d"/></marker>
+        </defs>
+
+        <ellipse cx="330" cy="150" rx="200" ry="112" fill="#4fc3c0" opacity="0.12"/>
+        <ellipse cx="360" cy="146" rx="150" ry="86" fill="#4fc3c0" opacity="0.16"/>
+        <ellipse cx="390" cy="142" rx="98" ry="58" fill="#4fc3c0" opacity="0.2"/>
+        <path d="M196,196 q-46,10 -58,44 q-4,30 30,32 q28,-2 26,-30 q-2,-26 -22,-32 q26,-6 44,-14 z" fill="#4fc3c0" opacity="0.22"/>
+        <path d="M196,196 q-46,10 -58,44 q-4,30 30,32 q28,-2 26,-30 q-2,-26 -22,-32" fill="none" stroke="#4fc3c0" stroke-width="2"/>
+        <text x="82" y="286" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11.5">echo hakowe</text>
+
+        <circle cx="172" cy="240" r="26" fill="none" stroke="#9c82d8" stroke-width="2.4" stroke-dasharray="5 4"/>
+        <path d="M150,228 a26,26 0 0 1 30,-6" stroke="#9c82d8" stroke-width="2.4" fill="none" marker-end="url(#a24)"/>
+        <text x="152" y="196" fill="#9c82d8" font-family="IBM Plex Mono, monospace" font-size="11.5">mezocyklon</text>
+        <text x="132" y="180" fill="#9c82d8" font-family="IBM Plex Mono, monospace" font-size="10.5">tu bywa trąba</text>
+
+        <text x="330" y="120" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="13">rdzeń opadu</text>
+        <text x="330" y="140" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="11">ulewa, grad</text>
+
+        <path d="M600,240 q-80,-16 -140,-30" stroke="#e8a33d" stroke-width="2.5" fill="none" stroke-dasharray="6 4" marker-end="url(#a24)"/>
+        <text x="560" y="270" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11.5">dopływ ciepłego, wilgotnego powietrza</text>
+
+        <path d="M540,60 L700,60" stroke="#ecebe4" stroke-width="2" marker-end="url(#a24)" opacity="0.5"/>
+        <text x="540" y="46" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="11">kierunek ruchu burzy</text>
+
+        <line x1="30" y1="292" x2="730" y2="292" stroke="#2a2f38" stroke-width="1"/>
+        <text x="30" y="314" fill="#e8a33d" font-family="IBM Plex Sans, sans-serif" font-size="12.5">Uciekamy w bok, prostopadle do ruchu burzy — nigdy przed nią i nigdy w stronę haka.</text>
+      </svg>
+      <div class="diagram-caption">Najgroźniejszy narożnik jest tylny i lewy względem kierunku ruchu — tam siedzi mezocyklon i tam, jeśli w ogóle, powstaje trąba. Rdzeń opadu jest z przodu, więc ucieczka „przed burzą” prowadzi prosto w ulewę i grad, a ucieczka do tyłu — prosto w to, przed czym uciekamy.</div>
+    </div>
+
+    <p>Z tej mapy wynika też, dlaczego superkomórka bywa <strong>otoczona deszczem</strong> i przez to trudna do zobaczenia. Jeśli mezocyklon zostanie owinięty opadem, ewentualna trąba jest niewidoczna aż do momentu, w którym jest kilkaset metrów od nas. To najniebezpieczniejszy wariant i dlatego meteorolodzy nie polegają na wzroku, tylko na radarze.</p>
+
+    <p>Rozróżnienie, które w terenie naprawdę się przydaje, dotyczy dwóch chmur łatwych do pomylenia.</p>
+
+    <div class="worked">
+      <div class="wlabel">Wał szkwałowy czy chmura ścianowa</div>
+      <div class="step"><span class="k">Wał szkwałowy (arcus, shelf cloud)</span> — długi, poziomy, ciągnie się przez całe niebo, <span class="v">na czole burzy</span>, wygląda jak nadciągająca fala</div>
+      <div class="step">Znaczy: <span class="v">za chwilę silny wiatr i ulewa</span>. Efektowny, groźny umiarkowanie</div>
+      <div class="step"><span class="k">Chmura ścianowa (wall cloud)</span> — mała, zwarta, obniżona, <span class="v">na tyle burzy</span>, bezdeszczowa, wyraźnie wiruje</div>
+      <div class="step">Znaczy: <span class="result">tu jest mezocyklon</span>. To ona bywa zapowiedzią trąby</div>
+      <div class="check">Najprostszy test nie dotyczy kształtu, tylko <strong>deszczu i obrotu</strong>. Wał ma za sobą ścianę deszczu i nie wiruje. Chmura ścianowa wisi w miejscu bezdeszczowym i obraca się na tyle wyraźnie, że widać to w kilkanaście sekund. Jeśli coś się kręci — nie fotografujemy tego, tylko odjeżdżamy w bok.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Domknięcie · po co była ta cała książka</div>
+    <h2>Jedno zdanie, dwadzieścia cztery rozdziały</h2>
+
+    <p>Warto na koniec zobaczyć, jak niewiele było w tej książce różnych mechanizmów. Wygląda na to, że opisaliśmy kilkadziesiąt zjawisk — błękit nieba, czerwony zachód, płaskie dno chmury, halo, tęczę, front, burzę. W istocie opisaliśmy <strong>dwa</strong>, w kilku skalach.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Cała książka na jednej osi</span><span>rozmiar przeszkody</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="50" y1="120" x2="720" y2="120" stroke="#2a2f38" stroke-width="2"/>
+
+        <g>
+          <circle cx="120" cy="120" r="4" fill="#4fc3c0"/>
+          <text x="120" y="96" text-anchor="middle" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">0,0003 µm</text>
+          <text x="120" y="150" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12.5">cząsteczka powietrza</text>
+          <text x="120" y="170" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">błękit nieba, czerwony</text>
+          <text x="120" y="186" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">zachód, blue hour</text>
+          <text x="120" y="206" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5">R.5–R.7</text>
+        </g>
+
+        <g>
+          <circle cx="300" cy="120" r="9" fill="#4fc3c0"/>
+          <text x="300" y="92" text-anchor="middle" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">0,5–5 µm</text>
+          <text x="300" y="150" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12.5">aerozol, kropelka mgły</text>
+          <text x="300" y="170" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">blade niebo, perspektywa</text>
+          <text x="300" y="186" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">powietrzna, wieńce, gloria</text>
+          <text x="300" y="206" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5">R.8, R.21</text>
+        </g>
+
+        <g>
+          <circle cx="480" cy="120" r="16" fill="#4fc3c0"/>
+          <text x="480" y="86" text-anchor="middle" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">20–2000 µm</text>
+          <text x="480" y="154" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12.5">kropelka i kropla</text>
+          <text x="480" y="174" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">biała chmura, deszcz,</text>
+          <text x="480" y="190" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">tęcza</text>
+          <text x="480" y="210" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5">R.12, R.19</text>
+        </g>
+
+        <g>
+          <path d="M636,104 l24,0 l12,16 l-12,16 l-24,0 l-12,-16 z" fill="#9c82d8" opacity="0.6"/>
+          <text x="648" y="86" text-anchor="middle" fill="#9c82d8" font-family="IBM Plex Mono, monospace" font-size="11">50–1000 µm</text>
+          <text x="648" y="154" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12.5">kryształek lodu</text>
+          <text x="648" y="174" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">halo, słońca poboczne,</text>
+          <text x="648" y="190" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="11.5">słupy, Cirrus</text>
+          <text x="648" y="210" text-anchor="middle" fill="#8b909b" font-family="IBM Plex Mono, monospace" font-size="10.5">R.14, R.20</text>
+        </g>
+
+        <line x1="50" y1="242" x2="720" y2="242" stroke="#2a2f38" stroke-width="1"/>
+        <text x="50" y="266" fill="#e8a33d" font-family="IBM Plex Sans, sans-serif" font-size="13">Mechanizm pierwszy: światło napotyka coś i zmienia kierunek. Zmienia się tylko rozmiar tego czegoś.</text>
+        <text x="50" y="288" fill="#e8a33d" font-family="IBM Plex Sans, sans-serif" font-size="13">Mechanizm drugi: powietrze idzie w górę, stygnie i oddaje wodę. Zmienia się tylko, co je popchnęło.</text>
+      </svg>
+      <div class="diagram-caption">Czterech przeszkód i dwóch mechanizmów starczyło na całą książkę. Reszta to warunki: jak wysoko, jak wilgotno, jak mocno popchnięte.</div>
+    </div>
+
+    <p><strong>Mechanizm pierwszy: światło napotyka coś po drodze.</strong> Jeśli to coś jest znacznie mniejsze od fali — dostajemy błękit i czerwony zachód. Porównywalne z falą — bladość, wieńce, glorię. Znacznie większe — biel chmury, tęczę, halo. Jedno prawo, cztery reżimy wielkości, kilkanaście zjawisk.</p>
+
+    <p><strong>Mechanizm drugi: powietrze idzie w górę i stygnie.</strong> Wszystko, co w tej książce nazwaliśmy chmurą, jest skutkiem tego jednego zdania. Różnią się wyłącznie odpowiedzi na pytanie, <em>co je popchnęło</em>: nagrzana ziemia daje Cumulusa, grzbiet górski daje lenticularis, front ciepły daje warstwową sekwencję, front chłodny daje burzę. Ten sam mechanizm, cztery różne pchnięcia, dziesięć rodzajów chmur.</p>
+
+    <p>To jest właściwa nagroda za przeczytanie tej książki i nie jest nią umiejętność nazywania chmur. Jest nią to, że niebo przestaje być zbiorem osobnych ciekawostek, a staje się jedną rzeczą oglądaną z różnych stron. Halo i tęcza przestają być dwoma zjawiskami do zapamiętania — są tym samym światłem załamującym się na dwóch różnych przeszkodach. Stratus i Cumulonimbus przestają być dwiema chmurami — są tym samym powietrzem, popchniętym z różną siłą.</p>
+
+    <p>I stąd bierze się rzecz, którą trudno opisać, a łatwo sprawdzić: <strong>po tej książce nie da się już patrzeć w niebo bez czytania go</strong>. Cirrus na zachodzie przestaje być ładny i staje się informacją. Płaskie dno Cumulusa przestaje być kształtem i staje się kreską pokazującą, gdzie dziś jest punkt rosy. To nie odbiera niebu niczego — dokłada mu warstwę, której wcześniej nie było widać.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Skala zjawisk · od kałuży do kontynentu</div>
+    <h2>Ta sama fizyka na siedmiu rzędach wielkości</h2>
+
+    <p>Jest jeszcze jeden sposób, żeby uporządkować to, co opisała ta książka: <strong>według rozmiaru</strong>. Okazuje się wtedy, że atmosfera robi w gruncie rzeczy to samo na każdej skali, od kropelki po układ niżowy, i że rozmiar zjawiska przekłada się wprost na to, jak długo trwa i jak dobrze da się je przewidzieć.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Rozmiar, czas trwania, przewidywalność</span><span>skala logarytmiczna</span></div>
+      <svg viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="70" y1="212" x2="720" y2="212" stroke="#2a2f38" stroke-width="1.8"/>
+        <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#8b909b" text-anchor="middle">
+          <text x="120" y="232">100 m</text><text x="240" y="232">1 km</text><text x="360" y="232">10 km</text>
+          <text x="480" y="232">100 km</text><text x="600" y="232">1000 km</text>
+        </g>
+
+        <g>
+          <ellipse cx="120" cy="176" rx="16" ry="10" fill="#ecebe4" opacity="0.8"/>
+          <text x="120" y="152" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12">termik</text>
+          <text x="120" y="252" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="10.5">minuty</text>
+        </g>
+        <g>
+          <path d="M216,186 a18,18 0 0 1 16,-18 a20,20 0 0 1 34,-2 a16,16 0 0 1 18,20 z" fill="#ecebe4" opacity="0.85"/>
+          <text x="248" y="144" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12">Cumulus</text>
+          <text x="240" y="252" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="10.5">kwadrans</text>
+        </g>
+        <g>
+          <path d="M330,190 a26,26 0 0 1 8,-34 a22,22 0 0 1 18,-24 a24,24 0 0 1 40,6 a26,26 0 0 1 16,30 a26,26 0 0 1 12,22 z" fill="#ecebe4" opacity="0.9"/>
+          <path d="M318,132 q42,-12 84,-8 q28,-2 42,6 q-40,10 -84,6 q-30,4 -42,-4 z" fill="#9c82d8" opacity="0.4"/>
+          <text x="368" y="112" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12">komórka burzowa</text>
+          <text x="360" y="252" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="10.5">godzina</text>
+        </g>
+        <g>
+          <ellipse cx="490" cy="170" rx="52" ry="30" fill="#4fc3c0" opacity="0.25"/>
+          <ellipse cx="504" cy="166" rx="30" ry="18" fill="#4fc3c0" opacity="0.3"/>
+          <circle cx="458" cy="186" r="12" fill="none" stroke="#9c82d8" stroke-width="2" stroke-dasharray="4 3"/>
+          <text x="490" y="126" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12">superkomórka</text>
+          <text x="480" y="252" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="10.5">kilka godzin</text>
+        </g>
+        <g>
+          <path d="M600,150 a48,48 0 1 1 -0.1,0" fill="none" stroke="#6e93be" stroke-width="2.5" stroke-dasharray="7 5"/>
+          <path d="M600,150 q34,-20 46,10 q10,34 -26,42" fill="none" stroke="#6e93be" stroke-width="2.5"/>
+          <text x="600" y="100" text-anchor="middle" fill="#ecebe4" font-family="IBM Plex Sans, sans-serif" font-size="12">niż i fronty</text>
+          <text x="600" y="252" text-anchor="middle" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="10.5">kilka dni</text>
+        </g>
+
+        <line x1="70" y1="268" x2="720" y2="268" stroke="#2a2f38" stroke-width="1"/>
+        <text x="70" y="290" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12">Im większe zjawisko, tym dłużej trwa — i tym lepiej daje się przewidzieć.</text>
+        <path d="M480,282 L716,282" stroke="#4fc3c0" stroke-width="2" opacity="0.6"/>
+        <text x="600" y="278" text-anchor="middle" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="10">prognoza działa dobrze</text>
+        <path d="M76,282 L360,282" stroke="#6e93be" stroke-width="2" opacity="0.5" stroke-dasharray="4 4"/>
+        <text x="218" y="278" text-anchor="middle" fill="#6e93be" font-family="IBM Plex Mono, monospace" font-size="10">tylko prawdopodobieństwo</text>
+      </svg>
+      <div class="diagram-caption">Ta zależność wyjaśnia coś, co bywa źródłem pretensji do prognoz. Model dobrze przewiduje, że jutro nad Polską przejdzie front — bo front ma tysiąc kilometrów i trwa dwa dni. Nie przewidzi, czy burza spadnie na nasze osiedle, bo komórka ma dziesięć kilometrów i trwa godzinę.</div>
+    </div>
+
+    <p>Warto rozumieć, że to nie jest wada modeli, którą da się usunąć lepszym komputerem. Zjawisko, które trwa godzinę, trzeba by zainicjować danymi o rozdzielczości znacznie drobniejszej niż to zjawisko — czyli mierzyć atmosferę co kilkaset metrów, na wszystkich wysokościach, w każdej minucie. Takiej sieci pomiarowej nie ma i nie będzie.</p>
+
+    <p>Stąd bierze się prognoza podana jako <strong>prawdopodobieństwo</strong>. „Czterdzieści procent szans na burze” nie znaczy, że model jest niepewny co do pogody. Znaczy, że w warunkach dzisiejszego dnia burze wystąpią na mniej więcej czterdziestu procentach obszaru — a model nie ma jak wskazać, na których.</p>
+
+    <p>I to jest ostatni argument za tym, żeby umieć czytać niebo. <strong>W skali osiedla i najbliższej godziny obserwacja bije każdy model</strong> — nie dlatego, że jest mądrzejsza, tylko dlatego, że jest jedynym pomiarem wykonanym dokładnie tu i dokładnie teraz. Prognoza mówi, czy dzień ma warunki. Niebo mówi, czy właśnie się realizują.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Dalej · co obserwować przez najbliższy rok</div>
+    <h2>Dwanaście rzeczy do wypatrzenia</h2>
+
+    <p>Zamiast zakończenia — lista. Wszystkie te zjawiska są w Polsce osiągalne bez sprzętu i bez wyjazdu; kilka wymaga jedynie tego, żeby wiedzieć, kiedy spojrzeć. Uporządkowane od najłatwiejszych.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Rok obserwacji</span><span>od codziennego po rzadkie</span></div>
+      <svg viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="IBM Plex Sans, sans-serif" font-size="12.5">
+          <rect x="30" y="24" width="700" height="30" rx="6" fill="#4fc3c0" opacity="0.14"/>
+          <text x="44" y="44" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">CODZIENNIE</text>
+          <text x="180" y="44" fill="#ecebe4">płaskie dno Cumulusa · niebieskie cienie · perspektywa powietrzna</text>
+
+          <rect x="30" y="64" width="700" height="30" rx="6" fill="#4fc3c0" opacity="0.11"/>
+          <text x="44" y="84" fill="#4fc3c0" font-family="IBM Plex Mono, monospace" font-size="11">CO TYDZIEŃ</text>
+          <text x="180" y="84" fill="#ecebe4">sekwencja frontu ciepłego · Cirrus uncinus · smugi rozlewające się</text>
+
+          <rect x="30" y="104" width="700" height="30" rx="6" fill="#e8a33d" opacity="0.13"/>
+          <text x="44" y="124" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11">CO MIESIĄC</text>
+          <text x="180" y="124" fill="#ecebe4">halo 22° · cień Ziemi i pas Wenus · wieniec wokół Księżyca</text>
+
+          <rect x="30" y="144" width="700" height="30" rx="6" fill="#e8a33d" opacity="0.1"/>
+          <text x="44" y="164" fill="#e8a33d" font-family="IBM Plex Mono, monospace" font-size="11">KILKA RAZY W ROKU</text>
+          <text x="240" y="164" fill="#ecebe4">tęcza pełna · słońca poboczne · mammatus po burzy</text>
+
+          <rect x="30" y="184" width="700" height="30" rx="6" fill="#9c82d8" opacity="0.14"/>
+          <text x="44" y="204" fill="#9c82d8" font-family="IBM Plex Mono, monospace" font-size="11">RAZ W ROKU</text>
+          <text x="200" y="204" fill="#ecebe4">chmury srebrzyste · łuk okołozenitalny · fale Kelvina-Helmholtza</text>
+
+          <rect x="30" y="224" width="700" height="30" rx="6" fill="#9c82d8" opacity="0.1"/>
+          <text x="44" y="244" fill="#9c82d8" font-family="IBM Plex Mono, monospace" font-size="11">RZADZIEJ</text>
+          <text x="180" y="244" fill="#ecebe4">gloria z samolotu · zielony błysk · asperitas · widmo Brockena</text>
+        </g>
+        <line x1="30" y1="272" x2="730" y2="272" stroke="#2a2f38" stroke-width="1"/>
+        <text x="30" y="296" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12.5">Górne dwa wiersze są kwestią wiedzy — są tam codziennie, wystarczy je rozpoznać.</text>
+        <text x="30" y="314" fill="#8b909b" font-family="IBM Plex Sans, sans-serif" font-size="12.5">Dolne dwa są kwestią nawyku — pojawiają się rzadko i tylko dla tych, którzy patrzą regularnie.</text>
+      </svg>
+      <div class="diagram-caption">Podział na wiersze jest ważniejszy niż same nazwy. Trzy górne wiersze to rzeczy, które już widzieliśmy setki razy, nie wiedząc, na co patrzymy. Trzy dolne to rzeczy, które widzi się dokładnie tyle razy, ile razy się spojrzy.</div>
+    </div>
+
+    <p>Jeżeli z tej listy warto wybrać jedną pozycję, to <strong>chmury srebrzyste</strong>. Reszta prędzej czy później sama wejdzie w pole widzenia; te mają sześciotygodniowe okno w czerwcu i lipcu, wymagają spojrzenia na północ około północy i nie zdarzają się co noc. Kto ich nie poszuka, nie zobaczy ich nigdy — a są jedyną chmurą w tej książce, która unosi się osiemdziesiąt kilometrów nad ziemią i świeci, gdy reszta nieba jest już ciemna.</p>
+
+    <p>A jeżeli warto wybrać jeden nawyk, to nie jest nim rozpoznawanie. Jest nim <strong>drugie spojrzenie</strong>. Ta książka wracała do tego kilkanaście razy w różnych kontekstach: pojedyncze spojrzenie daje nazwę, dwa spojrzenia w odstępie godziny dają mechanizm i prognozę. Cała różnica między oglądaniem nieba a czytaniem go mieści się w tym, czy spojrzeliśmy drugi raz.</p>
+  </div>
+
   <div class="panel practice">
     <div class="panel-label">Z praktyki</div>
     <p><strong>Poziomy ostrzeżeń IMGW.</strong> Stopień 1 (żółty) — zjawiska niebezpieczne, zachować ostrożność, zwykle wystarczy nie planować dłuższych wyjść. Stopień 2 (pomarańczowy) — duże ryzyko szkód, warto zabezpieczyć meble ogrodowe i nie parkować pod drzewami. Stopień 3 (czerwony) — zjawiska ekstremalne, realne zagrożenie życia; wtedy zostajemy w domu i to nie jest przesada.</p>

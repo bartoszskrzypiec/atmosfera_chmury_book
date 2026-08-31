@@ -378,4 +378,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,
   .viz3d__stage{aspect-ratio:4/3;}
   .cheat{grid-template-columns:1fr;gap:8px;}
   .cheat__arrow{transform:rotate(90deg);width:1em;}
+
+  /* Pasek gorny nie miesci sie w jednej linii przy 360 px: marka zostaje
+     w swojej, linki schodza pod nia. */
+  .topnav{flex-wrap:wrap;gap:8px 16px;padding:12px 18px;}
+  .topnav__links{gap:16px;}
+
+  /* Odczyty suwakow niosa opis slowny ("45 st. - okolice poludnia"), wiec
+     nowrap rozpychal strone w poziomie. Na waskich ekranach maja zawijac. */
+  .diagram-controls .value-readout,
+  .viz3d__controls .value-readout,
+  .sim__bar .value-readout{white-space:normal;}
 }

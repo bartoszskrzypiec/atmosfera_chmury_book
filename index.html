@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atmosfera i chmury dla ciekawych</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="topnav__brand" href="index.html">Atmosfera i chmury <span>dla ciekawych</span></a>
+  <div class="topnav__links">
+  <a href="rozdzialy/rozdzial-01-ocean-powietrza.html">Zacznij czytać →</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="viewport-readout">
+    <span>24 rozdziały</span><span>26 dodatków</span><span>3 strony terenowe</span><span>0 wzorów w tekście głównym</span>
+  </div>
+
+  <div class="eyebrow">Książka o niebie</div>
+  <h1>Atmosfera i chmury dla ciekawych</h1>
+  <p class="subtitle">Dlaczego niebo jest niebieskie, zachód czerwony, a chmura ma płaskie dno — i skąd wiadomo, że to wszystko jest jednym mechanizmem, oglądanym pod różnymi warunkami.</p>
+
+  <div class="viz3d" id="hero">
+    <div class="viz3d__head">
+      <p class="viz3d__title">To samo niebo, jeden suwak</p>
+      <p class="viz3d__sub">Nikt nie wpisał tu, że przy niskim Słońcu niebo ma być pomarańczowe. Kolor jest liczony z tego, jak światło zachowuje się w powietrzu — i wychodzi sam. O tym jest ta książka.</p>
+    </div>
+    <div class="viz3d__stage">
+      <canvas></canvas>
+      <div class="viz3d__badge">przeciągnij, żeby się rozejrzeć</div>
+      <div class="viz3d__fallback">
+        <strong>Ten widget potrzebuje WebGL</strong>
+        <span>Przeglądarka go nie udostępnia. Książka działa bez niego w całości — poniżej jest spis treści, a każdy rozdział broni się słowami i rysunkiem.</span>
+      </div>
+    </div>
+    <div class="viz3d__controls">
+      <label for="heroElev">Wysokość Słońca</label>
+      <input type="range" id="heroElev" data-sky="sunElev" data-sky-decimals="0" data-sky-unit="°" min="-6" max="80" step="1" value="12">
+      <span class="value-readout" data-sky-out="sunElev"></span>
+
+      <label for="heroTurb">Zamęt powietrza</label>
+      <input type="range" id="heroTurb" data-sky="turbidity" data-sky-decimals="1" min="0.4" max="9" step="0.1" value="1.6">
+      <span class="value-readout" data-sky-out="turbidity"></span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-label">Dla kogo to jest</div>
+    <ul>
+      <li>Dla kogoś, kto <strong>patrzy w niebo i chciałby wiedzieć, na co patrzy</strong> — bez zakładania czegokolwiek o pamięci ze szkolnej fizyki.</li>
+      <li><strong>W tekście głównym nie ma ani jednego wzoru.</strong> Da się przeczytać wszystkie 24 rozdziały i nie spotkać równania. Matematyka jest w dodatkach i w rozwijanych oknach, dla tych, którzy jej zechcą.</li>
+      <li>Każdy rozdział kończy się czymś, co da się <strong>sprawdzić samemu, wychodząc z domu</strong>. To nie jest książka do czytania w fotelu.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-eyebrow">Skąd zacząć</div>
+    <h2>Trzy sposoby czytania</h2>
+
+    <p><strong>Od początku, po kolei.</strong> Kolejność nie jest przypadkowa — nic nie pojawia się, zanim jest czym to wytłumaczyć. Atlas chmur jest dopiero czwartą częścią, bo „dlaczego Cumulus ma płaskie dno” wymaga punktu rosy, a punkt rosy wymaga wiedzy, że powietrze stygnie przy rozprężaniu.</p>
+
+    <p><strong>Od pytania, które nas przywiodło.</strong> Każdy rozdział jest napisany tak, żeby działał osobno; jeśli potrzebuje czegoś wcześniejszego, mówi o tym wprost i linkuje.</p>
+
+    <p><strong>Z telefonu, na dworze.</strong> Trzy strony terenowe na dole tej listy są zrobione do otwierania pod gołym niebem, nie do czytania.</p>
+  </div>
+
+  <div class="part">
+    <div class="part-label">Część I · Scena: powietrze i światło</div>
+    <p class="index-hook" style="margin:0 0 18px">Trzy rozdziały fundamentu. Bez nich reszta książki jest zbiorem ciekawostek — z nimi wszystko, co dalej, staje się nieuchronne.</p>
+    <div class="index-list">
+      <a class="index-row" href="rozdzialy/rozdzial-01-ocean-powietrza.html">
+        <span class="index-num">Rozdział 01 · Scena</span>
+        <span class="index-title">Ocean, na którego dnie mieszkamy</span>
+        <span class="index-hook">Mieszkamy na dnie oceanu, który naciska na nasze ramiona ciężarem małego samochodu — i nigdy tego nie poczuliśmy.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-02-gdzie-konczy-sie-niebo.html">
+        <span class="index-num">Rozdział 02 · Scena</span>
+        <span class="index-title">Gdzie kończy się niebo</span>
+        <span class="index-hook">Atmosfera nie ma sufitu, ma za to wyraźne piętra — i wyznacza je temperatura, nie wysokość.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-03-rozpraszanie.html">
+        <span class="index-num">Rozdział 03 · Scena</span>
+        <span class="index-title">Rozpraszanie: dlaczego rozmiar ma znaczenie</span>
+        <span class="index-hook">Niebieskie niebo i biała chmura to dokładnie ta sama fizyka. Różnica tkwi wyłącznie w tym, na czym światło się potyka.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-04-oko-i-mozg.html">
+        <span class="index-num">Rozdział 04 · Scena</span>
+        <span class="index-title">Nasze oko nie jest aparatem</span>
+        <span class="index-hook">Zanim zaczniemy oceniać kolor nieba, warto wiedzieć, że przyrząd pomiarowy, którym dysponujemy, notorycznie zmyśla — i robi to na naszą korzyść.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="part">
+    <div class="part-label">Część II · Kolory nieba: od błękitu do granatu</div>
+    <p class="index-hook" style="margin:0 0 18px">Największa wizualna nagroda możliwie wcześnie. Te rozdziały potrzebują tylko Części I — nie ma tu jeszcze ani jednej chmury.</p>
+    <div class="index-list">
+      <a class="index-row" href="rozdzialy/rozdzial-05-niebieskie-niebo.html">
+        <span class="index-num">Rozdział 05 · Kolory nieba</span>
+        <span class="index-title">Dlaczego niebo jest niebieskie</span>
+        <span class="index-hook">Nie od morza, nie od pary wodnej i nie dlatego, że powietrze jest niebieskie. A najciekawsze pytanie brzmi: skoro fiolet rozprasza się mocniej, czemu niebo nie jest fioletowe?</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-06-czerwony-zachod.html">
+        <span class="index-num">Rozdział 06 · Kolory nieba</span>
+        <span class="index-title">Dlaczego zachody są czerwone</span>
+        <span class="index-hook">Zachód nie jest czerwony dlatego, że coś się do światła dodaje — tylko dlatego, że po drodze ubywa z niego wszystkiego innego.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-07-zmierzch.html">
+        <span class="index-num">Rozdział 07 · Kolory nieba</span>
+        <span class="index-title">Zmierzch: najlepsza godzina dnia</span>
+        <span class="index-hook">Różowa wstęga nad wschodnim horyzontem to nie cień Ziemi. Cień jest tym szarym pasem pod nią — i właśnie patrzymy, jak rośnie.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-08-refrakcja-i-miraze.html">
+        <span class="index-num">Rozdział 08 · Kolory nieba</span>
+        <span class="index-title">Kiedy powietrze zakrzywia światło</span>
+        <span class="index-hook">Słońce, które właśnie zachodzi, tak naprawdę zaszło kilka minut temu. To, co widzimy, to jego obraz podniesiony przez powietrze.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="part">
+    <div class="part-label amber">Część III · Woda: silnik chmur</div>
+    <p class="index-hook" style="margin:0 0 18px">Termodynamiczny silnik całej reszty: nasycenie, punkt rosy, chłodzenie przez rozprężanie, chwiejność. To jest warunek wstępny atlasu — bez tego atlas byłby listą nazw do zapamiętania.</p>
+    <div class="index-list">
+      <a class="index-row" href="rozdzialy/rozdzial-09-niewidzialna-woda.html">
+        <span class="index-num">Rozdział 09 · Woda</span>
+        <span class="index-title">Woda, której nie widać</span>
+        <span class="index-hook">Para wodna jest całkowicie przezroczysta. Więc wszystko, co widzimy nad czajnikiem, nad rzeką i nad chłodnią kominową, parą wodną już nie jest.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-10-dlaczego-powietrze-stygnie.html">
+        <span class="index-num">Rozdział 10 · Woda</span>
+        <span class="index-title">Dlaczego powietrze stygnie, kiedy idzie w górę</span>
+        <span class="index-hook">Znamy to z pompki do roweru i z puszki dezodorantu — i dokładnie na tym stoi każda chmura na niebie.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-11-stabilnosc-i-konwekcja.html">
+        <span class="index-num">Rozdział 11 · Woda</span>
+        <span class="index-title">Stabilne, chwiejne, wybuchowe</span>
+        <span class="index-hook">To, czy dzień skończy się płaską szarością, czy burzą, rozstrzyga się rano — w kilku liczbach, których nie widać, ale których skutki widać przez cały dzień.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-12-narodziny-chmury.html">
+        <span class="index-num">Rozdział 12 · Woda</span>
+        <span class="index-title">Narodziny chmury</span>
+        <span class="index-hook">Chmura nie jest obiektem, który gdzieś leci. Jest procesem, który stoi w miejscu, podczas gdy powietrze przez niego przepływa.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="part">
+    <div class="part-label">Część IV · Atlas nieba: rozpoznaj w pięć sekund</div>
+    <p class="index-hook" style="margin:0 0 18px">Dopiero tutaj nazwy — i każda jest konsekwencją czegoś z Części III, a nie hasłem z tabeli.</p>
+    <div class="index-list">
+      <a class="index-row" href="rozdzialy/rozdzial-13-system-nazw.html">
+        <span class="index-num">Rozdział 13 · Atlas</span>
+        <span class="index-title">Dziesięć rodzajów, trzy piętra</span>
+        <span class="index-hook">Nazw chmur nie trzeba uczyć się na pamięć. Wystarczy odpowiedzieć na dwa pytania, a nazwa układa się sama.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-14-chmury-wysokie.html">
+        <span class="index-num">Rozdział 14 · Atlas</span>
+        <span class="index-title">Piętro wysokie: lód nad głową</span>
+        <span class="index-hook">Wszystko, co widzimy powyżej sześciu kilometrów, jest zrobione z lodu — i dlatego wygląda jak pociągnięcia pędzla, a nie jak wata.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-15-chmury-srednie.html">
+        <span class="index-num">Rozdział 15 · Atlas</span>
+        <span class="index-title">Piętro średnie: szarość, która coś zapowiada</span>
+        <span class="index-hook">Kiedy Słońce zaczyna wyglądać jak przez matową szybę, mamy kilka godzin, żeby zdążyć przed deszczem.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-16-chmury-niskie.html">
+        <span class="index-num">Rozdział 16 · Atlas</span>
+        <span class="index-title">Piętro niskie: nasze codzienne niebo</span>
+        <span class="index-hook">Trzy odcienie szarości, które w Polsce zajmują pół roku — i trzy zupełnie różne prognozy.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-17-cumulus-cumulonimbus.html">
+        <span class="index-num">Rozdział 17 · Atlas</span>
+        <span class="index-title">Od bawełnianej kulki do kowadła</span>
+        <span class="index-hook">Ta sama chmura, która o dziesiątej wygląda jak kłębek waty, o siedemnastej może mieć dwanaście kilometrów wysokości i własną energetykę.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-18-odmiany-i-osobliwosci.html">
+        <span class="index-num">Rozdział 18 · Atlas</span>
+        <span class="index-title">Chmury, które wyglądają jak błąd</span>
+        <span class="index-hook">Asperitas nie jest nową chmurą, tylko chmurą, która przez sto lat nie miała nazwy — a wygląda, jakby ktoś odwrócił morze do góry nogami.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="part">
+    <div class="part-label violet">Część V · Optyka nieba: tęcze, halo, glorie</div>
+    <p class="index-hook" style="margin:0 0 18px">Świadomie po atlasie: elementem optycznym jest kropla albo kryształ lodu, więc zdanie „chmura jest soczewką” ma sens dopiero teraz.</p>
+    <div class="index-list">
+      <a class="index-row" href="rozdzialy/rozdzial-19-tecza.html">
+        <span class="index-num">Rozdział 19 · Optyka</span>
+        <span class="index-title">Tęcza: kropla jako pryzmat</span>
+        <span class="index-hook">Tęcza nie jest w żadnym miejscu. Jest kierunkiem — i każdy stojący obok nas widzi własną, zbudowaną z innych kropel.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-20-halo.html">
+        <span class="index-num">Rozdział 20 · Optyka</span>
+        <span class="index-title">Halo: kiedy niebo rysuje lodem</span>
+        <span class="index-hook">Koło wokół Słońca ma zawsze ten sam rozmiar — nieważne, jak wysoko są kryształy i jak duże. To samo w sobie mówi nam, z czego jest zrobione.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-21-wience-glorie-opalizacja.html">
+        <span class="index-num">Rozdział 21 · Optyka</span>
+        <span class="index-title">Wieńce, glorie i opalizacja</span>
+        <span class="index-hook">Kolorowe pierścienie tuż wokół Księżyca pozwalają zmierzyć rozmiar kropel w chmurze, do której nigdy nie dolecimy.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="part">
+    <div class="part-label amber">Część VI · Pogoda: co niebo mówi o jutrze</div>
+    <p class="index-hook" style="margin:0 0 18px">Montaż wszystkiego. Rozpoznawanie chmur zamienia się w prognozowanie, a prognozowanie — pod koniec — w bezpieczeństwo.</p>
+    <div class="index-list">
+      <a class="index-row" href="rozdzialy/rozdzial-22-fronty.html">
+        <span class="index-num">Rozdział 22 · Pogoda</span>
+        <span class="index-title">Front nadchodzi</span>
+        <span class="index-hook">Front atmosferyczny nie jest ścianą. Jest bardzo płaską pochylnią, po której ciepłe powietrze wjeżdża na zimne — i dlatego zapowiada się chmurami na dobę wcześniej.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-23-burza.html">
+        <span class="index-num">Rozdział 23 · Pogoda</span>
+        <span class="index-title">Burza od środka</span>
+        <span class="index-hook">Wiatr, który uderza, zanim spadnie pierwsza kropla, to zimne powietrze wylewające się z chmury jak woda z przewróconego wiadra.</span>
+      </a>
+      <a class="index-row" href="rozdzialy/rozdzial-24-superkomorki.html">
+        <span class="index-num">Rozdział 24 · Pogoda</span>
+        <span class="index-title">Superkomórka, i niebo, na które już nie da się patrzeć tak samo</span>
+        <span class="index-hook">Jedna rzecz odróżnia zwykłą burzę od takiej, która niszczy powiat: to, czy prąd wstępujący zaczął się obracać. Na koniec — co z tym wszystkim zrobić.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="part">
+    <div class="part-label amber">W terenie · do otwarcia na telefonie</div>
+    <p class="index-hook" style="margin:0 0 18px">Trzy narzędzia, nie rozdziały. Bez długiego tekstu, za to z odpowiedzią w kilka dotknięć.</p>
+    <div class="index-list">
+      <a class="index-row" href="teren/klucz-rozpoznawania-chmur.html">
+        <span class="index-num">W terenie</span>
+        <span class="index-title">Klucz do rozpoznawania chmur</span>
+        <span class="index-hook">Drzewo decyzyjne na telefon: wysoko czy nisko, kłaczki czy warstwa, widać przez nią Słońce — i wychodzi nazwa.</span>
+      </a>
+      <a class="index-row" href="teren/kalendarz-nieba.html">
+        <span class="index-num">W terenie</span>
+        <span class="index-title">Kalendarz nieba</span>
+        <span class="index-hook">Co i kiedy da się zobaczyć w Polsce, miesiąc po miesiącu. Od chmur srebrzystych w czerwcu po słupy świetlne w styczniu.</span>
+      </a>
+      <a class="index-row" href="teren/sciaga-prognoza-z-nieba.html">
+        <span class="index-num">W terenie</span>
+        <span class="index-title">Ściąga: co ta chmura zapowiada</span>
+        <span class="index-hook">Widzisz X, za Y godzin będzie Z. Z uczciwie podaną skutecznością każdej reguły.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="part">
+    <div class="part-label violet">Dodatki A–Z · dla tych, którym mało</div>
+    <p class="index-hook" style="margin:0 0 18px">Tu mieszka matematyka, której nie ma w rozdziałach, i szczegóły, które rozdział by rozsadziły. Każdy dodatek mówi w nagłówku, który rozdział przedłuża. Żadnego nie trzeba czytać, żeby zrozumieć książkę.</p>
+    <div class="index-list">
+      <a class="index-row" href="dodatki/dodatek-a-jednostki-i-skale.html">
+        <span class="index-num">Dodatek A · rozszerza R.1</span>
+        <span class="index-title">Jednostki, skale i rzędy wielkości</span>
+        <span class="index-hook">Hektopaskale, kilometry, masa atmosfery, gęstość z wysokością — z rachunkami, żeby liczby z Rozdziału 1 dało się sprawdzić.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-b-adiabaty-i-emagram.html">
+        <span class="index-num">Dodatek B · rozszerza R.10, R.11, R.23 · [WZORY]</span>
+        <span class="index-title">Adiabaty, emagram i CAPE</span>
+        <span class="index-hook">Gradient suchoadiabatyczny i wilgotnoadiabatyczny, czytanie emagramu, LCL, CAPE i CIN — instrukcja obsługi dla samouka.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-c-rozpraszanie-w-liczbach.html">
+        <span class="index-num">Dodatek C · rozszerza R.3, R.5 · [WZORY]</span>
+        <span class="index-title">Rozpraszanie w liczbach: skąd bierze się czwarta potęga</span>
+        <span class="index-hook">Przekrój czynny, zależność 1/λ⁴, przejście od reżimu Rayleigha do Mie, i dlaczego granica wypada akurat tam, gdzie wypada.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-d-dlaczego-nie-fioletowe.html">
+        <span class="index-num">Dodatek D · rozszerza R.5, R.4</span>
+        <span class="index-title">Dlaczego niebo nie jest fioletowe: widmo razy czułość oka</span>
+        <span class="index-hook">Trzy przyczyny rozpisane osobno i pokazane jako jeden iloczyn — z wykresem, na którym widać, gdzie znika fiolet.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-e-polaryzacja-nieba.html">
+        <span class="index-num">Dodatek E · rozszerza R.5</span>
+        <span class="index-title">Polaryzacja nieba i jak ją zobaczyć bez sprzętu</span>
+        <span class="index-hook">Skąd bierze się pas 90°, punkty neutralne, filtr w okularach i nawigacja owadów.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-f-geometria-zmierzchu.html">
+        <span class="index-num">Dodatek F · rozszerza R.7</span>
+        <span class="index-title">Geometria zmierzchu, cień Ziemi i ozon</span>
+        <span class="index-hook">Kąty trzech zmierzchów, stożek cienia, wysokość Pasa Wenus, pasmo Chappuis i tabela dla polskich miast.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-g-refrakcja-i-zielony-blysk.html">
+        <span class="index-num">Dodatek G · rozszerza R.8 · [WZORY]</span>
+        <span class="index-title">Refrakcja w liczbach i zielony błysk</span>
+        <span class="index-hook">Refrakcja przy horyzoncie, spłaszczenie tarczy, warunki zielonego błysku i dlaczego prawie zawsze potrzebuje mirażu.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-h-miraze.html">
+        <span class="index-num">Dodatek H · rozszerza R.8</span>
+        <span class="index-title">Miraże: dolny, górny i Fatamorgana</span>
+        <span class="index-hook">Gradient współczynnika załamania, warstwa prowadząca, trzy rodzaje mirażu i gdzie ich szukać w Polsce.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-i-wilgotnosc-w-liczbach.html">
+        <span class="index-num">Dodatek I · rozszerza R.9 · [WZORY]</span>
+        <span class="index-title">Wilgotność w liczbach</span>
+        <span class="index-hook">Wilgotność względna i bezwzględna, punkt rosy, wzór Magnusa i dlaczego metafora gąbki jest formalnie błędna.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-j-jadra-kondensacji.html">
+        <span class="index-num">Dodatek J · rozszerza R.12, R.9</span>
+        <span class="index-title">Jądra kondensacji: sól, pył i powietrze, które nie chce chmur</span>
+        <span class="index-hook">Przesycenie potrzebne bez jąder, rola soli morskiej i sadzy, i co to znaczy dla chmur nad miastem.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-k-jak-powstaje-deszcz.html">
+        <span class="index-num">Dodatek K · rozszerza R.12, R.16</span>
+        <span class="index-title">Jak powstaje deszcz: koalescencja i proces Bergerona</span>
+        <span class="index-hook">Wzrost kropli przez zderzenia, proces lodowy, prędkości opadania i prawdziwy kształt kropli deszczu.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-l-predkosc-opadania.html">
+        <span class="index-num">Dodatek L · rozszerza R.12 · [WZORY]</span>
+        <span class="index-title">Prędkość opadania i prawo Stokesa</span>
+        <span class="index-hook">Dlaczego kropelka chmurowa opada centymetr na sekundę, a kropla deszczu osiem metrów — z rachunkiem.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-m-klasyfikacja-wmo.html">
+        <span class="index-num">Dodatek M · rozszerza R.13, R.14, R.15, R.16, R.17, R.18</span>
+        <span class="index-title">Pełna klasyfikacja WMO: rodzaje, gatunki, odmiany, cechy</span>
+        <span class="index-hook">Cała łacina w jednej tabeli: dziesięć rodzajów, gatunki, odmiany, cechy dodatkowe i chmury towarzyszące.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-n-katy-na-niebie.html">
+        <span class="index-num">Dodatek N · rozszerza R.13, R.19, R.20</span>
+        <span class="index-title">Kąty na niebie i pomiar dłonią</span>
+        <span class="index-hook">Stopnie kątowe, reguła paznokcia, palca i pięści, i dlaczego 22° oraz 42° są stałe.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-o-katalog-mgiel.html">
+        <span class="index-num">Dodatek O · rozszerza R.16</span>
+        <span class="index-title">Mgła: katalog rodzajów</span>
+        <span class="index-hook">Mgła radiacyjna, adwekcyjna, stokowa, parowania i frontalna — mechanizm i typowe miejsca w Polsce.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-p-smugi-kondensacyjne.html">
+        <span class="index-num">Dodatek P · rozszerza R.14, R.18</span>
+        <span class="index-title">Smugi kondensacyjne: co to naprawdę jest</span>
+        <span class="index-hook">Rzeczowo i bez ironii: skąd się biorą, dlaczego jedne znikają w sekundy, a inne zostają na godziny.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-q-chmury-srebrzyste.html">
+        <span class="index-num">Dodatek Q · rozszerza R.18, R.2</span>
+        <span class="index-title">Chmury srebrzyste i perłowe: mieszkanki górnej atmosfery</span>
+        <span class="index-hook">Osiemdziesiąt kilometrów, pył meteorowy i lód — najwyższe chmury świata, widoczne z Polski w czerwcu.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-r-geometria-teczy.html">
+        <span class="index-num">Dodatek R · rozszerza R.19 · [WZORY]</span>
+        <span class="index-title">Geometria tęczy: skąd dokładnie 42°</span>
+        <span class="index-hook">Kąt minimalnego odchylenia, druga tęcza, pas Aleksandra i moment, w którym teoria promieni przestaje wystarczać.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-s-krysztaly-i-halo.html">
+        <span class="index-num">Dodatek S · rozszerza R.20, R.14</span>
+        <span class="index-title">Kryształy lodu i katalog zjawisk halo</span>
+        <span class="index-hook">Geometria sześciokąta, kąty łamiące 60° i 90°, orientacje kryształów i mapa nieba z kilkunastoma zjawiskami.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-t-dyfrakcja-w-liczbach.html">
+        <span class="index-num">Dodatek T · rozszerza R.21 · [WZORY]</span>
+        <span class="index-title">Dyfrakcja w liczbach</span>
+        <span class="index-hook">Rozmiar wieńca a rozmiar kropli — jak odczytać jedno z drugiego, stojąc na balkonie.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-u-fronty-na-mapie.html">
+        <span class="index-num">Dodatek U · rozszerza R.22</span>
+        <span class="index-title">Fronty na mapie synoptycznej: jak czytać izobary</span>
+        <span class="index-hook">Izobary, symbole frontów, sektor ciepły i trzydziestosekundowe czytanie mapy.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-v-elektrycznosc-burzy.html">
+        <span class="index-num">Dodatek V · rozszerza R.23</span>
+        <span class="index-title">Elektryczność burzy: od ładunku do grzmotu</span>
+        <span class="index-hook">Rozdział ładunku w strefie mieszanej, lider skokowy, uderzenie powrotne i fizyka grzmotu.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-w-superkomorka-i-traby.html">
+        <span class="index-num">Dodatek W · rozszerza R.24, R.23</span>
+        <span class="index-title">Superkomórka, grad i trąby powietrzne w Polsce</span>
+        <span class="index-hook">Mezocyklon, echo hakowe, skale Fujity i TORRO, klimatologia trąb w Polsce i nawałnica z sierpnia 2017.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-x-fotografia-nieba.html">
+        <span class="index-num">Dodatek X · rozszerza R.4, R.7, R.6</span>
+        <span class="index-title">Fotografia nieba</span>
+        <span class="index-hook">Ekspozycja przy zachodzie i błękitnej godzinie, filtr polaryzacyjny, telefon kontra aparat i granica uczciwej obróbki.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-y-cg-niebo-w-blenderze.html">
+        <span class="index-num">Dodatek Y · rozszerza R.5, R.6, R.7 · [CG]</span>
+        <span class="index-title">Tak to robi Blender: Sky Texture i suwak Sun Elevation</span>
+        <span class="index-hook">Co naprawdę liczy Sky Texture, skąd w niej suwak Turbidity i dlaczego zmiana kąta Słońca przelicza kolor całego nieba.</span>
+      </a>
+      <a class="index-row" href="dodatki/dodatek-z-cg-chmury-w-renderze.html">
+        <span class="index-num">Dodatek Z · rozszerza R.12, R.17 · [CG]</span>
+        <span class="index-title">Dlaczego chmury w renderze są tak drogie</span>
+        <span class="index-hook">Czym różni się powierzchnia od objętości, co robi ray marching i dlaczego jedna chmura potrafi kosztować więcej niż całe miasto w tle.</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="panel practice">
+    <div class="panel-label">Jak ta książka jest zrobiona</div>
+    <p>Czysty HTML, CSS i JavaScript. Bez systemu budowania, bez frameworka, bez śledzenia. Wszystkie około stu dwudziestu ilustracji są <strong>wektorowe albo liczone na żywo</strong> — w całym repozytorium nie ma ani jednego pliku .png czy .jpg. Jedenaście widgetów trójwymiarowych korzysta z three.js, wgranego do repozytorium zamiast ładowanego z sieci, więc książka działa też bez internetu.</p>
+    <p>Kolory znaczą w niej zawsze to samo, przez wszystkie sto dwadzieścia rysunków: <span class="term-amber">bursztyn to światło</span>, <span class="term-cyan">cyan to woda i powietrze</span>, <span class="term-violet">fiolet to lód</span>, <span class="term-raster">niebieski to zimne powietrze</span>. Po trzecim rozdziale przestaje się potrzebować legendy.</p>
+  </div>
+
+  <div class="footer-note">
+    <p>Liczby są metryczne i zapisane po polsku — z przecinkiem dziesiętnym. Wysokości w kilometrach, wielkości kropelek w mikrometrach, temperatury w stopniach Celsjusza. Godziny i daty w Kalendarzu nieba dotyczą środkowej Polski.</p>
+    <p>Część stron używa modułów ES, więc przy otwieraniu prosto z dysku widgety 3D się nie załadują — reszta treści działa normalnie. Wystarczy dowolny lokalny serwer, żeby działało wszystko.</p>
+  </div>
+
+</div>
+
+<script type="module">
+import { createSkyDome, bindSliders } from './assets/sky3d.js';
+const host = document.getElementById('hero');
+const sky = createSkyDome(host, { sunElev: 12, fov: 78, pitch: 0.16 });
+if (sky.ok) bindSliders(host, sky, {
+  fmt(v, el) {
+    if (el.dataset.sky === 'turbidity') {
+      const opis = v < 0.8 ? 'powietrze wyj\u0105tkowo czyste'
+                 : v < 1.6 ? 'przeci\u0119tny czysty dzie\u0144'
+                 : v < 3.5 ? 'lekkie zamglenie'
+                 : v < 6 ? 'miejskie lato'
+                 : 'g\u0119sty smog';
+      return v.toFixed(1).replace('.', ',') + ' \u00b7 ' + opis;
+    }
+    if (el.dataset.sky === 'sunElev') {
+      const opis = v < -0.5 ? 'S\u0142o\u0144ce pod horyzontem \u2014 zmierzch'
+                 : v < 6 ? 'z\u0142ota godzina'
+                 : v < 20 ? 'wczesny ranek albo p\u00f3\u017ane popo\u0142udnie'
+                 : v < 45 ? 'przedpo\u0142udnie'
+                 : 'okolice po\u0142udnia';
+      return Math.round(v) + '\u00b0 \u00b7 ' + opis;
+    }
+    return String(v);
+  }
+});
+</script>
+<script src="assets/interactive.js"></script>
+</body>
+</html>

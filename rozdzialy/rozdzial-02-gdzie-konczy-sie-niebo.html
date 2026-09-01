@@ -62,6 +62,15 @@
 
     <p>To ważniejsze, niż wygląda. Temperatura rządzi tym, czy powietrze może się mieszać w pionie. Kiedy na dole jest cieplej niż na górze, cieplejsze porcje mają skłonność do unoszenia się i warstwa jest przemieszana. Kiedy odwrotnie — na górze cieplej — nic nie chce się unosić i warstwa staje się szczelna. <span class="term-cyan">Profil temperatury jest więc mapą tego, gdzie w atmosferze wolno się poruszać w pionie.</span> Wrócimy do tego w Rozdziale 11 i okaże się, że decyduje o wszystkim.</p>
 
+    <button class="advanced-btn" data-modal-target="adv-wypornosc">Zaawansowane</button>
+    <template id="adv-wypornosc">
+      <h3>Kiedy powietrze naprawdę chce się unosić</h3>
+      <p>„Cieplejsze porcje mają skłonność do unoszenia się" jest prawdą, ale nie tłumaczy <em>dlaczego</em> — a bez tego łatwo o zbyt prostą wersję reguły.</p>
+      <p><strong>Skąd bierze się ta skłonność.</strong> Ta sama ilość cząsteczek powietrza w cieplejszej porcji zajmuje więcej miejsca niż w chłodniejszej — więc cieplejsza porcja jest po prostu rzadsza, lżejsza od otoczenia o tej samej objętości, i unosi się z tego samego powodu, co drewno w wodzie.</p>
+      <p><strong>Ale to nie jest prosty wyścig „cieplej na dole kontra cieplej na górze".</strong> Wznosząca się porcja powietrza sama stygnie w miarę wznoszenia — to mechanizm rozprężania z sekcji „Dlaczego wysoko jest zimno" niżej na tej stronie. Prawdziwe pytanie brzmi więc: <strong>czy porcja, stygnąc w swoim własnym tempie, wciąż jest cieplejsza od otoczenia, na które akurat trafiła?</strong> Jeśli tak — dalej się wznosi. Jeśli otoczenie w danym miejscu jest już cieplejsze od niej, porcja przestaje być lżejsza i zawraca.</p>
+      <p>To dokładnie ten moment opisuje dalej ta strona zdaniem, że wznosząca się porcja „traci ochotę na dalszą podróż" przy tropopauzie — to nie metafora, tylko właśnie ten punkt, w którym porcja i otoczenie mają wreszcie tę samą temperaturę. W meteorologii nazywa się to poziomem neutralnej wyporności. Dokładne liczby i wykres, na którym da się to zobaczyć, są w Rozdziale 10, Rozdziale 11 i w Dodatku B.</p>
+    </template>
+
     <div class="diagram-frame">
       <div class="diagram-hud"><span>Profil temperatury</span><span>przesuń wysokość</span></div>
       <div class="diagram-controls">
@@ -174,9 +183,27 @@
       <p class="myth__why">Ten trop jest najbliżej prawdy i dlatego najbardziej myli. Rozrzedzenie <em>ma</em> znaczenie, ale nie samo z siebie — dopiero przez to, co robi z powietrzem, które się wznosi. To jest temat Rozdziału 10.</p>
     </div>
 
+    <button class="advanced-btn" data-modal-target="adv-termosfera-cieplo">Zaawansowane</button>
+    <template id="adv-termosfera-cieplo">
+      <h3>Gorące cząsteczki, zimna próżnia</h3>
+      <p>Zdanie „byłoby tam gorąco, gdyby było czym się grzać" brzmi jak wykręt, a jest dosłowną prawdą — bo temperatura mierzy co innego, niż nam się wydaje.</p>
+      <p><strong>Temperatura to prędkość, nie ilość.</strong> Fizycznie jest miarą tego, jak szybko poruszają się pojedyncze cząsteczki. W termosferze te nieliczne cząsteczki, które tam zostały, pędzą naprawdę szybko — na tyle szybko, że odpowiada to setkom stopni. Pod tym względem termosfera jest gorąca i to nie jest przenośnia.</p>
+      <p><strong>Ale ciepło, które czujemy, to co innego — to liczba zderzeń.</strong> Skóra grzeje się nie od prędkości jednej cząsteczki, tylko od tego, ile cząsteczek uderza w nią co sekundę. Wyobraźmy sobie pustą salę z kilkoma piłeczkami pingpongowymi latającymi jak szalone, i drugą salę stłoczoną piłeczkami poruszającymi się wolno. W pierwszej niemal nic nas nie trafi — a to właśnie termosfera: gęstość jest tam miliony razy mniejsza niż przy ziemi, więc mimo szalonej prędkości cząsteczek, zderzeń jest za mało, żeby cokolwiek realnie ogrzać.</p>
+      <p>Dlatego satelita krążący w termosferze nie topi się od „gorącego" powietrza — po prostu nie ma z czym się zderzać. Rozrzedzenie samo w sobie nie chłodzi ani nie grzeje; decyduje dopiero to, ile energii faktycznie da się przekazać przez kontakt. Pełny mechanizm tego, dlaczego <em>w troposferze</em> wznoszące się powietrze mimo wszystko stygnie, poznamy w Rozdziale 10.</p>
+    </template>
+
     <p>Odpowiedź prawdziwą podamy w całości później, bo wymaga jednego pojęcia, którego jeszcze nie mamy. W skrócie: <strong>Słońce nie grzeje powietrza bezpośrednio</strong>. Światło słoneczne przelatuje przez atmosferę niemal bez oporu i ogrzewa dopiero ziemię — pole, asfalt, dach, wodę. Powietrze bierze ciepło od dołu, przez kontakt z rozgrzaną powierzchnią. Atmosfera jest więc <span class="term-amber">ogrzewana od spodu, nie od góry</span>, jak garnek na kuchence.</p>
 
     <p>To pierwsza połowa odpowiedzi i już wyjaśnia, dlaczego przy ziemi jest cieplej. Druga połowa — dlaczego wznoszące się powietrze stygnie tak regularnie, o mniej więcej sześć i pół stopnia na każdy kilometr — to Rozdział 10. Zapowiedź: nie chodzi o żaden kontakt z zimnem, tylko o rozprężanie. To samo, co zna każdy, kto po pompowaniu roweru dotknął dna pompki.</p>
+
+    <button class="advanced-btn" data-modal-target="adv-garnek-i-pompka">Zaawansowane</button>
+    <template id="adv-garnek-i-pompka">
+      <h3>Skąd naprawdę bierze się ciepło i chłód</h3>
+      <p><strong>Garnek na kuchence to niecały obraz.</strong> Sam kontakt powietrza z rozgrzaną ziemią ogrzewa naprawdę tylko cienką warstwę tuż przy gruncie — powietrze jest fatalnym przewodnikiem ciepła, dlatego robi się z niego izolację ścian. Ciepło idzie dalej w górę dwiema innymi drogami: <strong>termikami</strong>, czyli bąblami ogrzanego powietrza fizycznie unoszącymi się w górę i mieszającymi całą warstwę, oraz <strong>promieniowaniem</strong> — nagrzana ziemia emituje podczerwień, a para wodna w powietrzu ją pochłania i oddaje dalej. „Kontakt" jest więc prawdziwy, ale to najmniejsza z trzech dróg.</p>
+      <p><strong>A dno pompki?</strong> Tu naprawdę chodzi o ściskanie. Gdy pompujemy, tłok ściska powietrze w cylindrze na tyle szybko, że ciepło nie zdąży uciec w trakcie samego ruchu — taki proces nazywa się <em>adiabatycznym</em>. Cała praca włożona w ściskanie zostaje w gazie jako energia, a to podnosi jego temperaturę. Rozprężanie jest lustrzanym odbiciem: gaz sam wykonuje pracę, rozpychając się na boki, więc traci energię i stygnie. Dokładnie to dzieje się z bąblem powietrza wznoszącym się w atmosferze — nikt go nie chłodzi z zewnątrz, sam się rozpręża i sam traci ciepło.</p>
+      <p>Jeśli akurat nie kojarzysz tego ciepła z własnej pompki — to normalne. Efekt jest wyraźny dopiero po kilkunastu szybkich, energicznych pompnięciach, a czuć go trzeba w <strong>dolnej części cylindra, blisko wylotu do węża</strong>, nie na uchwycie na górze, którego zwykle trzymamy się ręką. Metalowa pompka też odprowadza ciepło szybciej niż plastikowa, więc na niej efekt bywa słabszy w dotyku.</p>
+      <p>Pełny wywód — z liczbami, wykresem i drugim, jeszcze bardziej namacalnym przykładem (dezodorant, który stygnie przy rozpylaniu) — czeka w Rozdziale 10.</p>
+    </template>
 
     <a class="inline-deeper" href="../dodatki/dodatek-b-adiabaty-i-emagram.html">↓ Dodatek B — adiabaty, emagram i CAPE, czyli te liczby na wykresie</a>
   </div>
@@ -388,6 +415,15 @@
     <p><strong>Ekran w samolocie mówi prawdę.</strong> Temperatura za burtą na wysokości przelotowej to typowo od minus pięćdziesięciu do minus sześćdziesięciu stopni — i to latem, nad Polską. Warto raz na to spojrzeć zamiast na film, bo to jedyna okazja, żeby zobaczyć profil temperatury z tej książki jako liczbę, a nie jako wykres.</p>
     <p><strong>Kowadło widać z bardzo daleka.</strong> Burza, która wypuściła kowadło, jest już dojrzała — i widać ją nawet ze stu kilometrów, bo jej szczyt stoi na jedenastu kilometrach. Jeśli latem na horyzoncie widzimy biały, płaski, rozlany na boki wierzchołek, patrzymy na coś, co dzieje się prawdopodobnie w zupełnie innym powiecie. Kierunek jego „ogona" pokazuje, w którą stronę burza się przesuwa.</p>
     <p><strong>Inwersja w kotlinie.</strong> Zimą w Zakopanem, w Krakowie i w każdej dolinie zdarza się, że wyjazd kolejką w górę oznacza wyjście w cieplejsze powietrze i pełne słońce, gdy na dole trzyma mróz i smog. To lokalne odwrócenie profilu temperatury — dokładnie ta sama mechanika, która w skali całej atmosfery tworzy stratosferę. Zajmiemy się nią w Rozdziale 11.</p>
+
+    <button class="advanced-btn" data-modal-target="adv-inwersja-kontra-stratosfera">Zaawansowane</button>
+    <template id="adv-inwersja-kontra-stratosfera">
+      <h3>Ten sam efekt, dwie różne przyczyny</h3>
+      <p>„Dokładnie ta sama mechanika" to skrót myślowy warty rozwinięcia — bo obie sytuacje dają ten sam <em>efekt</em>, ale z zupełnie innej <em>przyczyny</em>.</p>
+      <p><strong>Inwersja w kotlinie powstaje od dołu.</strong> W bezchmurną, spokojną noc grunt oddaje ciepło w niebo przez promieniowanie i szybko stygnie — a powietrze tuż przy nim stygnie razem z nim. Do tego zimne, gęste powietrze spływa po zboczach w dół i zbiera się na dnie doliny, jak woda. Ciepło zostaje więc uwięzione kilkadziesiąt-kilkaset metrów wyżej, nietknięte tym samym wychładzaniem.</p>
+      <p><strong>Stratosfera grzeje się od środka.</strong> Warstwa ozonu pochłania ultrafiolet ze słońca i ogrzewa się tym bezpośrednio, w miejscu, w którym jest — nie ma tu żadnego chłodzenia od dołu ani spływania powietrza. Ciepło po prostu powstaje wewnątrz warstwy.</p>
+      <p>Wspólne jest wyłącznie to, co obie sytuacje <em>robią z powietrzem</em>: warstwa cieplejsza nad chłodniejszą blokuje mieszanie w pionie, więc smog w kotlinie i stratosfera zachowują się podobnie — jak szczelna pokrywka. Ale to podobieństwo skutku, nie tożsamość mechanizmu. Uczciwiej powiedzieć: <strong>ten sam efekt, inna przyczyna</strong>.</p>
+    </template>
   </div>
 
   <div class="panel glossary">
@@ -424,6 +460,13 @@
       <a class="nav-prev" href="rozdzial-01-ocean-powietrza.html">← Poprzedni</a>
       <a class="nav-toc" href="../index.html">Spis treści</a>
       <a class="nav-next" href="rozdzial-03-rozpraszanie.html">Następny →</a>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-panel">
+      <button class="modal-close" data-modal-close aria-label="Zamknij">×</button>
+      <div id="modal-body"></div>
+    </div>
   </div>
 
 </div>

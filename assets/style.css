@@ -178,6 +178,11 @@ h1{font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,50px);lin
 .exercise .given{font-family:var(--mono);font-size:14px;color:var(--text);margin-bottom:12px;}
 .reveal-btn{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--amber);background:none;border:1px solid var(--amber);border-radius:20px;padding:6px 16px;cursor:pointer;transition:background .2s;}
 .reveal-btn:hover{background:rgba(232,163,61,0.12);}
+
+/* Wariant "idz glebiej" dla przyciskow otwierajacych fizyke poza formulami -
+   fiolet zamiast bursztynu, zeby nie mylic z "Wyjasnij ten wzor". */
+.advanced-btn{font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--violet);background:none;border:1px solid var(--violet);border-radius:20px;padding:6px 16px;cursor:pointer;transition:background .2s;margin-top:10px;}
+.advanced-btn:hover{background:rgba(156,130,216,0.12);}
 .answer{display:none;margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);font-family:var(--mono);font-size:13.5px;color:var(--cyan);}
 .answer.shown{display:block;}
 .answer .line{margin-bottom:6px;color:var(--text-dim);}

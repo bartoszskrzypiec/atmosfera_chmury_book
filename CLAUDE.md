@@ -7,8 +7,10 @@ Guidance for Claude Code sessions working in this repository.
 "Atmosfera i chmury dla ciekawych" — a Polish-language static HTML book about the
 sky: why it changes colour, how clouds form, and why they differ. 24 numbered
 chapters in seven parts, 26 lettered appendices (A–Z), and three "field" pages
-meant to be opened on a phone outdoors. Live at
-https://bartoszskrzypiec.github.io/atmosfera_chmury_book/.
+meant to be opened on a phone outdoors. Intended home:
+https://bartoszskrzypiec.github.io/atmosfera_chmury_book/ — but GitHub Pages is
+not currently enabled (the repo is private), so today the only way to see it is
+to serve the root locally.
 
 **The reader is the whole design constraint.** Roughly 40 years old, comfortable
 with technology, did not enjoy physics at school and remembers none of it. Not a
@@ -59,10 +61,14 @@ attributes.
 
 Pure static HTML/CSS/JS. No npm, no package.json, no bundler, no test suite, no
 linter. To "run" it, open a file, or serve the root with any static server.
-Deployed via GitHub Pages (`main` / `/(root)`).
+Intended deploy: GitHub Pages from `main` / root (`.nojekyll` is committed); not
+currently enabled.
 
 One caveat: the 3D widgets are ES modules, so pages carrying one need a real
 server — `file://` blocks the import. Every other page opens straight off disk.
+When the import is blocked (or three.js fails, or WebGL is missing), the widget
+shows its `.viz3d__fallback` with a line naming the cause — see the fallback note
+under "The one external dependency".
 
 ## The one external dependency
 
@@ -73,10 +79,19 @@ takes it on these terms:
 - The build files are committed to the repo. No CDN, no external request, no
   version drift. The book works offline and will still work in ten years.
 - The version is pinned; see `assets/vendor/VERSION`.
-- Refresh it with `npm pack three@<version>`, unpack, copy `build/three.module.js`
-  and `build/three.core.js`. Do not add a package.json — there is still no build
-  step, and nothing here is installed.
-- Loaded via an import map in the `<head>` of pages that need it.
+- Refresh it with `npm pack three@<version>`, unpack, copy the minified pair per
+  `assets/vendor/VERSION`: `build/three.module.min.js` → `assets/vendor/three.module.js`
+  and `build/three.core.min.js` → `assets/vendor/three.core.min.js`. Do not add a
+  package.json — there is still no build step, and nothing here is installed.
+- No import map anywhere. `assets/sky3d.js` imports `./vendor/three.module.js` by
+  relative path; that file in turn imports `./three.core.min.js`. Pages only ever
+  `import` from `sky3d.js` (a relative path matching their directory depth).
+- Widget failure is visible, never a blank box: `boot()` in `sky3d.js` sets
+  `host.dataset.sky3d` to `ok` / `webgl` / `shader` and calls
+  `window.__sky3dPokazBrak`; the watchdog in `assets/interactive.js`
+  (`sky3dPokazBrak` / `sky3dPrzeglad`) covers the case where the module never
+  loaded at all. Each `.viz3d__fallback` keeps its chapter-specific sentence; the
+  code only prepends a `.viz3d__why` line naming the cause.
 
 Why the exception exists: this book's central claim is that the sky's colours,
 the sunset and cloud types are all one mechanism seen under different

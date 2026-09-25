@@ -32,7 +32,7 @@
       "readout": ["Warstwy · 5", "Granica · umowna", "Spadek · 6,5°C/km", "Tropopauza · 11 km"] },
     { "nr": 3, "slug": "rozdzial-03-rozpraszanie", "tytul": "Rozpraszanie: dlaczego rozmiar ma znaczenie",
       "eyebrow": "Scena",
-      "hook": "Niebieskie niebo i biała chmura to dokładnie ta sama fizyka. Różnica tkwi wyłącznie w tym, na czym światło się potyka.",
+      "hook": "Niebieskie niebo i biała chmura to dokładnie ta sama fizyka. Różnica tkwi głównie w tym, jak duże jest to, na czym światło się potyka — a czasem w tym, z czego jest zrobione.",
       "readout": ["Kryterium · rozmiar", "Odniesienie · 500 nm", "Reżimy · 3", "Skutek · kolor albo biel"] },
     { "nr": 4, "slug": "rozdzial-04-oko-i-mozg", "tytul": "Nasze oko nie jest aparatem",
       "eyebrow": "Scena",
@@ -122,10 +122,10 @@
   "dodatki": [
     { "l": "a", "slug": "dodatek-a-jednostki-i-skale", "tytul": "Jednostki, skale i rzędy wielkości", "ext": [1], "opis": "Hektopaskale, kilometry, masa atmosfery, gęstość z wysokością — z rachunkami, żeby liczby z Rozdziału 1 dało się sprawdzić." },
     { "l": "b", "slug": "dodatek-b-adiabaty-i-emagram", "tytul": "Adiabaty, emagram i CAPE", "ext": [10, 11, 23], "wzory": true, "opis": "Gradient suchoadiabatyczny i wilgotnoadiabatyczny, czytanie emagramu, LCL, CAPE i CIN — instrukcja obsługi dla samouka." },
-    { "l": "c", "slug": "dodatek-c-rozpraszanie-w-liczbach", "tytul": "Rozpraszanie w liczbach: skąd bierze się czwarta potęga", "ext": [3, 5], "wzory": true, "opis": "Przekrój czynny, zależność 1/λ⁴, przejście od reżimu Rayleigha do Mie, i dlaczego granica wypada akurat tam, gdzie wypada." },
+    { "l": "c", "slug": "dodatek-c-rozpraszanie-w-liczbach", "tytul": "Rozpraszanie w liczbach: skąd bierze się czwarta potęga", "ext": [3, 5, 2, 7, 14], "wzory": true, "opis": "Przekrój czynny, zależność 1/λ⁴, przejście od reżimu Rayleigha do Mie, i dlaczego granica wypada akurat tam, gdzie wypada." },
     { "l": "d", "slug": "dodatek-d-dlaczego-nie-fioletowe", "tytul": "Dlaczego niebo nie jest fioletowe: widmo razy czułość oka", "ext": [5, 4], "opis": "Trzy przyczyny rozpisane osobno i pokazane jako jeden iloczyn — z wykresem, na którym widać, gdzie znika fiolet." },
     { "l": "e", "slug": "dodatek-e-polaryzacja-nieba", "tytul": "Polaryzacja nieba i jak ją zobaczyć bez sprzętu", "ext": [5], "opis": "Skąd bierze się pas 90°, punkty neutralne, filtr w okularach i nawigacja owadów." },
-    { "l": "f", "slug": "dodatek-f-geometria-zmierzchu", "tytul": "Geometria zmierzchu, cień Ziemi i ozon", "ext": [7], "opis": "Kąty trzech zmierzchów, stożek cienia, wysokość Pasa Wenus, pasmo Chappuis i tabela dla polskich miast." },
+    { "l": "f", "slug": "dodatek-f-geometria-zmierzchu", "tytul": "Geometria zmierzchu, cień Ziemi i ozon", "ext": [7, 3], "opis": "Kąty trzech zmierzchów, stożek cienia, wysokość Pasa Wenus, pasmo Chappuis i tabela dla polskich miast." },
     { "l": "g", "slug": "dodatek-g-refrakcja-i-zielony-blysk", "tytul": "Refrakcja w liczbach i zielony błysk", "ext": [8], "wzory": true, "opis": "Refrakcja przy horyzoncie, spłaszczenie tarczy, warunki zielonego błysku i dlaczego prawie zawsze potrzebuje mirażu." },
     { "l": "h", "slug": "dodatek-h-miraze", "tytul": "Miraże: dolny, górny i Fatamorgana", "ext": [8], "opis": "Gradient współczynnika załamania, warstwa prowadząca, trzy rodzaje mirażu i gdzie ich szukać w Polsce." },
     { "l": "i", "slug": "dodatek-i-wilgotnosc-w-liczbach", "tytul": "Wilgotność w liczbach", "ext": [9], "wzory": true, "opis": "Wilgotność względna i bezwzględna, punkt rosy, wzór Magnusa i dlaczego metafora gąbki jest formalnie błędna." },
@@ -144,7 +144,7 @@
     { "l": "v", "slug": "dodatek-v-elektrycznosc-burzy", "tytul": "Elektryczność burzy: od ładunku do grzmotu", "ext": [23], "opis": "Rozdział ładunku w strefie mieszanej, lider skokowy, uderzenie powrotne i fizyka grzmotu." },
     { "l": "w", "slug": "dodatek-w-superkomorka-i-traby", "tytul": "Superkomórka, grad i trąby powietrzne w Polsce", "ext": [24, 23], "opis": "Mezocyklon, echo hakowe, skale Fujity i TORRO, klimatologia trąb w Polsce i nawałnica z sierpnia 2017." },
     { "l": "x", "slug": "dodatek-x-fotografia-nieba", "tytul": "Fotografia nieba", "ext": [4, 7, 6], "opis": "Ekspozycja przy zachodzie i błękitnej godzinie, filtr polaryzacyjny, telefon kontra aparat i granica uczciwej obróbki." },
-    { "l": "y", "slug": "dodatek-y-cg-niebo-w-blenderze", "tytul": "Tak to robi Blender: Sky Texture i suwak Sun Elevation", "ext": [5, 6, 7], "cg": true, "opis": "Co naprawdę liczy Sky Texture, skąd w niej suwak Turbidity i dlaczego zmiana kąta Słońca przelicza kolor całego nieba." },
+    { "l": "y", "slug": "dodatek-y-cg-niebo-w-blenderze", "tytul": "Tak to robi Blender: Sky Texture i suwak Sun Elevation", "ext": [5, 6, 7, 3], "cg": true, "opis": "Co naprawdę liczy Sky Texture, skąd w niej suwak Turbidity i dlaczego zmiana kąta Słońca przelicza kolor całego nieba." },
     { "l": "z", "slug": "dodatek-z-cg-chmury-w-renderze", "tytul": "Dlaczego chmury w renderze są tak drogie", "ext": [12, 17], "cg": true, "opis": "Czym różni się powierzchnia od objętości, co robi ray marching i dlaczego jedna chmura potrafi kosztować więcej niż całe miasto w tle." }
   ],
   "teren": [

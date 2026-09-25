@@ -19,14 +19,14 @@
 <div class="page">
 
   <div class="viewport-readout">
-    <span>Dodatek Y</span><span>Warstwa · CG</span><span>Poziom · głębiej</span><span>EXT OF · R.5, R.6, R.7</span>
+    <span>Dodatek Y</span><span>Warstwa · CG</span><span>Poziom · głębiej</span><span>EXT OF · R.5, R.6, R.7, R.3</span>
   </div>
 
   <div class="eyebrow">Dodatek Y / Głębiej</div>
   <h1>Tak to robi Blender: Sky Texture i suwak Sun Elevation</h1>
   <p class="subtitle">Co naprawdę liczy Sky Texture, skąd w niej suwak Turbidity i dlaczego zmiana kąta Słońca przelicza kolor całego nieba.</p>
 
-  <div class="note">Ten dodatek jest lekki z założenia. Nie ma tu ani jednego wzoru i nie trzeba umieć obsługiwać Blendera, żeby go przeczytać. Chodzi o jedno: pokazać, że program graficzny liczy dokładnie to, o czym była mowa w Rozdziałach 5–7 — i że jego suwaki mają nazwy zjawisk, które już znamy.</div>
+  <div class="note">Ten dodatek jest lekki z założenia. Nie ma tu ani jednego wzoru i nie trzeba umieć obsługiwać Blendera, żeby go przeczytać. Chodzi o jedno: pokazać, że program graficzny liczy dokładnie to, o czym była mowa w Rozdziałach 3 i 5–7 — i że jego suwaki mają nazwy zjawisk, które już znamy.</div>
 
   <div class="section">
     <div class="section-eyebrow">Punkt wyjścia · dwa sposoby na niebo</div>
@@ -53,7 +53,7 @@
       <div class="wlabel">Cztery kroki, które wykonuje program dla jednego kierunku</div>
       <div class="step">1. <span class="k">Ile powietrza po drodze.</span> Idąc od oka w wybranym kierunku, sumuje gęstość powietrza. W górę — mało. Ku horyzontowi — kilkadziesiąt razy więcej.</div>
       <div class="step">2. <span class="k">Ile światła się tu rozproszyło.</span> W każdym punkcie tej drogi sprawdza, ile światła słonecznego w ogóle dociera, i jaka jego część odbija się akurat w stronę oka.</div>
-      <div class="step">3. <span class="k">Podział na barwy.</span> Cząsteczki powietrza rozpraszają błękit dużo silniej niż czerwień — to rozpraszanie Rayleigha z Rozdziału 5. Pyły i kropelki rozpraszają wszystkie barwy podobnie, głównie do przodu — to rozpraszanie Mie z Rozdziału 8.</div>
+      <div class="step">3. <span class="k">Podział na barwy.</span> Cząsteczki powietrza rozpraszają błękit dużo silniej niż czerwień — to rozpraszanie Rayleigha z Rozdziałów 3 i 5. Pyły i kropelki rozpraszają wszystkie barwy podobnie, głównie do przodu — to rozpraszanie Mie z Rozdziału 3.</div>
       <div class="step">4. <span class="k">Ile ubyło po drodze.</span> To, co się rozproszyło ku nam, po drodze też częściowo ucieka na boki. Przy niskim Słońcu ubytek błękitu jest tak duży, że zostaje sama czerwień — czyli zachód z Rozdziału 6.</div>
       <div class="check">To nie jest uproszczony opis czegoś innego. To jest, co do struktury, ten sam rachunek, który wykonuje widget 3D w Rozdziale 5, a różnica polega na liczbie punktów pomiarowych i dokładności danych o atmosferze. Czerwony zachód nie jest w tym modelu wpisany — <em>wychodzi</em> z kroków 3 i 4, tak jak wychodzi na niebie.</div>
     </div>
@@ -71,10 +71,10 @@
       <div class="wlabel">Suwak → zjawisko → gdzie o tym było</div>
       <div class="step"><span class="k">Sun Elevation</span> — wysokość Słońca nad horyzontem. Steruje długością drogi światła przez atmosferę. <span class="v">R.6</span></div>
       <div class="step"><span class="k">Sun Rotation</span> — azymut, czyli z której strony świeci. Sam w sobie nie zmienia barwy nieba, tylko obraca całą scenę światła. <span class="v">R.7</span></div>
-      <div class="step"><span class="k">Altitude</span> — wysokość obserwatora. Wyżej znaczy mniej powietrza nad głową: niebo ciemnieje i staje się bardziej granatowe. <span class="v">R.1, R.8</span></div>
+      <div class="step"><span class="k">Altitude</span> — wysokość obserwatora. Wyżej znaczy mniej powietrza nad głową: niebo ciemnieje i staje się bardziej granatowe. <span class="v">R.1, R.5</span></div>
       <div class="step"><span class="k">Air</span> — gęstość cząsteczek powietrza, czyli siła rozpraszania Rayleigha. Podkręcony daje niebo gęściej niebieskie. <span class="v">R.5</span></div>
-      <div class="step"><span class="k">Dust</span> — ilość aerozoli: pyłu, soli morskiej, spalin. To rozpraszanie Mie. Podkręcony wybiela niebo i tworzy jasną obwódkę wokół Słońca. <span class="v">R.8</span></div>
-      <div class="step"><span class="k">Ozone</span> — warstwa ozonu, pochłaniająca część światła. Odpowiada za to, że niebo zenitalne pozostaje niebieskie także w głębokim zmierzchu. <span class="v">R.7</span></div>
+      <div class="step"><span class="k">Dust</span> — ilość aerozoli: pyłu, soli morskiej, spalin. To rozpraszanie Mie. Podkręcony wybiela niebo i tworzy jasną obwódkę wokół Słońca. Prawdziwy pył bywa jeszcze zabarwiony pochłanianiem, jak rdza w pyle saharyjskim, która zjada błękit (<a href="../rozdzialy/rozdzial-03-rozpraszanie.html#budowa">Rozdział 3</a>). <span class="v">R.3, R.6</span></div>
+      <div class="step"><span class="k">Ozone</span> — warstwa ozonu, pochłaniająca część światła w słabym paśmie Chappuis, z maksimum w pomarańczu (<a href="../rozdzialy/rozdzial-03-rozpraszanie.html#budowa">Rozdział 3</a>, <a href="dodatek-f-geometria-zmierzchu.html">Dodatek F</a>). Odpowiada za to, że niebo zenitalne pozostaje niebieskie także w głębokim zmierzchu. <span class="v">R.3, R.7</span></div>
       <div class="check">Suwak <strong>Dust</strong> jest tym, którego najczęściej brakuje w renderach wyglądających „za czysto”. Prawdziwe niebo nad miastem prawie nigdy nie jest tak nasycone jak domyślne ustawienie. Podniesienie Dust psuje kolor w sposób, w jaki psuje go rzeczywistość — i dlatego dodaje wiarygodności.</div>
     </div>
 

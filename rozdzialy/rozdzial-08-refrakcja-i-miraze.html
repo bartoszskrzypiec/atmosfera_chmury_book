@@ -41,15 +41,33 @@
     <div class="section-eyebrow">Mechanizm · powietrze jako soczewka</div>
     <h2>Gęstsze powietrze zakrzywia światło</h2>
 
-    <p>Wiemy już z Rozdziału 1, że powietrze jest gęstsze przy ziemi i coraz rzadsze w górę. Wiemy z Rozdziału 3, jak zachowuje się światło, gdy spotyka cząstki. Zostało jeszcze jedno zachowanie, którego nie omawialiśmy: <strong>zmiana kierunku na granicy ośrodków o różnej gęstości</strong>.</p>
+    <p>Wiemy już z Rozdziału 1, że powietrze jest gęstsze przy ziemi i coraz rzadsze w górę. Wiemy z Rozdziału 3, jak zachowuje się światło, gdy spotyka cząstki — i że każdy materiał ma swój <a href="rozdzial-03-rozpraszanie.html#budowa">współczynnik załamania</a>, czyli liczbę mówiącą, ile razy wolniej idzie w nim światło niż w próżni. Tam wspomnieliśmy tylko mimochodem, że od tej liczby zależy też, jak mocno światło skręca. Teraz zajmiemy się właśnie tym: <strong>zmianą kierunku na granicy ośrodków o różnej gęstości</strong>.</p>
 
-    <p>Zna je każdy, kto kiedykolwiek włożył łyżeczkę do szklanki z wodą i zobaczył, że wygląda na złamaną. Światło biegnie w wodzie nieco wolniej niż w powietrzu, a przy przejściu skośnym przez granicę zmienia kierunek. To jest załamanie, czyli refrakcja.</p>
+    <p>Zna ją każdy, kto kiedykolwiek włożył łyżeczkę do szklanki z wodą i zobaczył, że wygląda na złamaną. Światło biegnie w wodzie nieco wolniej niż w powietrzu, a przy przejściu skośnym przez granicę zmienia kierunek. To jest załamanie, czyli refrakcja. A wolniej biegnie dlatego, że każda cząsteczka wody, rozkołysana przez falę, odsyła własną maleńką falkę z lekkim opóźnieniem, a suma fali pierwotnej i milionów takich spóźnionych odpowiedzi posuwa się naprzód wolniej niż sama fala. Im gęściej upakowane cząsteczki, tym więcej opóźnień po drodze — dlatego gęstsze powietrze też spowalnia światło, choć o wiele słabiej niż woda.</p>
 
     <p>W atmosferze nie ma żadnej ostrej granicy, jest za to <span class="term-cyan">płynna zmiana gęstości</span>. Efekt jest ten sam, tylko rozłożony: promień nie skręca raz, tylko zakrzywia się stopniowo na całej drodze. I zakrzywia się zawsze w tę samą stronę — <strong>ku warstwie gęstszej</strong>.</p>
 
     <p>Ponieważ przy ziemi powietrze jest gęstsze, promień biegnący do nas z niska wygina się delikatnie w dół. My tego nie wiemy i, jak zawsze, zakładamy, że przyszedł po linii prostej — więc widzimy jego źródło <em>wyżej</em>, niż jest naprawdę.</p>
 
     <p>To jest cały mechanizm. Wszystko dalej to pytanie, jak dokładnie gęstość zmienia się z wysokością w danym miejscu i o danej porze.</p>
+
+    <button class="advanced-btn" data-modal-target="adv-swiatlo-zwalnia">Zaawansowane</button>
+    <template id="adv-swiatlo-zwalnia">
+      <h3>Dlaczego światło w materii zwalnia</h3>
+      <p>Na pierwszy rzut oka to zagadka. Między cząsteczkami wody jest pusto, a w pustce światło biegnie zawsze z tą samą prędkością. I rzeczywiście: żaden kawałek fali po drodze nie hamuje. Zwalnia dopiero ich suma.</p>
+      <p><strong>Suma fali i spóźnionych odpowiedzi.</strong> Fala przechodząca przez materiał kołysze elektronami każdej cząsteczki, a każdy rozkołysany elektron wysyła własną falkę w tej samej barwie — to jest rozpraszanie z <a href="rozdzial-03-rozpraszanie.html#budowa">Rozdziału 3</a>. Do przodu, w kierunku biegu fali, falki z całej cienkiej warstwy cząsteczek dodają się w jedną słabą falę. Ta fala jest jednak przesunięta względem pierwotnej o ćwierć drgania — to czysta geometria: falki z cząsteczek leżących z boku mają do nas odrobinę dalej niż te z najbliższego miejsca warstwy, więc przychodzą odrobinę później, i ich suma wychodzi spóźniona. Dodanie do fali słabej fali spóźnionej o ćwierć drgania daje falę trochę opóźnioną. Każda kolejna warstwa cząsteczek dokłada swoje maleńkie opóźnienie, a grzbiety fali, przychodząc coraz później, wyglądają dokładnie tak, jakby fala szła wolniej.</p>
+      <p><strong>Ile wolniej.</strong> Mierzy to współczynnik załamania:</p>
+      <div class="formula">n = c / v<span class="sub">n — współczynnik załamania. c — prędkość światła w próżni, około 300 000 km/s. v — prędkość, z jaką grzbiety fali posuwają się w materiale.</span></div>
+      <p>Dla powietrza przy ziemi n wynosi około 1,0003, więc światło idzie w nim wolniej zaledwie o trzy setne procenta. Dla wody n ≈ 1,33: światło biegnie w niej z prędkością około 225 000 km/s. Tak mała różnica w powietrzu wystarcza, żeby przy horyzoncie podnieść Słońce o całą szerokość tarczy, bo promień idzie przez gęste powietrze setki kilometrów.</p>
+      <p><strong>Skąd n się bierze.</strong> Model elektronu na sprężynce z Rozdziału 3 daje go wprost:</p>
+      <div class="formula">n² ≈ 1 + N · α(ω) / ε₀<span class="sub">N — liczba cząsteczek w metrze sześciennym, czyli gęstość materiału. α(ω) (alfa) — polaryzowalność cząsteczki: jak duży dipol powstaje w niej pod naciskiem fali o częstości ω. ω (omega) — częstość fali, czyli liczba drgań pola na sekundę pomnożona przez 2π; im krótsza fala, tym większa. ε₀ (epsilon zero) — stała elektryczna próżni, około 8,85 · 10⁻¹² w jednostkach układu SI; tu służy tylko do uzgodnienia jednostek.</span></div>
+      <ul>
+        <li><strong>Gęstość.</strong> n − 1 rośnie proporcjonalnie do N. Powietrze dwa razy gęstsze spowalnia światło dwa razy mocniej — i to jest cały mechanizm tego rozdziału: promień skręca ku gęstszemu, bo tam jest wolniej.</li>
+        <li><strong>Barwa.</strong> Polaryzowalność rośnie, im bliżej fala podchodzi do rezonansu, czyli do własnego tempa drgań elektronów. Dla wody i powietrza rezonanse leżą w ultrafiolecie, więc fiolet i błękit, leżące do nich bliżej, rozkołysują elektrony chętniej i zwalniają bardziej niż czerwień. Woda ma dla fioletu (400 nm) n ≈ 1,339, a dla czerwieni (700 nm) n ≈ 1,331. Ta zależność od barwy to <em>dyspersja</em> — źródło zielonego błysku, a dalej w książce tęczy i halo.</li>
+        <li><strong>Tuż przy rezonansie</strong> zamach elektronów rośnie tak bardzo, że do gry wchodzą zderzenia z sąsiednimi cząsteczkami i energia fali zamienia się w ciepło. Tam materiał przestaje być przezroczysty — to jest pochłanianie, drugie oblicze tej samej sprężynki.</li>
+      </ul>
+      <p><em>Refrakcję w atmosferze w liczbach, razem z zielonym błyskiem, rozpisuje <a href="../dodatki/dodatek-g-refrakcja-i-zielony-blysk.html">Dodatek G</a>; polaryzowalność lodu, wody, pyłu i sadzy — <a href="../dodatki/dodatek-c-rozpraszanie-w-liczbach.html#budowa-atomowa">Dodatek C</a>.</em></p>
+    </template>
 
     <div class="diagram-frame">
       <div class="diagram-hud"><span>Promień w powietrzu o zmiennej gęstości</span><span>zawsze wygina się ku gęstszemu</span></div>
@@ -159,7 +177,7 @@
 
     <p>Przez lata zielony błysk uchodził za marynarskie zmyślenie albo za powidok w zmęczonym oku. Jest jednym i drugim jednocześnie — bo powidoki naprawdę istnieją i naprawdę bywają zielone — ale samo zjawisko jest w pełni realne, wielokrotnie sfotografowane i całkiem dobrze rozumiane.</p>
 
-    <p>Mechanizm składa się z dwóch części. Pierwsza: refrakcja nie działa jednakowo dla wszystkich barw. Krótsze fale są zakrzywiane odrobinę mocniej, więc <strong>obraz zielony jest podniesiony minimalnie wyżej niż czerwony</strong>. Różnica to ułamek minuty kątowej — sama z siebie kompletnie niezauważalna.</p>
+    <p>Mechanizm składa się z dwóch części. Pierwsza: refrakcja nie działa jednakowo dla wszystkich barw. Krótsze fale są zakrzywiane odrobinę mocniej, bo leżą odrobinę bliżej ultrafioletowych rezonansów azotu i tlenu — ich ulubionego tempa drgań — więc chętniej rozkołysują elektrony i bardziej zwalniają. Tę zależność załamania od barwy nazywamy <span class="term-cyan">dyspersją</span>. Dlatego <strong>obraz zielony jest podniesiony minimalnie wyżej niż czerwony</strong>. Różnica to ułamek minuty kątowej — sama z siebie kompletnie niezauważalna.</p>
 
     <p>Druga część to powód, dla którego mimo wszystko coś widać. Gdy ostatni skrawek tarczy znika za horyzontem, czerwona wersja obrazu chowa się pierwsza, a zielona zostaje przez ułamek sekundy sama. Zwykle jest to zbyt małe i zbyt krótkie. Ale jeśli akurat panują warunki mirażowe — a o nich za chwilę — obraz zostaje <span class="term-cyan">powiększony w pionie</span> i ta ostatnia zielona kreska rozciąga się na tyle, że widać ją gołym okiem.</p>
 
@@ -181,11 +199,11 @@
 
     <p>Miraże dzielą się na dwa rodzaje i różnią się wyłącznie tym, gdzie jest cieplejsze powietrze.</p>
 
-    <p><strong>Miraż dolny</strong> powstaje, gdy tuż nad podłożem jest warstwa bardzo gorącego, a przez to rzadkiego powietrza. Rozgrzany asfalt, piasek pustyni, dach samochodu w upał. Promienie biegnące do nas z dołu wyginają się wtedy <em>ku górze</em> i docierają do oka z dołu — a my, konsekwentni jak zawsze, interpretujemy je jako odbicie. Widzimy więc pod obiektem jego odwrócone lustrzane odbicie, jakby leżał w kałuży. Ta „woda" na drodze w upalny dzień to odbite niebo.</p>
+    <p><strong>Miraż dolny</strong> powstaje, gdy tuż nad podłożem jest warstwa bardzo gorącego, a przez to rzadkiego powietrza. Rozgrzany asfalt, piasek pustyni, dach samochodu w upał. Promienie biegnące do nas z dołu wyginają się wtedy <em>ku górze</em> i docierają do oka z dołu — a my, konsekwentni jak zawsze, interpretujemy je jako odbicie. Widzimy więc pod obiektem jego odwrócony obraz, jakby leżał w kałuży. Nic się tu jednak nie odbija: promienie po prostu łagodnie zawracają w gorącej warstwie ku górze. Ta „woda" na drodze w upalny dzień to niebo, którego światło zakręciło tuż nad asfaltem.</p>
 
     <p><strong>Miraż górny</strong> to sytuacja odwrotna: nad zimną powierzchnią — morzem, lodem, śniegiem — leży warstwa cieplejszego powietrza. Promienie wyginają się wtedy w dół i docierają do nas <em>znad</em> obiektu. Widzimy przedmioty uniesione, rozciągnięte w pionie, czasem wywrócone do góry nogami nad prawdziwym obrazem, a niekiedy takie, które są fizycznie za horyzontem.</p>
 
-    <p>Ta ostatnia możliwość jest naprawdę zdumiewająca. Przy odpowiednim ułożeniu warstw powietrze działa jak falowód: promienie odbijają się w nim wielokrotnie i biegną wzdłuż zakrzywienia Ziemi, zamiast uciekać w kosmos. Dzięki temu widuje się nad Bałtykiem szwedzkie brzegi, a nad Adriatykiem — przeciwległy ląd. Statek, który zniknął już za horyzontem, potrafi wrócić do widoku, unosząc się nad wodą.</p>
+    <p>Ta ostatnia możliwość jest naprawdę zdumiewająca. Przy odpowiednim ułożeniu warstw powietrze działa jak falowód: promienie zakrzywiają się w nim raz w dół, raz w górę, jakby odbijały się od niewidzialnych ścian, i biegną wzdłuż zakrzywienia Ziemi, zamiast uciekać w kosmos. Dzięki temu widuje się nad Bałtykiem szwedzkie brzegi, a nad Adriatykiem — przeciwległy ląd. Statek, który zniknął już za horyzontem, potrafi wrócić do widoku, unosząc się nad wodą.</p>
 
     <p><strong>Fatamorgana</strong> to najbardziej rozbudowana odmiana mirażu górnego: obraz jest wielokrotnie powtórzony i rozciągnięty w pionie tak silnie, że zwykły daleki brzeg albo skała zamienia się w pionowe ściany, wieże i mury. Stąd nazwa, od czarodziejki Morgany, i stąd cała rodzina opowieści o miastach widzianych na morzu.</p>
 
@@ -260,7 +278,7 @@
       <dt>minuta kątowa</dt>
       <dd>Jedna sześćdziesiąta stopnia. Tarcza Słońca i Księżyca ma około 32 minut, czyli nieco ponad pół stopnia.</dd>
       <dt>dyspersja</dt>
-      <dd>Zależność siły załamania od barwy. Krótsze fale załamują się mocniej — stąd tęcza i zielony błysk.</dd>
+      <dd>Zależność siły załamania od barwy. Krótsze fale leżą bliżej ultrafioletowych rezonansów elektronów, więc zwalniają w materii bardziej i załamują się mocniej — stąd tęcza i zielony błysk.</dd>
       <dt>miraż dolny</dt>
       <dd>Obraz odwrócony pod obiektem, powstający nad silnie nagrzanym podłożem. To „woda” na drodze.</dd>
       <dt>miraż górny</dt>
@@ -289,6 +307,13 @@
       <a class="nav-prev" href="rozdzial-07-zmierzch.html">← Poprzedni</a>
       <a class="nav-toc" href="../index.html">Spis treści</a>
       <a class="nav-next" href="rozdzial-09-niewidzialna-woda.html">Następny →</a>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-panel">
+      <button class="modal-close" data-modal-close aria-label="Zamknij">×</button>
+      <div id="modal-body"></div>
+    </div>
   </div>
 
 </div>

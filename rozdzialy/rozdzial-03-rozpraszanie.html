@@ -162,6 +162,328 @@
     </div>
 
     <a class="inline-deeper" href="../dodatki/dodatek-c-rozpraszanie-w-liczbach.html#galeria">↓ Dodatek C — galeria kształtów rozpraszania dla sześciu rozmiarów, od cząsteczki po kroplę deszczu</a>
+    <a class="inline-deeper" href="../dodatki/dodatek-c-rozpraszanie-w-liczbach.html#wydajnosc">↓ Dodatek C — krzywa wydajności: ile światła w ogóle rozprasza cząstka danego rozmiaru</a>
+  </div>
+
+  <div class="section" id="budowa">
+    <div class="section-eyebrow">Budowa · co cząstka robi z falą</div>
+    <h2>Nie tylko rozmiar: z czego cząstka jest zrobiona</h2>
+
+    <p>Rozmiar rozstrzyga, <em>jak</em> cząstka rozprasza. Ale po drodze założyliśmy coś po cichu: że w ogóle rozprasza — że światło, które w nią trafia, wychodzi z niej z powrotem. Tymczasem kropelka wody i drobina sadzy tej samej wielkości zachowują się zupełnie inaczej: pierwsza jest biała, druga czarna. Rozmiar mają ten sam, więc różnica musi siedzieć w środku, w tym, z czego są zbudowane. Zajrzyjmy więc do środka.</p>
+
+    <p><strong>Fala kołysze elektronami.</strong> Każdy atom to maleńkie, ciężkie jądro z ładunkiem dodatnim, otoczone lekką chmurą elektronów z ładunkiem ujemnym. Światło jest falą elektromagnetyczną, czyli — w tym, co tu ważne — polem elektrycznym, które bardzo szybko zmienia kierunek, a pole elektryczne pcha ładunki. Kiedy fala przechodzi przez cząsteczkę, szarpie jej chmurą elektronów raz w jedną, raz w drugą stronę, kilkaset bilionów razy na sekundę. Ciężkie jądro prawie się przy tym nie rusza, więc środek ładunku ujemnego i środek ładunku dodatniego na chwilę się rozjeżdżają. Taki układ — plus po jednej stronie, minus po drugiej — nazywa się <span class="term-cyan">dipolem</span>, a ten, który powstał tylko dlatego, że wymusiła go fala, dipolem indukowanym.</p>
+
+    <p>A kołyszący się ładunek sam świeci. To jedna z podstawowych reguł natury: każdy ładunek, który drga, wysyła falę elektromagnetyczną w tym samym tempie, w jakim drga. Cząsteczka staje się więc na moment maleńką antenką, która nadaje w tym samym kolorze, co fala, która ją rozkołysała — ale w wielu kierunkach naraz, a nie tylko wzdłuż pierwotnego promienia. <strong>To jest właśnie rozpraszanie, oglądane od środka</strong>: nie piłeczka odbita od przeszkody, tylko antenka, którą fala na chwilę uruchomiła.</p>
+
+    <p>Jak mocno ta antenka nadaje, zależy od tego, jak łatwo cząsteczka daje się rozkołysać. Tę łatwość nazywamy <span class="term-cyan">polaryzowalnością</span>: to miara tego, jak duży dipol powstaje w cząsteczce pod naciskiem danej fali. Elektrony ciasno trzymane przez jądra — jak w małej cząsteczce azotu czy tlenu — ruszają się niechętnie. Elektrony luźniej związane albo rozłożone na wiele atomów naraz — jak w krysztale minerału czy w węglu sadzy — dają się przepchnąć dużo dalej. W materiale złożonym z miliardów cząsteczek ta sama cecha ujawnia się jako <span class="term-cyan">współczynnik załamania</span>: liczba mówiąca, ile razy wolniej światło idzie w danym materiale niż w próżni, a przy okazji — jak mocno skręca na jego granicy. Woda ma go wyraźnie mniejszy niż kwarc, a kwarc mniejszy niż sadza, i w tej samej kolejności, przy tym samym rozmiarze cząstki, rośnie siła rozpraszania.</p>
+
+    <a class="inline-deeper" href="../dodatki/dodatek-c-rozpraszanie-w-liczbach.html#budowa-atomowa">↓ Dodatek C — lód, woda, pył i sadza tej samej wielkości: o ile różni je sam skład</a>
+
+    <p><strong>Każda cząsteczka ma swoje ulubione tempo.</strong> Elektron w atomie nie jest luźną kulką — jest trzymany, trochę jak ciężarek na sprężynie. A ciężarek na sprężynie ma własne tempo drgań: szarpnięty, zawsze wraca do tej samej liczby wahnięć na sekundę, czyli do tej samej częstotliwości. Jeśli fala kołysze nim w zupełnie innym tempie, elektron posłusznie drga razem z nią, ale z małym zamachem, i od razu oddaje energię z powrotem jako światło. To jest rozpraszanie. Jeśli jednak tempo fali trafi w jego własne, zamach rośnie ogromnie — to zjawisko nazywa się <strong>rezonansem</strong>, dokładnie jak huśtawka popychana w rytm jej własnego wahania. Wtedy cząsteczka zatrzymuje energię u siebie, a zanim zdąży ją oddać jako światło, zderza się z sąsiadkami i energia rozchodzi się jako szybszy ruch cząsteczek, czyli ciepło. To jest <strong>pochłanianie</strong>: światło znika, a powietrze albo kropla robi się odrobinę cieplejsza.</p>
+
+    <p>Zakres barw, które cząsteczka w ten sposób zjada, nazywamy jej <strong>pasmem pochłaniania</strong>. I tu dochodzimy do sedna: to, gdzie w widmie leżą pasma, zależy od budowy cząsteczki — a od tego, gdzie leżą, zależy wszystko, co widzimy. Cząsteczka może wpaść w rezonans na trzy sposoby i każdy mieszka na innym piętrze widma:</p>
+
+    <ul class="compact">
+      <li><strong>Przeskok elektronów</strong> — elektron zmienia swoje miejsce w atomie albo w cząsteczce. To najszybsze z trzech tempo, więc pasuje do fal najkrótszych: do ultrafioletu, czyli światła o falach krótszych niż fiolet, niewidzialnego dla oka, a czasem do samego światła widzialnego.</li>
+      <li><strong>Drgania atomów względem siebie</strong> — wiązania między atomami działają jak sprężynki, a same atomy są tysiące razy cięższe od elektronów, więc drgają dużo wolniej. Ich pasma leżą w podczerwieni, czyli w falach dłuższych niż czerwień: też niewidzialnych, ale odczuwalnych na skórze jako ciepło.</li>
+      <li><strong>Obroty całej cząsteczki</strong> — jeszcze wolniejsze, pasują do dalekiej podczerwieni i do mikrofal.</li>
+    </ul>
+
+    <p><strong>Dlaczego powietrze jest przezroczyste.</strong> Azot i tlen to po dwa jednakowe atomy, mocno ze sobą związane. Ich elektrony są trzymane tak ciasno, że pierwszy rezonans elektronowy wypada głęboko w ultrafiolecie: w tlenie przy falach krótszych niż mniej więcej 240 nm — to te fale rozbijają cząsteczki tlenu wysoko w atmosferze i dają początek ozonowi — a w azocie jeszcze dalej, dopiero poniżej mniej więcej 100 nm. Światło widzialne, od 400 do 700 nm, leży od tych rezonansów bardzo daleko, więc cząsteczki powietrza niczego z niego nie pochłaniają. Tylko rozpraszają. Fiolet i błękit są do tych rezonansów odrobinę bliżej niż czerwień, więc kołyszą elektronami o kilka procent chętniej — to drobny dodatek do przewagi krótkich fal, której źródłem jest przede wszystkim samo tempo kołysania.</p>
+
+    <p><strong>Symetria zamyka drzwi podczerwieni.</strong> Drgania atomów też mogą pochłaniać, ale tylko pod jednym warunkiem: drgając, cząsteczka musi przesuwać ładunek, bo fala może pchać wyłącznie ładunki. W azocie i w tlenie oba atomy są identyczne i dzielą się elektronami po równo. Kiedy się od siebie oddalają i do siebie zbliżają, cząsteczka pozostaje idealnie symetryczna i żaden ładunek nie przesuwa się na bok — fala nie ma za co chwycić. Dlatego azot i tlen, czyli prawie całe nasze powietrze, są przezroczyste także w podczerwieni.</p>
+
+    <div class="myth">
+      <div class="myth__label">Mit</div>
+      <p class="myth__wrong">Cząsteczki powietrza pochłaniają niebieskie światło, a potem wysyłają je we wszystkie strony.</p>
+      <p class="myth__right">Cząsteczki powietrza nie pochłaniają niczego ze światła widzialnego — ich rezonanse leżą głęboko w ultrafiolecie. Fala tylko kołysze ich elektronami, a te w tym samym takcie wysyłają ją dalej. Błękit rozprasza się mocniej nie dlatego, że cząsteczka „lubi” błękit, tylko dlatego, że krótsza fala kołysze szybciej, a szybciej kołysany ładunek świeci jaśniej.</p>
+      <p class="myth__why">To wyjaśnienie powtarza wiele podręczników i stron popularnonaukowych — a sami użyliśmy podobnego skrótu na początku rozdziału, pisząc o świetle „pochłoniętym na moment”. Jako skrót uchodzi. Jako mechanizm prowadzi w złą stronę: prawdziwe pochłanianie działa w pasmach i wycina z widma wyraźne dziury, a przewaga błękitu na niebie narasta gładko przez całe widmo, bez jednej dziury. Gdyby powietrze naprawdę pochłaniało błękit, błękit by znikał, zamieniając się w ciepło — a nie świecił nad naszą głową.</p>
+    </div>
+
+    <p><strong>Para wodna jest zgięta.</strong> Cząsteczka wody to atom tlenu z dwoma atomami wodoru, przyczepionymi nie w jednej linii, tylko pod kątem, jak litera V. Tlen mocniej przyciąga elektrony, więc cząsteczka ma stały dipol: jej tlenowy koniec jest trochę ujemny, a wodorowe — trochę dodatnie. Każde jej drganie i każdy obrót przesuwa więc ładunki i podczerwień ma za co chwycić: para wodna ma w podczerwieni całe mnóstwo pasm pochłaniania. W świetle widzialnym jest natomiast przezroczysta, bo jej elektrony, podobnie jak w azocie, rezonują dopiero w ultrafiolecie. Dlatego pary wodnej nie widać, choć bywa jej w powietrzu nawet sto razy więcej niż dwutlenku węgla — a to, co widzimy jako chmurę, to już zupełnie co innego, o czym w Rozdziale 9. Za to ciepło, które ziemia oddaje nocą w podczerwieni, para wodna łapie jak koc — dlatego wilgotne noce są cieplejsze od suchych.</p>
+
+    <p><strong>Dwutlenek węgla jest symetryczny, ale nie do końca.</strong> Ta cząsteczka to atom węgla z dwoma atomami tlenu po bokach, wszystkie w jednej linii. W spoczynku jest symetryczna jak azot i nie ma stałego dipolu. Ale ma trzy atomy, a więc więcej sposobów drgania — i dwa z nich symetrię psują: kiedy węgiel przesuwa się w stronę jednego z tlenów i kiedy cała cząsteczka wygina się jak łuk, ładunki na moment się rozsuwają. Te dwa drgania łapią podczerwień przy falach długości mniej więcej 4,3 i 15 µm. To drugie pasmo leży w samym środku zakresu, w którym Ziemia oddaje ciepło w kosmos. Dlatego domieszka stanowiąca cztery setne procenta powietrza ma na temperaturę planety wpływ zupełnie nieproporcjonalny do swojej ilości.</p>
+
+    <p><strong>Ozon ma pasma w dwóch miejscach.</strong> Ozon to trzy atomy tlenu, zgięte jak w wodzie. Wiązania trzymają je słabiej niż w zwykłym tlenie, więc jego rezonans elektronowy przesunął się bliżej światła: ozon bardzo mocno pochłania ultrafiolet od około 200 do 310 nm i słabiej aż do mniej więcej 350 nm. To jest ta tarcza, o której mówi się przy kremach z filtrem, i ten sam ultrafiolet, który — jak widzieliśmy w Rozdziale 2 — grzeje stratosferę. Ozon ma też drugie, dużo słabsze pasmo, które obejmuje większą część światła widzialnego i jest najsilniejsze w żółci i pomarańczu, przy około 600 nm. Nazywa się pasmem Chappuis. W dzień, patrząc przez warstwę ozonową w górę, prawie go nie zauważamy. Ale gdy światło idzie przez ozon bardzo długą drogą, jak o zmierzchu, pasmo Chappuis zjada mu ciepłe barwy — i to jest granat błękitnej godziny z <a href="rozdzial-07-zmierzch.html">Rozdziału 7</a>. Gruba warstwa samego ozonu ma zresztą własny, bladoniebieski kolor.</p>
+
+    <p><strong>Kropla i kryształ niczego nie zjadają.</strong> Kiedy cząsteczki wody zbiorą się w kroplę albo w kryształ lodu, ich pasma zostają mniej więcej tam, gdzie były: elektrony rezonują w ultrafiolecie, drgania w podczerwieni. Światło widzialne przechodzi przez wodę i lód prawie bez strat, a to, co na kropelce skręca, skręca w każdym kolorze tak samo, bo kropelka chmury jest większa od fali. Wynik: biel, czysta, bez domieszki. Jedna drobna poprawka dla dociekliwych: drgania cząsteczki wody mają bardzo słabe wyższe tony — trochę jak alikwoty struny — i ostatnie z nich sięgają aż do czerwieni. Woda leciutko zjada więc czerwień. W kropelce chmury tego nie widać wcale; w basenie widać już wyraźnie, jako błękit; w lodowcu — jako słynny niebieski lód szczelin. Ta sama cząsteczka, inna grubość.</p>
+
+    <p><strong>Pył i sadza zjadają.</strong> Pył i sadza należą do aerozolu — tak nazywamy wszystko drobne, co unosi się w powietrzu, a nie jest gazem: pył, dym, sól morską, pyłki roślin, kropelki. Pył mineralny to okruchy skał, głównie kwarcu i glin, które same w sobie są jasne i rozpraszają białawo, jak kropla. Często jednak zawiera domieszkę tlenków żelaza, czyli po prostu rdzy, a rdza pochłania niebieski koniec widma. Stąd żółtawy albo brązowy odcień nieba, gdy nad Polskę przywieje pył znad Sahary. Sadza to co innego: węgiel ułożony w płaskie warstwy, w których część elektronów nie należy do żadnego atomu, tylko wędruje po całej warstwie. Taki elektron nie ma jednego ulubionego tempa — ma ich całą gęstą drabinę, więc każda barwa trafia w któryś szczebel. Sadza pochłania szeroko, wszystko mniej więcej po równo, i dlatego jest czarna.</p>
+
+    <div class="diagram-frame">
+      <div class="diagram-hud"><span>Dziewięć cząstek · co robią ze światłem</span><span>widmo w schemacie, nie w skali</span></div>
+      <div class="band-key" aria-hidden="true"><span class="band-key__uv">ultrafiolet</span><span class="band-key__vis">światło widzialne</span><span class="band-key__ir">podczerwień</span></div>
+      <div class="band-legend"><span><i class="abs"></i>gęste kreski · pochłania silnie</span><span><i class="weak"></i>rzadkie kreski · pochłania słabo</span><span><i class="clear"></i>gładko · przepuszcza albo rozprasza</span></div>
+      <!-- wspolne wzory kreskowania dla wszystkich kart ponizej (jak hatchAbsorb w Dodatku C) -->
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+          <pattern id="r3Abs" width="6" height="6" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#14161a" stroke-width="2.6"/>
+          </pattern>
+          <pattern id="r3Weak" width="9" height="9" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="0" y2="9" stroke="#14161a" stroke-width="1.6"/>
+          </pattern>
+        </defs>
+      </svg>
+      <div class="particle-grid">
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Azot: dwa jednakowe atomy; pochłania tylko daleki ultrafiolet">
+            <line x1="80" y1="12" x2="80" y2="64" stroke="#8b909b" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="69" cy="38" r="12" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <circle cx="91" cy="38" r="12" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="14" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="14" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Azot · N₂</div>
+            <p class="particle-card__shape">dwa jednakowe atomy · symetryczny</p>
+            <p class="particle-card__row"><b>rozprasza</b>całe światło widzialne, słabo, błękit najchętniej</p>
+            <p class="particle-card__row"><b>pochłania</b>dopiero daleki ultrafiolet</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>nic — dopiero kilometry powietrza dają błękit</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tlen: dwa jednakowe atomy; pochłania ultrafiolet krótszy niż około 240 nm">
+            <line x1="80" y1="12" x2="80" y2="64" stroke="#8b909b" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="68" cy="38" r="13" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <circle cx="92" cy="38" r="13" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="24" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="24" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Tlen · O₂</div>
+            <p class="particle-card__shape">dwa jednakowe atomy · symetryczny</p>
+            <p class="particle-card__row"><b>rozprasza</b>tak samo jak azot</p>
+            <p class="particle-card__row"><b>pochłania</b>ultrafiolet krótszy niż ok. 240 nm — i rozpada się przy tym, dając początek ozonowi</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>nic — razem z azotem robi błękit nieba</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Para wodna: cząsteczka zgięta w V ze stałym dipolem; pochłania wiele pasm podczerwieni">
+            <circle cx="80" cy="30" r="13" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <circle cx="62" cy="47" r="7.5" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <circle cx="98" cy="47" r="7.5" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <g font-family="IBM Plex Mono, monospace" font-size="13" fill="#ecebe4" text-anchor="middle">
+              <text x="80" y="13">−</text>
+              <text x="50" y="66">+</text>
+              <text x="110" y="66">+</text>
+            </g>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="20" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="20" height="16" fill="url(#r3Abs)"/>
+            <rect x="114" y="76" width="8" height="16" fill="#8b909b" fill-opacity="0.5"/>
+            <rect x="114" y="76" width="8" height="16" fill="url(#r3Weak)"/>
+            <rect x="122" y="76" width="3" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="122" y="76" width="3" height="16" fill="url(#r3Abs)"/>
+            <rect x="128" y="76" width="3.5" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="128" y="76" width="3.5" height="16" fill="url(#r3Abs)"/>
+            <rect x="139" y="76" width="13" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="139" y="76" width="13" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Para wodna · H₂O</div>
+            <p class="particle-card__shape">zgięta w V · stały dipol</p>
+            <p class="particle-card__row"><b>rozprasza</b>słabo, jak reszta powietrza</p>
+            <p class="particle-card__row"><b>pochłania</b>wiele pasm podczerwieni</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>nic — para jest niewidzialna, ale grzeje jak koc</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dwutlenek węgla: trzy atomy w linii; pochłania dwa pasma podczerwieni">
+            <line x1="80" y1="12" x2="80" y2="64" stroke="#8b909b" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="55" cy="38" r="12" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <circle cx="80" cy="38" r="10" fill="#8b909b" fill-opacity="0.35" stroke="#8b909b" stroke-width="1.5"/>
+            <circle cx="105" cy="38" r="12" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="18" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="18" height="16" fill="url(#r3Abs)"/>
+            <rect x="125" y="76" width="3" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="125" y="76" width="3" height="16" fill="url(#r3Abs)"/>
+            <rect x="135" y="76" width="4" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="135" y="76" width="4" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Dwutlenek węgla · CO₂</div>
+            <p class="particle-card__shape">trzy atomy w linii · symetryczny w spoczynku</p>
+            <p class="particle-card__row"><b>rozprasza</b>słabo, jak reszta powietrza</p>
+            <p class="particle-card__row"><b>pochłania</b>podczerwień przy ok. 4,3 i 15 µm</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>nic — ale zatrzymuje ciepło Ziemi</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ozon: trzy atomy tlenu zgięte; pochłania silnie ultrafiolet i słabo większą część światła widzialnego">
+            <circle cx="80" cy="30" r="11" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <circle cx="58" cy="44" r="11" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <circle cx="102" cy="44" r="11" fill="#4fc3c0" fill-opacity="0.3" stroke="#4fc3c0" stroke-width="1.5"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="36" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="36" height="16" fill="url(#r3Abs)"/>
+            <rect x="44" y="76" width="4" height="16" fill="#8b909b" fill-opacity="0.5"/>
+            <rect x="44" y="76" width="4" height="16" fill="url(#r3Weak)"/>
+            <rect x="59" y="76" width="55" height="16" fill="#e8a33d" fill-opacity="0.5"/>
+            <rect x="59" y="76" width="55" height="16" fill="url(#r3Weak)"/>
+            <rect x="132" y="76" width="3" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="132" y="76" width="3" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Ozon · O₃</div>
+            <p class="particle-card__shape">trzy atomy tlenu, zgięte</p>
+            <p class="particle-card__row"><b>rozprasza</b>słabo, jak reszta powietrza</p>
+            <p class="particle-card__row"><b>pochłania</b>silnie ultrafiolet 200–350 nm; słabo żółć i pomarańcz (pasmo Chappuis)</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>w dzień nic; o zmierzchu — granat</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kropla wody: w świetle widzialnym nie pochłania, pochłania podczerwień">
+            <circle cx="80" cy="38" r="25" fill="#4fc3c0" fill-opacity="0.25" stroke="#4fc3c0" stroke-width="1.5"/>
+            <path d="M 66,28 A 17,17 0 0 1 78,20" fill="none" stroke="#ecebe4" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="16" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="16" height="16" fill="url(#r3Abs)"/>
+            <rect x="113" y="76" width="5" height="16" fill="#8b909b" fill-opacity="0.5"/>
+            <rect x="113" y="76" width="5" height="16" fill="url(#r3Weak)"/>
+            <rect x="118" y="76" width="34" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="118" y="76" width="34" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Kropelka chmury · ok. 10 µm</div>
+            <p class="particle-card__shape">dziesiątki bilionów cząsteczek wody</p>
+            <p class="particle-card__row"><b>rozprasza</b>bardzo silnie, każdą barwę tak samo</p>
+            <p class="particle-card__row"><b>pochłania</b>podczerwień; w widzialnym prawie nic</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>biel</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kryształ lodu: w świetle widzialnym nie pochłania, pochłania podczerwień">
+            <path d="M 105,38 L 92.5,16.3 L 67.5,16.3 L 55,38 L 67.5,59.7 L 92.5,59.7 Z" fill="#9c82d8" fill-opacity="0.25" stroke="#9c82d8" stroke-width="1.5"/>
+            <path d="M 92.5,16.3 L 67.5,59.7 M 67.5,16.3 L 92.5,59.7 M 55,38 L 105,38" fill="none" stroke="#9c82d8" stroke-width="0.8" opacity="0.45"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="16" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="16" height="16" fill="url(#r3Abs)"/>
+            <rect x="113" y="76" width="5" height="16" fill="#8b909b" fill-opacity="0.5"/>
+            <rect x="113" y="76" width="5" height="16" fill="url(#r3Weak)"/>
+            <rect x="118" y="76" width="34" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="118" y="76" width="34" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Kryształ lodu</div>
+            <p class="particle-card__shape">ta sama woda, w sześciokątnej sieci</p>
+            <p class="particle-card__row"><b>rozprasza</b>bardzo silnie, każdą barwę tak samo; duży kryształ załamuje jak pryzmat</p>
+            <p class="particle-card__row"><b>pochłania</b>podczerwień; w widzialnym prawie nic</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>biel, a przy dużych kryształach halo</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pył mineralny: pochłania słabo ultrafiolet i błękit, silnie jedno pasmo podczerwieni">
+            <path d="M 60,26 L 78,14 L 100,20 L 106,40 L 96,58 L 72,62 L 56,48 Z" fill="#8b909b" fill-opacity="0.3" stroke="#8b909b" stroke-width="1.5"/>
+            <path d="M 84,26 L 92,30 L 88,38 L 80,34 Z" fill="#8b909b" fill-opacity="0.8"/>
+            <path d="M 68,44 L 76,46 L 72,53 Z" fill="#8b909b" fill-opacity="0.8"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.28"/>
+            <rect x="112" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.22"/>
+            <rect x="8" y="76" width="40" height="16" fill="#8b909b" fill-opacity="0.5"/>
+            <rect x="8" y="76" width="40" height="16" fill="url(#r3Weak)"/>
+            <rect x="48" y="76" width="20" height="16" fill="#e8a33d" fill-opacity="0.5"/>
+            <rect x="48" y="76" width="20" height="16" fill="url(#r3Weak)"/>
+            <rect x="131" y="76" width="5" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="131" y="76" width="5" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Pył mineralny</div>
+            <p class="particle-card__shape">okruchy skał, często z domieszką rdzy</p>
+            <p class="particle-card__row"><b>rozprasza</b>silnie, prawie każdą barwę tak samo</p>
+            <p class="particle-card__row"><b>pochłania</b>trochę ultrafioletu i błękitu; jedno pasmo w podczerwieni</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>żółtawą albo brązową mgiełkę</p>
+          </div>
+        </div>
+
+        <div class="particle-card">
+          <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sadza: łańcuszek drobnych kulek węgla; pochłania wszystko, od ultrafioletu po podczerwień">
+            <g fill="#0b0d12" stroke="#8b909b" stroke-width="1.3">
+              <circle cx="54" cy="46" r="7"/>
+              <circle cx="65" cy="40" r="7"/>
+              <circle cx="76" cy="35" r="7"/>
+              <circle cx="88" cy="36" r="7"/>
+              <circle cx="98" cy="29" r="7"/>
+              <circle cx="108" cy="22" r="7"/>
+              <circle cx="93" cy="47" r="7"/>
+              <circle cx="72" cy="24" r="7"/>
+              <circle cx="100" cy="56" r="7"/>
+            </g>
+            <rect x="8" y="76" width="144" height="16" fill="#8b909b" fill-opacity="0.85"/>
+            <rect x="48" y="76" width="64" height="16" fill="#e8a33d" fill-opacity="0.85"/>
+            <rect x="8" y="76" width="144" height="16" fill="url(#r3Abs)"/>
+            <rect x="8" y="76" width="144" height="16" rx="2" fill="none" stroke="#2a2f38" stroke-width="1"/>
+          </svg>
+          <div class="particle-card__text">
+            <div class="particle-card__name">Sadza</div>
+            <p class="particle-card__shape">płaskie warstwy węgla, elektrony wędrujące po całej warstwie</p>
+            <p class="particle-card__row"><b>rozprasza</b>niewiele</p>
+            <p class="particle-card__row"><b>pochłania</b>wszystko, od ultrafioletu po podczerwień</p>
+            <p class="particle-card__row particle-card__row--see"><b>widzimy</b>czerń; w dymie szarość i brąz</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="diagram-caption">Pasek pod każdym rysunkiem to widmo: z lewej ultrafiolet, pośrodku światło widzialne, z prawej podczerwień. Kreski stoją tam, gdzie cząstka zamienia światło na ciepło. Przerywana linia pionowa oznacza cząsteczkę symetryczną, a plus i minus przy parze wodnej — jej stały dipol.</div>
+    </div>
+
+    <p><strong>Kolor to to, co zostało.</strong> Zbierzmy to w jedną regułę. Cząstka, która nic nie pochłania i rozprasza wszystkie barwy po równo — kropla, kryształ — jest biała. Cząstka, która pochłania wszystko — sadza — jest czarna. Cząstka, która pochłania tylko część barw — pył z domieszką rdzy, ozon — ma kolor tego, co zostało niezjedzone. A cząsteczka, która nic nie pochłania, ale krótkie fale rozprasza mocniej — azot, tlen — sama nie ma koloru, za to jej gruba warstwa rozlewa po niebie błękit. Kolor ma więc w atmosferze dwa zupełnie różne źródła: <span class="term-cyan">kolor z rozpraszania</span>, o którym rozstrzyga rozmiar, i <span class="term-amber">kolor z pochłaniania</span>, o którym rozstrzyga budowa. Cała reszta tej książki to prawie wyłącznie pierwszy z nich — i właśnie dlatego tak łatwo o drugim zapomnieć.</p>
+
+    <button class="advanced-btn" data-modal-target="adv-sprezynka">Zaawansowane</button>
+    <template id="adv-sprezynka">
+      <h3>Elektron na sprężynce: rozpraszanie i pochłanianie w jednym rachunku</h3>
+      <p>Obraz ciężarka na sprężynie to nie tylko metafora. To model, którym fizycy od ponad stu lat liczą, jak materia odpowiada na światło — nazywa się modelem Lorentza — i mieści w sobie całą tę sekcję.</p>
+      <p><strong>Jak łatwo rozkołysać elektron.</strong> Elektron trzymany sprężynką o własnej częstości ω₀, pchany polem fali o częstości ω, drga z zamachem, z którego wynika polaryzowalność:</p>
+      <div class="formula">α(ω) ≈ (e² / mₑ) · 1 / (ω₀² − ω²)<span class="sub">α (alfa) — polaryzowalność: jak duży dipol powstaje w danym polu. e — ładunek elektronu. mₑ — masa elektronu. ω (omega) — częstość fali, czyli liczba drgań pola na sekundę pomnożona przez 2π. ω₀ — własna częstość rezonansowa elektronu. Pominięte tu tłumienie liczy się tylko tuż przy rezonansie.</span></div>
+      <ul>
+        <li><strong>Daleko od rezonansu</strong> (ω dużo mniejsze od ω₀, jak światło widzialne wobec azotu): mianownik prawie się nie zmienia, więc α jest prawie stała. Fiolet ma do rezonansu trochę bliżej niż czerwień, więc jego α jest większa — ale tylko o kilka procent.</li>
+        <li><strong>Tuż przy rezonansie</strong> (ω bliskie ω₀): mianownik dąży do zera, zamach rośnie gwałtownie i do gry wchodzi pominięte tłumienie — zderzenia z sąsiednimi cząsteczkami, które zamieniają energię drgań w ciepło. To jest pochłanianie.</li>
+      </ul>
+      <p><strong>Skąd czwarta potęga.</strong> Drgający dipol wypromieniowuje moc:</p>
+      <div class="formula">P ∝ α² · ω⁴<span class="sub">P — moc rozproszonego światła. Znak „∝” czytamy „jest proporcjonalne do”. Skoro daleko od rezonansu α jest prawie stała, zostaje ω⁴ — a ponieważ częstość jest odwrotnie proporcjonalna do długości fali λ, wychodzi zależność od 1/λ⁴, którą rozbierzemy w Rozdziale 5.</span></div>
+      <p><strong>Pochłanianie w jednej liczbie.</strong> W całym materiale rezonanse wszystkich elektronów zbiera współczynnik załamania. Gdy materiał pochłania, zapisuje się go jako liczbę zespoloną:</p>
+      <div class="formula">m = n + i · k<span class="sub">m — zespolony współczynnik załamania. n — zwykły współczynnik załamania: ile razy wolniej światło idzie w materiale niż w próżni. k — współczynnik pochłaniania: jak szybko fala gaśnie w środku. i — jednostka urojona; tu wystarczy traktować ją jak znacznik, który oddziela część „rozpraszającą” od „pochłaniającej”.</span></div>
+      <div class="formula">ℓ = λ / (4π · k)<span class="sub">ℓ — droga, na której natężenie światła w materiale spada mniej więcej trzykrotnie (dokładnie 2,72 raza). λ (lambda) — długość fali. π — 3,14.</span></div>
+      <ul>
+        <li><strong>Woda</strong> ma k od ułamka miliardowej dla błękitu do kilku stumilionowych dla czerwieni. Dla błękitu (450 nm) ℓ wychodzi około stu metrów, dla czerwieni (700 nm) — około półtora metra. Kropelka chmury ma 10 µm, więc nie pochłania praktycznie nic i jest biała; basen ma metry, więc czerwień zdąży w nim przygasnąć i woda robi się błękitna.</li>
+        <li><strong>Sadza</strong> ma n ≈ 1,95 i k ≈ 0,79. Dla zieleni (500 nm): ℓ ≈ 500 / (4 · 3,14 · 0,79) ≈ 50 nm. Drobina sadzy wielkości kilkuset nanometrów gasi więc prawie całe światło, które do niej wniknie — w każdym kolorze.</li>
+      </ul>
+      <p><strong>Uczciwy przypis o tlenie.</strong> Tlen ma w czerwieni i bliskiej podczerwieni kilka wąskich pasm — najsilniejsze przy 762 nm, znane astronomom jako linia A w widmie Słońca. Powstają z przejścia, którego reguły kwantowe prawie zabraniają, więc są bardzo słabe: mimo całej grubości atmosfery zabierają ułamek procenta światła słonecznego. Spektroskop je widzi, oko — nigdy.</p>
+      <p><em>Liczby n dla lodu, wody, kwarcu i sadzy oraz to, jak n przekłada się na siłę rozpraszania cząstek tej samej wielkości, są w <a href="../dodatki/dodatek-c-rozpraszanie-w-liczbach.html#budowa-atomowa">Dodatku C</a>.</em></p>
+    </template>
   </div>
 
   <div class="section">
@@ -381,6 +703,20 @@
       <dd>Reżim dla cząstek znacznie mniejszych od fali. Słabe, ale silnie zależne od barwy. Robi kolor nieba.</dd>
       <dt>rozpraszanie Mie</dt>
       <dd>Reżim dla cząstek porównywalnych z falą i większych. Silne, prawie niezależne od barwy, mocno skierowane do przodu. Robi biel chmury i mgły.</dd>
+      <dt>dipol</dt>
+      <dd>Układ, w którym ładunek dodatni i ujemny są od siebie odsunięte. Fala świetlna tworzy go w cząsteczce na chwilę (dipol indukowany); cząsteczka wody ma go na stałe.</dd>
+      <dt>polaryzowalność</dt>
+      <dd>Miara tego, jak łatwo fala rozsuwa chmurę elektronów cząsteczki, czyli jak duży dipol w niej powstaje. Im większa, tym silniej cząstka rozprasza.</dd>
+      <dt>współczynnik załamania</dt>
+      <dd>Liczba mówiąca, ile razy wolniej światło idzie w materiale niż w próżni. Zapisuje w jednej liczbie polaryzowalność wszystkich cząsteczek materiału.</dd>
+      <dt>rezonans</dt>
+      <dd>Trafienie tempem fali we własne tempo drgań elektronów albo atomów. Zamach drgań rośnie wtedy gwałtownie i energia zostaje w cząsteczce.</dd>
+      <dt>pochłanianie</dt>
+      <dd>Zamiana światła na ciepło. Zachodzi w rezonansie; poza nim cząsteczka światło tylko rozprasza.</dd>
+      <dt>pasmo pochłaniania</dt>
+      <dd>Zakres barw (albo niewidzialnych fal), które dana cząsteczka pochłania. Jego położenie wynika z budowy: elektrony — ultrafiolet, drgania atomów — podczerwień.</dd>
+      <dt>aerozol</dt>
+      <dd>Wszystko drobne, co unosi się w powietrzu, a nie jest gazem: pył, dym, sadza, sól morska, pyłki, kropelki.</dd>
       <dt>lob rozpraszania</dt>
       <dd>Trójwymiarowy kształt opisujący, ile światła leci w którym kierunku po rozproszeniu.</dd>
       <dt>głębokość optyczna</dt>
@@ -399,13 +735,20 @@
 
   <div class="deeper">
     <div class="deeper-label">Idź głębiej</div>
-    <a href="../dodatki/dodatek-c-rozpraszanie-w-liczbach.html">Dodatek C — Rozpraszanie w liczbach: skąd bierze się czwarta potęga, i galeria kształtów dla sześciu rozmiarów</a>
+    <a href="../dodatki/dodatek-c-rozpraszanie-w-liczbach.html">Dodatek C — Rozpraszanie w liczbach: skąd bierze się czwarta potęga, co zmienia budowa atomowa, galeria kształtów dla sześciu rozmiarów i krzywa wydajności</a>
   </div>
 
   <div class="site-nav chapter-nav">
       <a class="nav-prev" href="rozdzial-02-gdzie-konczy-sie-niebo.html">← Poprzedni</a>
       <a class="nav-toc" href="../index.html">Spis treści</a>
       <a class="nav-next" href="rozdzial-04-oko-i-mozg.html">Następny →</a>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-panel">
+      <button class="modal-close" data-modal-close aria-label="Zamknij">×</button>
+      <div id="modal-body"></div>
+    </div>
   </div>
 
 </div>
